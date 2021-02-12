@@ -6,26 +6,31 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateDishesTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::create('dishes', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
-    }
+  /**
+   * Run the migrations.
+   *
+   * @return void
+   */
+  public function up()
+  {
+    Schema::create('dishes', function (Blueprint $table) {
+      $table->id();
+      $table->string('name', 30);
+      $table->string('type', 30)->nullable();
+      $table->string('infos', 250);
+      $table->tinyInteger('visible')->default(1);
+      $table->float('price', 5, 2);
+      $table->timestamps();
+    });
+  }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::dropIfExists('dishes');
-    }
+  /**
+   * Reverse the migrations.
+   *
+   * @return void
+   */
+  public function down()
+  {
+    Schema::dropIfExists('dishes');
+  }
 }
