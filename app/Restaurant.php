@@ -10,7 +10,7 @@ class Restaurant extends Model
 
   // One to One between Restaurants and Users tables
   public function user() {
-    return $this->hasOne('App\Restaurant');
+    return $this->hasMany('App\Restaurant');
   }
 
   // One to Many between Restaurants and Dishes tables
