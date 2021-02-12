@@ -2,28 +2,17 @@
 
 @section('content')
 <div class="container">
-    <div class="dashboard-welcome row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
 
+    <div class="margin-top row justify-content-center">
+            <div class="custom_card card">
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('Benvenuto!') }}
+                    <h1 class="custom-title">Benvenuto nella dashboard, inserisci i piatti per cominciare</h1>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="row justify-content-center my-4">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header text-center">
-                    <button type="button" class="btn btn-dark btn-lg btn-block">Inserisci nuovi piatti.</button>
+                    <button type="button" class="btn btn-lg btn-block">Inserisci nuovi piatti.</button>
                 </div>
 
                 <div class="card-body">
