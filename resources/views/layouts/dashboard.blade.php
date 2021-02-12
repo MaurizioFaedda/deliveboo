@@ -24,7 +24,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar nav-color navbar-expand-md text-white shadow-sm">
+        <nav class="navbar fixed-top nav-color navbar-expand-md text-white shadow-sm">
             <div class="container-fluid p-0">
                 <a class="navbar-brand text-white" href="{{ url('/') }}">
                     Deliveboo
