@@ -34,6 +34,35 @@
   padding: 48px 0 0;
 }
 
+.dashboard-welcome {
+  margin-top: 70px;
+}
+
+.card {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.card .card-header {
+  background-color: #00CDBC;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  color: white;
+  font-size: large;
+}
+
+.card .card-header .btn-block {
+  background-color: white;
+  color: #00CDBC;
+  font-weight: bold;
+}
+
+.card .card-body {
+  color: #00CDBC;
+  font-size: medium;
+  font-weight: bold;
+}
+
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors
