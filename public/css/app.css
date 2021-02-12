@@ -1,5 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
+.margin-top {
+  margin-top: 100px;
+}
+
 #log-main-color {
   color: #00CDBC;
 }
@@ -38,7 +42,42 @@
   margin-top: 70px;
 }
 
+.custom_card {
+  /* The animation code */
+  top: 80px;
+  height: 100px;
+  width: 100%;
+  background-color: unset !important;
+  border: unset !important;
+  text-align: center;
+  -webkit-animation-name: welcome;
+          animation-name: welcome;
+  -webkit-animation-duration: 4s;
+          animation-duration: 4s;
+}
+
+@-webkit-keyframes welcome {
+  from {
+    height: 0;
+  }
+
+  to {
+    height: 100;
+  }
+}
+
+@keyframes welcome {
+  from {
+    height: 0;
+  }
+
+  to {
+    height: 100;
+  }
+}
+
 .card {
+  position: unset !important;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
@@ -61,6 +100,13 @@
   color: #00CDBC;
   font-size: medium;
   font-weight: bold;
+}
+
+@media screen and (max-width: 992px) {
+  .custom-title {
+    font-size: 25px;
+    font-weight: bold;
+  }
 }
 
 /*!

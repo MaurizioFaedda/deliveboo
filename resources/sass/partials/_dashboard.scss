@@ -1,3 +1,7 @@
+.margin-top{
+    margin-top: 100px;
+}
+
 #log-main-color {
     color: $color_main;
 }
@@ -33,7 +37,26 @@
 .dashboard-welcome {
     margin-top: 70px;
 }
+
+.custom_card {
+    /* The animation code */
+    @keyframes welcome {
+      from {height: 0;}
+      to {height: 100;}
+    }
+    top: 80px;
+    height: 100px;
+    width: 100%;
+    background-color: unset!important;
+    border: unset!important;
+    text-align: center;
+    animation-name: welcome;
+    animation-duration: 4s;
+}
+
 .card {
+    position: unset!important;
+
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     .card-header {
@@ -54,4 +77,11 @@
         font-weight: bold;
     }
 
+}
+
+@media screen and (max-width: 992px) {
+  .custom-title {
+    font-size: 25px;
+    font-weight: bold;
+  }
 }
