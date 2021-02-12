@@ -29,3 +29,26 @@
     z-index: 100;
     padding: 48px 0 0;
 }
+
+.card {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    .card-header {
+        background-color: $color_main;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        color: white;
+        font-size: large;
+        .btn-block {
+            background-color: white;
+            color: $color_main;
+            font-weight: bold;
+        }
+    }
+    .card-body {
+        color: $color_main;
+        font-size: medium;
+        font-weight: bold;
+    }
+
+}
