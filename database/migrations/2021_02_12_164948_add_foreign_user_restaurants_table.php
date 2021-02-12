@@ -15,7 +15,7 @@ class AddForeignUserRestaurantsTable extends Migration
     {
       Schema::table('restaurants', function (Blueprint $table) {
         $table->unsignedBigInteger('user_id')->after('address');
-        $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
+        $table->foreign('user_id')->references('id')->on('users');
       });
     }
 
