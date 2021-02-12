@@ -10944,3 +10944,37 @@ a.text-dark:focus {
   }
 }
 
+#log-main-color {
+  color: #00CDBC;
+}
+
+#icon-burger::after {
+  clear: both;
+  content: "\F0C9";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  display: table;
+  color: #fff;
+}
+
+.nav-color {
+  background-color: #00CDBC;
+}
+
+.nav-color a {
+  color: #fff;
+}
+
+.nav-color a:hover {
+  color: #ffed4a;
+}
+
+#my-sidebar {
+  position: fixed;
+  top: 38px;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  padding: 48px 0 0;
+}
+
