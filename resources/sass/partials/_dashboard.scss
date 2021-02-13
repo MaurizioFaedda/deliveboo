@@ -20,23 +20,33 @@
 #log-main-color {
     color: $color_main;
 }
+
+// Dashboard's icons
+#icon-user::after{
+    @include dash_icon("\f007");
+    padding: 0 10px;
+}
 #icon-burger::after{
-    clear: both;
-    content: "\f0c9";
-    font-family: "Font Awesome 5 Free"; font-weight: 900;
-    display: table;
-    color: #fff;
+    @include dash_icon("\f0c9");
+}
+#icon-dashboard::after{
+    @include dash_icon("\f3fd");
+}
+#icon-food::after{
+    @include dash_icon("\f2e7");
+    padding-left: 2px;
+}
+#icon-order::after{
+    @include dash_icon("\f07a");
 }
 
 .nav-color{
     background-color: $color_main;
-    a{
-        color: #fff;
-        &:hover{
-            color: $yellow;
+    li{
+        a{
+            color: #fff;
         }
     }
-
 
 }
 
@@ -47,6 +57,21 @@
     left: 0;
     z-index: 100;
     padding: 48px 0 0;
+    li{
+        a{
+            color: #fff;
+            &::after{
+                border-bottom: 1px solid #fff;
+                display:block;
+                content: '';
+                transform: scaleX(0);
+                transition: transform 0.30s linear;
+            }
+            &:hover::after{
+                transform: scaleX(1);
+            }
+        }
+    }
 }
 
 .dashboard-welcome {

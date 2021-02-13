@@ -3,8 +3,9 @@
 
 // Variables
 @import 'variables';
+@import 'partials/_mixins';
+@import 'partials/_dashboard';
 
 
 // Bootstrap
-@import 'partials/dashboard';
 @import '~bootstrap/scss/bootstrap';
