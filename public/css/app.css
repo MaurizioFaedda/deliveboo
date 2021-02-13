@@ -23,25 +23,59 @@
   color: #00CDBC;
 }
 
-#icon-burger::after {
-  clear: both;
-  content: "\F0C9";
+#icon-user::after {
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
-  display: table;
+  content: "\F007";
   color: #fff;
+  font-size: 20px;
+  padding-right: 16px;
+  padding: 0 10px;
+}
+
+#icon-burger::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\F0C9";
+  color: #fff;
+  font-size: 20px;
+  padding-right: 16px;
+}
+
+#icon-dashboard::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\F3FD";
+  color: #fff;
+  font-size: 20px;
+  padding-right: 16px;
+}
+
+#icon-food::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\F2E7";
+  color: #fff;
+  font-size: 20px;
+  padding-right: 16px;
+  padding-left: 2px;
+}
+
+#icon-order::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\F07A";
+  color: #fff;
+  font-size: 20px;
+  padding-right: 16px;
 }
 
 .nav-color {
   background-color: #00CDBC;
 }
 
-.nav-color a {
+.nav-color li a {
   color: #fff;
-}
-
-.nav-color a:hover {
-  color: #ffed4a;
 }
 
 #my-sidebar {
@@ -51,6 +85,22 @@
   left: 0;
   z-index: 100;
   padding: 48px 0 0;
+}
+
+#my-sidebar li a {
+  color: #fff;
+}
+
+#my-sidebar li a::after {
+  border-bottom: 1px solid #fff;
+  display: block;
+  content: "";
+  transform: scaleX(0);
+  transition: transform 0.3s linear;
+}
+
+#my-sidebar li a:hover::after {
+  transform: scaleX(1);
 }
 
 .dashboard-welcome {

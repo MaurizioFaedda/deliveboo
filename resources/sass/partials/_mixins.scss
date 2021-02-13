@@ -1,0 +1,8 @@
+@mixin dash_icon ($code) {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: $code;
+    color: #fff;
+    font-size: 20px;
+    padding-right: 16px;
+}

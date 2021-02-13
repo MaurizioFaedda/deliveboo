@@ -55,6 +55,7 @@
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 Welcome {{ Auth::user()->name }}
+                                <span id="icon-user"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -82,16 +83,13 @@
                     <div class="sidebar-sticky">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a class="nav-link active" href="{{ route('admin.index') }}"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                                <a class="nav-link active" href="{{ route('admin.index') }}"><span class="my-icon" id="icon-dashboard"></span>Dashboard</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" href="{{ route('admin.index') }}"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                                <a class="nav-link active" href="{{ route('admin.index') }}"><span class="my-icon" id="icon-food"></span> My Foods </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" href="{{ route('admin.index') }}"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" href="{{ route('admin.index') }}"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                                <a class="nav-link active" href="{{ route('admin.index') }}"><span class="my-icon" id="icon-order"></span>My Orders </a>
                             </li>
                         </ul>
                     </div>
