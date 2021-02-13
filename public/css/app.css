@@ -4,6 +4,21 @@
   margin-top: 100px;
 }
 
+.no-border {
+  border: none !important;
+}
+
+.custom-list {
+  height: 450px;
+}
+
+.border-radius-top {
+  border-top-left-radius: 10px !important;
+  border-top-right-radius: 10px !important;
+  border-bottom-left-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}
+
 #log-main-color {
   color: #00CDBC;
 }
@@ -47,13 +62,14 @@
   top: 80px;
   height: 100px;
   width: 100%;
+  align-items: center;
   background-color: unset !important;
   border: unset !important;
   text-align: center;
   -webkit-animation-name: welcome;
           animation-name: welcome;
-  -webkit-animation-duration: 4s;
-          animation-duration: 4s;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
 }
 
 @-webkit-keyframes welcome {
@@ -78,14 +94,10 @@
 
 .card {
   position: unset !important;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
 }
 
 .card .card-header {
   background-color: #00CDBC;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
   color: white;
   font-size: large;
 }
