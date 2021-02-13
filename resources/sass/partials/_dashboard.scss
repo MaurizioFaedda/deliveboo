@@ -2,6 +2,21 @@
     margin-top: 100px;
 }
 
+.no-border {
+    border: none!important;
+}
+
+.custom-list {
+    height: 450px;
+}
+
+.border-radius-top {
+    border-top-left-radius: 10px!important;
+    border-top-right-radius: 10px!important;
+    border-bottom-left-radius: 0px!important;
+    border-bottom-right-radius: 0px!important;
+}
+
 #log-main-color {
     color: $color_main;
 }
@@ -47,22 +62,19 @@
     top: 80px;
     height: 100px;
     width: 100%;
+    align-items: center;
     background-color: unset!important;
     border: unset!important;
     text-align: center;
     animation-name: welcome;
-    animation-duration: 4s;
+    animation-duration: 3s;
+
 }
 
 .card {
     position: unset!important;
-
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
     .card-header {
         background-color: $color_main;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
         color: white;
         font-size: large;
         .btn-block {
