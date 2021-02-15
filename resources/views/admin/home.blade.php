@@ -5,7 +5,7 @@
               <div class="row justify-content-center">
                 <div class="col-md-8">
                     @if ($countRestaurants == 0)
-                  <div class="card no-border mt-3">
+                  <div class="card no-border border-radius-top mt-3">
                     <div class="card-header card-header text-center no-border border-radius-top">Aggiungi il tuo ristorante.</div>
                     <form class="d-flex flex-column align-items-center py-3" action="{{route('admin.restaurants.store')}}" method="post">
                       @csrf

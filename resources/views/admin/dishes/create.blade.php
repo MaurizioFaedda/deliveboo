@@ -10,7 +10,7 @@
                 </div>
 
             <div class="col-md-12">
-                <div class="card no-border mt-3">
+                <div class="card no-border border-radius-top mt-3">
                     <div class="card-header text-center no-border border-radius-top">
                         <button type="button" class="btn btn-lg btn-block border-radius-top no-border">Inserisci nuovi piatti.</button>
                     </div>
