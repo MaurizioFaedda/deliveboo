@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTypeRestaurantTable extends Migration
+class CreateRestaurantTypeTable extends Migration
 {
   /**
    * Run the migrations.
@@ -13,7 +13,7 @@ class CreateTypeRestaurantTable extends Migration
    */
   public function up()
   {
-    Schema::create('type_restaurant', function (Blueprint $table) {
+    Schema::create('restaurant_type', function (Blueprint $table) {
       $table->unsignedBigInteger('restaurant_id');
       // Creating the foreign key constraint to connect "restaurants" table
       $table->foreign('restaurant_id')->references('id')->on('restaurants');
@@ -33,6 +33,6 @@ class CreateTypeRestaurantTable extends Migration
    */
   public function down()
   {
-    Schema::dropIfExists('type_restaurant');
+    Schema::dropIfExists('restaurant_type');
   }
 }
