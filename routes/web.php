@@ -20,6 +20,7 @@ Auth::routes();
 
 Route::middleware('auth')->namespace('Admin')->prefix('admin')->name('admin.')->group(function(){
 
-    Route::get('/', 'HomeController@index')->name('index');
+  Route::get('/', 'HomeController@index')->name('index');
+  Route::get('/restaurants', 'RestaurantController@index')->name('restaurants.index');
 
 });
