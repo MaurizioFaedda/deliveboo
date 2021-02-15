@@ -9,7 +9,9 @@
               <ul>
                 @foreach ($restaurants as $restaurant)
                   <li>
-                    {{$restaurant->restaurant_name}}
+                    <a href="{{ route('admin.restaurants.show', ['restaurant' => $restaurant->id]) }}">                      
+                      {{$restaurant->restaurant_name}}
+                    </a>
                   </li>
                 @endforeach
               </ul>
@@ -18,6 +20,7 @@
               </a>
             </div>
           </div>
+        </div>
       </div>
     </div>
   </div>

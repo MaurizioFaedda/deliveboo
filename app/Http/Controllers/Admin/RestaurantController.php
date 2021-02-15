@@ -80,9 +80,12 @@ class RestaurantController extends Controller
    * @param  int  $id
    * @return \Illuminate\Http\Response
    */
-  public function show($id)
+  public function show(Restaurant $restaurant)
   {
-      //
+    if(!$restaurant) {
+      abort(404);
+    }
+    return view('admin.restaurants.show', ['restaurant' => $restaurant]);
   }
 
   /**
