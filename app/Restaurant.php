@@ -14,7 +14,7 @@ class Restaurant extends Model
   }
 
   // One to Many between Restaurants and Dishes tables
-  public function dish() {
+  public function dishes() {
     return $this->hasMany('App\Dish');
   }
 
