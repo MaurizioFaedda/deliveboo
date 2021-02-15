@@ -90,9 +90,6 @@
                                 <a class="nav-link active" href="{{ route('admin.restaurants.index') }}"><span class="my-icon" id="icon-order"></span>My Restaurants </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" href="{{ route('admin.dishes.index') }}"><span class="my-icon" id="icon-food"></span> My Foods </a>
-                            </li>
-                            <li class="nav-item">
                                 <a class="nav-link active" href="{{ route('admin.index') }}"><span class="my-icon" id="icon-order"></span>My Orders </a>
                             </li>
                         </ul>
