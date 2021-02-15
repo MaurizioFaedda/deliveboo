@@ -6,7 +6,7 @@ return [
     "notes" => "",
   ],
   [
-    "type_name" => "Cucina italiana",
+    "type_name" => "Italian food",
     "notes" => "",
   ],
   [
@@ -14,11 +14,11 @@ return [
     "notes" => "",
   ],
   [
-    "type_name" => "Cucina vegana",
+    "type_name" => "Vegan food",
     "notes" => "",
   ],
   [
-    "type_name" => "Cucina bio",
+    "type_name" => "Organic food",
     "notes" => "",
   ],
 ];
