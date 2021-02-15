@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Restaurant;
 use App\User;
+use App\Type;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -35,7 +36,10 @@ class RestaurantController extends Controller
    */
   public function create()
   {
-      //
+    $data = [
+      'types' => Type::all(),
+    ];
+    return view('admin.restaurants.create', $data);
   }
 
   /**
