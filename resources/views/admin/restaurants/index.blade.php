@@ -13,6 +13,9 @@
                   </li>
                 @endforeach
               </ul>
+              <a href="{{route('admin.restaurants.create')}}" class="btn btn-primary">
+                Nuovo ristorante
+              </a>
             </div>
           </div>
       </div>
