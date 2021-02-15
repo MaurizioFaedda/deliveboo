@@ -8,6 +8,15 @@
             <div class="card-header">
               Ristorante {{$restaurant->restaurant_name}}
             </div>
+            <div>
+                <span>
+                    @forelse ($restaurant->dishes as $dish)
+                        {{ $dish->name }}{{ !$loop->last ? ',' : '' }}
+                    @empty
+                        -
+                    @endforelse
+                </span>
+            </div>
             <form action="{{route('admin.restaurants.destroy', ['restaurant' => $restaurant->id])}}" method="POST">
               @csrf
               @method('DELETE')
