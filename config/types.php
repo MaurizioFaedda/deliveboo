@@ -2,23 +2,23 @@
 
 return [
   [
-    "type_name" => "Pizzeria",
+    "type" => "Pizzeria",
     "notes" => "",
   ],
   [
-    "type_name" => "Italian food",
+    "type" => "Italian food",
     "notes" => "",
   ],
   [
-    "type_name" => "Sushi",
+    "type" => "Sushi",
     "notes" => "",
   ],
   [
-    "type_name" => "Vegan food",
+    "type" => "Vegan food",
     "notes" => "",
   ],
   [
-    "type_name" => "Organic food",
+    "type" => "Organic food",
     "notes" => "",
   ],
 ];
