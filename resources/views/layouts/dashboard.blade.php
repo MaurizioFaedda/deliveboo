@@ -21,25 +21,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <style>
-    /* width */
-    ::-webkit-scrollbar {
-      width: 15px;
-    }
 
-    /* Track */
-    ::-webkit-scrollbar-track {
-      background: #F0FAFC;
-      border-radius: 10px;
-    }
-
-    /* Handle */
-    ::-webkit-scrollbar-thumb {
-      background: #02CDBC;
-      border-radius: 10px;
-    }
-
-    </style>
 </head>
 <body>
     <div id="app">

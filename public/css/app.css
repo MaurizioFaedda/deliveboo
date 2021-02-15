@@ -143,7 +143,23 @@
 }
 
 .card {
+  /* Track */
+  /* Handle */
   position: unset !important;
+}
+
+.card ::-webkit-scrollbar {
+  width: 15px;
+}
+
+.card ::-webkit-scrollbar-track {
+  background: #F0FAFC;
+  border-radius: 10px;
+}
+
+.card ::-webkit-scrollbar-thumb {
+  background: #02CDBC;
+  border-radius: 10px;
 }
 
 .card .card-header {
