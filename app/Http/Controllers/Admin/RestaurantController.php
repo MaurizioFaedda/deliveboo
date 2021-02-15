@@ -50,7 +50,28 @@ class RestaurantController extends Controller
    */
   public function store(Request $request)
   {
-      //
+    $request->validate([
+      'restaurant_name' => 'required|max:30',
+      'city' => 'required|max:20',
+      'address' => 'required|max:50',
+      'types' => 'exists:types,id'
+    ]);
+    // Storing all form data in a variable
+    $form_data = $request->all();
+    // Creating a new Object/Instance with the form data
+    $new_restaurant = new Restaurant();
+    $new_restaurant->fill($form_data);
+    // Prendo l'id dell'utente autenticato
+    $id_user = Auth::user()->id;
+    $new_restaurant->user_id = $id_user;
+    // Saving the new Object/Instance in the database
+    $new_restaurant->save();
+    // Se non ci sono types non deve dare errore
+    if(array_key_exists('types', $form_data)) {
+      $new_restaurant->types()->sync($form_data['types']);
+    }
+    // Redirecting to the view with all posts
+    return redirect()->route('admin.restaurants.index');
   }
 
   /**

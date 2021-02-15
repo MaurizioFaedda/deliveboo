@@ -9,7 +9,7 @@ class Type extends Model
   protected $fillable = ['type'];
 
   // Many to Many between Restaurants and Types tables
-  public function restaurant() {
+  public function restaurants() {
     return $this->belongsToMany('App\Restaurant');
   }
 }
