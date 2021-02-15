@@ -30,11 +30,13 @@
     /* Track */
     ::-webkit-scrollbar-track {
       background: #F0FAFC;
+      border-radius: 10px;
     }
 
     /* Handle */
     ::-webkit-scrollbar-thumb {
       background: #02CDBC;
+      border-radius: 10px;
     }
 
     </style>
