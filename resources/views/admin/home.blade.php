@@ -6,7 +6,7 @@
                 <div class="col-md-8">
                     @if ($countRestaurants == 0)
                   <div class="card no-border border-radius-top mt-3">
-                    <div class="card-header card-header text-center no-border border-radius-top">Aggiungi il tuo ristorante.</div>
+                    <div class="card-header text-center no-border border-radius-top">Aggiungi il tuo ristorante.</div>
                     <form class="d-flex flex-column align-items-center py-3" action="{{route('admin.restaurants.store')}}" method="post">
                       @csrf
                       <div class="form-group d-flex flex-column align-items-center w-50">
@@ -65,9 +65,8 @@
                     </form>
                   </div>
               @else
-                  Hello world
                   <div class="card-body">
-                      <h1 class="custom-title">Benvenuto nella dashboard, inserisci i piatti per cominciare</h1>
+                      <h1 class="custom-title">Dashboard principale</h1>
                   </div>
               @endif
                 </div>
