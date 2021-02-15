@@ -9,7 +9,7 @@
               <ul>
                 @foreach ($restaurants as $restaurant)
                   <li>
-                    <a href="{{ route('admin.restaurants.show', ['restaurant' => $restaurant->id]) }}">                      
+                    <a href="{{ route('admin.restaurants.show', ['restaurant' => $restaurant->id]) }}">
                       {{$restaurant->restaurant_name}}
                     </a>
                   </li>

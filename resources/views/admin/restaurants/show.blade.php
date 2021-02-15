@@ -8,6 +8,13 @@
             <div class="card-header">
               Ristorante {{$restaurant->restaurant_name}}
             </div>
+            <form action="{{route('admin.restaurants.destroy', ['restaurant' => $restaurant->id])}}" method="POST">
+              @csrf
+              @method('DELETE')
+              <button type="submit" class="btn btn-danger text-uppercase">
+                Delete restaurant
+              </button>
+            </form>
           </div>
         </div>
       </div>
