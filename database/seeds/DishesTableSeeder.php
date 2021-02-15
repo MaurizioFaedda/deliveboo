@@ -18,7 +18,6 @@ class DishesTableSeeder extends Seeder
         foreach ($dishes as $dish) {
             $new_dish_obj = new Dish();
             $new_dish_obj->name = $dish['name'];
-            $new_dish_obj->type = $dish['type'];
             $new_dish_obj->infos = $dish['infos'];
             $new_dish_obj->visible = $dish['visible'];
             $new_dish_obj->price = $dish['price'];

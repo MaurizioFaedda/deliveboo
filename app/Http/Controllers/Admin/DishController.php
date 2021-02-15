@@ -47,7 +47,6 @@ class DishController extends Controller
     {
         $request->validate([
           'name' => 'required|max:30',
-          'type' => 'max:20|nullable',
           'infos' => 'required|max:250',
           'visible' => 'required',
           'price' => 'required|numeric|between:0,999.99',

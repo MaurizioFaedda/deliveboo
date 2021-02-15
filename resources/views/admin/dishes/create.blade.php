@@ -10,7 +10,7 @@
           </div>
           <form class="d-flex flex-column align-items-center py-3" action="{{route('admin.dishes.store')}}" method="post">
             @csrf
-            <div class="form-group hidden">
+            <div class="form-group d-none">
                 <input type="text" class="form-control" name="restaurant_id" value="{{$query}}" required>
             </div>
             <div class="form-group d-flex flex-column align-items-center w-50">
@@ -18,16 +18,6 @@
               <input type="text" class="form-control" name="name" placeholder="Write your dish name here" value="{{old('name')}}" required>
               {{-- SHOWING ERROR MESSAGE --}}
               @error('name')
-                  <div class="alert alert-danger">
-                    {{ $message }}
-                  </div>
-              @enderror
-            </div>
-            <div class="form-group d-flex flex-column align-items-center w-50">
-              <label for="title">Type</label>
-              <input type="text" class="form-control" name="type" placeholder="type" value="{{old('type')}}" required>
-              {{-- SHOWING ERROR MESSAGE --}}
-              @error('type')
                   <div class="alert alert-danger">
                     {{ $message }}
                   </div>
