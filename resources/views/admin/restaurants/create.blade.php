@@ -4,11 +4,11 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-8">
-        <div class="card">
-          <div class="card-header">Aggiungi il tuo ristorante.</div>
-          <form action="{{route('admin.restaurants.store')}}" method="post">
+        <div class="card no-border mt-3">
+          <div class="card-header card-header text-center no-border border-radius-top">Aggiungi il tuo ristorante.</div>
+          <form class="d-flex flex-column align-items-center py-3" action="{{route('admin.restaurants.store')}}" method="post">
             @csrf
-            <div class="form-group">
+            <div class="form-group d-flex flex-column align-items-center w-50">
               <label for="title">Restaurant Name</label>
               <input type="text" class="form-control" name="restaurant_name" placeholder="Write your restaurant name here" value="{{old('restaurant_name')}}" required>
               {{-- SHOWING ERROR MESSAGE --}}
@@ -18,7 +18,7 @@
                   </div>
               @enderror
             </div>
-            <div class="form-group">
+            <div class="form-group d-flex flex-column align-items-center w-50">
               <label for="title">City</label>
               <input type="text" class="form-control" name="city" placeholder="City" value="{{old('city')}}" required>
               {{-- SHOWING ERROR MESSAGE --}}
@@ -28,7 +28,7 @@
                   </div>
               @enderror
             </div>
-            <div class="form-group">
+            <div class="form-group d-flex flex-column align-items-center w-50">
               <label for="title">Address</label>
               <input type="text" class="form-control" name="address" placeholder="Full address" value="{{old('address')}}" required>
               {{-- SHOWING ERROR MESSAGE --}}
@@ -38,7 +38,7 @@
                   </div>
               @enderror
             </div>
-            <div class="form-group">
+            <div class="form-group d-flex flex-column align-items-center w-50">
               <p>Select types:</p>
               @foreach ($types as $type)
                 <div class="form-check">
