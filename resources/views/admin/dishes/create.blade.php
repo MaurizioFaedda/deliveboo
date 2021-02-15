@@ -10,7 +10,7 @@
           </div>
           <form class="d-flex flex-column align-items-center py-3" action="{{route('admin.dishes.store')}}" method="post">
             @csrf
-            <div class="form-group">
+            <div class="form-group hidden">
                 <input type="text" class="form-control" name="restaurant_id" value="{{$query}}" required>
             </div>
             <div class="form-group d-flex flex-column align-items-center w-50">
