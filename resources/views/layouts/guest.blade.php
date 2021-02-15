@@ -64,11 +64,14 @@
                                         </a>
 
                                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                            <a class="dropdown-item" href="{{ route('admin.index') }}">
+                                                My Dashboard
+                                            </a>
                                             <a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }}
-                                        </a>
+                                            </a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                             @csrf
@@ -78,16 +81,28 @@
                             @endguest
                         </ul>
 
+                        </div>
                     </div>
-                </div>
 
                 </div>
             </div>
         </nav>
-
-        <main class="py-4">
-            @yield('content')
-        </main>
+        <div class="container-fluid">
+            <div class="row">
+                <nav id="guest-sidebar" class="col-md-2 d-none d-md-block">
+                    <div class="sidebar-sticky">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link active" href=""><span class="my-icon"></span>Filters</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <main class="col-md-10 ml-sm-auto  mt-5 col-lg-10 pt-5">
+                    @yield('content')
+                </main>
+          </div>
+        </div>
     </div>
 </body>
 </html>

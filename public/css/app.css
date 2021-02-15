@@ -247,6 +247,16 @@
   color: #009a8d;
 }
 
+#guest-sidebar {
+  position: fixed;
+  top: 71px;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  padding: 48px 0 0;
+  border-right: 1px solid #00CDBC;
+}
+
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors
