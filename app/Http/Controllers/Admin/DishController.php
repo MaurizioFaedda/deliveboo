@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Dish;
+use App\User;
 use App\Restaurant;
 
 class DishController extends Controller
@@ -25,9 +26,15 @@ class DishController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $query = $request->input('restaurant');
+
+        $data = [
+          'restaurants' => Restaurant::all(),
+          'query' => $query
+        ];
+        return view('admin.dishes.create', $data);
     }
 
     /**
@@ -38,7 +45,22 @@ class DishController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+          'name' => 'required|max:30',
+          'type' => 'max:20|nullable',
+          'infos' => 'required|max:250',
+          'visible' => 'required',
+          'price' => 'required|numeric|between:0,999.99',
+        ]);
+        // Storing all form data in a variable
+        $form_data = $request->all();
+        // Creating a new Object/Instance with the form data
+        $new_dish = new Dish();
+        $new_dish->fill($form_data);
+        // Saving the new Object/Instance in the database
+        $new_dish->save();
+        // Redirecting to the view with all posts
+        return redirect()->route('admin.restaurants.index');
     }
 
     /**

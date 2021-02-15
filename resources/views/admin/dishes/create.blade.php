@@ -1,116 +1,78 @@
 @extends('layouts.dashboard')
 
 @section('content')
-    <div class="container">
-        <div class="margin-top row justify-content-center">
-                <div class="custom_card card">
-                    <div class="card-body">
-                        <h1 class="custom-title">Benvenuto nella dashboard, inserisci i piatti per cominciare</h1>
-                    </div>
-                </div>
-
-            <div class="col-md-12">
-                <div class="card no-border border-radius-top mt-3">
-                    <div class="card-header text-center no-border border-radius-top">
-                        <button type="button" class="btn btn-lg btn-block border-radius-top no-border">Inserisci nuovi piatti.</button>
-                    </div>
-
-                    <div class="card-body">
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
-                        @endif
-                        <ul class="list-group custom-list overflow-auto">
-                            <li class="list-group-item d-flex justify-content-between no-border">
-                                <p>Item</p>
-                                <div>
-                                    <button type="button" class="btn btn-success">Modifica</button>
-                                    <button type="button" class="btn btn-danger">Cancella</button>
-                                </div>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between no-border">
-                                <p>Item</p>
-                                <div>
-                                    <button type="button" class="btn btn-success">Modifica</button>
-                                    <button type="button" class="btn btn-danger">Cancella</button>
-                                </div>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between no-border">
-                                <p>Item</p>
-                                <div>
-                                    <button type="button" class="btn btn-success">Modifica</button>
-                                    <button type="button" class="btn btn-danger">Cancella</button>
-                                </div>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between no-border">
-                                <p>Item</p>
-                                <div>
-                                    <button type="button" class="btn btn-success">Modifica</button>
-                                    <button type="button" class="btn btn-danger">Cancella</button>
-                                </div>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between no-border">
-                                <p>Item</p>
-                                <div>
-                                    <button type="button" class="btn btn-success">Modifica</button>
-                                    <button type="button" class="btn btn-danger">Cancella</button>
-                                </div>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between no-border">
-                                <p>Item</p>
-                                <div>
-                                    <button type="button" class="btn btn-success">Modifica</button>
-                                    <button type="button" class="btn btn-danger">Cancella</button>
-                                </div>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between no-border">
-                                <p>Item</p>
-                                <div>
-                                    <button type="button" class="btn btn-success">Modifica</button>
-                                    <button type="button" class="btn btn-danger">Cancella</button>
-                                </div>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between no-border">
-                                <p>Item</p>
-                                <div>
-                                    <button type="button" class="btn btn-success">Modifica</button>
-                                    <button type="button" class="btn btn-danger">Cancella</button>
-                                </div>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between no-border">
-                                <p>Item</p>
-                                <div>
-                                    <button type="button" class="btn btn-success">Modifica</button>
-                                    <button type="button" class="btn btn-danger">Cancella</button>
-                                </div>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between no-border">
-                                <p>Item</p>
-                                <div>
-                                    <button type="button" class="btn btn-success">Modifica</button>
-                                    <button type="button" class="btn btn-danger">Cancella</button>
-                                </div>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between no-border">
-                                <p>Item</p>
-                                <div>
-                                    <button type="button" class="btn btn-success">Modifica</button>
-                                    <button type="button" class="btn btn-danger">Cancella</button>
-                                </div>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between no-border">
-                                <p>Item</p>
-                                <div>
-                                    <button type="button" class="btn btn-success">Modifica</button>
-                                    <button type="button" class="btn btn-danger">Cancella</button>
-                                </div>
-                            </li>
-                        </ul>
-
-                    </div>
-                </div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card no-border mt-3">
+          <div class="card-header card-header text-center no-border border-radius-top">
+              Aggiungi un nuovo piatto
+          </div>
+          <form class="d-flex flex-column align-items-center py-3" action="{{route('admin.dishes.store')}}" method="post">
+            @csrf
+            <div class="form-group">
+                <input type="text" class="form-control" name="restaurant_id" value="{{$query}}" required>
             </div>
+            <div class="form-group d-flex flex-column align-items-center w-50">
+              <label for="title">Dish Name</label>
+              <input type="text" class="form-control" name="name" placeholder="Write your dish name here" value="{{old('name')}}" required>
+              {{-- SHOWING ERROR MESSAGE --}}
+              @error('name')
+                  <div class="alert alert-danger">
+                    {{ $message }}
+                  </div>
+              @enderror
+            </div>
+            <div class="form-group d-flex flex-column align-items-center w-50">
+              <label for="title">Type</label>
+              <input type="text" class="form-control" name="type" placeholder="type" value="{{old('type')}}" required>
+              {{-- SHOWING ERROR MESSAGE --}}
+              @error('type')
+                  <div class="alert alert-danger">
+                    {{ $message }}
+                  </div>
+              @enderror
+            </div>
+            <div class="form-group d-flex flex-column align-items-center w-50">
+              <label for="title">Infos</label>
+              <textarea name="infos" rows="8" cols="80">{{old('infos')}}</textarea>
+              {{-- SHOWING ERROR MESSAGE --}}
+              @error('infos')
+                  <div class="alert alert-danger">
+                    {{ $message }}
+                  </div>
+              @enderror
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="visible" value="1">
+                <label class="form-check-label" for="flexRadioDefault1">
+                    Available
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="visible" value="0">
+                <label class="form-check-label" for="flexRadioDefault2">
+                  Not Available
+                </label>
+            </div>
+            <div class="form-group d-flex flex-column align-items-center w-50">
+              <label for="title">Price</label>
+              <input type="number" class="form-control" name="price" placeholder="price" value="{{old('price')}}" required step="0.01">
+              {{-- SHOWING ERROR MESSAGE --}}
+              @error('price')
+                  <div class="alert alert-danger">
+                    {{ $message }}
+                  </div>
+              @enderror
+            </div>
+            <div class="form-group d-flex justify-content-end">
+              <button type="submit" class="btn btn-success text-uppercase">
+                Submit
+              </button>
+            </div>
+          </form>
         </div>
+      </div>
     </div>
+  </div>
 @endsection

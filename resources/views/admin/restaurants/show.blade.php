@@ -17,6 +17,9 @@
                     @endforelse
                 </span>
             </div>
+            <a href="{{ route('admin.dishes.create', ['restaurant' => $restaurant->id])}}">
+                Create a new dish
+            </a>
             <form action="{{route('admin.restaurants.destroy', ['restaurant' => $restaurant->id])}}" method="POST">
               @csrf
               @method('DELETE')
