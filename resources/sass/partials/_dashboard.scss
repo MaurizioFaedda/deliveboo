@@ -29,14 +29,14 @@
 #icon-burger::after{
     @include dash_icon("\f0c9");
 }
-#icon-dashboard::after{
+.icon-dashboard::after{
     @include dash_icon("\f3fd");
 }
-#icon-food::after{
+.icon-restaurant::after{
     @include dash_icon("\f2e7");
-    padding-left: 2px;
+    padding-left: 3px;
 }
-#icon-order::after{
+.icon-order::after{
     @include dash_icon("\f07a");
 }
 
@@ -49,7 +49,6 @@
     }
 
 }
-
 #my-sidebar{
     position: fixed;
     top: 38px;
@@ -72,6 +71,9 @@
             }
         }
     }
+}
+#my-icon-menu{
+    display: none;
 }
 
 .dashboard-welcome {
@@ -136,4 +138,27 @@
     font-size: 25px;
     font-weight: bold;
   }
+}
+@media screen and (max-width: 762px) {
+    #my-icon-menu{
+        width: 60%;
+        list-style-type: none;
+        padding: 0 15px;
+        margin: auto;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        li{
+            ;
+            .icon-responsive{
+                display: flex;
+                align-items: center;
+                width: 25px;
+                height: 25px;
+            }
+        }
+    }
+
+
 }
