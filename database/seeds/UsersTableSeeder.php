@@ -48,6 +48,6 @@ class UsersTableSeeder extends Seeder
             "vat_number" => "89124563997",
             'password' => bcrypt('password5'),
         ]);
-        
+
     }
 }

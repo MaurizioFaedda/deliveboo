@@ -171,6 +171,33 @@
   }
 }
 
+.logo-navbar {
+  width: 150px;
+  height: 50px;
+}
+
+.logo-navbar img {
+  width: 100%;
+}
+
+.my-search {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  width: 60%;
+}
+
+.my-search .btn .fas {
+  color: rgba(0, 0, 0, 0.2);
+}
+
+.my-search input {
+  border: none;
+}
+
+.my-search .form-control:focus {
+  outline: none;
+}
+
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors

@@ -1,0 +1,22 @@
+.logo-navbar{
+    width: 150px;
+    height: 50px;
+    img{
+        width: 100%;
+    }
+}
+
+.my-search{
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 4px;
+    width: 60%;
+    .btn:focus {
+      outline: 5px auto -webkit-focus-ring-color;
+      outline-offset: -2px;
+    }
+
+    .fas{
+        color: rgba(0,0,0,0.2);
+    }
+
+}
