@@ -42,7 +42,7 @@
   padding-right: 16px;
 }
 
-#icon-dashboard::after {
+.icon-dashboard::after {
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   content: "\F3FD";
@@ -51,17 +51,17 @@
   padding-right: 16px;
 }
 
-#icon-food::after {
+.icon-restaurant::after {
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   content: "\F2E7";
   color: #fff;
   font-size: 20px;
   padding-right: 16px;
-  padding-left: 2px;
+  padding-left: 3px;
 }
 
-#icon-order::after {
+.icon-order::after {
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   content: "\F07A";
@@ -101,6 +101,10 @@
 
 #my-sidebar li a:hover::after {
   transform: scaleX(1);
+}
+
+#my-icon-menu {
+  display: none;
 }
 
 .dashboard-welcome {
@@ -184,6 +188,25 @@
   .custom-title {
     font-size: 25px;
     font-weight: bold;
+  }
+}
+
+@media screen and (max-width: 762px) {
+  #my-icon-menu {
+    width: 60%;
+    list-style-type: none;
+    padding: 0 15px;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  #my-icon-menu li .icon-responsive {
+    display: flex;
+    align-items: center;
+    width: 25px;
+    height: 25px;
   }
 }
 

@@ -27,18 +27,26 @@
     <div id="app">
         <nav class="navbar fixed-top nav-color navbar-expand-md text-white shadow-sm">
             <div class="container-fluid p-0">
-                <a class="navbar-brand text-white" href="{{ url('/') }}">
+                <a class="navbar-brand text-white m-0" href="{{ url('/') }}">
                     Deliveboo
                 </a>
+                <ul id="my-icon-menu" class="">
+                    <li>
+                        <a href="#"> <span class="icon-responsive icon-dashboard"></span> </a>
+                    </li>
+                    <li>
+                        <a href="#"> <span class="icon-responsive icon-restaurant"></span> </a>
+                    </li>
+                    <li>
+                        <a href="#"> <span class="icon-responsive icon-order"></span> </a>
+                    </li>
+                </ul>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span id="icon-burger" class="navbar-toggler-icon"></span>
+                    <span id="icon-burger" class="navbar-toggler-icon d-flex align-items-center"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -80,22 +88,23 @@
         <!-- Sidebar -->
         <div class="container-fluid">
             <div class="row">
-                <nav id="my-sidebar" class="nav-color col-md-2 d-none d-md-block">
+                <nav id="my-sidebar" class="nav-color col-md-2 col-sm-2 d-none d-md-block">
                     <div class="sidebar-sticky">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a class="nav-link active" href="{{ route('admin.index') }}"><span class="my-icon" id="icon-dashboard"></span>Dashboard</a>
+                                <a class="nav-link active" href="{{ route('admin.index') }}"><span class="my-icon icon-dashboard"></span>Dashboard</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" href="{{ route('admin.restaurants.index') }}"><span class="my-icon" id="icon-order"></span>My Restaurants </a>
+                                <a class="nav-link active" href="{{ route('admin.restaurants.index') }}"><span class="my-icon icon-restaurant"></span>Restaurants </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" href="{{ route('admin.index') }}"><span class="my-icon" id="icon-order"></span>My Orders </a>
+                                <a class="nav-link active" href="{{ route('admin.index') }}"><span class="my-icon icon-order"></span>Orders </a>
                             </li>
                         </ul>
                     </div>
                 </nav>
-                <main class="col-md-10 ml-sm-auto  mt-5 col-lg-10 pt-5">
+
+                <main class="col-md-10 ml-md-auto mx-sm-0 mt-5 col-lg-10 pt-5">
                     @yield('content')
                 </main>
           </div>
