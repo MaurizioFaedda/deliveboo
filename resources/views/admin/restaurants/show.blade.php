@@ -6,7 +6,7 @@
 
             {{--              FORM PER CREAZIONE PIATTO             --}}
             <div class="col-md-4 col-sm-12">
-              <div class="card no-border mt-3">
+              <div class="card no-border border-radius-top mt-3">
                 <div class="card-header card-header text-center no-border border-radius-top p-3">
                     <h5 class="mb-0">Aggiungi un nuovo piatto</h5>
                 </div>
@@ -74,7 +74,7 @@
             {{--              LISTA CON TUTTI I PIATTI             --}}
 
             <div class="col-md-8 col-sm-12">
-                <div class="card no-border mt-3">
+                <div class="card no-border border-radius-top mt-3">
                     <div class="card-header text-center no-border border-radius-top font-weight-bold">
                         Ristorante {{$restaurant->restaurant_name}}
                     </div>
