@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Dish;
 use App\User;
 use App\Restaurant;
+use DB;
 
 class DishController extends Controller
 {
@@ -72,7 +73,57 @@ class DishController extends Controller
    */
   public function show($id)
   {
-      //
+
+    // // Prendo l'id dell'utente autenticato
+    // $id_user = Auth::user()->id;
+    //
+    // // Query per prendere il piatto cliccato
+    // $dish = Dish::where('id', $id)->first();
+    //
+    // // Controllo che il Piatto visualizzato sia dell'utente autenticato e che il piatto esista
+    // if($id_user == $restaurant->user_id && $dish) {
+    //
+    //     $data = [
+    //         'dish' => $dish
+    //     ];
+    //
+    //     return view('admin.dishes.show', $data);
+    // } else {
+    //     abort('404');
+    // }
+
+    // Prendo l'id dell'utente autenticato
+    $id_user = Auth::user()->id;
+
+    // Prendo l'id dell'utente nella tabella restaurants
+    $myqueryrestaurant = DB::table('restaurants')->select('user_id')->where('id', '=', $id_user)->orderBy('id','desc')->get();
+    $id_user_fk = $myqueryrestaurant[0]->user_id;
+
+
+    // Prendo l'id del ristorante nella tabella dishes
+    $myquerydish = DB::table('dishes')->select('restaurant_id')->where('id', '=', $id_user_fk)->orderBy('id','desc')->get();
+    $id_restaurant_fk = $myquerydish[0]->restaurant_id;
+
+    // Prendo l'id di ristorante nella tabella ristoranti che deve essere uguale al l'id di ristoranti nella tabella piatti
+    $pippo = DB::table('restaurants')->select('id')->where('id', '=', $id_restaurant_fk)->and('user_id', '=', $id_user)->orderBy('id','desc')->get();
+    dd($pippo);
+
+    // Query per prendere il piatto cliccato
+    $dish = Dish::where('id', $id)->first();
+
+    // Controllo che il Piatto visualizzato sia dell'ruistorante cliccato e che il piatto esista
+    if($id_user_fk == $id_user && $dish ) {
+
+        $data = [
+            'dish' => $dish
+        ];
+
+        return view('admin.dishes.show', $data);
+    } else {
+        abort('404');
+    }
+
+
   }
 
   /**

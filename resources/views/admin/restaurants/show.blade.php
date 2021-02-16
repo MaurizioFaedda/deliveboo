@@ -91,7 +91,9 @@
                             @forelse ($restaurant->dishes as $dish)
                                 <tr class="text-left">
                                     <td>
-                                        <a class="text-uppercase" href="#">{{ $dish->name }}</a>
+                                        <a class="text-uppercase" href="{{route('admin.dishes.show', ['dish' => $dish->id]) }}">
+                                            {{ $dish->name }}
+                                        </a>
                                     </td>
                                     <td/>
                                         {{ $dish->price }}
