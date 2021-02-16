@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card no-border mt-3">
+                <div class="card no-border border-radius-top font-weight-bold mt-3">
                     <div class="card-header text-center no-border border-radius-top font-weight-bold">
                         Ristorante {{$restaurant->restaurant_name}}
                     </div>
