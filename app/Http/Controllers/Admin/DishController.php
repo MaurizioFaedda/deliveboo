@@ -95,30 +95,43 @@ class DishController extends Controller
     // Prendo l'id dell'utente autenticato
     $id_user = Auth::user()->id;
 
-    // Prendo l'id dell'utente nella tabella restaurants
-    $myqueryrestaurant = DB::table('restaurants')->select('user_id')->where('id', '=', $id_user)->orderBy('id','desc')->get();
+    // Prendo l'id dell'utente nella tabella restaurants che deve essere uguale all'id utente loggato
+    $myqueryrestaurant = DB::table('restaurants')->select('user_id')->where('user_id', '=', $id_user)->orderBy('id','desc')->get();
+    // Restituisce l'id dell'tente loggato in quel ristorante
     $id_user_fk = $myqueryrestaurant[0]->user_id;
 
+    // Visualizzare il piatto in cui la foreign key $restaurant_id è uguale alla primary key(id) della tabella restaurants dove (query) la foreign key user_id è uguale all'utente loggato($id_user_fk).
+
+
+    $current_restaurant = DB::table('dishes')->select('restaurant_id')->join('restaurants', 'id', '=', 'restaurant_id')->get();
+    dd($current_restaurant);
+
+
+
+
+
+
+    // Prendo l'id di ristorante nella tabella ristoranti dove l'id user deve essere uguale all'utente autenticato
+    $myquery_id_restaurant = DB::table('restaurants')->select('id')->where( $id_user_fk, '=', $id_user)->orderBy('id','desc')->get();
+    $id_restaurant = $myquery_id_restaurant[0]->id;
+    dd($id_restaurant);
 
     // Prendo l'id del ristorante nella tabella dishes
-    $myquerydish = DB::table('dishes')->select('restaurant_id')->where('id', '=', $id_user_fk)->orderBy('id','desc')->get();
+    $myquerydish = DB::table('dishes')->select('restaurant_id')->where('restaurant_id', '=', $id_restaurant)->orderBy('id','desc')->get();
     $id_restaurant_fk = $myquerydish[0]->restaurant_id;
-
-    // Prendo l'id di ristorante nella tabella ristoranti che deve essere uguale al l'id di ristoranti nella tabella piatti
-    $pippo = DB::table('restaurants')->select('id')->where('id', '=', $id_restaurant_fk)->and('user_id', '=', $id_user)->orderBy('id','desc')->get();
-    dd($pippo);
 
     // Query per prendere il piatto cliccato
     $dish = Dish::where('id', $id)->first();
 
     // Controllo che il Piatto visualizzato sia dell'ruistorante cliccato e che il piatto esista
-    if($id_user_fk == $id_user && $dish ) {
+    if($id_restaurant === $id_restaurant_fk) {
 
         $data = [
             'dish' => $dish
         ];
 
         return view('admin.dishes.show', $data);
+
     } else {
         abort('404');
     }
