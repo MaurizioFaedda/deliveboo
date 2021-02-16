@@ -39,6 +39,14 @@
 .icon-order::after{
     @include dash_icon("\f07a");
 }
+.icon-edit::after{
+    @include dash_icon("\f044");
+    color: rgba(0,0,0,0.5);
+}
+.icon-delete::after{
+    @include dash_icon("\f2ed");
+    color: darken($red, 15);
+}
 
 .nav-color{
     background-color: $color_main;

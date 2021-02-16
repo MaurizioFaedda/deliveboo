@@ -37,6 +37,7 @@ class DishController extends Controller
       return view('admin.dishes.create', $data);
   }
 
+<<<<<<< HEAD
   /**
    * Store a newly created resource in storage.
    *
@@ -61,6 +62,34 @@ class DishController extends Controller
     // Reindirizzamento alla pagina dell'elenco di tutti i piatti del ristorante
     return redirect()->route('admin.restaurants.index');
   }
+=======
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $request->validate([
+          'name' => 'required|max:30',
+          'infos' => 'required|max:250',
+          'visible' => 'required',
+          'price' => 'required|numeric|between:0,999.99',
+        ]);
+
+        // Storing all form data in a variable
+        $form_data = $request->all();
+        // Creating a new Object/Instance with the form data
+        $new_dish = new Dish();
+        $new_dish->fill($form_data);
+        // Saving the new Object/Instance in the database
+        $new_dish->save();
+        // Redirecting to the view with all posts
+        $restaurant_id = $request->restaurant_id;
+        return redirect()->route('admin.restaurants.show', ['restaurant' => $restaurant_id]);
+    }
+>>>>>>> dishes_create_index
 
   /**
    * Display the specified resource.

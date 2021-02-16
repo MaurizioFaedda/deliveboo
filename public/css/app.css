@@ -70,6 +70,26 @@
   padding-right: 16px;
 }
 
+.icon-edit::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\F044";
+  color: #fff;
+  font-size: 20px;
+  padding-right: 16px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.icon-delete::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\F2ED";
+  color: #fff;
+  font-size: 20px;
+  padding-right: 16px;
+  color: #ae1c17;
+}
+
 .nav-color {
   background-color: #00CDBC;
 }

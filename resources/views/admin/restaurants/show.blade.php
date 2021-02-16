@@ -3,13 +3,117 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card no-border border-radius-top font-weight-bold mb-4 mt-3">
+
+            {{--              FORM PER CREAZIONE PIATTO             --}}
+            <div class="col-md-4 col-sm-12">
+              <div class="card no-border mt-3">
+                <div class="card-header card-header text-center no-border border-radius-top p-3">
+                    <h5 class="mb-0">Aggiungi un nuovo piatto</h5>
+                </div>
+                <form class="d-flex flex-column align-items-center py-3" action="{{route('admin.dishes.store')}}" method="post">
+                  @csrf
+                  <div class="form-group d-none">
+                      <input type="text" class="form-control" name="restaurant_id" value="{{$restaurant->id}}" required>
+                  </div>
+                  <div class="form-group d-flex flex-column align-items-center w-75">
+                    <label for="title">Dish Name</label>
+                    <input type="text" class="form-control" name="name" placeholder="Write your dish name here" value="{{old('name')}}" required>
+                    {{-- SHOWING ERROR MESSAGE --}}
+                    @error('name')
+                        <div class="alert alert-danger">
+                          {{ $message }}
+                        </div>
+                    @enderror
+                  </div>
+                  <div class="form-group d-flex flex-column align-items-center w-75">
+                    <label for="title">Infos</label>
+                    <textarea class="form-control" name="infos">{{old('infos')}}</textarea>
+                    {{-- SHOWING ERROR MESSAGE --}}
+                    @error('infos')
+                        <div class="alert alert-danger">
+                          {{ $message }}
+                        </div>
+                    @enderror
+                  </div>
+                  <div class="form-group d-flex flex-column align-items-center w-75">
+                    <label for="title">Price</label>
+                    <input type="number" class="form-control" name="price" placeholder="price" value="{{old('price')}}" required step="0.01">
+                    {{-- SHOWING ERROR MESSAGE --}}
+                    @error('price')
+                        <div class="alert alert-danger">
+                          {{ $message }}
+                        </div>
+                    @enderror
+                  </div>
+                    <div class="form-group d-flex flex-column align-items-center w-75">
+                        <label>Cover image</label>
+                        <input type="file" class="form-control-file" name="image">
+                    </div>
+                  <div class="form-group d-flex flex-column align-items-left w-75">
+                      <div class="form-check">
+                          <input class="form-check-input" type="radio" name="visible" value="1" checked>
+                          <label class="form-check-label" for="flexRadioDefault1">
+                              Available
+                          </label>
+                      </div>
+                      <div class="form-check">
+                          <input class="form-check-input" type="radio" name="visible" value="0">
+                          <label class="form-check-label" for="flexRadioDefault2">
+                              Not Available
+                          </label>
+                      </div>
+                  </div>
+                  <div class="form-group d-flex justify-content-end">
+                    <button type="submit" class="btn btn-success text-uppercase">
+                      Salva
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+            {{--              LISTA CON TUTTI I PIATTI             --}}
+
+            <div class="col-md-8 col-sm-12">
+                <div class="card no-border mt-3">
                     <div class="card-header text-center no-border border-radius-top font-weight-bold">
                         Ristorante {{$restaurant->restaurant_name}}
                     </div>
+                    <table class="table text-center">
+                        <thead>
+                            <tr class="text-left">
+                                <th class="text-left">Name</th>
+                                <th>Price</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @forelse ($restaurant->dishes as $dish)
+                                <tr class="text-left">
+                                    <td>
+                                        <a class="text-uppercase" href="#">{{ $dish->name }}</a>
+                                    </td>
+                                    <td/>
+                                        {{ $dish->price }}
+                                    </td>
+                                    <td>
+                                        {{-- edit --}}
+                                        <a href="#"> <span class="icon-edit"></span> </a>
+                                    </td>
+                                    <td>
+                                        {{-- delete --}}
+                                        <a href="#"> <span class="icon-delete"></span> </a>
+                                    </td>
+                                </tr>
+                                @empty
+                                    -
+                                @endforelse
+
+                        </tbody>
+                    </table>
                     <div class="card-body d-flex flex-column align-items-center">
-                        <ul class="list-group custom-list overflow-auto">
+
+                        {{-- <ul class="list-group custom-list overflow-auto">
                             @forelse ($restaurant->dishes as $dish)
                                 <li class="list-group-item d-flex justify-content-between no-border">
                                     <a class="text-uppercase" href="#">{{ $dish->name }}{{ !$loop->last ? ',' : '.' }}</a>
@@ -18,16 +122,12 @@
                                 -
                             @endforelse
                         </ul>
-                        <a class="mb-3 py-2 px-2" href="{{ route('admin.dishes.create', ['restaurant' => $restaurant->id])}}">
-                            Create a new dish
-                        </a>
                         <form class="mt-3" action="{{route('admin.restaurants.destroy', ['restaurant' => $restaurant->id])}}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger text-uppercase">
                                 Delete restaurant
-                            </button>
-                        </form>
+                            </button> --}}
                     </div>
 
                 </div>
