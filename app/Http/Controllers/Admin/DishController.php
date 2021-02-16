@@ -11,99 +11,99 @@ use App\Restaurant;
 
 class DishController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
+  /**
+   * Display a listing of the resource.
+   *
+   * @return \Illuminate\Http\Response
+   */
+  public function index()
+  {
+      //
+  }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create(Request $request)
-    {
-        $query = $request->input('restaurant');
+  /**
+   * Show the form for creating a new resource.
+   *
+   * @return \Illuminate\Http\Response
+   */
+  public function create(Request $request)
+  {
+      $query = $request->input('restaurant');
 
-        $data = [
-          'restaurants' => Restaurant::all(),
-          'query' => $query
-        ];
-        return view('admin.dishes.create', $data);
-    }
+      $data = [
+        'restaurants' => Restaurant::all(),
+        'query' => $query
+      ];
+      return view('admin.dishes.create', $data);
+  }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        $request->validate([
-          'name' => 'required|max:30',
-          'infos' => 'required|max:250',
-          'visible' => 'required',
-          'price' => 'required|numeric|between:0,999.99',
-        ]);
-        // Storing all form data in a variable
-        $form_data = $request->all();
-        // Creating a new Object/Instance with the form data
-        $new_dish = new Dish();
-        $new_dish->fill($form_data);
-        // Saving the new Object/Instance in the database
-        $new_dish->save();
-        // Redirecting to the view with all posts
-        return redirect()->route('admin.restaurants.index');
-    }
+  /**
+   * Store a newly created resource in storage.
+   *
+   * @param  \Illuminate\Http\Request  $request
+   * @return \Illuminate\Http\Response
+   */
+  public function store(Request $request)
+  {
+    $request->validate([
+      'name' => 'required|max:30',
+      'infos' => 'required|max:250',
+      'visible' => 'required',
+      'price' => 'required|numeric|between:0,999.99',
+    ]);
+    // Storing all form data in a variable
+    $form_data = $request->all();
+    // Creating a new Object/Instance with the form data
+    $new_dish = new Dish();
+    $new_dish->fill($form_data);
+    // Saving the new Object/Instance in the database
+    $new_dish->save();
+    // Reindirizzamento alla pagina dell'elenco di tutti i piatti del ristorante
+    return redirect()->route('admin.restaurants.index');
+  }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+  /**
+   * Display the specified resource.
+   *
+   * @param  int  $id
+   * @return \Illuminate\Http\Response
+   */
+  public function show($id)
+  {
+      //
+  }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+  /**
+   * Show the form for editing the specified resource.
+   *
+   * @param  int  $id
+   * @return \Illuminate\Http\Response
+   */
+  public function edit($id)
+  {
+      //
+  }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+  /**
+   * Update the specified resource in storage.
+   *
+   * @param  \Illuminate\Http\Request  $request
+   * @param  int  $id
+   * @return \Illuminate\Http\Response
+   */
+  public function update(Request $request, $id)
+  {
+      //
+  }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+  /**
+   * Remove the specified resource from storage.
+   *
+   * @param  int  $id
+   * @return \Illuminate\Http\Response
+   */
+  public function destroy($id)
+  {
+      //
+  }
 }
