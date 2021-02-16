@@ -81,15 +81,23 @@ class DishController extends Controller
     // Prendo il ristorante corrente dalla Collection $current_dish
     $current_restaurant_fk = $current_dish->restaurant_id;
 
-    // QUERY per prendere il ristorante corrente
-    $current_restaurant_collection = Restaurant::where('user_id', $current_user)->first();
-    // Prendo il ristorante corrente dalla Collection
-    $current_restaurant = $current_restaurant_collection->id;
-    // Prendo la FK dello user dalla tabella Restaurants (nella Collection del ristorante corrente)
-    $current_user_fk = $current_restaurant_collection->user_id;
+    // QUERY per prendere l'array dei ristoranti dell'utente corrente
+    $array_restaurants_user = Restaurant::where('user_id', $current_user)->get();
+    $current_restaurant_id = '';
+    $current_user_fk = '';
+    // Ciclo l'array delle collections dei ristoranti dell'utente loggato
+    foreach ($array_restaurants_user as $restaurant) {
+        // Controllo che l'id del ristorante ciclato è uguale all'FK del ristorante del piatto corrente
+        if ($restaurant->id == $current_restaurant_fk) {
+            // salvo in una variabile l'id del ristorante
+            $current_restaurant_id = $restaurant->id;
+            // salvo in una variabile la FK dell'utente della tabella ristorante
+            $current_user_fk = $restaurant->user_id;
+        }
+    }
 
     // Controllo che il piatto corrente esista && che appartenga al ristorante corrente && che il ristorante sia dell'utente loggato
-    if($current_dish && $current_restaurant_fk == $current_restaurant && $current_user == $current_user_fk) {
+    if($current_dish && $current_restaurant_fk == $current_restaurant_id && $current_user == $current_user_fk) {
       $data = [
         'dish' => $current_dish,
       ];
