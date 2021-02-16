@@ -51,6 +51,7 @@ class DishController extends Controller
           'visible' => 'required',
           'price' => 'required|numeric|between:0,999.99',
         ]);
+
         // Storing all form data in a variable
         $form_data = $request->all();
         // Creating a new Object/Instance with the form data
@@ -59,7 +60,8 @@ class DishController extends Controller
         // Saving the new Object/Instance in the database
         $new_dish->save();
         // Redirecting to the view with all posts
-        return redirect()->route('admin.restaurants.index');
+        $restaurant_id = $request->restaurant_id;
+        return redirect()->route('admin.restaurants.show', ['restaurant' => $restaurant_id]);
     }
 
     /**
