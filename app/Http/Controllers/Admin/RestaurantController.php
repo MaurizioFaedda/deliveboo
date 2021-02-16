@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Restaurant;
 use App\User;
 use App\Type;
+use DB;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -82,12 +83,15 @@ class RestaurantController extends Controller
    */
   public function show(Restaurant $restaurant)
   {
-    if(!$restaurant) {
-      abort(404);
+    // Prendo l'id dell'utente autenticato
+    $id_user = Auth::user()->id;
+    // Controllo che il Ristorante visualizzato sia dell'utente autenticato e che ci sia il ristorante
+    if($id_user == $restaurant->user_id && $restaurant) {
+      return view('admin.restaurants.show', ['restaurant' => $restaurant]);
+    } else {
+      abort('404');
     }
-    return view('admin.restaurants.show', ['restaurant' => $restaurant]);
   }
-
   /**
    * Show the form for editing the specified resource.
    *
