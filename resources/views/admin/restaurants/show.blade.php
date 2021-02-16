@@ -15,8 +15,8 @@
                   <div class="form-group d-none">
                       <input type="text" class="form-control" name="restaurant_id" value="{{$restaurant->id}}" required>
                   </div>
-                  <div class="form-group d-flex flex-column align-items-center w-75">
-                    <label for="title">Dish Name</label>
+                  <div class="form-group d-flex flex-column align-items-left w-75">
+                    <label class="pl-1" for="title">Dish Name</label>
                     <input type="text" class="form-control" name="name" placeholder="Write your dish name here" value="{{old('name')}}" required>
                     {{-- SHOWING ERROR MESSAGE --}}
                     @error('name')
@@ -25,8 +25,8 @@
                         </div>
                     @enderror
                   </div>
-                  <div class="form-group d-flex flex-column align-items-center w-75">
-                    <label for="title">Infos</label>
+                  <div class="form-group d-flex flex-column align-items-left w-75">
+                    <label class="pl-1" for="title">Infos</label>
                     <textarea class="form-control" name="infos">{{old('infos')}}</textarea>
                     {{-- SHOWING ERROR MESSAGE --}}
                     @error('infos')
@@ -35,8 +35,8 @@
                         </div>
                     @enderror
                   </div>
-                  <div class="form-group d-flex flex-column align-items-center w-75">
-                    <label for="title">Price</label>
+                  <div class="form-group d-flex flex-column align-items-left w-75">
+                    <label class="pl-1" for="title">Price</label>
                     <input type="number" class="form-control" name="price" placeholder="price" value="{{old('price')}}" required step="0.01">
                     {{-- SHOWING ERROR MESSAGE --}}
                     @error('price')
@@ -45,11 +45,11 @@
                         </div>
                     @enderror
                   </div>
-                    <div class="form-group d-flex flex-column align-items-center w-75">
-                        <label>Cover image</label>
-                        <input type="file" class="form-control-file" name="image">
+                    <div class="form-group d-flex flex-column align-items-left w-75">
+                        <label class="pl-1">Cover image</label>
+                        <input class="pl-1" type="file" class="form-control-file" name="image">
                     </div>
-                  <div class="form-group d-flex flex-column align-items-left w-75">
+                  <div class="form-group d-flex flex-column align-items-left w-75 pl-1">
                       <div class="form-check">
                           <input class="form-check-input" type="radio" name="visible" value="1" checked>
                           <label class="form-check-label" for="flexRadioDefault1">
