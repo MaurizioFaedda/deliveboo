@@ -100,7 +100,9 @@
                                     </td>
                                     <td>
                                         {{-- edit --}}
-                                        <a href="#"> <span class="icon-edit"></span> </a>
+                                        <a href="{{ route('admin.dishes.edit', ['dish'=> $dish->id]) }}">
+                                            <span class="icon-edit"></span>
+                                        </a>
                                     </td>
                                     <td>
                                         {{-- delete --}}
