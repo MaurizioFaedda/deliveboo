@@ -106,7 +106,13 @@
                                     </td>
                                     <td>
                                         {{-- delete --}}
-                                        <a href="#"> <span class="icon-delete"></span> </a>
+                                        <form class="d-inline-block" action="{{ route('admin.dishes.destroy', ['dish' => $dish->id]) }}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit">
+                                                <span class="icon-delete"></span>
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                                 @empty

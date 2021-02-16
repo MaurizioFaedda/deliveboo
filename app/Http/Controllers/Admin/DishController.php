@@ -178,8 +178,12 @@ class DishController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Dish $dish)
     {
-        //
+        // Prima di cancellare il piatto vado a cancellare la relazione che c'è tra il piatto e ristorante
+        $dish->restaurant()->dissociate('restaurant_id');
+        // Cancello il piatto
+        $dish->delete();
+        return redirect()->route('admin.dishes.create');
     }
 }
