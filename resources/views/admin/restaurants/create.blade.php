@@ -6,7 +6,7 @@
       <div class="col-md-8">
         <div class="card no-border mt-3 border-radius-top">
           <div class="card-header card-header text-center no-border border-radius-top">Aggiungi il tuo ristorante.</div>
-          <form class="d-flex flex-column align-items-center py-3" action="{{route('admin.restaurants.store')}}" method="post">
+          <form class="d-flex flex-column align-items-center py-3" action="{{route('admin.restaurants.store')}}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="form-group d-flex flex-column align-items-center w-50">
               <label for="title">Restaurant Name</label>
@@ -55,6 +55,10 @@
                     {{ $message }}
                   </div>
               @enderror
+            </div>
+            <div class="form-group d-flex flex-column align-items-left w-75">
+                <label class="pl-1">Cover image</label>
+                <input class="pl-1" type="file" class="form-control-file" name="image">
             </div>
             <div class="form-group d-flex justify-content-end">
               <button type="submit" class="btn btn-success text-uppercase">
