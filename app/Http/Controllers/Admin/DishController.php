@@ -129,13 +129,13 @@ class DishController extends Controller
     $current_user_fk = '';
     // Ciclo l'array delle collections dei ristoranti dell'utente loggato
     foreach ($array_restaurants_user as $restaurant) {
-        // Controllo che l'id del ristorante ciclato è uguale all'FK del ristorante del piatto corrente
-        if ($restaurant->id == $current_restaurant_fk) {
-            // salvo in una variabile l'id del ristorante
-            $current_restaurant_id = $restaurant->id;
-            // salvo in una variabile la FK dell'utente della tabella ristorante
-            $current_user_fk = $restaurant->user_id;
-        }
+      // Controllo che l'id del ristorante ciclato è uguale all'FK del ristorante del piatto corrente
+      if ($restaurant->id == $current_restaurant_fk) {
+        // salvo in una variabile l'id del ristorante
+        $current_restaurant_id = $restaurant->id;
+        // salvo in una variabile la FK dell'utente della tabella ristorante
+        $current_user_fk = $restaurant->user_id;
+      }
     }
 
     // Controllo che il piatto corrente esista && che appartenga al ristorante corrente && che il ristorante sia dell'utente loggato

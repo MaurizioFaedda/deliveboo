@@ -32,13 +32,13 @@
                       @enderror
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="visible" value="{{ $dish->visible }}" {{ $dish->visible === 1 ? 'checked=checked' : ''}}>
+                        <input class="form-check-input" type="radio" name="visible" value="1" {{ $dish->visible == 1 ? 'checked=checked' : ''}}>
                         <label class="form-check-label" for="flexRadioDefault1">
                             Available
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="visible" value="{{ $dish->visible }}" {{ $dish->visible === 0 ? 'checked=checked' : ''}}>
+                        <input class="form-check-input" type="radio" name="visible" value="0" {{ $dish->visible == 0 ? 'checked=checked' : ''}}>
                         <label class="form-check-label" for="flexRadioDefault2">
                           Not Available
                         </label>
