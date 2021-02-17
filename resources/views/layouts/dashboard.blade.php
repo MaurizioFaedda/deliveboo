@@ -32,10 +32,10 @@
                 </a>
                 <ul id="my-icon-menu" class="">
                     <li>
-                        <a href="#"> <span class="icon-responsive icon-dashboard"></span> </a>
+                        <a href="{{ route('admin.index') }}"> <span class="icon-responsive icon-dashboard"></span> </a>
                     </li>
                     <li>
-                        <a href="#"> <span class="icon-responsive icon-restaurant"></span> </a>
+                        <a href="{{ route('admin.restaurants.index') }}"> <span class="icon-responsive icon-restaurant"></span> </a>
                     </li>
                     <li>
                         <a href="#"> <span class="icon-responsive icon-order"></span> </a>

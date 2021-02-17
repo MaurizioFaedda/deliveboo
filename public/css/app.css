@@ -64,6 +64,22 @@ table tbody tr {
   color: #00CDBC;
 }
 
+#log-main-color:hover {
+  background-color: #fff;
+}
+
+#log-main-color::after {
+  border-bottom: 1px solid #00CDBC;
+  display: block;
+  content: "";
+  transform: scaleX(0);
+  transition: transform 0.3s linear;
+}
+
+#log-main-color:hover::after {
+  transform: scaleX(1);
+}
+
 .back-link a {
   color: #008176;
 }
