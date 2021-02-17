@@ -16,7 +16,11 @@
                             </a>
                         </li>
                         <li class="list-group-item no-border">
-                            <img src="{{ asset('images/' . $restaurant->img_path_rest)}}" alt="{{$restaurant->restaurant_name}}">
+                            @if($restaurant->img_path_rest)
+                                <img src="{{ asset('storage/' . $restaurant->img_path_rest)}}" alt="{{$restaurant->restaurant_name}}">
+                            @else
+                                <img src="{{ asset('img/img_not_available.png')}}" alt="not img">
+                            @endif
                         </li>
                     @endforeach
                 </ul>

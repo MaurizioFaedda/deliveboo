@@ -3,6 +3,13 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
+            <div class="col-12">
+                @if($restaurant->img_path_rest)
+                    <img src="{{ asset('storage/' . $restaurant->img_path_rest)}}" alt="{{$restaurant->restaurant_name}}">
+                @else
+                    <img src="{{ asset('img/img_not_available.png')}}" alt="not img">
+                @endif
+            </div>
 
             {{--              FORM PER CREAZIONE PIATTO             --}}
             <div class="col-md-4 col-sm-12">
@@ -139,13 +146,13 @@
                             @empty
                                 -
                             @endforelse
-                        </ul>
+                        </ul> --}}
                         <form class="mt-3" action="{{route('admin.restaurants.destroy', ['restaurant' => $restaurant->id])}}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger text-uppercase">
                                 Delete restaurant
-                            </button> --}}
+                            </button>
                     </div>
 
                 </div>
