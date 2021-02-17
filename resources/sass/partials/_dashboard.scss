@@ -2,6 +2,10 @@
     margin-top: 100px;
 }
 
+.custom-height{
+    height: $custom_height * 4;
+}
+
 .delete-restaurant{
     margin-bottom: 12px;
 }
@@ -123,24 +127,6 @@ table thead, table tbody tr {
     margin-top: 70px;
 }
 
-.custom_card {
-    /* The animation code */
-    @keyframes welcome {
-      from {height: 0;}
-      to {height: 100;}
-    }
-    top: 80px;
-    height: 100px;
-    width: 100%;
-    align-items: center;
-    background-color: unset!important;
-    border: unset!important;
-    text-align: center;
-    animation-name: welcome;
-    animation-duration: 3s;
-
-}
-
 .card {
     ::-webkit-scrollbar {
       width: 15px;
@@ -176,13 +162,6 @@ table thead, table tbody tr {
 
 }
 
-
-@media screen and (max-width: 992px) {
-  .custom-title {
-    font-size: 25px;
-    font-weight: bold;
-  }
-}
 @media screen and (max-width: 762px) {
     #my-icon-menu{
         width: 60%;

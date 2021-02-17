@@ -4,6 +4,10 @@
   margin-top: 100px;
 }
 
+.custom-height {
+  height: 400px;
+}
+
 .delete-restaurant {
   margin-bottom: 12px;
 }
@@ -168,41 +172,6 @@ table tbody tr {
   margin-top: 70px;
 }
 
-.custom_card {
-  /* The animation code */
-  top: 80px;
-  height: 100px;
-  width: 100%;
-  align-items: center;
-  background-color: unset !important;
-  border: unset !important;
-  text-align: center;
-  -webkit-animation-name: welcome;
-          animation-name: welcome;
-  -webkit-animation-duration: 3s;
-          animation-duration: 3s;
-}
-
-@-webkit-keyframes welcome {
-  from {
-    height: 0;
-  }
-
-  to {
-    height: 100;
-  }
-}
-
-@keyframes welcome {
-  from {
-    height: 0;
-  }
-
-  to {
-    height: 100;
-  }
-}
-
 .card {
   /* Track */
   /* Handle */
@@ -239,13 +208,6 @@ table tbody tr {
   color: #00CDBC;
   font-size: medium;
   font-weight: bold;
-}
-
-@media screen and (max-width: 992px) {
-  .custom-title {
-    font-size: 25px;
-    font-weight: bold;
-  }
 }
 
 @media screen and (max-width: 762px) {

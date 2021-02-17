@@ -2,15 +2,15 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-            <a href="{{route('admin.restaurants.create')}}" class="btn btn-primary my-3 mx-3 w-75">
+    <div class="row justify-content-left">
+            <a href="{{route('admin.restaurants.create')}}" class="btn btn-primary my-3 w-75 shadow mx-auto">
                 Nuovo ristorante
             </a>
             @foreach ($restaurants as $restaurant)
                 <div class="col-6">
                     <div class="card my-4">
                         @if($restaurant->img_path_rest)
-                            <img class="card-img-top" src="{{ asset('storage/' . $restaurant->img_path_rest)}}" alt="Card image cap" alt="{{$restaurant->restaurant_name}}">
+                            <img class="card-img-top custom-height" src="{{ asset('storage/' . $restaurant->img_path_rest)}}" alt="Card image cap" alt="{{$restaurant->restaurant_name}}">
                         @else
                             <img class="card-img-top" src="{{ asset('img/img_not_available.png')}}" alt="not img">
                         @endif
