@@ -204,10 +204,6 @@
   font-weight: bold;
 }
 
-.dish-table tbody tr {
-  height: 50px;
-}
-
 @media screen and (max-width: 992px) {
   .custom-title {
     font-size: 25px;
