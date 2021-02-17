@@ -3,21 +3,22 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-12">
+            {{--              FORM PER CREAZIONE PIATTO             --}}
+            <div class="col-md-4 col-sm-12">
+             <div class="card no-border border-radius-top shadow p-4">
                 @if($restaurant->img_path_rest)
-                    <img src="{{ asset('storage/' . $restaurant->img_path_rest)}}" alt="{{$restaurant->restaurant_name}}">
+                    <div class="img-wrapper">
+                        <img class="img-fluid" src="{{ asset('storage/' . $restaurant->img_path_rest)}}" alt="{{$restaurant->restaurant_name}}">
+                    </div>
                 @else
                     <img src="{{ asset('img/img_not_available.png')}}" alt="not img">
                 @endif
             </div>
-
-            {{--              FORM PER CREAZIONE PIATTO             --}}
-            <div class="col-md-4 col-sm-12">
               <div class="card no-border border-radius-top mt-3 shadow">
                 <div class="card-header card-header text-center no-border border-radius-top p-3">
                     <h5 class="mb-0">Aggiungi un nuovo piatto</h5>
                 </div>
-                <form class="d-flex flex-column align-items-left py-3 px-3" action="{{route('admin.dishes.store')}}" method="post" enctype="multipart/form-data">
+                <form class="d-flex flex-column align-items-left py-3 px-3" action="{{route('admin.dishes.store')}}" method="post">
                   @csrf
                   <div class="form-group d-none">
                       <input type="text" class="form-control" name="restaurant_id" value="{{$restaurant->id}}" required>
@@ -77,7 +78,7 @@
             {{--              LISTA CON TUTTI I PIATTI             --}}
 
             <div class="col-md-8 col-sm-12">
-                <div class="card no-border border-radius-top mt-3 shadow">
+                <div class="card no-border border-radius-top shadow">
                     <div class="card-header text-center no-border border-radius-top font-weight-bold">
                         Ristorante {{$restaurant->restaurant_name}}
                     </div>
