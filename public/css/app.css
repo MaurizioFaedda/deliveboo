@@ -64,6 +64,19 @@ table tbody tr {
   color: #00CDBC;
 }
 
+.back-link a {
+  color: #008176;
+}
+
+.back-link a:hover {
+  text-decoration: none;
+  color: #00675e;
+}
+
+.back-link:hover {
+  text-decoration: none !important;
+}
+
 #icon-user::after {
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
@@ -129,6 +142,16 @@ table tbody tr {
   font-size: 20px;
   padding-right: 16px;
   color: #ae1c17;
+}
+
+.icon-back::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\F30A";
+  color: #fff;
+  font-size: 20px;
+  padding-right: 16px;
+  color: #00a497;
 }
 
 .nav-color {

@@ -60,6 +60,19 @@ table thead, table tbody tr {
     color: $color_main;
 }
 
+.back-link{
+    a{
+        color: darken($color_main, 15);
+        &:hover{
+            text-decoration: none;
+            color: darken($color_main, 20);
+        }
+    }
+    &:hover{
+        text-decoration: none!important;
+    }
+}
+
 // Dashboard's icons
 #icon-user::after{
     @include dash_icon("\f007");
@@ -86,6 +99,10 @@ table thead, table tbody tr {
     @include dash_icon("\f2ed");
     color: darken($red, 15);
 }
+.icon-back::after{
+    @include dash_icon("\f30a");
+    color: darken($color_main, 8);
+}
 
 .nav-color{
     background-color: $color_main;
@@ -94,7 +111,6 @@ table thead, table tbody tr {
             color: #fff;
         }
     }
-
 }
 #my-sidebar{
     position: fixed;
@@ -119,6 +135,7 @@ table thead, table tbody tr {
         }
     }
 }
+
 #my-icon-menu{
     display: none;
 }
