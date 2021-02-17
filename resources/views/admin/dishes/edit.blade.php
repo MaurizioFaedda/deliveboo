@@ -23,10 +23,26 @@
                     </div>
                     <div class="card border-0 mb-5 w-75">
                         <div class="card-body shadow p-3">
-                            <div class="form-group d-flex flex-column align-items-left w-75">
-                                <h2 class="h4 mb-2 py-2 form-font font-weight-bold">Inserisci una foto</h2>
-                                <input class="pl-1 form-font" type="file" class="form-control-file" name="image">
-                            </div>
+                          <p>Your current picture</p>
+                          @if($dish->img_path_dish)
+                            <img src="{{ asset('storage/' . $dish->img_path_dish)}}" alt="{{ $dish->name}}">
+                          @else
+                            <img src="{{ asset('img/img_not_available.png')}}" alt="{{ $dish->name}} not available">
+                          @endif
+                        </div>
+                    </div>
+                    <div class="card border-0 mb-5 w-75">
+                        <div class="card-body shadow p-3">
+                          <div class="form-group d-flex flex-column align-items-left w-75">
+                            {{-- Se l'utente vuole cambiare immagine --}}
+                            @if ($dish->img_path_dish)
+                              <h2 class="h4 mb-2 py-2 form-font font-weight-bold">Change picture</h2>
+                            {{-- Se ll'utente vuole aggiungere la prima immagine --}}
+                            @else
+                              <h2 class="h4 mb-2 py-2 form-font font-weight-bold">Upload a picture</h2>
+                            @endif
+                            <input class="pl-1 form-font" type="file" class="form-control-file" name="image">
+                          </div>
                         </div>
                     </div>
                     <div class="form-group d-flex flex-column align-items-center w-50">
