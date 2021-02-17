@@ -2,9 +2,39 @@
     margin-top: 100px;
 }
 
+.delete-restaurant{
+    margin-bottom: 12px;
+}
+
+.table th, .table td {
+    padding: 0.75rem;
+    vertical-align: unset!important;
+    border-top: 1px solid #dee2e6;
+}
+
+.border-radius-none {
+    border-radius: unset!important;
+}
+
+.backgmain{
+    background-color: $color_main!important;
+}
+
 .color_main{
     background-color: $color_main;
     color: white;
+}
+
+table tbody {
+  display: block;
+  max-height: 442px;
+  overflow-y: scroll;
+}
+
+table thead, table tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
 }
 
 .no-border {
