@@ -58,6 +58,19 @@ table thead, table tbody tr {
 
 #log-main-color {
     color: $color_main;
+    &:hover{
+        background-color: #fff;
+    }
+    &::after{
+        border-bottom: 1px solid $color_main;
+        display:block;
+        content: '';
+        transform: scaleX(0);
+        transition: transform 0.30s linear;
+    }
+    &:hover::after{
+        transform: scaleX(1);
+    }
 }
 
 .back-link{

@@ -26,7 +26,7 @@
                 <div class="d-flex justify-content-around w-100">
                     <div class="logo-navbar d-flex align-items-center">
                         <a href="{{ url('/') }}">
-                            <img src="{{asset('images/deliveroo-logo.png')}}" alt="">
+                            <img src="{{asset('img/deliveroo-logo.png')}}" alt="">
                         </a>
                     </div>
                     <div class="search-box w-50 mx-auto my-2">
