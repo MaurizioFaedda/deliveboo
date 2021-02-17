@@ -52,7 +52,7 @@ class RestaurantController extends Controller
   public function store(Request $request)
   {
     $request->validate([
-      'restaurant_name' => 'required|max:30',
+      'restaurant_name' => 'required|max:100',
       'city' => 'required|max:20',
       'address' => 'required|max:50',
       'types' => 'exists:types,id'

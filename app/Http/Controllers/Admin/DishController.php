@@ -50,7 +50,7 @@ class DishController extends Controller
   public function store(Request $request)
   {
     $request->validate([
-    'name' => 'required|max:30',
+    'name' => 'required|max:100',
     'infos' => 'required|max:250',
     'visible' => 'required',
     'price' => 'required|numeric|between:0,999.99',
@@ -161,7 +161,7 @@ class DishController extends Controller
   public function update(Request $request, Dish $dish)
   {
     $request->validate([
-      'name' => 'required|max:30',
+      'name' => 'required|max:100',
       'infos' => 'required|max:250',
       'visible' => 'required',
       'price' => 'required|numeric|between:0,999.99',
