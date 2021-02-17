@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card no-border mt-3 border-radius-top">
+            <div class="card no-border mt-3 border-radius-top shadow">
                 <div class="card-header card-header text-center no-border border-radius-top">
                     Elenco ristoranti.
                 </div>
