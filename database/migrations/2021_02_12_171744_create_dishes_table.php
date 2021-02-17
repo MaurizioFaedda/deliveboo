@@ -19,6 +19,7 @@ class CreateDishesTable extends Migration
       $table->string('infos', 250);
       $table->tinyInteger('visible')->default(1);
       $table->float('price', 5, 2);
+      $table->string('img_path_dish');
       $table->timestamps();
     });
   }
