@@ -176,10 +176,20 @@ class DishController extends Controller
       'infos' => 'required|max:250',
       'visible' => 'required',
       'price' => 'required|numeric|between:0,999.99',
+      'image' => 'nullable| mimes:jpeg,jpg,png,webp|max:512',
     ]);
 
     // I dati ricevuti dal form
     $form_data = $request->all();
+
+    // verifico se è stata caricata un'immagine
+    if(array_key_exists('image', $form_data)) {
+        // salvo l'immagine e recupero la path
+        $cover_path = Storage::put('images', $form_data['image']);
+        $form_data['img_path_dish'] = $cover_path;
+
+    }
+    
     // Faccio un update dei dati di dish
     $dish->update($form_data);
     // Faccio redirect alla pagina del piatto appena mdificato
