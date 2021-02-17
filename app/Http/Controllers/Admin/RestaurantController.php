@@ -9,6 +9,7 @@ use App\User;
 use App\Type;
 use DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 
 class RestaurantController extends Controller
@@ -55,12 +56,21 @@ class RestaurantController extends Controller
       'restaurant_name' => 'required|max:100',
       'city' => 'required|max:20',
       'address' => 'required|max:50',
+      'image' => 'nullable| mimes:jpeg,jpg,png|max:512',
       'types' => 'exists:types,id'
     ]);
     // Storing all form data in a variable
     $form_data = $request->all();
     // Creating a new Object/Instance with the form data
     $new_restaurant = new Restaurant();
+
+    // verifico se è stata caricata un'immagine
+    if(array_key_exists('image', $form_data)) {
+        // salvo l'immagine e recupero la path
+        $cover_path = Storage::put('images', $form_data['image']);
+        $form_data['img_path_rest'] = $cover_path;
+    }
+
     $new_restaurant->fill($form_data);
     // Prendo l'id dell'utente autenticato
     $id_user = Auth::user()->id;

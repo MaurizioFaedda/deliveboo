@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Restaurant extends Model
 {
-  protected $fillable = ['restaurant_name', 'city', 'address', 'user_id'];
+  protected $fillable = ['restaurant_name', 'city', 'address', 'user_id', 'img_path_rest'];
 
   // One to One between Restaurants and Users tables
   public function user() {
