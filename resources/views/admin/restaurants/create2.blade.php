@@ -6,7 +6,7 @@
         <div class="col-md-8">
             <div class="card no-border mt-3 border-radius-top shadow">
                 <div class="card-header card-header text-center no-border border-radius-top form-font">Aggiungi il tuo ristorante.</div>
-                <form class="d-flex flex-column align-items-center py-5" action="{{route('admin.restaurants.store')}}" method="post">
+                <form class="d-flex flex-column align-items-center py-5" action="{{route('admin.restaurants.store')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="card border-0 mb-5 w-75">
                         <div class="card-body shadow p-3">
