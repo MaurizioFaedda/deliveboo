@@ -15,7 +15,7 @@
                             <img class="card-img-top" src="{{ asset('img/img_not_available.png')}}" alt="not img">
                         @endif
                         <div class="card-body">
-                            <h5 class="card-title font-weight-bold">{{$restaurant->restaurant_name}}</h5>
+                            <h5 class="card-title font-weight-bold text-uppercase">{{$restaurant->restaurant_name}}</h5>
                             <a href="{{ route('admin.restaurants.show', ['restaurant' => $restaurant->id]) }}" class="btn btn-primary w-100">Visualizza ristorante</a>
                         </div>
                     </div>
