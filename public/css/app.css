@@ -229,6 +229,12 @@ table tbody tr {
   }
 }
 
+@media screen and (max-width: 762px) {
+  .custom-height {
+    height: 275px;
+  }
+}
+
 .logo-navbar {
   width: 150px;
   height: 50px;
