@@ -39,7 +39,7 @@
             </div>
 
             {{--              FORM PER CREAZIONE PIATTO             --}}
-            <div class="col-md-4 col-sm-12 h-100">
+            <div class="col-md-4 col-sm-12 h-100 mb-4">
 
                 <div class="card no-border border-radius-top shadow">
                     <div class="card-header card-header text-center no-border border-radius-top p-3">
