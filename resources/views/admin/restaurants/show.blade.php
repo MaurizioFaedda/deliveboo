@@ -90,26 +90,26 @@
                         <tbody>
                             @forelse ($restaurant->dishes as $dish)
                                 <tr class="text-left">
-                                    <td>
+                                    <td class="pt-4">
                                         <a class="text-uppercase" href="{{route('admin.dishes.show', ['dish' => $dish->id]) }}">
                                             {{ $dish->name }}
                                         </a>
                                     </td>
-                                    <td/>
-                                        {{ $dish->price }}
+                                    <td class="pt-4">
+                                        <span>{{ $dish->price }}</span>
                                     </td>
-                                    <td>
+                                    <td class="pt-3">
                                         {{-- edit --}}
                                         <a href="{{ route('admin.dishes.edit', ['dish'=> $dish->id]) }}">
                                             <span class="icon-edit"></span>
                                         </a>
                                     </td>
-                                    <td>
+                                    <td class="">
                                         {{-- delete --}}
-                                        <form class="d-inline-block" action="{{ route('admin.dishes.destroy', ['dish' => $dish->id]) }}" method="post">
+                                        <form class="" action="{{ route('admin.dishes.destroy', ['dish' => $dish->id]) }}" method="post">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit">
+                                            <button class="btn btn-link" type="submit">
                                                 <span class="icon-delete"></span>
                                             </button>
                                         </form>
