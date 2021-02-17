@@ -57,18 +57,6 @@
                         <input class="pl-1" type="file" class="form-control-file" name="image">
                     </div>
                   <div class="form-group d-flex flex-column align-items-left w-100">
-                      <div class="form-check">
-                          <input class="form-check-input" type="radio" name="visible" value="1" checked>
-                          <label class="form-check-label" for="flexRadioDefault1">
-                              Available
-                          </label>
-                      </div>
-                      <div class="form-check">
-                          <input class="form-check-input" type="radio" name="visible" value="0">
-                          <label class="form-check-label" for="flexRadioDefault2">
-                              Not Available
-                          </label>
-                      </div>
                       <div class="btn-group btn-group-toggle" data-toggle="buttons">
                           <label class="btn btn-primary w-50">
                               <input type="radio" name="visible" id="option2" value="1" checked> Avaiable
