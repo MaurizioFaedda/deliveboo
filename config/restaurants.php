@@ -41,31 +41,31 @@ return [
         "img_path_rest" => "rest_6.jpg",
         "city" => "Roma",
         "address" => "Via del Corso 127",
-        "user_id" => 6
+        "user_id" => 1
     ],[
         "restaurant_name" => "Ramen House",
         "img_path_rest" => "rest_7.jpg",
         "city" => "Roma",
         "address" => "Via Settembre 8",
-        "user_id" => 7
+        "user_id" => 2
     ],[
         "restaurant_name" => "Gnam Gnam Piadineria",
         "img_path_rest" => "rest_8.jpg",
         "city" => "Roma",
         "address" => "Via Cassia 87",
-        "user_id" => 8
+        "user_id" => 3
     ],[
         "restaurant_name" => "Chipotle Mexican Grill",
         "img_path_rest" => "rest_9.jpg",
         "city" => "Roma",
         "address" => "Via Appia 16",
-        "user_id" => 9
+        "user_id" => 4
     ],[
         "restaurant_name" => "Pokeria by Nima",
         "img_path_rest" => "rest_10.jpg",
         "city" => "Roma",
         "address" => "Via Parioli 91",
-        "user_id" => 10
+        "user_id" => 5
     ],
 
 ];

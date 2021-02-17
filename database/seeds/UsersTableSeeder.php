@@ -48,40 +48,6 @@ class UsersTableSeeder extends Seeder
             "vat_number" => "89124563997",
             'password' => bcrypt('password5'),
         ]);
-        DB::table('users')->insert([
-            "name" => "Marco",
-            "lastname" => "Caputo",
-            "email" => "marcocaputo@gmail.com",
-            "vat_number" => "40236778709",
-            'password' => bcrypt('password6'),
-        ]);
-        DB::table('users')->insert([
-            "name" => "Maurizio",
-            "lastname" => "Faedda",
-            "email" => "mauriziofaedda@gmail.com",
-            "vat_number" => "58968898013",
-            'password' => bcrypt('password7'),
-        ]);
-        DB::table('users')->insert([
-            "name" => "Maria",
-            "lastname" => "Bruni",
-            "email" => "mariabruni@gmail.com",
-            "vat_number" => "83973478483",
-            'password' => bcrypt('password8'),
-        ]);
-        DB::table('users')->insert([
-            "name" => "Carlo",
-            "lastname" => "Verdi",
-            "email" => "carloverdi@gmail.com",
-            "vat_number" => "18426356027",
-            'password' => bcrypt('password9'),
-        ]);
-        DB::table('users')->insert([
-            "name" => "Paolo",
-            "lastname" => "Neri",
-            "email" => "paoloneri@gmail.com",
-            "vat_number" => "59174563490",
-            'password' => bcrypt('password10'),
-        ]);
+    
     }
 }
