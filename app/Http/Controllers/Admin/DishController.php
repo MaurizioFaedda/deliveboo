@@ -29,13 +29,16 @@ class DishController extends Controller
    */
   public function create(Request $request)
   {
-      $query = $request->input('restaurant');
+    /*
+    // FORM aggiunto nella show di "restaurants"
+    $query = $request->input('restaurant');
 
-      $data = [
-      'restaurants' => Restaurant::all(),
-      'query' => $query
-      ];
-      return view('admin.dishes.create', $data);
+    $data = [
+    'restaurants' => Restaurant::all(),
+    'query' => $query
+    ];
+    return view('admin.dishes.create', $data);
+    */
   }
 
   /**
