@@ -25,7 +25,7 @@
                 <div class="card-header card-header text-center no-border border-radius-top p-3">
                     <h5 class="mb-0">Aggiungi un nuovo piatto</h5>
                 </div>
-                <form class="d-flex flex-column align-items-left py-3 px-3" action="{{route('admin.dishes.store')}}" method="post">
+                <form class="d-flex flex-column align-items-left py-3 px-3" action="{{route('admin.dishes.store')}}" method="post" enctype="multipart/form-data">
                   @csrf
                   <div class="form-group d-none">
                       <input type="text" class="form-control" name="restaurant_id" value="{{$restaurant->id}}" required>
