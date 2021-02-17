@@ -15,6 +15,9 @@
                                 {{$restaurant->restaurant_name}}
                             </a>
                         </li>
+                        <li class="list-group-item no-border">
+                            <img src="{{ asset('images/' . $restaurant->img_path_rest)}}" alt="{{$restaurant->restaurant_name}}">
+                        </li>
                     @endforeach
                 </ul>
                 <a href="{{route('admin.restaurants.create')}}" class="btn btn-primary my-3 mx-3">

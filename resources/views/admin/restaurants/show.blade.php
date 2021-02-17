@@ -3,6 +3,9 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
+            <div class="col-12">
+                <img src="{{ asset('images/' . $restaurant->img_path_rest)}}" alt="{{$restaurant->restaurant_name}}">
+            </div>
 
             {{--              FORM PER CREAZIONE PIATTO             --}}
             <div class="col-md-4 col-sm-12">

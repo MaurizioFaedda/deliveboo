@@ -20,6 +20,7 @@
             <p>
                 {{ $dish->visibile}}
             </p>
+            <img src="{{ asset('images/' . $dish->img_path_dish)}}" alt="{{ $dish->name}}">
         </div>
     </div>
 @endsection
