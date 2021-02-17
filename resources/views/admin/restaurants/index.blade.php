@@ -7,7 +7,7 @@
                 Nuovo ristorante
             </a>
             @foreach ($restaurants as $restaurant)
-                <div class="col-6">
+                <div class="col-md-6">
                     <div class="card my-4">
                         @if($restaurant->img_path_rest)
                             <img class="card-img-top custom-height" src="{{ asset('storage/' . $restaurant->img_path_rest)}}" alt="Card image cap" alt="{{$restaurant->restaurant_name}}">
