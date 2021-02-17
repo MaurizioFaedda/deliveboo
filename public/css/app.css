@@ -4,6 +4,12 @@
   margin-top: 100px;
 }
 
+.color_main {
+  background-color: #00CDBC;
+  color: white;
+  align-self: flex-start;
+}
+
 .no-border {
   border: none !important;
 }
