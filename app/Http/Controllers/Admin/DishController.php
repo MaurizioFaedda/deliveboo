@@ -9,6 +9,7 @@ use App\Dish;
 use App\User;
 use App\Restaurant;
 use DB;
+use Illuminate\Support\Facades\Storage;
 
 class DishController extends Controller
 {
@@ -54,12 +55,22 @@ class DishController extends Controller
     'infos' => 'required|max:250',
     'visible' => 'required',
     'price' => 'required|numeric|between:0,999.99',
+    'image' => 'nullable| mimes:jpeg,jpg,png,webp|max:512',
     ]);
 
     // Storing all form data in a variable
     $form_data = $request->all();
     // Creating a new Object/Instance with the form data
     $new_dish = new Dish();
+
+    // verifico se è stata caricata un'immagine
+    if(array_key_exists('image', $form_data)) {
+        // salvo l'immagine e recupero la path
+        $cover_path = Storage::put('images', $form_data['image']);
+        $form_data['img_path_dish'] = $cover_path;
+
+    }
+
     $new_dish->fill($form_data);
     // Saving the new Object/Instance in the database
     $new_dish->save();
