@@ -151,7 +151,7 @@
                                 </td>
                             </tr>
                         @empty
-                            -
+                            <p class="p-3 text-center">Inserisci dei piatti</p>
                         @endforelse
                     </tbody>
                 </table>
