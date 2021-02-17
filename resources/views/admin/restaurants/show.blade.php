@@ -14,11 +14,13 @@
                             <img src="{{ asset('img/img_not_available.png')}}" alt="not img">
                         @endif
                         <div>
-                            @forelse ($restaurant->types as $type)
-                                {{ $type->type }}
-                            @empty
-                                <p>Non sono state inserite tipologie</p>
-                            @endforelse
+                            <ul>
+                                @forelse ($restaurant->types as $type)
+                                <li>{{ $type->type }}</li>
+                                @empty
+                                <li>Non sono state inserite tipologie</li>
+                                @endforelse
+                            </ul>
                         </div>
                     </div>
                 </div>
