@@ -95,9 +95,12 @@ class RestaurantController extends Controller
   {
     // Prendo l'id dell'utente autenticato
     $id_user = Auth::user()->id;
+    $data = [
+        'types' => Type::all(),
+    ];
     // Controllo che il Ristorante visualizzato sia dell'utente autenticato e che ci sia il ristorante
     if($id_user == $restaurant->user_id && $restaurant) {
-      return view('admin.restaurants.show', ['restaurant' => $restaurant]);
+      return view('admin.restaurants.show', ['restaurant' => $restaurant], $data);
     } else {
       abort('404');
     }

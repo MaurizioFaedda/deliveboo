@@ -14,6 +14,13 @@
                     <img src="{{ asset('img/img_not_available.png')}}" alt="not img">
                 @endif
             </div>
+            <div>
+                @forelse ($restaurant->types as $type)
+                    {{ $type->type }}
+                @empty
+                    <p>Non sono state inserite tipologie</p>
+                @endforelse
+            </div>
               <div class="card no-border border-radius-top mt-3 shadow">
                 <div class="card-header card-header text-center no-border border-radius-top p-3">
                     <h5 class="mb-0">Aggiungi un nuovo piatto</h5>
