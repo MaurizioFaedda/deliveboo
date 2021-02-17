@@ -187,9 +187,8 @@ class DishController extends Controller
         // salvo l'immagine e recupero la path
         $cover_path = Storage::put('images', $form_data['image']);
         $form_data['img_path_dish'] = $cover_path;
-
     }
-    
+
     // Faccio un update dei dati di dish
     $dish->update($form_data);
     // Faccio redirect alla pagina del piatto appena mdificato
