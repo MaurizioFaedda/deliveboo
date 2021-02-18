@@ -8,45 +8,45 @@ var app = new Vue ({
       selected_type: ''
     },
     methods: {
-      showAllRestaurants() {
+      getAllRestaurants() {
         this.selected_type = '';
         this.restaurants = [];
-        // -------------------- AJAX call for Restaurants --------------------
+        // -------------------- AXIOS call for ALL Restaurants --------------------
         axios
         .get('/api/restaurants')
         .then(response => {
           this.restaurants = response.data.results;
         });
       },
-      getSelectedRestaurants() {
-        // -------------------- AJAX call for Selected Restaurants by Type --------------------
+      getFilteredRestaurants() {
+        this.restaurants = [];
+        // -------------------- AXIOS call for FILTERED Restaurants by Type --------------------
         axios
         .get('/api/restaurants/' + this.selected_type)
         .then(response => {
           this.restaurants = response.data.results;
         });
+      },
+      getAllTypes() {
+        // -------------------- AXIOS call for all Types --------------------
+        axios
+        .get('/api/types')
+        .then(response => {
+          this.types = response.data.results;
+        });
+      },
+      getAllDishes() {
+        // -------------------- AXIOS call for all Dishes --------------------
+        axios
+        .get('/api/dishes')
+        .then(response => {
+          this.dishes = response.data.results;
+        });
       }
     },
     mounted() {
-      const self = this;
-      // -------------------- AJAX call for Types --------------------
-      axios
-      .get('/api/types')
-      .then(response => {
-        self.types = response.data.results;
-      });
-      // -------------------- AJAX call for Restaurants --------------------
-      axios
-      .get('/api/restaurants')
-      .then(response => {
-        self.restaurants = response.data.results;
-      });
-
-      // -------------------- AJAX call for Dishes --------------------
-      axios
-      .get('/api/dishes')
-      .then(response => {
-        self.dishes = response.data.results;
-      });
+      this.getAllRestaurants();
+      this.getAllTypes();
+      this.getAllDishes()
     }
 });

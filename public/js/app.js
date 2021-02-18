@@ -37297,39 +37297,46 @@ var app = new Vue({
     selected_type: ''
   },
   methods: {
-    showAllRestaurants: function showAllRestaurants() {
+    getAllRestaurants: function getAllRestaurants() {
       var _this = this;
 
       this.selected_type = '';
-      this.restaurants = []; // -------------------- AJAX call for Restaurants --------------------
+      this.restaurants = []; // -------------------- AXIOS call for ALL Restaurants --------------------
 
       axios.get('/api/restaurants').then(function (response) {
         _this.restaurants = response.data.results;
       });
     },
-    getSelectedRestaurants: function getSelectedRestaurants() {
+    getFilteredRestaurants: function getFilteredRestaurants() {
       var _this2 = this;
 
-      // -------------------- AJAX call for Selected Restaurants by Type --------------------
+      this.restaurants = []; // -------------------- AXIOS call for FILTERED Restaurants by Type --------------------
+
       axios.get('/api/restaurants/' + this.selected_type).then(function (response) {
         _this2.restaurants = response.data.results;
+      });
+    },
+    getAllTypes: function getAllTypes() {
+      var _this3 = this;
+
+      // -------------------- AXIOS call for all Types --------------------
+      axios.get('/api/types').then(function (response) {
+        _this3.types = response.data.results;
+      });
+    },
+    getAllDishes: function getAllDishes() {
+      var _this4 = this;
+
+      // -------------------- AXIOS call for all Dishes --------------------
+      axios.get('/api/dishes').then(function (response) {
+        _this4.dishes = response.data.results;
       });
     }
   },
   mounted: function mounted() {
-    var self = this; // -------------------- AJAX call for Types --------------------
-
-    axios.get('/api/types').then(function (response) {
-      self.types = response.data.results;
-    }); // -------------------- AJAX call for Restaurants --------------------
-
-    axios.get('/api/restaurants').then(function (response) {
-      self.restaurants = response.data.results;
-    }); // -------------------- AJAX call for Dishes --------------------
-
-    axios.get('/api/dishes').then(function (response) {
-      self.dishes = response.data.results;
-    });
+    this.getAllRestaurants();
+    this.getAllTypes();
+    this.getAllDishes();
   }
 });
 
