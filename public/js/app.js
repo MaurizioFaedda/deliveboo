@@ -37291,7 +37291,21 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 var app = new Vue({
   el: '#app',
   data: {
-    pippo: 'Hello Pippo'
+    types: [],
+    restaurants: []
+  },
+  mounted: function mounted() {
+    var self = this; // -------------------- AJAX call for Types --------------------
+
+    axios.get('/api/types').then(function (response) {
+      self.types = response.data.results;
+      console.log(self.types);
+    }); // -------------------- AJAX call for Restaurants --------------------
+
+    axios.get('/api/restaurants').then(function (response) {
+      self.restaurants = response.data.results;
+      console.log(self.restaurants);
+    });
   }
 });
 
