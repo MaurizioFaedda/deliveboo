@@ -37297,8 +37297,20 @@ var app = new Vue({
     selected_type: ''
   },
   methods: {
-    show_all: function show_all() {
+    showAllRestaurants: function showAllRestaurants() {
       this.selected_type = '';
+    },
+    getSelectedRestaurants: function getSelectedRestaurants() {
+      var _this = this;
+
+      // -------------------- AJAX call for Selected Restaurants by Type --------------------
+      axios.get('/api/restaurants/', {
+        params: {
+          query: this.selected_type
+        }
+      }).then(function (response) {
+        _this.restaurants = response.data.results;
+      });
     }
   },
   mounted: function mounted() {
@@ -37306,17 +37318,14 @@ var app = new Vue({
 
     axios.get('/api/types').then(function (response) {
       self.types = response.data.results;
-      console.log(self.types);
     }); // -------------------- AJAX call for Restaurants --------------------
 
     axios.get('/api/restaurants').then(function (response) {
       self.restaurants = response.data.results;
-      console.log(self.restaurants);
     }); // -------------------- AJAX call for Dishes --------------------
 
     axios.get('/api/dishes').then(function (response) {
       self.dishes = response.data.results;
-      console.log(self.dishes);
     });
   }
 });

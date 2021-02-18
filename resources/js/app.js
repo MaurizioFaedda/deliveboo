@@ -8,8 +8,20 @@ var app = new Vue ({
       selected_type: ''
     },
     methods: {
-      show_all() {
+      showAllRestaurants() {
         this.selected_type = '';
+      },
+      getSelectedRestaurants() {
+        // -------------------- AJAX call for Selected Restaurants by Type --------------------
+        axios
+        .get('/api/restaurants/', {
+          params: {
+            query: this.selected_type
+          }
+        })
+        .then(response => {
+          this.restaurants = response.data.results;
+        });
       }
     },
     mounted() {
@@ -19,21 +31,19 @@ var app = new Vue ({
       .get('/api/types')
       .then(response => {
         self.types = response.data.results;
-        console.log(self.types);
       });
       // -------------------- AJAX call for Restaurants --------------------
       axios
       .get('/api/restaurants')
       .then(response => {
         self.restaurants = response.data.results;
-        console.log(self.restaurants);
       });
+
       // -------------------- AJAX call for Dishes --------------------
       axios
       .get('/api/dishes')
       .then(response => {
         self.dishes = response.data.results;
-        console.log(self.dishes);
       });
     }
 });
