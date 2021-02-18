@@ -3,7 +3,8 @@ var app = new Vue ({
     el: '#app',
     data: {
       types: [],
-      restaurants: []
+      restaurants: [],
+      dishes: []
     },
     mounted() {
       const self = this;
@@ -20,6 +21,13 @@ var app = new Vue ({
       .then(response => {
         self.restaurants = response.data.results;
         console.log(self.restaurants);
+      });
+      // -------------------- AJAX call for Dishes --------------------
+      axios
+      .get('/api/dishes')
+      .then(response => {
+        self.dishes = response.data.results;
+        console.log(self.dishes);
       });
     }
 });

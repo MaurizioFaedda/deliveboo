@@ -37292,7 +37292,8 @@ var app = new Vue({
   el: '#app',
   data: {
     types: [],
-    restaurants: []
+    restaurants: [],
+    dishes: []
   },
   mounted: function mounted() {
     var self = this; // -------------------- AJAX call for Types --------------------
@@ -37305,6 +37306,11 @@ var app = new Vue({
     axios.get('/api/restaurants').then(function (response) {
       self.restaurants = response.data.results;
       console.log(self.restaurants);
+    }); // -------------------- AJAX call for Dishes --------------------
+
+    axios.get('/api/dishes').then(function (response) {
+      self.dishes = response.data.results;
+      console.log(self.dishes);
     });
   }
 });
