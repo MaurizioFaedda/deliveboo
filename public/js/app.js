@@ -37288,6 +37288,13 @@ module.exports = function(module) {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+var app = new Vue({
+  el: '#app',
+  data: {
+    pippo: 'Hello Pippo'
+  }
+});
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
