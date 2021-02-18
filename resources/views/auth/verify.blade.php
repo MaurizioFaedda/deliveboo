@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+{{-- titolo --}}
+@section("page-title", "Deliveboo | Verify")
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

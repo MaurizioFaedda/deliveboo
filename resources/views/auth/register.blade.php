@@ -1,5 +1,8 @@
 @extends('layouts.guest')
 
+{{-- titolo --}}
+@section("page-title", "Deliveboo | Register")
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
