@@ -26,7 +26,7 @@ class RestaurantController extends Controller
       $type = Type::find($id);
       return response()->json([
           'success' => true,
-          'results' => $type->restaurants // relazione MANY TO MANY
+          'results' => $type->restaurants// relazione MANY TO MANY
       ]);
     } else {
         return response()->json([
