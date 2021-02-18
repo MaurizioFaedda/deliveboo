@@ -17,6 +17,7 @@ class CreateTypesTable extends Migration
         $table->id();
         $table->string('type', 30);
         $table->string('notes')->nullable();
+        $table->string('img_path_type')->nullable();
         $table->timestamps();
     });
 }
