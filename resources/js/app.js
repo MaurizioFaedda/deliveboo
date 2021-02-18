@@ -4,7 +4,13 @@ var app = new Vue ({
     data: {
       types: [],
       restaurants: [],
-      dishes: []
+      dishes: [],
+      selected_type: ''
+    },
+    methods: {
+      show_all() {
+        this.selected_type = '';
+      }
     },
     mounted() {
       const self = this;
