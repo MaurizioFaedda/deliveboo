@@ -10,15 +10,18 @@ var app = new Vue ({
     methods: {
       showAllRestaurants() {
         this.selected_type = '';
+        this.restaurants = [];
+        // -------------------- AJAX call for Restaurants --------------------
+        axios
+        .get('/api/restaurants')
+        .then(response => {
+          this.restaurants = response.data.results;
+        });
       },
       getSelectedRestaurants() {
         // -------------------- AJAX call for Selected Restaurants by Type --------------------
         axios
-        .get('/api/restaurants/', {
-          params: {
-            query: this.selected_type
-          }
-        })
+        .get('/api/restaurants/' + this.selected_type)
         .then(response => {
           this.restaurants = response.data.results;
         });

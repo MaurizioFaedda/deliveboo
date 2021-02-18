@@ -37298,18 +37298,21 @@ var app = new Vue({
   },
   methods: {
     showAllRestaurants: function showAllRestaurants() {
-      this.selected_type = '';
-    },
-    getSelectedRestaurants: function getSelectedRestaurants() {
       var _this = this;
 
-      // -------------------- AJAX call for Selected Restaurants by Type --------------------
-      axios.get('/api/restaurants/', {
-        params: {
-          query: this.selected_type
-        }
-      }).then(function (response) {
+      this.selected_type = '';
+      this.restaurants = []; // -------------------- AJAX call for Restaurants --------------------
+
+      axios.get('/api/restaurants').then(function (response) {
         _this.restaurants = response.data.results;
+      });
+    },
+    getSelectedRestaurants: function getSelectedRestaurants() {
+      var _this2 = this;
+
+      // -------------------- AJAX call for Selected Restaurants by Type --------------------
+      axios.get('/api/restaurants/' + this.selected_type).then(function (response) {
+        _this2.restaurants = response.data.results;
       });
     }
   },

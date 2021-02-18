@@ -18,19 +18,20 @@
     </div>
     {{-- RESTAURANTS CARDS --}}
     <div v-if="selected_type == ''">
-      <h3>Restaurant list</h3>
+      <h3>Restaurants list</h3>
       <ul>
         <li v-for="restaurant in restaurants">
           @{{restaurant.restaurant_name}}
         </li>
       </ul>
     </div>
-    {{-- <div v-else>
+    <div v-else>
+      <h3>Filtered Restaurants by types</h3>
       <ul>
         <li v-for="restaurant in restaurants">
           @{{restaurant.restaurant_name}}
         </li>
       </ul>
-    </div> --}}
+    </div>
 </div>
 @endsection

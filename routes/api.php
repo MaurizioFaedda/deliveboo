@@ -14,8 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/types', 'Api\TypeController@index');
-Route::get('/restaurants', 'Api\RestaurantController@index');
-Route::get('/dishes', 'Api\DishController@index');
-// Passo l'ID dei type preso dalla select al Restaurant Controller
-Route::get('/restaurants/{id}', 'Api\RestaurantController@filter_restaurants');
+Route::namespace('Api')->group(function() {
+  Route::get('/types', 'TypeController@index');
+  Route::get('/restaurants', 'RestaurantController@index');
+  Route::get('/dishes', 'DishController@index');
+  // Passo l'ID dei type preso dalla select al Restaurant Controller
+  Route::get('/restaurants/{id}', 'RestaurantController@filter_restaurants');
+});
