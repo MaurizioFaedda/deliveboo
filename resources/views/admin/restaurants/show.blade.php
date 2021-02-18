@@ -137,7 +137,7 @@
                                         </a>
                                     </td>
                                     <td/>
-                                    {{ $dish->price }}
+                                    {{ $dish->price }} €
                                 </td>
                                 <td>
                                     {{-- edit --}}
