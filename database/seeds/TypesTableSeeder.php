@@ -18,6 +18,7 @@ class TypesTableSeeder extends Seeder
       $new_type_obj = new Type();
       $new_type_obj->type = $type['type'];
       $new_type_obj->notes = $type['notes'];
+      $new_type_obj->img_path_type = $type['img_path_type'];
       $new_type_obj->save();
     }
   }
