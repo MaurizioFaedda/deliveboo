@@ -7,13 +7,13 @@
     <div>
       <h3>Select your type</h3>
       <div class="filter">
-          <select v-model="selected_type" id="type-filter">
+          <select @change="getSelectedRestaurants()" v-model="selected_type" id="type-filter">
               <option value="">All types</option>
-              <option v-for="type in types" :value="type.type">
+              <option v-for="type in types" :value="type.id">
                 @{{type.type}}
               </option>
           </select>
-          <button @click="show_all()" type="button" name="button">Show all</button>
+          <button @click="showAllRestaurants()" type="button" name="button">Show all</button>
       </div>
     </div>
     {{-- RESTAURANTS CARDS --}}
