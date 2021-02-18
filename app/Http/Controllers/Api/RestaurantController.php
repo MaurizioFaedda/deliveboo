@@ -18,13 +18,21 @@ class RestaurantController extends Controller
     ]);
   }
 
+  // Prendo il parametro che ho passato tramite query string dalla select che è il tipo selezionato dall'utente
   public function filter_restaurants($id)
   {
-    // Prendo il parametro che ho passato tramite query string dalla select che è il tipo selezionato dall'utente
-    $type = Type::find($id);
-    return response()->json([
-        'success' => true,
-        'results' => $type->restaurants
-    ]);
+    if($id) {
+      // QUERY per cercare il tipo selezionato dall'utente nella tabella dei tipi
+      $type = Type::find($id);
+      return response()->json([
+          'success' => true,
+          'results' => $type->restaurants // relazione MANY TO MANY
+      ]);
+    } else {
+        return response()->json([
+            'success' => false,
+            'results' => []
+        ]);
+    }
   }
 }
