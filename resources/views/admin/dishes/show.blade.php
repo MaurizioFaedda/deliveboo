@@ -44,7 +44,7 @@
                   <div class="">
                       <small><strong>Status</strong></small>
                       <p>
-                          Your dish is currently <strong>{{$dish->visibile ? "" : "not"}} visible</strong> in the menu.
+                          Your dish is currently <strong>{{$dish->visible ? "" : "not"}} visible</strong> in the menu.
                       </p>
                   </div>
               </div>
