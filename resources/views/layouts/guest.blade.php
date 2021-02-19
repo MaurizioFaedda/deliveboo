@@ -27,7 +27,7 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container-fluid">
+            <div class="container">
                 <div class="d-flex justify-content-between align-items-center w-100">
                     <div class="logo-navbar d-flex align-items-center">
                         <a href="{{ url('/') }}">
