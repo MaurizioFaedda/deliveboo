@@ -37297,7 +37297,8 @@ var app = new Vue({
     selected_type: '',
     checked_types: [],
     filtered_restaurants: [],
-    current_restaurants: []
+    current_restaurants: [],
+    id_restaurant: []
   },
   methods: {
     getAllRestaurants: function getAllRestaurants() {
@@ -37326,17 +37327,26 @@ var app = new Vue({
       for (var i = 0; i < this.checked_types.length; i++) {
         axios.get('/api/restaurants/' + this.checked_types[i]).then(function (response) {
           // prendo i risultati della chiamata ajax e li salvo in un array di appoggio
-          _this3.current_restaurants = response.data.results;
-          console.log(_this3.current_restaurants);
-        }); // // Attribuisco il risultato dei ristoranti filtrati all'array restaurants
-        // this.restaurants = this.filtered_restaurants;
-        // console.log(this.restaurant);
-      } // push ogni singolo elemento che mi arriva nell'array dei filtri
+          _this3.current_restaurants = response.data.results; // console.log(this.current_restaurants);
+          // Ciclo il risultato della chiamata
+
+          _this3.current_restaurants.forEach(function (currentrestaurants) {
+            // per ogni sinsolo oggetto controllo che id del ristorante non sia già presente nell'array id_restaurant
+            if (!_this3.id_restaurant.includes(currentrestaurants.id)) {
+              // se non è presente lo pusho nell'array id_restaurant
+              _this3.id_restaurant.push(currentrestaurants.id); // console.log(this.id_restaurant);
+              // Dopo aver selezionato gli elementi che hanno passato il check dell'id del ristorante li pusho nell'array dei ristoranti filtrati
 
 
-      this.current_restaurants.forEach(function (currentrestaurants) {
-        console.log(_this3.current_restaurants);
-      });
+              _this3.filtered_restaurants.push(currentrestaurants); // console.log(this.filtered_restaurants);
+              // Attribuisco il risultato dei ristoranti filtrati all'array restaurants
+
+
+              _this3.restaurants = _this3.filtered_restaurants; // console.log(this.restaurant);
+            }
+          });
+        });
+      }
     },
     getAllTypes: function getAllTypes() {
       var _this4 = this;
