@@ -287,6 +287,67 @@ table tbody tr {
   background-color: #f5f5f5;
 }
 
+.icon-restaurant-main-color::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\F2E7";
+  color: #fff;
+  font-size: 20px;
+  padding-right: 16px;
+  color: #00CDBC;
+}
+
+.icon-address-main-color::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\F3C5";
+  color: #fff;
+  font-size: 20px;
+  padding-right: 16px;
+  color: #00CDBC;
+}
+
+.icon-tags-main-color::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\F02C";
+  color: #fff;
+  font-size: 20px;
+  padding-right: 16px;
+  color: #00CDBC;
+  padding-right: 0;
+}
+
+.icon-info-main-color::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\F129";
+  color: #fff;
+  font-size: 20px;
+  padding-right: 16px;
+  color: #00CDBC;
+}
+
+.icon-menu-main-color::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\F46D";
+  color: #fff;
+  font-size: 20px;
+  padding-right: 16px;
+  color: #00CDBC;
+}
+
+.icon-cart-main-color::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\F07A";
+  color: #fff;
+  font-size: 20px;
+  padding-right: 16px;
+  color: #00CDBC;
+}
+
 .search-box {
   width: 300px;
   height: 20px;
