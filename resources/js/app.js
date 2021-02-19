@@ -8,7 +8,8 @@ var app = new Vue ({
       selected_type: '',
       checked_types: [],
       filtered_restaurants: [],
-      current_restaurants: []
+      current_restaurants: [],
+      id_restaurant: []
     },
     methods: {
       getAllRestaurants() {
@@ -38,18 +39,32 @@ var app = new Vue ({
           .then(response => {
             // prendo i risultati della chiamata ajax e li salvo in un array di appoggio
             this.current_restaurants = response.data.results;
-            console.log(this.current_restaurants);
+            // console.log(this.current_restaurants);
+            // Ciclo il risultato della chiamata
+            this.current_restaurants.forEach((currentrestaurants) => {
+                // per ogni sinsolo oggetto controllo che id del ristorante non sia già presente nell'array id_restaurant
+                if(!this.id_restaurant.includes(currentrestaurants.id)){
+
+                    // se non è presente lo pusho nell'array id_restaurant
+                    this.id_restaurant.push(currentrestaurants.id);
+                    // console.log(this.id_restaurant);
+
+                    // Dopo aver selezionato gli elementi che hanno passato il check dell'id del ristorante li pusho nell'array dei ristoranti filtrati
+                    this.filtered_restaurants.push(currentrestaurants);
+                    // console.log(this.filtered_restaurants);
+
+                    // Attribuisco il risultato dei ristoranti filtrati all'array restaurants
+                    this.restaurants = this.filtered_restaurants;
+                    // console.log(this.restaurant);
+                }
+            });
           });
 
-          // // Attribuisco il risultato dei ristoranti filtrati all'array restaurants
-          // this.restaurants = this.filtered_restaurants;
-          // console.log(this.restaurant);
         }
 
-        // push ogni singolo elemento che mi arriva nell'array dei filtri
-        this.current_restaurants.forEach((currentrestaurants) => {
-            console.log(this.current_restaurants);
-        });
+
+
+
       },
       getAllTypes() {
         // -------------------- AXIOS call for all Types --------------------
