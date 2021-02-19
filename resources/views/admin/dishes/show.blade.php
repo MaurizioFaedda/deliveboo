@@ -41,8 +41,12 @@
                       <p>{{ $dish->infos}}</p>
                   </div>
                   <div class="">
-                      <small><strong>Price</strong></small>
-                      <p>€ <strong>{{ $dish->price}}</strong></p>
+                    <small><strong>Price</strong></small>
+                    <p> €
+                      <strong>
+                        {{number_Format($dish->price, 2, ',', '')}}
+                      </strong>
+                    </p>
                   </div>
                   <div class="">
                       <small><strong>Status</strong></small>

@@ -21,7 +21,9 @@
       <h3>Restaurants list</h3>
       <ul>
         <li v-for="restaurant in restaurants">
-          @{{restaurant.restaurant_name}}
+          <a :href="'restaurant/' + restaurant.id">
+            @{{restaurant.restaurant_name}}
+          </a>
         </li>
       </ul>
     </div>
