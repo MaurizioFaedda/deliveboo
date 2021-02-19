@@ -42,6 +42,16 @@
 
 }
 
+.nav-top-right{
+    ul{
+        li{
+            a{
+                color: $color_main!important;
+            }
+        }
+    }
+}
+
 // Sidebar
 #guest-sidebar{
     position: fixed;

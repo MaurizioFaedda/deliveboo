@@ -28,7 +28,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container-fluid">
-                <div class="d-flex justify-content-between w-100">
+                <div class="d-flex justify-content-between align-items-center w-100">
                     <div class="logo-navbar d-flex align-items-center">
                         <a href="{{ url('/') }}">
                             <img src="{{asset('img/deliveroo-logo.png')}}" alt="">
@@ -44,7 +44,7 @@
                         </button>
 
 
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <div class="collapse navbar-collapse nav-top-right" id="navbarSupportedContent">
                             <!-- Right Side Of Navbar -->
                             <ul class="navbar-nav ml-auto">
                                 <!-- Authentication Links -->

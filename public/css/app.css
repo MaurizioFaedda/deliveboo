@@ -334,6 +334,10 @@ table tbody tr {
   color: #009a8d;
 }
 
+.nav-top-right ul li a {
+  color: #00CDBC !important;
+}
+
 #guest-sidebar {
   position: fixed;
   top: 71px;
