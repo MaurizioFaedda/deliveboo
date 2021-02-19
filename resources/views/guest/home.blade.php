@@ -17,23 +17,18 @@
       </div>
     </div>
     {{-- RESTAURANTS CARDS --}}
-    <div v-if="selected_type == ''">
-      <h3>Restaurants list</h3>
-      <ul>
-        <li v-for="restaurant in restaurants">
-          <a :href="'restaurant/' + restaurant.id">
-            @{{restaurant.restaurant_name}}
-          </a>
-        </li>
-      </ul>
+
+    <div class="row">
+         <div v-for="restaurant in restaurants" class="col-sm col-md-4">
+            <div class="card my-4 w-100 h-25">
+                <img v-if="restaurant.img_path_rest" class="card-img-top g-custom-card-height" :src="'storage/' + restaurant.img_path_rest" alt="Card image cap">
+                <img v-else class="card-img-top g-custom-card-height" src="" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title font-weight-bold"> @{{restaurant.restaurant_name}}</h5>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <a :href="'restaurant/' + restaurant.id" class="btn btn-primary">Visualizza ristorante</a>
+                </div>
+            </div>
+        </div>
     </div>
-    <div v-else>
-      <h3>Filtered Restaurants by types</h3>
-      <ul>
-        <li v-for="restaurant in restaurants">
-          @{{restaurant.restaurant_name}}
-        </li>
-      </ul>
-    </div>
-</div>
 @endsection

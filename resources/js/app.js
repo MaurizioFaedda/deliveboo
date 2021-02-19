@@ -16,6 +16,7 @@ var app = new Vue ({
         .get('/api/restaurants')
         .then(response => {
           this.restaurants = response.data.results;
+          console.log(this.restaurants);
         });
       },
       getFilteredRestaurants() {

@@ -348,6 +348,10 @@ table tbody tr {
   border-right: 1px solid #00CDBC;
 }
 
+.g-custom-card-height {
+  height: 200px;
+}
+
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors
