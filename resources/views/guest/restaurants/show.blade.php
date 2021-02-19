@@ -52,7 +52,7 @@
 
                                     <div class="card-dish bg-white mt-3 d-flex justify-content-between align-items center">
 
-                                                <button type="button" class="btn btn-link d-flex" data-toggle="modal" data-target="#{{ str_replace([' ', '&', ','], '', $dish->name) }}">
+                                                <button type="button" class="btn btn-link d-flex" data-toggle="modal" data-target="#{{ str_replace([" ", "&", ",", "'"], '', $dish->name) }}">
                                                     <div class="w-50 p-2 d-flex flex-column justify-content-center align-items-center">
                                                         <h5 data-target="#title">{{$dish->name}}</h5>
                                                         <span class="text-bold">{{number_Format($dish->price, 2, ',', '')}} €</span>
@@ -64,19 +64,23 @@
                                     </div>
 
                                     <!-- Modal -->
-                                    <div class="modal fade" id="{{ str_replace([' ', '&', ','], '', $dish->name) }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                    <div class="modal fade" id="{{ str_replace([' ', '&', ',', "'"], '', $dish->name) }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                       <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content">
                                               <div class="modal-header">
-                                                    <h5 class="modal-title">{{$dish->name}}</h5>
+                                                    <h3 class="modal-title">{{$dish->name}}</h3>
 
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                       <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
-                                                <div class="modal-body">
-                                                    <div class="img-dish-model w-100">
+                                                <div class="modal-body pb-0">
+                                                    <div class="img-dish-model w-100 h-50">
                                                         <img class="rounded w-100 h-100" src="{{asset('storage/' . $dish->img_path_dish)}}" alt="{{$dish->name}} picture">
+                                                    </div>
+                                                    <div class="py-3 d-flex flex-column justify-content-between">
+                                                        <p class="mb-0"><strong>Infos:</strong> {{$dish->infos}}</p>
+                                                        <p class="mb-0 pt-2"><strong>Price:</strong> € {{$dish->price}}</p>
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
