@@ -20,7 +20,7 @@
 
     <!-- Favicon -->
         <link rel="icon" href="{{ asset('img/favicon.png') }}">
-        
+
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
@@ -28,16 +28,16 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container-fluid">
-                <div class="d-flex justify-content-around w-100">
+                <div class="d-flex justify-content-between w-100">
                     <div class="logo-navbar d-flex align-items-center">
                         <a href="{{ url('/') }}">
                             <img src="{{asset('img/deliveroo-logo.png')}}" alt="">
                         </a>
                     </div>
-                    <div class="search-box w-50 mx-auto my-2">
+                    {{-- <div class="search-box w-50 mx-auto my-2">
                         <button type="button" name="button"></button>
                         <input placeholder="Piatti,ristoranti o tipi di cucina" type="text" ref="search">
-                    </div>
+                    </div> --}}
                     <div class="">
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                             <span class="navbar-toggler-icon"></span>
@@ -45,11 +45,6 @@
 
 
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <!-- Left Side Of Navbar -->
-                            <ul class="navbar-nav mr-auto">
-
-                            </ul>
-
                             <!-- Right Side Of Navbar -->
                             <ul class="navbar-nav ml-auto">
                                 <!-- Authentication Links -->
@@ -94,7 +89,7 @@
         </nav>
         <div class="container-fluid">
             <div class="row">
-                <nav id="guest-sidebar" class="col-md-2 d-none d-md-block">
+                {{-- <nav id="guest-sidebar" class="col-md-2 d-none d-md-block">
                     <div class="sidebar-sticky">
                         <ul class="nav flex-column">
                             <li class="nav-item">
@@ -102,8 +97,8 @@
                             </li>
                         </ul>
                     </div>
-                </nav>
-                <main class="col-md-10 ml-sm-auto  mt-5 col-lg-10 pt-5">
+                </nav> --}}
+                <main class="col-md-12 ml-sm-auto mt-5 pt-5">
                     @yield('content')
                 </main>
           </div>
