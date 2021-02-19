@@ -5,7 +5,9 @@ var app = new Vue ({
       types: [],
       restaurants: [],
       dishes: [],
-      selected_type: ''
+      selected_type: '',
+      checked_types: [],
+      filtered_restaurants: []
     },
     methods: {
       getAllRestaurants() {
@@ -16,7 +18,6 @@ var app = new Vue ({
         .get('/api/restaurants')
         .then(response => {
           this.restaurants = response.data.results;
-          console.log(this.restaurants);
         });
       },
       getFilteredRestaurants() {
@@ -27,6 +28,18 @@ var app = new Vue ({
         .then(response => {
           this.restaurants = response.data.results;
         });
+      },
+      getFilteredRestaurantsByTypes() {
+        // -------------------- AXIOS call for FILTERED Restaurants by Types --------------------
+        for (var i = 0; i < this.checked_types.length; i++) {
+          axios
+          .get('/api/restaurants/' + this.checked_types[i])
+          .then(response => {
+            this.filtered_restaurants = response.data.results;
+          });
+          this.restaurants = [];
+            this.filtered_restaurants.push(this.restaurants);
+        }
       },
       getAllTypes() {
         // -------------------- AXIOS call for all Types --------------------
@@ -48,6 +61,6 @@ var app = new Vue ({
     mounted() {
       this.getAllRestaurants();
       this.getAllTypes();
-      this.getAllDishes()
+      this.getAllDishes();
     }
 });

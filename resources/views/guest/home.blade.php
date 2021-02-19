@@ -3,17 +3,27 @@
 @section('content')
 <div class="container">
     <h2>Views dinamiche con vue</h2>
-    {{-- CHECKBOX TYPES --}}
+    {{-- CHECKBOX FILTER TYPES --}}
+    <div>
+      <h3>Check your types</h3>
+      <div v-for="type in types">
+        <input @click="getFilteredRestaurantsByTypes()" type="checkbox" :value="type.id" v-model="checked_types">
+        <label for="type.type">
+            @{{type.type}}
+        </label>
+      </div>
+    </div>
+    {{-- SELECT TYPES --}}
     <div>
       <h3>Select your type</h3>
       <div class="filter">
-          <select @change="getFilteredRestaurants()" v-model="selected_type" id="type-filter">
-              <option value="">All types</option>
-              <option v-for="type in types" :value="type.id">
-                @{{type.type}}
-              </option>
-          </select>
-          <button @click="getAllRestaurants()" type="button" name="button">Show all</button>
+        <select @change="getFilteredRestaurants()" v-model="selected_type" id="type-filter">
+            <option value="">All types</option>
+            <option v-for="type in types" :value="type.id">
+              @{{type.type}}
+            </option>
+        </select>
+        <button @click="getAllRestaurants()" type="button" name="button">Show all</button>
       </div>
     </div>
     {{-- RESTAURANTS CARDS --}}
