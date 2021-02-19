@@ -35,4 +35,27 @@ class RestaurantController extends Controller
         ]);
     }
   }
+  public function get_filtered_restaurants(Request $request)
+  {
+    $filtered_restaurants = [];
+    $restaurants_types_array = [];
+    // Prendo il parametro che ho passato tramite POST contenente l'array dei tipi selezionati dall'utente nella checkbox
+    $checked_types = $request->checked;
+    // Ciclo l'array di tipi selezionati dall'utente
+    for ($i=0; $i < count($checked_types); $i++) {
+      // QUERY per cercare il tipo corrente ciclato all'interno della tabella Types nel DB
+      $type = Type::find($checked_types[$i]);
+      // Raccolgo in un array tutti i ristoranti con il tipo corrente ciclato
+      $restaurants_types_array = $type->restaurants; // relazione MANY TO MANY
+      // Ciclo l'array di ristoranti appena creato
+      foreach ($restaurants_types_array as $current_restaurant) {
+        array_push($filtered_restaurants, $current_restaurant);
+      }
+    };
+    // Creo l'oggetto JSON con l'array dei ristoranti che hanno i tipi selezionati dall'utente
+    return response()->json([
+      'success' => true,
+      'results' => $filtered_restaurants
+    ]);
+  }
 }

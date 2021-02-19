@@ -37297,7 +37297,6 @@ var app = new Vue({
     selected_type: '',
     checked_types: [],
     filtered_restaurants: [],
-    current_restaurants: [],
     id_restaurant: []
   },
   methods: {
@@ -37305,7 +37304,8 @@ var app = new Vue({
       var _this = this;
 
       this.selected_type = '';
-      this.restaurants = []; // -------------------- AXIOS call for ALL Restaurants --------------------
+      this.restaurants = [];
+      this.checked_types = []; // -------------------- AXIOS call for ALL Restaurants --------------------
 
       axios.get('/api/restaurants').then(function (response) {
         _this.restaurants = response.data.results;
@@ -37323,14 +37323,21 @@ var app = new Vue({
     getFilteredRestaurantsByTypes: function getFilteredRestaurantsByTypes() {
       var _this3 = this;
 
-      // console.log(this.checked_types);
-      for (var i = 0; i < this.checked_types.length; i++) {
-        axios.get('/api/restaurants/' + this.checked_types[i]).then(function (response) {
+      var request = {
+        checked: this.checked_types
+      }; // Se l'array di checkbox è vuoto visualizzo in automatico tutti i ristoranti
+
+      if (this.checked_types.length == 0) {
+        this.getAllRestaurants();
+      } else {
+        // -------------------- AXIOS call for FILTERED Restaurants by Types --------------------
+        this.restaurants = [];
+        axios.post('/api/restaurants/', request).then(function (response) {
           // prendo i risultati della chiamata ajax e li salvo in un array di appoggio
-          _this3.current_restaurants = response.data.results; // console.log(this.current_restaurants);
+          _this3.restaurants = response.data.results; // console.log(this.current_restaurants);
           // Ciclo il risultato della chiamata
 
-          _this3.current_restaurants.forEach(function (currentrestaurants) {
+          _this3.restaurants.forEach(function (currentrestaurants) {
             // per ogni sinsolo oggetto controllo che id del ristorante non sia già presente nell'array id_restaurant
             if (!_this3.id_restaurant.includes(currentrestaurants.id)) {
               // se non è presente lo pusho nell'array id_restaurant
