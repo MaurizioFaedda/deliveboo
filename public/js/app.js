@@ -37294,7 +37294,9 @@ var app = new Vue({
     types: [],
     restaurants: [],
     dishes: [],
-    selected_type: ''
+    selected_type: '',
+    checked_types: [],
+    filtered_restaurants: []
   },
   methods: {
     getAllRestaurants: function getAllRestaurants() {
@@ -37305,7 +37307,6 @@ var app = new Vue({
 
       axios.get('/api/restaurants').then(function (response) {
         _this.restaurants = response.data.results;
-        console.log(_this.restaurants);
       });
     },
     getFilteredRestaurants: function getFilteredRestaurants() {
@@ -37317,20 +37318,32 @@ var app = new Vue({
         _this2.restaurants = response.data.results;
       });
     },
-    getAllTypes: function getAllTypes() {
+    getFilteredRestaurantsByTypes: function getFilteredRestaurantsByTypes() {
       var _this3 = this;
+
+      // -------------------- AXIOS call for FILTERED Restaurants by Types --------------------
+      for (var i = 0; i < this.checked_types.length; i++) {
+        axios.get('/api/restaurants/' + this.checked_types[i]).then(function (response) {
+          _this3.filtered_restaurants = response.data.results;
+        });
+        this.restaurants = [];
+        this.filtered_restaurants.push(this.restaurants);
+      }
+    },
+    getAllTypes: function getAllTypes() {
+      var _this4 = this;
 
       // -------------------- AXIOS call for all Types --------------------
       axios.get('/api/types').then(function (response) {
-        _this3.types = response.data.results;
+        _this4.types = response.data.results;
       });
     },
     getAllDishes: function getAllDishes() {
-      var _this4 = this;
+      var _this5 = this;
 
       // -------------------- AXIOS call for all Dishes --------------------
       axios.get('/api/dishes').then(function (response) {
-        _this4.dishes = response.data.results;
+        _this5.dishes = response.data.results;
       });
     }
   },
@@ -37406,8 +37419,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\MAMP\htdocs\repo\deliveboo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\repo\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\MAMP\htdocs\boolean\deliveboo\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\boolean\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
