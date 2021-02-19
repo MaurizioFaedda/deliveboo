@@ -10,6 +10,32 @@
     background-color: $color_my_light;
 }
 
+.icon-restaurant-main-color::after{
+    @include dash_icon("\f2e7");
+    color: $color_main;
+}
+.icon-address-main-color::after{
+    @include dash_icon("\f3c5");
+    color: $color_main;
+}
+.icon-tags-main-color::after{
+    @include dash_icon("\f02c");
+    color: $color_main;
+    padding-right: 0;
+}
+.icon-info-main-color::after{
+    @include dash_icon("\f129");
+    color: $color_main;
+}
+.icon-menu-main-color::after{
+    @include dash_icon("\f46d");
+    color: $color_main;
+}
+.icon-cart-main-color::after{
+    @include dash_icon("\f07a");
+    color: $color_main;
+}
+
 .search-box{
     width: 300px;
     height: 20px;

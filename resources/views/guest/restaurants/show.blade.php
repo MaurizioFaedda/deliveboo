@@ -8,17 +8,18 @@
 <div class="container">
     <div class="row d-flex pb-5">
         <div class="col-md-8 d-flex flex-column justify-content-center">
-            <h3>{{$restaurant->restaurant_name}}</h3>
+            <h3 class="pl-3"><span class="ml-1 icon-restaurant-main-color pr-3"></span>{{$restaurant->restaurant_name}}</h3>
             <ul class="list-group">
-                <li class="list-group-item">{{$restaurant->address}}, {{$restaurant->city}}</li>
+                <li class="list-group-item"><span class="icon-address-main-color pr-3"></span>{{$restaurant->address}}, {{$restaurant->city}}</li>
                 <li class="list-group-item">
-                    @forelse ($restaurant->types as $type)
-                        <span>{{ $type->type }}</span>{{ !$loop->last ? ',' : '' }}
+
+                    <span class="icon-tags-main-color pr-4"></span>@forelse ($restaurant->types as $type){{$type->type}}</span>{{!$loop->last ? ',' : ''}}
                     @empty
                         <span>Non sono state inserite tipologie</span>
                     @endforelse
                 </li>
                 <li class="list-group-item h-100">
+                    <span class="icon-info-main-color ml-2 pr-3"></span>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
                 </li>
 
@@ -42,7 +43,7 @@
             <div class="row">
                 {{-- dish table --}}
                 <div class="col-md-8 py-5">
-                    <h3>Menu</h3>
+                    <h3><span class="icon-menu-main-color ml-4"></span>Menu</h3>
                     <div class="cards-section my-4 d-flex justify-content-between flex-wrap">
                         @forelse ($restaurant->dishes as $dish)
                             {{-- Se il piatto è disponibile lo visualizzo --}}
@@ -98,8 +99,8 @@
 
 
                 {{-- cart --}}
-                <div class="col-md-4">
-
+                <div class="col-md-4 py-5 text-right">
+                    <h3><span class="icon-cart-main-color"></span>Carts</h3>
                 </div>
             </div>
         </div>
