@@ -37296,7 +37296,8 @@ var app = new Vue({
     dishes: [],
     selected_type: '',
     checked_types: [],
-    filtered_restaurants: []
+    filtered_restaurants: [],
+    current_restaurants: []
   },
   methods: {
     getAllRestaurants: function getAllRestaurants() {
@@ -37321,13 +37322,21 @@ var app = new Vue({
     getFilteredRestaurantsByTypes: function getFilteredRestaurantsByTypes() {
       var _this3 = this;
 
-      console.log(this.checked_types);
-
+      // console.log(this.checked_types);
       for (var i = 0; i < this.checked_types.length; i++) {
         axios.get('/api/restaurants/' + this.checked_types[i]).then(function (response) {
-          _this3.restaurants = response.data.results;
-        });
-      }
+          // prendo i risultati della chiamata ajax e li salvo in un array di appoggio
+          _this3.current_restaurants = response.data.results;
+          console.log(_this3.current_restaurants);
+        }); // // Attribuisco il risultato dei ristoranti filtrati all'array restaurants
+        // this.restaurants = this.filtered_restaurants;
+        // console.log(this.restaurant);
+      } // push ogni singolo elemento che mi arriva nell'array dei filtri
+
+
+      this.current_restaurants.forEach(function (currentrestaurants) {
+        console.log(_this3.current_restaurants);
+      });
     },
     getAllTypes: function getAllTypes() {
       var _this4 = this;
@@ -37418,8 +37427,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\MAMP\htdocs\repo\deliveboo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\repo\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\MAMP\htdocs\backend\deliveboo\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\backend\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

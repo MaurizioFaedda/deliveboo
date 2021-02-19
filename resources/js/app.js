@@ -7,7 +7,8 @@ var app = new Vue ({
       dishes: [],
       selected_type: '',
       checked_types: [],
-      filtered_restaurants: []
+      filtered_restaurants: [],
+      current_restaurants: []
     },
     methods: {
       getAllRestaurants() {
@@ -30,14 +31,25 @@ var app = new Vue ({
         });
       },
       getFilteredRestaurantsByTypes() {
-        console.log(this.checked_types);
+        // console.log(this.checked_types);
         for (var i = 0; i < this.checked_types.length; i++) {
           axios
           .get('/api/restaurants/' + this.checked_types[i])
           .then(response => {
-            this.restaurants = response.data.results;
+            // prendo i risultati della chiamata ajax e li salvo in un array di appoggio
+            this.current_restaurants = response.data.results;
+            console.log(this.current_restaurants);
           });
+
+          // // Attribuisco il risultato dei ristoranti filtrati all'array restaurants
+          // this.restaurants = this.filtered_restaurants;
+          // console.log(this.restaurant);
         }
+
+        // push ogni singolo elemento che mi arriva nell'array dei filtri
+        this.current_restaurants.forEach((currentrestaurants) => {
+            console.log(this.current_restaurants);
+        });
       },
       getAllTypes() {
         // -------------------- AXIOS call for all Types --------------------
