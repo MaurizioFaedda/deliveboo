@@ -30,15 +30,13 @@ var app = new Vue ({
         });
       },
       getFilteredRestaurantsByTypes() {
-        // -------------------- AXIOS call for FILTERED Restaurants by Types --------------------
+        console.log(this.checked_types);
         for (var i = 0; i < this.checked_types.length; i++) {
           axios
           .get('/api/restaurants/' + this.checked_types[i])
           .then(response => {
-            this.filtered_restaurants = response.data.results;
+            this.restaurants = response.data.results;
           });
-          this.restaurants = [];
-            this.filtered_restaurants.push(this.restaurants);
         }
       },
       getAllTypes() {

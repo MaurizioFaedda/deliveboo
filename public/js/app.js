@@ -37321,13 +37321,12 @@ var app = new Vue({
     getFilteredRestaurantsByTypes: function getFilteredRestaurantsByTypes() {
       var _this3 = this;
 
-      // -------------------- AXIOS call for FILTERED Restaurants by Types --------------------
+      console.log(this.checked_types);
+
       for (var i = 0; i < this.checked_types.length; i++) {
         axios.get('/api/restaurants/' + this.checked_types[i]).then(function (response) {
-          _this3.filtered_restaurants = response.data.results;
+          _this3.restaurants = response.data.results;
         });
-        this.restaurants = [];
-        this.filtered_restaurants.push(this.restaurants);
       }
     },
     getAllTypes: function getAllTypes() {
@@ -37419,8 +37418,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\MAMP\htdocs\boolean\deliveboo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\boolean\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\MAMP\htdocs\repo\deliveboo\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\repo\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

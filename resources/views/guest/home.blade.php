@@ -7,7 +7,7 @@
     <div>
       <h3>Check your types</h3>
       <div v-for="type in types">
-        <input @click="getFilteredRestaurantsByTypes()" type="checkbox" :value="type.id" v-model="checked_types">
+        <input @change="getFilteredRestaurantsByTypes()" type="checkbox" :value="type.id" v-model="checked_types">
         <label for="type.type">
             @{{type.type}}
         </label>
