@@ -13,13 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// ----------- PUBLIC ROUTES -----------
 Route::get('/', 'HomeController@index')->name('index');
+Route::get('/restaurant/{id}', 'RestaurantController@show')->name('restaurant.show');
 
 
+// ----------- AUTHENTICATION ROUTES -----------
 Auth::routes();
 
 Route::middleware('auth')->namespace('Admin')->prefix('admin')->name('admin.')->group(function(){
-
     Route::get('/', 'HomeController@index')->name('index');
     Route::resource('/restaurants', 'RestaurantController');
     Route::resource('/dishes', 'DishController');
