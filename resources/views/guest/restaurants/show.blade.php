@@ -5,7 +5,7 @@
 
 @section('content')
 {{-- Restaurant infos --}}
-<div class="container">
+<div class="container mt-5">
     <div class="row d-flex pb-5">
         <div class="col-md-8 d-flex flex-column justify-content-center">
             <h3 class="pl-3"><span class="ml-1 icon-restaurant-main-color pr-3"></span>{{$restaurant->restaurant_name}}</h3>
