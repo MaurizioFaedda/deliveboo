@@ -26,7 +26,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm fixed-top">
             <div class="container">
                 <div class="d-flex justify-content-between align-items-center w-100">
                     <div class="logo-navbar d-flex align-items-center">
@@ -87,7 +87,7 @@
                 </div>
             </div>
         </nav>
-        <div class="container-fluid">
+        <div class="container-fluid mt-5">
             <div class="row">
                 {{-- <nav id="guest-sidebar" class="col-md-2 d-none d-md-block">
                     <div class="sidebar-sticky">
