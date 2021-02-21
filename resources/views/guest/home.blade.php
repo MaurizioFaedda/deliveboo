@@ -4,119 +4,137 @@
 <div class="container">
     <div class="row custom_padding">
         <div class="col-sm col-md-4">
-            <div class="form-group d-flex flex-column align-items-left w-100">
-                <h3>Pizzeria</h3>
-                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                    <label class="btn btn-primary">
-                        <input type="radio" id="option2" value="1" v-model="pizza_checked"> Mostra
-                    </label>
-                    <label class="btn btn-primary">
-                        <input type="radio" id="option3" value="0" v-model="pizza_checked" checked> Non mostrare
-                    </label>
+            <div class="card custom_padding no-border my-4 shadow">
+                <div class="form-group d-flex flex-column align-items-left w-100">
+                    <h3>Pizzeria</h3>
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <label class="btn btn-primary">
+                            <input type="radio" id="option2" value="1" v-model="pizza_checked"> Mostra
+                        </label>
+                        <label class="btn btn-primary">
+                            <input type="radio" id="option3" value="0" v-model="pizza_checked" checked> Non mostrare
+                        </label>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="col-sm col-md-4">
-            <div class="form-group d-flex flex-column align-items-left w-100">
-                <h3>Italian Foods</h3>
-                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                    <label class="btn btn-primary">
-                        <input type="radio" id="option2" value="1" v-model="italian_checked"> Mostra
-                    </label>
-                    <label class="btn btn-primary">
-                        <input type="radio" id="option3" value="0" v-model="italian_checked" checked> Non mostrare
-                    </label>
+            <div class="card custom_padding no-border my-4 shadow">
+                <div class="form-group d-flex flex-column align-items-left w-100">
+                    <h3>Italian Foods</h3>
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <label class="btn btn-primary">
+                            <input type="radio" id="option2" value="1" v-model="italian_checked"> Mostra
+                        </label>
+                        <label class="btn btn-primary">
+                            <input type="radio" id="option3" value="0" v-model="italian_checked" checked> Non mostrare
+                        </label>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="col-sm col-md-4">
-            <div class="form-group d-flex flex-column align-items-left w-100">
-                <h3>Sushi</h3>
-                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                    <label class="btn btn-primary">
-                        <input type="radio" id="option2" value="1" v-model="sushi_checked"> Mostra
-                    </label>
-                    <label class="btn btn-primary">
-                        <input type="radio" id="option3" value="0" v-model="sushi_checked" checked> Non mostrare
-                    </label>
+            <div class="card custom_padding no-border my-4 shadow">
+                <div class="form-group d-flex flex-column align-items-left w-100">
+                    <h3>Sushi</h3>
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <label class="btn btn-primary">
+                            <input type="radio" id="option2" value="1" v-model="sushi_checked"> Mostra
+                        </label>
+                        <label class="btn btn-primary">
+                            <input type="radio" id="option3" value="0" v-model="sushi_checked" checked> Non mostrare
+                        </label>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="col-sm col-md-4">
-            <div class="form-group d-flex flex-column align-items-left w-100">
-                <h3>Vegan Foods</h3>
-                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                    <label class="btn btn-primary">
-                        <input type="radio" id="option2" value="1" v-model="vegan_checked"> Mostra
-                    </label>
-                    <label class="btn btn-primary">
-                        <input type="radio" id="option3" value="0" v-model="vegan_checked" checked> Non mostrare
-                    </label>
+            <div class="card custom_padding no-border my-4 shadow">
+                <div class="form-group d-flex flex-column align-items-left w-100">
+                    <h3>Vegan Foods</h3>
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <label class="btn btn-primary">
+                            <input type="radio" id="option2" value="1" v-model="vegan_checked"> Mostra
+                        </label>
+                        <label class="btn btn-primary">
+                            <input type="radio" id="option3" value="0" v-model="vegan_checked" checked> Non mostrare
+                        </label>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="col-sm col-md-4">
-            <div class="form-group d-flex flex-column align-items-left w-100">
-                <h3>Organic Foods</h3>
-                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                    <label class="btn btn-primary">
-                        <input type="radio" id="option2" value="1" v-model="organic_checked"> Mostra
-                    </label>
-                    <label class="btn btn-primary">
-                        <input type="radio" id="option3" value="0" v-model="organic_checked" checked> Non mostrare
-                    </label>
+            <div class="card custom_padding no-border my-4 shadow">
+                <div class="form-group d-flex flex-column align-items-left w-100">
+                    <h3>Organic Foods</h3>
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <label class="btn btn-primary">
+                            <input type="radio" id="option2" value="1" v-model="organic_checked"> Mostra
+                        </label>
+                        <label class="btn btn-primary">
+                            <input type="radio" id="option3" value="0" v-model="organic_checked" checked> Non mostrare
+                        </label>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="col-sm col-md-4">
-            <div class="form-group d-flex flex-column align-items-left w-100">
-                <h3>Street Foods</h3>
-                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                    <label class="btn btn-primary">
-                        <input type="radio" id="option2" value="1" v-model="street_checked"> Mostra
-                    </label>
-                    <label class="btn btn-primary">
-                        <input type="radio" id="option3" value="0" v-model="street_checked" checked> Non mostrare
-                    </label>
+            <div class="card custom_padding no-border my-4 shadow">
+                <div class="form-group d-flex flex-column align-items-left w-100">
+                    <h3>Street Foods</h3>
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <label class="btn btn-primary">
+                            <input type="radio" id="option2" value="1" v-model="street_checked"> Mostra
+                        </label>
+                        <label class="btn btn-primary">
+                            <input type="radio" id="option3" value="0" v-model="street_checked" checked> Non mostrare
+                        </label>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="col-sm col-md-4">
-            <div class="form-group d-flex flex-column align-items-left w-100">
-                <h3>Asian Foods</h3>
-                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                    <label class="btn btn-primary">
-                        <input type="radio" id="option2" value="1" v-model="asian_checked"> Mostra
-                    </label>
-                    <label class="btn btn-primary">
-                        <input type="radio" id="option3" value="0" v-model="asian_checked" checked> Non mostrare
-                    </label>
+            <div class="card custom_padding no-border my-4 shadow">
+                <div class="form-group d-flex flex-column align-items-left w-100">
+                    <h3>Asian Foods</h3>
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <label class="btn btn-primary">
+                            <input type="radio" id="option2" value="1" v-model="asian_checked"> Mostra
+                        </label>
+                        <label class="btn btn-primary">
+                            <input type="radio" id="option3" value="0" v-model="asian_checked" checked> Non mostrare
+                        </label>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="col-sm col-md-4">
-            <div class="form-group d-flex flex-column align-items-left w-100">
-                <h3>Mexican Foods</h3>
-                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                    <label class="btn btn-primary">
-                        <input type="radio" id="option2" value="1" v-model="mexican_checked"> Mostra
-                    </label>
-                    <label class="btn btn-primary">
-                        <input type="radio" id="option3" value="0" v-model="mexican_checked" checked> Non mostrare
-                    </label>
+            <div class="card custom_padding no-border my-4 shadow">
+                <div class="form-group d-flex flex-column align-items-left w-100">
+                    <h3>Mexican Foods</h3>
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <label class="btn btn-primary">
+                            <input type="radio" id="option2" value="1" v-model="mexican_checked"> Mostra
+                        </label>
+                        <label class="btn btn-primary">
+                            <input type="radio" id="option3" value="0" v-model="mexican_checked" checked> Non mostrare
+                        </label>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="col-sm col-md-4">
-            <div class="form-group d-flex flex-column align-items-left w-100">
-                <h3>Hawaian Foods</h3>
-                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                    <label class="btn btn-primary">
-                        <input type="radio" id="option2" value="1" v-model="hawaian_checked"> Mostra
-                    </label>
-                    <label class="btn btn-primary">
-                        <input type="radio" id="option3" value="0" v-model="hawaian_checked" checked> Non mostrare
-                    </label>
+            <div class="card custom_padding no-border my-4 shadow">
+                <div class="form-group d-flex flex-column align-items-left w-100">
+                    <h3>Hawaian Foods</h3>
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <label class="btn btn-primary">
+                            <input type="radio" id="option2" value="1" v-model="hawaian_checked"> Mostra
+                        </label>
+                        <label class="btn btn-primary">
+                            <input type="radio" id="option3" value="0" v-model="hawaian_checked" checked> Non mostrare
+                        </label>
+                    </div>
                 </div>
             </div>
         </div>

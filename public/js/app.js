@@ -37298,6 +37298,7 @@ var app = new Vue({
     // checked_types: [],
     // filtered_restaurants: [],
     // id_restaurant: [],
+    search_reset: '',
     pizza_checked: '',
     array_pizza_checked: [],
     italian_checked: '',
@@ -37425,6 +37426,17 @@ var app = new Vue({
       axios.get('/api/dishes').then(function (response) {
         _this12.dishes = response.data.results;
       });
+    },
+    search_reset: function search_reset() {
+      this.pizza_checked = 0;
+      this.italian_checked = 0;
+      this.sushi_checked = 0;
+      this.vegan_checked = 0;
+      this.organic_checked = 0;
+      this.street_checked = 0;
+      this.asian_checked = 0;
+      this.mexican_checked = 0;
+      this.hawaian_checked = 0;
     } // getFilteredRestaurants() {
     //   this.restaurants = [];
     //   // -------------------- AXIOS call for FILTERED Restaurants by Type --------------------

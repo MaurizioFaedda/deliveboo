@@ -244,7 +244,6 @@ table tbody tr {
 }
 
 .card .card-body {
-  color: #00CDBC;
   font-size: medium;
   font-weight: bold;
 }
@@ -272,6 +271,10 @@ table tbody tr {
   .custom-height {
     height: 275px;
   }
+}
+
+.custom_background {
+  background-color: #00CDBC;
 }
 
 .logo-navbar {
