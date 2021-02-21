@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row custom_padding">
-        <div class="col-sm col-md-4">
+        <div class="col-sm col-md-3">
             <div class="card custom_padding no-border my-4 shadow">
                 <div class="form-group d-flex flex-column align-items-left w-100">
                     <h3>Pizzeria</h3>
@@ -18,7 +18,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm col-md-4">
+        <div class="col-sm col-md-3">
             <div class="card custom_padding no-border my-4 shadow">
                 <div class="form-group d-flex flex-column align-items-left w-100">
                     <h3>Italian Foods</h3>
@@ -33,7 +33,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm col-md-4">
+        <div class="col-sm col-md-3">
             <div class="card custom_padding no-border my-4 shadow">
                 <div class="form-group d-flex flex-column align-items-left w-100">
                     <h3>Sushi</h3>
@@ -48,7 +48,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm col-md-4">
+        <div class="col-sm col-md-3">
             <div class="card custom_padding no-border my-4 shadow">
                 <div class="form-group d-flex flex-column align-items-left w-100">
                     <h3>Vegan Foods</h3>
@@ -63,7 +63,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm col-md-4">
+        <div class="col-sm col-md-3">
             <div class="card custom_padding no-border my-4 shadow">
                 <div class="form-group d-flex flex-column align-items-left w-100">
                     <h3>Organic Foods</h3>
@@ -78,7 +78,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm col-md-4">
+        <div class="col-sm col-md-3">
             <div class="card custom_padding no-border my-4 shadow">
                 <div class="form-group d-flex flex-column align-items-left w-100">
                     <h3>Street Foods</h3>
@@ -93,7 +93,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm col-md-4">
+        <div class="col-sm col-md-3">
             <div class="card custom_padding no-border my-4 shadow">
                 <div class="form-group d-flex flex-column align-items-left w-100">
                     <h3>Asian Foods</h3>
@@ -108,7 +108,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm col-md-4">
+        <div class="col-sm col-md-3">
             <div class="card custom_padding no-border my-4 shadow">
                 <div class="form-group d-flex flex-column align-items-left w-100">
                     <h3>Mexican Foods</h3>
@@ -123,7 +123,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm col-md-4">
+        <div class="col-sm col-md-3">
             <div class="card custom_padding no-border my-4 shadow">
                 <div class="form-group d-flex flex-column align-items-left w-100">
                     <h3>Hawaian Foods</h3>
