@@ -148,3 +148,12 @@
 
 
 }
+
+.custom_padding {
+    padding: $custom_padding;
+}
+
+.search_title {
+    padding: $custom_padding;
+    text-align: center;
+}

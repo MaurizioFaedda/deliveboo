@@ -461,6 +461,15 @@ table tbody tr {
   transform: scale(1.15);
 }
 
+.custom_padding {
+  padding: 25px;
+}
+
+.search_title {
+  padding: 25px;
+  text-align: center;
+}
+
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors

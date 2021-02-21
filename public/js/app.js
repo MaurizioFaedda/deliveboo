@@ -37294,87 +37294,197 @@ var app = new Vue({
     types: [],
     restaurants: [],
     dishes: [],
-    selected_type: '',
-    checked_types: [],
-    filtered_restaurants: [],
-    id_restaurant: []
+    // selected_type: '',
+    // checked_types: [],
+    // filtered_restaurants: [],
+    // id_restaurant: [],
+    pizza_checked: '',
+    array_pizza_checked: [],
+    italian_checked: '',
+    array_italian_checked: [],
+    sushi_checked: '',
+    array_sushi_checked: [],
+    vegan_checked: '',
+    array_vegan_checked: [],
+    organic_checked: '',
+    array_organic_checked: [],
+    street_checked: '',
+    array_street_checked: [],
+    asian_checked: '',
+    array_asian_checked: [],
+    mexican_checked: '',
+    array_mexican_checked: [],
+    hawaian_checked: '',
+    array_hawaian_checked: []
   },
   methods: {
     getAllRestaurants: function getAllRestaurants() {
       var _this = this;
 
-      this.selected_type = '';
-      this.restaurants = [];
-      this.checked_types = []; // -------------------- AXIOS call for ALL Restaurants --------------------
-
+      // this.selected_type = '';
+      // this.restaurants = [];
+      // this.checked_types = [];
+      // -------------------- AXIOS call for ALL Restaurants --------------------
       axios.get('/api/restaurants').then(function (response) {
         _this.restaurants = response.data.results;
       });
     },
-    getFilteredRestaurants: function getFilteredRestaurants() {
+    getPizza: function getPizza() {
       var _this2 = this;
 
-      this.restaurants = []; // -------------------- AXIOS call for FILTERED Restaurants by Type --------------------
-
-      axios.get('/api/restaurants/' + this.selected_type).then(function (response) {
-        _this2.restaurants = response.data.results;
+      // -------------------- AXIOS call for FILTERED Restaurants by Type --------------------
+      axios.get('/api/restaurants/' + '1').then(function (response) {
+        _this2.array_pizza_checked = response.data.results;
+        console.log(_this2.array_pizza_checked);
       });
     },
-    getFilteredRestaurantsByTypes: function getFilteredRestaurantsByTypes() {
+    getItalianFood: function getItalianFood() {
       var _this3 = this;
 
-      var request = {
-        checked: this.checked_types
-      }; // Se l'array di checkbox è vuoto visualizzo in automatico tutti i ristoranti
+      // -------------------- AXIOS call for FILTERED Restaurants by Type --------------------
+      axios.get('/api/restaurants/' + '2').then(function (response) {
+        _this3.array_italian_checked = response.data.results;
+        console.log(_this3.array_italian_checked);
+      });
+    },
+    getSushi: function getSushi() {
+      var _this4 = this;
 
-      if (this.checked_types.length == 0) {
-        this.getAllRestaurants();
-      } else {
-        // -------------------- AXIOS call for FILTERED Restaurants by Types --------------------
-        this.restaurants = [];
-        axios.post('/api/restaurants/', request).then(function (response) {
-          // prendo i risultati della chiamata ajax e li salvo in un array di appoggio
-          _this3.restaurants = response.data.results; // console.log(this.current_restaurants);
-          // Ciclo il risultato della chiamata
+      // -------------------- AXIOS call for FILTERED Restaurants by Type --------------------
+      axios.get('/api/restaurants/' + '3').then(function (response) {
+        _this4.array_sushi_checked = response.data.results;
+        console.log(_this4.array_sushi_checked);
+      });
+    },
+    getVeganFoods: function getVeganFoods() {
+      var _this5 = this;
 
-          _this3.restaurants.forEach(function (currentrestaurants) {
-            // per ogni sinsolo oggetto controllo che id del ristorante non sia già presente nell'array id_restaurant
-            if (!_this3.id_restaurant.includes(currentrestaurants.id)) {
-              // se non è presente lo pusho nell'array id_restaurant
-              _this3.id_restaurant.push(currentrestaurants.id); // console.log(this.id_restaurant);
-              // Dopo aver selezionato gli elementi che hanno passato il check dell'id del ristorante li pusho nell'array dei ristoranti filtrati
+      // -------------------- AXIOS call for FILTERED Restaurants by Type --------------------
+      axios.get('/api/restaurants/' + '4').then(function (response) {
+        _this5.array_vegan_checked = response.data.results;
+        console.log(_this5.array_vegan_checked);
+      });
+    },
+    getOrganicFoods: function getOrganicFoods() {
+      var _this6 = this;
 
+      // -------------------- AXIOS call for FILTERED Restaurants by Type --------------------
+      axios.get('/api/restaurants/' + '5').then(function (response) {
+        _this6.array_organic_checked = response.data.results;
+        console.log(_this6.array_organic_checked);
+      });
+    },
+    getStreetFoods: function getStreetFoods() {
+      var _this7 = this;
 
-              _this3.filtered_restaurants.push(currentrestaurants); // console.log(this.filtered_restaurants);
-              // Attribuisco il risultato dei ristoranti filtrati all'array restaurants
+      // -------------------- AXIOS call for FILTERED Restaurants by Type --------------------
+      axios.get('/api/restaurants/' + '6').then(function (response) {
+        _this7.array_street_checked = response.data.results;
+        console.log(_this7.array_street_checked);
+      });
+    },
+    getAsianFoods: function getAsianFoods() {
+      var _this8 = this;
 
+      // -------------------- AXIOS call for FILTERED Restaurants by Type --------------------
+      axios.get('/api/restaurants/' + '7').then(function (response) {
+        _this8.array_asian_checked = response.data.results;
+        console.log(_this8.array_asian_checked);
+      });
+    },
+    getMexican: function getMexican() {
+      var _this9 = this;
 
-              _this3.restaurants = _this3.filtered_restaurants; // console.log(this.restaurant);
-            }
-          });
-        });
-      }
+      // -------------------- AXIOS call for FILTERED Restaurants by Type --------------------
+      axios.get('/api/restaurants/' + '8').then(function (response) {
+        _this9.array_mexican_checked = response.data.results;
+        console.log(_this9.array_mexican_checked);
+      });
+    },
+    getHawaianFoods: function getHawaianFoods() {
+      var _this10 = this;
+
+      // -------------------- AXIOS call for FILTERED Restaurants by Type --------------------
+      axios.get('/api/restaurants/' + '9').then(function (response) {
+        _this10.array_hawaian_checked = response.data.results;
+        console.log(_this10.array_hawaian_checked);
+      });
     },
     getAllTypes: function getAllTypes() {
-      var _this4 = this;
+      var _this11 = this;
 
       // -------------------- AXIOS call for all Types --------------------
       axios.get('/api/types').then(function (response) {
-        _this4.types = response.data.results;
+        _this11.types = response.data.results;
       });
     },
     getAllDishes: function getAllDishes() {
-      var _this5 = this;
+      var _this12 = this;
 
       // -------------------- AXIOS call for all Dishes --------------------
       axios.get('/api/dishes').then(function (response) {
-        _this5.dishes = response.data.results;
+        _this12.dishes = response.data.results;
       });
-    }
+    } // getFilteredRestaurants() {
+    //   this.restaurants = [];
+    //   // -------------------- AXIOS call for FILTERED Restaurants by Type --------------------
+    //   axios
+    //   .get('/api/restaurants/' + this.selected_type)
+    //   .then(response => {
+    //     this.restaurants = response.data.results;
+    //   });
+    // },
+    // getFilteredRestaurantsByTypes() {
+    //   var request = {
+    //     checked: this.checked_types
+    //   }
+    //   // Se l'array di checkbox è vuoto visualizzo in automatico tutti i ristoranti
+    //   if(this.checked_types.length == 0) {
+    //     this.getAllRestaurants()
+    //   } else {
+    //     // -------------------- AXIOS call for FILTERED Restaurants by Types --------------------
+    //     this.restaurants = [];
+    //     axios
+    //     .post('/api/restaurants/', request)
+    //     .then(response => {
+    //       // prendo i risultati della chiamata ajax e li salvo in un array di appoggio
+    //       this.restaurants = response.data.results;
+    //       // console.log(this.current_restaurants);
+    //       // Ciclo il risultato della chiamata
+    //       this.restaurants.forEach((currentrestaurants) => {
+    //         // per ogni sinsolo oggetto controllo che id del ristorante non sia già presente nell'array id_restaurant
+    //         if(!this.id_restaurant.includes(currentrestaurants.id)){
+    //
+    //           // se non è presente lo pusho nell'array id_restaurant
+    //           this.id_restaurant.push(currentrestaurants.id);
+    //           // console.log(this.id_restaurant);
+    //
+    //           // Dopo aver selezionato gli elementi che hanno passato il check dell'id del ristorante li pusho nell'array dei ristoranti filtrati
+    //           this.filtered_restaurants.push(currentrestaurants);
+    //           // console.log(this.filtered_restaurants);
+    //
+    //           // Attribuisco il risultato dei ristoranti filtrati all'array restaurants
+    //           this.restaurants = this.filtered_restaurants;
+    //           // console.log(this.restaurant);
+    //         }
+    //       });
+    //     });
+    //   }
+    // }
+
   },
   mounted: function mounted() {
     this.getAllRestaurants();
     this.getAllTypes();
+    this.getPizza();
+    this.getSushi();
+    this.getItalianFood();
+    this.getVeganFoods();
+    this.getOrganicFoods();
+    this.getStreetFoods();
+    this.getAsianFoods();
+    this.getMexican();
+    this.getHawaianFoods();
     this.getAllDishes();
   }
 });
