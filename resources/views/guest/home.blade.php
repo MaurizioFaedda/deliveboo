@@ -184,7 +184,7 @@
         </div>
     </div> --}}
     {{-- CHECKBOX FILTER TYPES --}}
-    {{-- <div>
+    <div>
       <h3>Check your types</h3>
       <div v-for="type in types">
         <input @change="getFilteredRestaurantsByTypes()" type="checkbox" :value="type.id" v-model="checked_types">
@@ -192,9 +192,9 @@
             @{{type.type}}
         </label>
       </div>
-    </div> --}}
+    </div>
     {{-- SELECT TYPES --}}
-    {{-- <div>
+    <div>
       <h3>Select your type</h3>
       <div class="filter">
         <select @change="getFilteredRestaurants()" v-model="selected_type" id="type-filter">
@@ -205,7 +205,7 @@
         </select>
         <button @click="getAllRestaurants()" type="button" name="button">Show all</button>
       </div>
-    </div> --}}
+    </div>
     {{-- RESTAURANTS CARDS --}}
     {{-- <div class="card custom_padding no-border my-4 shadow">
         <h1 class="search_title">All Restaurants</h1>
