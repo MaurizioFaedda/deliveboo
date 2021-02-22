@@ -16,7 +16,7 @@ class CreateOrdersTable extends Migration
     Schema::create('orders', function (Blueprint $table) {
       $table->id();
       $table->string('email', 30);
-      $table->dateTime('delivery_time')->nullable();
+      $table->dateTime('delivery_time');
       $table->float('total_price', 6, 2);
       $table->bigInteger('mobile')->unsigned();
       $table->string('first_name', 50);
