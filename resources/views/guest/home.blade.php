@@ -1,8 +1,52 @@
 @extends('layouts.guest')
+@section('content')
+<div class="container">
+    <h2>Views dinamiche con vue</h2>
+    {{-- CHECKBOX FILTER TYPES --}}
+    <div>
+      <h3>Check your types</h3>
+      <div v-for="type in types">
+        <input @change="getFilteredRestaurantsByTypes()" type="checkbox" :value="type.id" v-model="checked_types">
+        <label for="type.type">
+            @{{type.type}}
+        </label>
+      </div>
+    </div>
+    {{-- SELECT TYPES --}}
+    <div>
+      <h3>Select your type</h3>
+      <div class="filter">
+        <select @change="getFilteredRestaurants()" v-model="selected_type" id="type-filter">
+            <option value="">All types</option>
+            <option v-for="type in types" :value="type.id">
+              @{{type.type}}
+            </option>
+        </select>
+        <button @click="getAllRestaurants()" type="button" name="button">Show all</button>
+      </div>
+    </div>
+    {{-- RESTAURANTS CARDS --}}
+    <div class="row">
+         <div v-for="restaurant in restaurants" class="col-sm col-md-4">
+            <div class="card my-4 w-100 h-25">
+                <img v-if="restaurant.img_path_rest" class="card-img-top g-custom-card-height" :src="'storage/' + restaurant.img_path_rest" alt="Card image cap">
+                <img v-else class="card-img-top g-custom-card-height" src="" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title font-weight-bold"> @{{restaurant.restaurant_name}}</h5>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <a :href="'restaurant/' + restaurant.id" class="btn btn-primary">Visualizza ristorante</a>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
+
+
+{{-- @extends('layouts.guest')
 
 @section('content')
 <div class="container">
-    <div class="row custom_padding">
+    {{-- <div class="row custom_padding">
         <div class="col-sm col-md-3">
             <div class="card custom_padding no-border my-4 shadow">
                 <div class="form-group d-flex flex-column align-items-left w-100">
@@ -138,7 +182,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     {{-- CHECKBOX FILTER TYPES --}}
     {{-- <div>
       <h3>Check your types</h3>
@@ -163,7 +207,7 @@
       </div>
     </div> --}}
     {{-- RESTAURANTS CARDS --}}
-    <div v-if="pizza_checked == 0 && italian_checked == 0 && sushi_checked == 0 && vegan_checked == 0 && organic_checked == 0 && street_checked == 0 && asian_checked == 0 && mexican_checked == 0 && hawaian_checked == 0" class="card custom_padding no-border my-4 shadow">
+    {{-- <div class="card custom_padding no-border my-4 shadow">
         <h1 class="search_title">All Restaurants</h1>
         <div  class="row">
              <div v-for="restaurant in restaurants" class="col-sm col-md-4">
@@ -178,9 +222,9 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
-    <div v-if="pizza_checked == 1" class="card custom_padding no-border my-4 shadow">
+    {{-- <div v-if="pizza_checked == 1" class="card custom_padding no-border my-4 shadow">
         <h1 class="search_title" v-if="pizza_checked == 1">Search for Pizzeria</h1>
         <div class="row">
              <div v-for="pizzeria in array_pizza_checked" class="col-sm col-md-4">
@@ -323,6 +367,6 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
-@endsection
+{{-- @endsection --}} --}}
