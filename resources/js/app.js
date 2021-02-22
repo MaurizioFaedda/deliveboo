@@ -27,8 +27,8 @@ var app = new Vue ({
       mexican_checked: '',
       array_mexican_checked: [],
       hawaian_checked: '',
-      array_hawaian_checked: []
-
+      array_hawaian_checked: [],
+      array_carrello: []
     },
     methods: {
     getAllRestaurants() {
@@ -57,7 +57,7 @@ var app = new Vue ({
         .get('/api/restaurants/' + '2')
         .then(response => {
           this.array_italian_checked = response.data.results;
-          console.log(this.array_italian_checked);
+          console.log(this.array_italian_checked); 
         });
     },
     getSushi() {
@@ -129,6 +129,7 @@ var app = new Vue ({
         .get('/api/types')
         .then(response => {
           this.types = response.data.results;
+          console.log(this.types);
         });
     },
     getAllDishes() {
