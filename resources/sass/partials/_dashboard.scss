@@ -187,9 +187,12 @@ table thead, table tbody tr {
     .card-body {
         font-size: medium;
         font-weight: bold;
-        min-height: 500px;
     }
 
+}
+
+.thiscartbody{
+    min-height: 500px!important;
 }
 
 @media screen and (max-width: 762px) {

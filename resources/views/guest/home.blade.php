@@ -31,7 +31,7 @@
     </div>
     {{-- RESTAURANTS CARDS --}}
     <div class="row">
-        <div class="card custom_padding no-border my-4 shadow w-100">
+        <div class="card custom_padding no-border my-4 shadow w-100 thiscartbody">
             <h1 class="search_title">Restaurants</h1>
             <div  class="row">
                  <div v-for="restaurant in restaurants" class="col-sm col-md-4">
