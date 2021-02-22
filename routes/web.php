@@ -16,6 +16,12 @@ use Illuminate\Support\Facades\Route;
 // ----------- PUBLIC ROUTES -----------
 Route::get('/', 'HomeController@index')->name('index');
 Route::get('/restaurant/{id}', 'RestaurantController@show')->name('restaurant.show');
+// Rotte Cart Controller
+Route::get('/cart', 'CartController@index')->name('cart.index');
+Route::post('/cart', 'CartController@store')->name('cart.store');
+Route::get('empty', function(){
+    Cart::destroy();
+});
 
 
 // ----------- AUTHENTICATION ROUTES -----------

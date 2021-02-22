@@ -84,7 +84,13 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                    <button type="button" class="btn btn-primary">Add dish</button>
+                                                    <form action="{{ route('cart.store', $dish) }}" method="POST">
+                                                       {{ csrf_field() }}
+                                                       <input type="hidden" name="id" value="{{$dish->id}}">
+                                                       <input type="hidden" name="name" value="{{$dish->name}}">
+                                                       <input type="hidden" name="price" value="{{$dish->price}}">
+                                                       <button type="submit" class="button button-plain">Add to Cart</button>
+                                                   </form>
                                               </div>
                                             </div>
                                       </div>
