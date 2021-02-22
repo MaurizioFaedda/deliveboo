@@ -98,7 +98,7 @@
                         </ul>
                     </div>
                 </nav> --}}
-                <main class="col-md-12 ml-sm-auto px-0 custom_background">
+                <main class="col-md-12 ml-sm-auto px-0 custom_background mt-3">
                     @yield('content')
                 </main>
           </div>
@@ -113,7 +113,7 @@
                       <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
                         <h5 class="text-uppercase font-weight-bold">Footer Content</h5>
 
-                        <p class="">
+                        <p>
                           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis
                           molestias. Fugiat pariatur maxime quis culpa corporis vitae repudiandae aliquam
                           voluptatem veniam, est atque cumque eum delectus sint!
@@ -168,9 +168,6 @@
                   <!-- Grid container -->
 
                   <!-- Copyright -->
-                  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-                    © 2021 Copyright:
-                  </div>
                   <!-- Copyright -->
                 </footer>
 <!-- Footer -->
