@@ -22,4 +22,9 @@ class Restaurant extends Model
   public function types() {
     return $this->belongsToMany('App\Type');
   }
+
+  // One to Many between Restaurants and Orders tables
+  public function orders() {
+    return $this->hasMany('App\Order');
+  }
 }
