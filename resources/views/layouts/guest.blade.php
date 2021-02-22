@@ -175,6 +175,6 @@
         </div>
     </div>
     <script src="{{ asset('js/app.js') }}" defer></script>
-
+    @yield('cart-js')
 </body>
 </html>

@@ -19,6 +19,8 @@ Route::get('/restaurant/{id}', 'RestaurantController@show')->name('restaurant.sh
 // Rotte Cart Controller
 Route::get('/cart', 'CartController@index')->name('cart.index');
 Route::post('/cart', 'CartController@store')->name('cart.store');
+// Route::patch('/cart/{dish}', 'CartController@update')->name('cart.update');
+Route::delete('/cart/{dish}', 'CartController@destroy')->name('cart.destroy');
 Route::get('empty', function(){
     Cart::destroy();
 });
