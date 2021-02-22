@@ -246,6 +246,7 @@ table tbody tr {
 .card .card-body {
   font-size: medium;
   font-weight: bold;
+  min-height: 500px;
 }
 
 @media screen and (max-width: 762px) {

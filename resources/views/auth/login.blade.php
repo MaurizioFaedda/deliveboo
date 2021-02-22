@@ -11,7 +11,7 @@
                 <div class="card-header bg-light bg-gradient text-dark">{{ __('Login') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
+                    <form class="mt-5" method="POST" action="{{ route('login') }}">
                         @csrf
 
                         <div class="form-group row">
