@@ -12,4 +12,9 @@ class Order extends Model
   public function restaurant() {
     return $this->belongsTo('App\Restaurant');
   }
+
+  // One to One between Orders and Payments tables
+  public function payment() {
+    return $this->hasOne('App\Payment');
+  }
 }

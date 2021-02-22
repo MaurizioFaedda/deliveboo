@@ -37,7 +37,7 @@ class User extends Authenticatable
     'email_verified_at' => 'datetime',
   ];
 
-  // One to One between Restaurants and Users tables
+  // One to Many between Restaurants and Users tables
   public function restaurant() {
     return $this->belongsTo('App\User');
   }
