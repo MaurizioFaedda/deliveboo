@@ -50,11 +50,11 @@
                                 <!-- Authentication Links -->
                                 @guest
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                        <a class="nav-link font-weight-bold" href="{{ route('login') }}">{{ __('Login') }}</a>
                                     </li>
                                     @if (Route::has('register'))
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                            <a class="nav-link font-weight-bold" href="{{ route('register') }}">{{ __('Register') }}</a>
                                         </li>
                                     @endif
                                 @else
@@ -113,7 +113,7 @@
                       <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
                         <h5 class="text-uppercase font-weight-bold">Footer Content</h5>
 
-                        <p>
+                        <p class="footer_paragraph">
                           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis
                           molestias. Fugiat pariatur maxime quis culpa corporis vitae repudiandae aliquam
                           voluptatem veniam, est atque cumque eum delectus sint!
@@ -123,7 +123,7 @@
 
                       <!--Grid column-->
                       <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                        <h5 class="text-uppercase">Links</h5>
+                        <h5 class="text-uppercase font-weight-bold">LinkedIn - Links</h5>
 
                         <ul class="list-unstyled mb-0">
                           <li>
@@ -135,16 +135,13 @@
                           <li>
                             <a href="#!" class="text-dark">Link 3</a>
                           </li>
-                          <li>
-                            <a href="#!" class="text-dark">Link 4</a>
-                          </li>
                         </ul>
                       </div>
                       <!--Grid column-->
 
                       <!--Grid column-->
                       <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                        <h5 class="text-uppercase mb-0">Links</h5>
+                        <h5 class="text-uppercase font-weight-bold">LinkedIn - Links</h5>
 
                         <ul class="list-unstyled">
                           <li>
@@ -152,12 +149,6 @@
                           </li>
                           <li>
                             <a href="#!" class="text-dark">Link 2</a>
-                          </li>
-                          <li>
-                            <a href="#!" class="text-dark">Link 3</a>
-                          </li>
-                          <li>
-                            <a href="#!" class="text-dark">Link 4</a>
                           </li>
                         </ul>
                       </div>

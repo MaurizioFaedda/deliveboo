@@ -273,6 +273,21 @@ table tbody tr {
   }
 }
 
+#choosecard {
+  background-color: #0696BB;
+}
+
+.show-button:hover {
+  background-color: #FF9F00;
+  color: white;
+  transition: 0.3s;
+}
+
+.footer_paragraph {
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
 .custom_background {
   background-color: #00CDBC;
 }

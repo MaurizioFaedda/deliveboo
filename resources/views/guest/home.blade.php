@@ -1,34 +1,38 @@
 @extends('layouts.guest')
 @section('content')
 <div class="container">
-    <h2>Views dinamiche con vue</h2>
     {{-- CHECKBOX FILTER TYPES --}}
-    <div>
-      <h3>Check your types</h3>
-      <div v-for="type in types">
-        <input @change="getFilteredRestaurantsByTypes()" type="checkbox" :value="type.id" v-model="checked_types">
-        <label for="type.type">
-            @{{type.type}}
-        </label>
-      </div>
+    <div id="choosecard" class="card custom_padding no-border my-4 shadow w-100">
+        <div class="mt-3 p-3 text-white">
+          <h3 class="font-weight-bold">Scegli una o piu tipologie di ristoranti</h3>
+          <div class="form-check form-check-inline" v-for="type in types">
+            <input class="form-check-input" id="inlineCheckbox1" @change="getFilteredRestaurantsByTypes()" type="checkbox" :value="type.id" v-model="checked_types">
+            <label class="form-check-label p-2 h5 font-weight-bold" for="type.type">
+                @{{type.type}}
+            </label>
+          </div>
+        </div>
     </div>
+
     {{-- SELECT TYPES --}}
-    <div>
-      <h3>Select your type</h3>
-      <div class="filter">
-        <select @change="getFilteredRestaurants()" v-model="selected_type" id="type-filter">
-            <option value="">All types</option>
-            <option v-for="type in types" :value="type.id">
-              @{{type.type}}
-            </option>
-        </select>
-        <button @click="getAllRestaurants()" type="button" name="button">Show all</button>
-      </div>
+    <div id="choosecard" class="card custom_padding no-border my-4 shadow w-100">
+        <div class="p-3">
+          <h3 class="font-weight-bold text-white mb-3">Select your type</h3>
+          <div class="filter d-flex flex-column justify-content-center">
+            <select @change="getFilteredRestaurants()" v-model="selected_type" id="type-filter" class="p-2">
+                <option value="">All types</option>
+                <option v-for="type in types" :value="type.id">
+                  @{{type.type}}
+                </option>
+            </select>
+            <button class="show-button p-1 mt-4 no-border font-weight-bold" @click="getAllRestaurants()" type="button" name="button">Show all</button>
+          </div>
+        </div>
     </div>
     {{-- RESTAURANTS CARDS --}}
     <div class="row">
         <div class="card custom_padding no-border my-4 shadow w-100">
-            <h1 class="search_title">All Restaurants</h1>
+            <h1 class="search_title">Restaurants</h1>
             <div  class="row">
                  <div v-for="restaurant in restaurants" class="col-sm col-md-4">
                     <div class="card my-4 w-100 h-25">
