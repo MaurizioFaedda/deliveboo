@@ -92,7 +92,7 @@
                                                        <input type="hidden" name="restaurant_id" value="{{$dish->restaurant_id}}">
                                                        <button type="submit" class="button button-plain">Add to Cart</button>
                                                    </form>
-                                              </div>
+                                                </div>
                                             </div>
                                       </div>
                                     </div>
