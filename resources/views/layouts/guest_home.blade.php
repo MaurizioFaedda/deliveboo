@@ -87,24 +87,10 @@
                 </div>
             </div>
         </nav>
-        {{-- <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm fixed-top mt-5">
-            <div class="container">
-                <div id="choosecard" class="card custom_padding no-border my-4 shadow w-100">
-                    <div class="mt-3 p-1 text-white">
-                      <h5 class="font-weight-bold">Scegli una o piu tipologie di ristoranti</h5>
-                      <div class="form-check form-check-inline" v-for="type in types">
-                        <input class="form-check-input" id="inlineCheckbox1" @change="getFilteredRestaurantsByTypes()" type="checkbox" :value="type.id" v-model="checked_types">
-                        <label class="form-check-label p-2 font-weight-bold" for="type.type">
-                            @{{type.type}}
-                        </label>
-                      </div>
-                    </div>
-                </div>
-            </div>
-        </nav> --}}
+
         <div class="container-fluid custom_background mt-5">
             <div class="row mx-4">
-                <nav id="guest-sidebar" class="col-lg-2 col-md-3 d-none d-md-block p-4 overflow-auto">
+                <nav id="guest-sidebar" class="col-lg-2 col-md-3 d-none d-md-block p-4 overflow-auto shadow">
                     <div class="sidebar-sticky d-flex flex-column">
                         <div class="filter d-flex flex-column justify-content-center w-100 mb-2">
                           <select @change="getFilteredRestaurants()" v-model="selected_type" id="type-filter" class="p-2">
@@ -132,7 +118,7 @@
           <div class="row">
               <div class="col-lg-10 offset-lg-2 col-md-9 offset-md-3 ">
                   <!-- Footer -->
-                  <footer class="bg-light text-center text-lg-start w-100 font-weight-bold">
+                  <footer class="bg-light text-center text-lg-start w-100 font-weight-bold shadow">
                       <!-- Grid container -->
                       <div class="container p-4">
                           <!--Grid row-->
