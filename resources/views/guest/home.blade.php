@@ -42,7 +42,7 @@
                             <img v-if="restaurant.img_path_rest" class="card-img-top g-custom-card-height w-100" :src="'storage/' + restaurant.img_path_rest" alt="Card image cap">
                             <img v-else class="card-img-top g-custom-card-height" src="" alt="Card image cap">
                         </a>
-                        <div class="card-body pl-0">
+                        <div class="card-body pl-0 pb-0">
                             <h5 class="card-title font-weight-bold"><span class="ml-1 icon-restaurant-main-color"></span> @{{restaurant.restaurant_name}}</h5>
                             <p class="card-text p-infos">
                                 @{{restaurant.description}}

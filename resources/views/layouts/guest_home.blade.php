@@ -103,8 +103,8 @@
             </div>
         </nav> --}}
         <div class="container-fluid custom_background mt-5">
-            <div class="row">
-                <nav id="guest-sidebar" class="col-md-2 d-none d-md-block p-4 overflow-auto">
+            <div class="row mx-4">
+                <nav id="guest-sidebar" class="col-lg-2 col-md-3 d-none d-md-block p-4 overflow-auto">
                     <div class="sidebar-sticky d-flex flex-column">
                         <div class="filter d-flex flex-column justify-content-center w-100 mb-2">
                           <select @change="getFilteredRestaurants()" v-model="selected_type" id="type-filter" class="p-2">
@@ -125,12 +125,12 @@
                         </div>
                     </div>
                 </nav>
-                <main class="col-md-10 ml-sm-auto px-0 mt-3">
+                <main class="col-lg-10 col-md-9 ml-sm-auto px-0 mt-3">
                     @yield('content')
                 </main>
           </div>
           <div class="row">
-              <div class="col-md-10 offset-md-2 ">
+              <div class="col-lg-10 offset-lg-2 col-md-9 offset-md-3 ">
                   <!-- Footer -->
                   <footer class="bg-light text-center text-lg-start w-100 font-weight-bold">
                       <!-- Grid container -->
