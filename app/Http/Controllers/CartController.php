@@ -81,7 +81,7 @@ class CartController extends Controller
                 return redirect()->route('restaurant.show', ['id' => $request->restaurant_id])->with('success_message', 'Your food was added to your cart!');
 
             }else{
-                // Se non rispetta le condizioni faccio return della pagina del ristorante dove può continuare a continuare l'ordine 
+                // Se non rispetta le condizioni faccio return della pagina del ristorante dove può continuare a continuare l'ordine
                 return redirect()->route('restaurant.show', ['id' => $first_restaurant_id])->with('success_message', 'Your food was added to your cart!');
             }
         }
