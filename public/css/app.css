@@ -427,12 +427,12 @@ table tbody tr {
 
 #guest-sidebar {
   position: fixed;
-  top: 71px;
+  top: 64px;
   bottom: 0;
   left: 0;
   z-index: 100;
   padding: 48px 0 0;
-  border-right: 1px solid #00CDBC;
+  background-color: #0696BB;
 }
 
 .g-custom-card-height {
