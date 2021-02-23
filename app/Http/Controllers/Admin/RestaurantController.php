@@ -56,6 +56,7 @@ class RestaurantController extends Controller
       'restaurant_name' => 'required|max:100',
       'city' => 'required|max:20',
       'address' => 'required|max:50',
+      'description' => 'nullable',
       'image' => 'nullable| mimes:jpeg,jpg,png|max:512',
       'types' => 'exists:types,id'
     ]);

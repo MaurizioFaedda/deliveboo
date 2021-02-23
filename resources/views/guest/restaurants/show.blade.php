@@ -20,7 +20,7 @@
                 </li>
                 <li class="list-group-item h-100">
                     <span class="icon-info-main-color ml-2 pr-3"></span>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                    {{$restaurant->description}}
                 </li>
 
             </ul>

@@ -40,7 +40,9 @@
                         <img v-else class="card-img-top g-custom-card-height" src="" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title font-weight-bold"> @{{restaurant.restaurant_name}}</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <p class="card-text">
+                                @{{restaurant.description}}
+                            </p>
                             <a :href="'restaurant/' + restaurant.id" class="btn btn-primary">Visualizza ristorante</a>
                         </div>
                     </div>
