@@ -1,8 +1,8 @@
-@extends('layouts.guest')
+@extends('layouts.guest_home')
 @section('content')
 <div class="container">
     {{-- CHECKBOX FILTER TYPES --}}
-    <div id="choosecard" class="card custom_padding no-border my-4 shadow w-100">
+    {{-- <div id="choosecard" class="card custom_padding no-border my-4 shadow w-100">
         <div class="mt-3 p-3 text-white">
           <h3 class="font-weight-bold">Scegli una o piu tipologie di ristoranti</h3>
           <div class="form-check form-check-inline" v-for="type in types">
@@ -12,10 +12,10 @@
             </label>
           </div>
         </div>
-    </div>
+    </div> --}}
 
     {{-- SELECT TYPES --}}
-    <div id="choosecard" class="card custom_padding no-border my-4 shadow w-100">
+    {{-- <div id="choosecard" class="card custom_padding no-border my-4 shadow w-100">
         <div class="p-3">
           <h3 class="font-weight-bold text-white mb-3">Select your type</h3>
           <div class="filter d-flex flex-column justify-content-center">
@@ -28,7 +28,7 @@
             <button class="show-button p-1 mt-4 no-border font-weight-bold" @click="getAllRestaurants()" type="button" name="button">Show all</button>
           </div>
         </div>
-    </div>
+    </div> --}}
     {{-- RESTAURANTS CARDS --}}
     <div class="row">
         <div class="card custom_padding no-border my-4 shadow w-100 thiscartbody">
@@ -36,8 +36,10 @@
             <div  class="row">
                  <div v-for="restaurant in restaurants" class="col-sm col-md-4">
                     <div class="card my-4 w-100 h-25">
-                        <img v-if="restaurant.img_path_rest" class="card-img-top g-custom-card-height" :src="'storage/' + restaurant.img_path_rest" alt="Card image cap">
-                        <img v-else class="card-img-top g-custom-card-height" src="" alt="Card image cap">
+                        <a :href="'restaurant/' + restaurant.id">
+                            <img v-if="restaurant.img_path_rest" class="card-img-top g-custom-card-height" :src="'storage/' + restaurant.img_path_rest" alt="Card image cap">
+                            <img v-else class="card-img-top g-custom-card-height" src="" alt="Card image cap">
+                        </a>
                         <div class="card-body">
                             <h5 class="card-title font-weight-bold"> @{{restaurant.restaurant_name}}</h5>
                             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
