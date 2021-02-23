@@ -273,14 +273,15 @@ table tbody tr {
 
 ::-webkit-scrollbar-track {
   background: #F0FAFC;
-  border-radius: 10px;
 }
 
 /* Handle */
 
 ::-webkit-scrollbar-thumb {
-  background: #06A092;
-  border-radius: 10px;
+  background-color: #3490DC;
+  border: 3px solid white;
+  border-top: none;
+  border-bottom: none;
 }
 
 #choosecard {
