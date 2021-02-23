@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Validator;
-
+use App\Restaurant;
 use App\Dish;
 
 class CartController extends Controller
@@ -47,9 +47,12 @@ class CartController extends Controller
         //     return redirect()->route('cart.index')->with('success_message', 'Dish is already in your cart!');
         // }
 
+        // Controllo che la fk del piatto sia identica all'id del ristorante su cui mi trovo nella pagina
+
         Cart::add($request->id, $request->name, 1, $request->price)
-            ->associate('App\Dish');
-        return redirect()->route('cart.index')->with('success_message', 'Item was added to your cart!');
+        ->associate('App\Dish');
+        return redirect()->route('restaurant.show', ['id' => $request->restaurant_id])->with('success_message', 'Your food was added to your cart!');
+
 
     }
 
