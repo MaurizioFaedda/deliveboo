@@ -115,9 +115,9 @@
                           </select>
                           <button class="show-button p-1 mt-4 no-border font-weight-bold" @click="getAllRestaurants()" type="button" name="button">Show all</button>
                         </div>
-                        <div class="form-check form-check-inline" v-for="type in types">
+                        <div class="form-check form-check-inline py-2" v-for="type in types">
                           <input class="form-check-input" id="inlineCheckbox1" @change="getFilteredRestaurantsByTypes()" type="checkbox" :value="type.id" v-model="checked_types">
-                          <label class="form-check-label p-2 font-weight-bold" for="type.type">
+                          <label class="form-check-label p-2 mx-2 font-weight-bold text-white" for="type.type">
                               @{{type.type}}
                           </label>
                         </div>
