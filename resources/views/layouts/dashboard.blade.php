@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" style="background-color: #C9FAFF">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" style="background-color: #F8FAFC">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,7 +24,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
 </head>
-<body style="background-color: #C9FAFF">
+<body style="background-color: #F8FAFC">
     <div id="app">
         <nav class="navbar fixed-top nav-color navbar-expand-md text-white shadow-sm">
             <div class="container-fluid p-0">
@@ -41,6 +41,7 @@
                     <li>
                         <a href="#"> <span class="icon-responsive icon-order"></span> </a>
                     </li>
+
                 </ul>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span id="icon-burger" class="navbar-toggler-icon d-flex align-items-center"></span>
