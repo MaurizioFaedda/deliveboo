@@ -22,4 +22,7 @@ Route::namespace('Api')->group(function() {
   Route::get('/restaurants/{id}', 'RestaurantController@filter_restaurants');
   // Passo l'ID dell'array dei types preso dalla checkbox all'API Restaurant Controller
   Route::post('/restaurants/', 'RestaurantController@get_filtered_restaurants');
+  // Passo l'array dell'id dei piatti da aggiungere al carrello
+  Route::get('/dish/{id}', 'DishController@cart_dish');
+
 });

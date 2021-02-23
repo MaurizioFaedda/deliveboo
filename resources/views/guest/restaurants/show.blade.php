@@ -84,14 +84,8 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                    <form action="{{ route('cart.store', $dish) }}" method="POST">
-                                                       {{ csrf_field() }}
-                                                       <input type="hidden" name="id" value="{{$dish->id}}">
-                                                       <input type="hidden" name="name" value="{{$dish->name}}">
-                                                       <input type="hidden" name="price" value="{{$dish->price}}">
-                                                       <input type="hidden" name="restaurant_id" value="{{$dish->restaurant_id}}">
-                                                       <button type="submit" class="button button-plain">Add to Cart</button>
-                                                   </form>
+                                                    <button data-dismiss="modal" @click="addItemCart({{$dish->id}})" class="button button-plain">Add to Cart</button>
+
                                                 </div>
                                             </div>
                                       </div>
@@ -113,32 +107,23 @@
                             {{ session()->get('success_message') }}
                         </div>
                     @endif
+                    <ul>
+                        <li v-for="item in cart_list">
+                            @{{item.name}}
+                        </li>
+                    </ul>
+                    {{-- <div v-for="item in cart_list">
+                        <form action="{{ route('cart.store', $dish) }}" method="POST">
+                           {{ csrf_field() }}
+                           <input type="hidden" name="id" value="dishes_id">
+                           <input type="hidden" name="name" value="{{$dish->name}}">
+                           <input type="hidden" name="price" value="{{$dish->price}}">
+                           <input type="hidden" name="restaurant_id" value="{{$dish->restaurant_id}}">
+                           <button type="submit" class="button button-plain">Add to Cart</button>
+                       </form>
+                    </div> --}}
 
-                    @if(count($errors) > 0)
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-                    @if (Cart::count() > 0)
-                        <h2>{{ Cart::count() }} item(s) in Shopping Cart</h2>
-                        <div class="cart-table-row">
-                            @foreach (Cart::content() as $item)
-                                <p>
-                                    {{ $item->model->name }}
-                                </p>
-                                <p>
-                                    {{number_Format($item->model->price, 2, ',', '')}} €
-                                </p>
-                            @endforeach
-                        </div>
-                    @else
-                        <h3>No items in Cart!</h3>
-                    @endif
-                    <a href="{{ route('cart.index')}}">Visuliazza il tuo ordine completo</a>
+                    <button type="submit">Go to Checkout</button>
                 </div>
             </div>
         </div>

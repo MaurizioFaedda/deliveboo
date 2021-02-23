@@ -16,4 +16,21 @@ class DishController extends Controller
       'results' => $dishes
     ]);
   }
+
+  public function cart_dish($id)
+  {
+    if($id) {
+      // QUERY per cercare il piatto selezionato dall'utente nella tabella dei piatti
+      $dish = Dish::find($id);
+      return response()->json([
+          'success' => true,
+          'results' => $dish
+      ]);
+    } else {
+        return response()->json([
+            'success' => false,
+            'results' => []
+        ]);
+    }
+  }
 }
