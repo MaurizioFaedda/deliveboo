@@ -376,6 +376,18 @@ table tbody tr {
   color: #00CDBC;
 }
 
+.icon-rider-main-color::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\F84A";
+  color: #fff;
+  font-size: 20px;
+  padding-right: 16px;
+  font-size: 32px;
+  padding-bottom: 4px;
+  color: #00CDBC;
+}
+
 .search-box {
   width: 300px;
   height: 20px;

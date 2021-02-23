@@ -32,7 +32,9 @@
     {{-- RESTAURANTS CARDS --}}
     <div class="row">
         <div class="card custom_padding no-border my-4 shadow w-100 thiscartbody">
-            <h1 class="search_title">Restaurants</h1>
+            <div class="text-left">
+                <h1 class="search_title text-left pl-0 align-baseline"><span class="icon-rider-main-color"></span>Restaurants delivering in <strong>Rome</strong></h1>
+            </div>
             <div  class="row">
                  <div v-for="restaurant in restaurants" class="col-sm col-md-4 card-restaurant my-3">
                     <div class="card my-4 w-100 no-border">

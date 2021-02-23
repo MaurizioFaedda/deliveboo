@@ -73,6 +73,12 @@
     @include dash_icon("\f07a");
     color: $color_main;
 }
+.icon-rider-main-color::after{
+    @include dash_icon("\f84a");
+    font-size: 32px;
+    padding-bottom: 4px;
+    color: $color_main;
+}
 
 .search-box{
     width: 300px;
