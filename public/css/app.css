@@ -236,6 +236,10 @@ table tbody tr {
   min-height: 700px !important;
 }
 
+.log_register_cartbody {
+  min-height: 540px !important;
+}
+
 @media screen and (max-width: 762px) {
   #my-icon-menu {
     width: 60%;

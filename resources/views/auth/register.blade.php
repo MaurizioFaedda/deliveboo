@@ -10,7 +10,7 @@
             <div class="card m-4">
                 <div class="card-header  bg-light bg-gradient text-dark">{{ __('Register') }}</div>
 
-                <div class="card-body thiscartbody">
+                <div class="card-body log_register_cartbody">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
