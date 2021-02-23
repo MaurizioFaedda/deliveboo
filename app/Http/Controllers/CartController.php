@@ -47,11 +47,19 @@ class CartController extends Controller
         //     return redirect()->route('cart.index')->with('success_message', 'Dish is already in your cart!');
         // }
 
+
+
         // Controllo che la fk del piatto sia identica all'id del ristorante su cui mi trovo nella pagina
+        $current_restaurant_fk = $request->restaurant_id;
+
+        // if($current_restaurant_fk == $request->restaurant_id) {
+        //     //
+        // }
 
         Cart::add($request->id, $request->name, 1, $request->price)
         ->associate('App\Dish');
-        return redirect()->route('restaurant.show', ['id' => $request->restaurant_id])->with('success_message', 'Your food was added to your cart!');
+        return redirect()->route('restaurant.show', ['id' => $current_restaurant_fk])->with('success_message', 'Your food was added to your cart!');
+
 
 
     }
