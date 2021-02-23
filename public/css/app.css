@@ -299,7 +299,7 @@ table tbody tr {
 }
 
 .custom_background {
-  background-color: #00CDBC;
+  background: linear-gradient(20deg, #00CDBC 0 50%, #FF9F00 50% 100%);
 }
 
 .logo-navbar {
