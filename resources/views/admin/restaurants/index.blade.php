@@ -5,11 +5,16 @@
 
 @section('content')
 <div class="container">
-    <div class="card w-25 shadow no-border">
-        <a href="{{route('admin.restaurants.create')}}" class="btn btn-primary my-3 shadow mx-auto o-border w-50">
-            Nuovo ristorante
-        </a>
+    <div class="row">
+        <div class="col-md-3 col-sm-12">
+            <div class="card w-100 shadow no-border">
+                <a href="{{route('admin.restaurants.create')}}" class="btn btn-primary my-3 shadow mx-auto o-border w-50">
+                    Nuovo ristorante
+                </a>
+            </div>
+        </div>
     </div>
+
 
     <div class="row justify-content-left">
             @foreach ($restaurants as $restaurant)
