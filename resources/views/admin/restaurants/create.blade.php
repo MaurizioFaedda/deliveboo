@@ -40,6 +40,16 @@
                             </div>
                         @enderror
                     </div>
+                    <div class="form-group d-flex flex-column w-100">
+                        <label class="form-font" for="title">Description</label>
+                        <textarea name="description" rows="8" cols="80">{{ old('description')}}</textarea>
+                        {{-- SHOWING ERROR MESSAGE --}}
+                        @error('description')
+                            <div class="alert alert-danger">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
                 </div>
             </div>
             <div class="card border-0 mb-5 w-75">
