@@ -43,10 +43,11 @@ class CartController extends Controller
         //     return $cartItem->id === $request->id;
         // });
         //
+        //
+        // 
         // if($duplicates->isNotEmpty()){
         //     return redirect()->route('cart.index')->with('success_message', 'Dish is already in your cart!');
         // }
-
 
 
         // Controllo che la fk del piatto sia identica all'id del ristorante su cui mi trovo nella pagina
