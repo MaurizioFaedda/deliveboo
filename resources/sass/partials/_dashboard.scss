@@ -158,21 +158,7 @@ table thead, table tbody tr {
 }
 
 .card {
-    ::-webkit-scrollbar {
-      width: 15px;
-    }
-
-    /* Track */
-    ::-webkit-scrollbar-track {
-      background: #F0FAFC;
-      border-radius: 10px;
-    }
-
-    /* Handle */
-    ::-webkit-scrollbar-thumb {
-      background: #02CDBC;
-      border-radius: 10px;
-    }
+    
     position: unset!important;
     .card-header {
         background-color: $color_main;
@@ -192,7 +178,7 @@ table thead, table tbody tr {
 }
 
 .thiscartbody{
-    min-height: 500px!important;
+    min-height: 700px!important;
 }
 
 @media screen and (max-width: 762px) {

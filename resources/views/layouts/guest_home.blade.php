@@ -104,22 +104,24 @@
         </nav> --}}
         <div class="container-fluid custom_background mt-5">
             <div class="row">
-                <nav id="guest-sidebar" class="col-md-2 d-none d-md-block pl-4">
+                <nav id="guest-sidebar" class="col-md-2 d-none d-md-block p-4 overflow-auto">
                     <div class="sidebar-sticky d-flex flex-column">
-                        <div class="filter d-flex flex-column justify-content-center w-75">
+                        <div class="filter d-flex flex-column justify-content-center w-100 mb-2">
                           <select @change="getFilteredRestaurants()" v-model="selected_type" id="type-filter" class="p-2">
                               <option value="">All types</option>
                               <option v-for="type in types" :value="type.id">
                                 @{{type.type}}
                               </option>
                           </select>
-                          <button class="show-button p-1 mt-4 no-border font-weight-bold" @click="getAllRestaurants()" type="button" name="button">Show all</button>
+                          <button class="show-button p-2 mt-4 no-border font-weight-bold" @click="getAllRestaurants()" type="button" name="button">Show all</button>
                         </div>
-                        <div class="form-check form-check-inline py-2" v-for="type in types">
-                          <input class="form-check-input" id="inlineCheckbox1" @change="getFilteredRestaurantsByTypes()" type="checkbox" :value="type.id" v-model="checked_types">
-                          <label class="form-check-label p-2 mx-2 font-weight-bold text-white" for="type.type">
-                              @{{type.type}}
-                          </label>
+                        <div class="form-check form-check-inline py-2 mr-0" v-for="type in types">
+                            <div class="card w-100 p-2 pl-4 d-flex flex-row align-items-center justify-content-start shadow">
+                                <input class="form-check-input" id="inlineCheckbox1" @change="getFilteredRestaurantsByTypes()" type="checkbox" :value="type.id" v-model="checked_types">
+                                <label class="form-check-label p-2 font-weight-bold text-dark" for="type.type">
+                                    @{{type.type}}
+                                </label>
+                            </div>
                         </div>
                     </div>
                 </nav>
