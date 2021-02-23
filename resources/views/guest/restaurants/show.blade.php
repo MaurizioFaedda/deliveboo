@@ -89,6 +89,7 @@
                                                        <input type="hidden" name="id" value="{{$dish->id}}">
                                                        <input type="hidden" name="name" value="{{$dish->name}}">
                                                        <input type="hidden" name="price" value="{{$dish->price}}">
+                                                       <input type="hidden" name="restaurant_id" value="{{$dish->restaurant_id}}">
                                                        <button type="submit" class="button button-plain">Add to Cart</button>
                                                    </form>
                                               </div>
@@ -107,6 +108,37 @@
                 {{-- cart --}}
                 <div class="col-md-4 py-5 text-right">
                     <h3><span class="icon-cart-main-color"></span>Carts</h3>
+                    @if (session()->has('success_message'))
+                        <div class="alert alert-success">
+                            {{ session()->get('success_message') }}
+                        </div>
+                    @endif
+
+                    @if(count($errors) > 0)
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                    @if (Cart::count() > 0)
+                        <h2>{{ Cart::count() }} item(s) in Shopping Cart</h2>
+                        <div class="cart-table-row">
+                            @foreach (Cart::content() as $item)
+                                <p>
+                                    {{ $item->model->name }}
+                                </p>
+                                <p>
+                                    {{number_Format($item->model->price, 2, ',', '')}} €
+                                </p>
+                            @endforeach
+                        </div>
+                    @else
+                        <h3>No items in Cart!</h3>
+                    @endif
+                    <a href="{{ route('cart.index')}}">Visuliazza il tuo ordine completo</a>
                 </div>
             </div>
         </div>
