@@ -44,25 +44,47 @@ class CartController extends Controller
         // });
         //
         //
-        // 
+        //
         // if($duplicates->isNotEmpty()){
         //     return redirect()->route('cart.index')->with('success_message', 'Dish is already in your cart!');
         // }
 
 
-        // Controllo che la fk del piatto sia identica all'id del ristorante su cui mi trovo nella pagina
-        $current_restaurant_fk = $request->restaurant_id;
+        // Controllo che il carrello sia vuoto
+        if(Cart::count() == 0){
 
-        // if($current_restaurant_fk == $request->restaurant_id) {
-        //     //
-        // }
+            //  Aggiungiamo il primo elemento
+            Cart::add($request->id, $request->name, 1, $request->price)
+            ->associate('App\Dish');
 
-        Cart::add($request->id, $request->name, 1, $request->price)
-        ->associate('App\Dish');
-        return redirect()->route('restaurant.show', ['id' => $current_restaurant_fk])->with('success_message', 'Your food was added to your cart!');
+            return redirect()->route('restaurant.show', ['id' => $request->restaurant_id])->with('success_message', 'Your food was added to your cart!');
+
+        }else{
+            // Se il carrello non è vuoto faccio la verifica dell'id ristorante del primo elemtnto con quello che voglio aggiungere
+
+            // salvo in una varibiale la fk del ristorante del piatto appena aggiunto
+            $current_restaurant_fk = $request->restaurant_id;
+
+            // Prendiamo l'id del primo piatto aggiunto in precedenza nel carrello
+            $id = Cart::content()->first()->id;
+
+            // Salviamo l'id del ristorante del primo piatto aggiunto al carrello
+            $first_restaurant_id = Dish::find($id)->restaurant_id;
 
 
+            // Controllo che la fk del piatto appena aggiunto sia uguale al id del ristorante del primo piatto
+            if($current_restaurant_fk == $first_restaurant_id) {
 
+                // Se il piatto passa i controlli dell'if lo aggiungo al carrello
+                Cart::add($request->id, $request->name, 1, $request->price)
+                ->associate('App\Dish');
+                return redirect()->route('restaurant.show', ['id' => $request->restaurant_id])->with('success_message', 'Your food was added to your cart!');
+
+            }else{
+                // Se non rispetta le condizioni faccio return della pagina del ristorante dove può continuare a continuare l'ordine 
+                return redirect()->route('restaurant.show', ['id' => $first_restaurant_id])->with('success_message', 'Your food was added to your cart!');
+            }
+        }
     }
 
 
