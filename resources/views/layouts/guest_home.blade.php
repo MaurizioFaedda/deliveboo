@@ -155,13 +155,13 @@
 
                                   <ul class="list-unstyled mb-0">
                                       <li>
-                                          <a href="#!" class="text-dark">Link 1</a>
+                                          <a href="https://www.linkedin.com/in/marco-caputo-58000a1ab/" class="text-dark">Marco Caputo</a>
                                       </li>
                                       <li>
-                                          <a href="#!" class="text-dark">Link 2</a>
+                                          <a href="https://www.linkedin.com/in/maurizio-faedda/" class="text-dark">Maurizio Faedda</a>
                                       </li>
                                       <li>
-                                          <a href="#!" class="text-dark">Link 3</a>
+                                          <a href="https://www.linkedin.com/in/patriziacrimi/" class="text-dark">Patrizia Crimi</a>
                                       </li>
                                   </ul>
                               </div>
@@ -173,10 +173,10 @@
 
                                   <ul class="list-unstyled">
                                       <li>
-                                          <a href="#!" class="text-dark">Link 1</a>
+                                          <a href="https://www.linkedin.com/in/annalisa-de-santis-354a7b205/" class="text-dark">Annalisa De Santis</a>
                                       </li>
                                       <li>
-                                          <a href="#!" class="text-dark">Link 2</a>
+                                          <a href="https://www.linkedin.com/in/sabrinacunsolo/" class="text-dark">Sabrina Cunsolo</a>
                                       </li>
                                   </ul>
                               </div>
