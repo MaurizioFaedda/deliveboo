@@ -37286,6 +37286,10 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+var _methods;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 var app = new Vue({
@@ -37301,7 +37305,7 @@ var app = new Vue({
     dishes_id: [],
     new_dish_obj: null
   },
-  methods: {
+  methods: (_methods = {
     getAllRestaurants: function getAllRestaurants() {
       var _this = this;
 
@@ -37362,30 +37366,64 @@ var app = new Vue({
 
       // Inserisco l'id del piatto aggiunto dall'utente nell'array da passare al backend con il form
       this.dishes_id.push(id_dish); // -------------------- AXIOS call for Dish by ID --------------------
+      // Controllo se il carrello è vuoto
 
-      axios.get('/api/dish/' + id_dish).then(function (response) {
-        _this6.cart_list.push(response.data.results);
+      if (this.cart_list.length === 0) {
+        axios.get('/api/dish/' + id_dish).then(function (response) {
+          // Se è vuoto aggiungo il primo elemento/piatto al carrello
+          _this6.cart_list.push(response.data.results);
 
-        console.log(_this6.cart_list);
-        _this6.new_dish_obj = '';
+          console.log(_this6.cart_list);
+          _this6.new_dish_obj = '';
 
-        _this6.saveDishes();
-      });
-    },
-    removeItemCart: function removeItemCart(dish) {
-      // A partire dall'elemento che voglio cancellare ne prendo solo 1
-      this.cart_list.splice(dish, 1);
-      this.saveDishes();
-    },
-    saveDishes: function saveDishes() {
-      var parsed = JSON.stringify(this.cart_list);
-      localStorage.setItem('cart_list', parsed);
-    },
-    removeAllItemsCart: function removeAllItemsCart() {
-      this.cart_list = [];
-      this.saveDishes();
+          _this6.saveDishes();
+        });
+      } else {
+        // Se il carrello non è vuoto verifico che il ristorante da cui aggiungo i piatti sia lo stesso del primo piatto
+        axios.get('/api/dish/' + id_dish).then(function (response) {
+          // Controllo che la fk del piatto appena aggiunto (quello ciclato) sia uguale all'id del ristorante del primo piatto
+          if (_this6.cart_list[0].restaurant_id === response.data.results.restaurant_id) {
+            // Se il ristorante è lo stesso l'utente può procedere ad aggiungere il piatto all'ordine/carrello
+            _this6.cart_list.push(response.data.results);
+
+            _this6.new_dish_obj = '';
+
+            _this6.saveDishes();
+          } else {
+            alert('Pippo');
+          }
+        });
+      }
     }
-  },
+  }, _defineProperty(_methods, "addItemCart", function addItemCart(id_dish) {
+    var _this7 = this;
+
+    // Inserisco l'id del piatto aggiunto dall'utente nell'array da passare al backend con il form
+    this.dishes_id.push(id_dish); // -------------------- AXIOS call for Dish by ID --------------------
+
+    axios.get('/api/dish/' + id_dish).then(function (response) {
+      _this7.cart_list.push(response.data.results);
+
+      console.log(_this7.cart_list);
+      _this7.new_dish_obj = '';
+
+      _this7.saveDishes();
+    });
+  }), _defineProperty(_methods, "removeItemCart", function removeItemCart(dish) {
+    // A partire dall'elemento che voglio cancellare ne prendo solo 1
+    this.cart_list.splice(dish, 1);
+    this.saveDishes();
+  }), _defineProperty(_methods, "removeAllCart", function removeAllCart() {
+    //  Svuoto il cart_list e lo comunico al localStorage
+    this.cart_list = [];
+    this.saveDishes();
+  }), _defineProperty(_methods, "saveDishes", function saveDishes() {
+    var parsed = JSON.stringify(this.cart_list);
+    localStorage.setItem('cart_list', parsed);
+  }), _defineProperty(_methods, "removeAllItemsCart", function removeAllItemsCart() {
+    this.cart_list = [];
+    this.saveDishes();
+  }), _methods),
   mounted: function mounted() {
     this.getAllRestaurants();
     this.getAllTypes(); // Grabbing the value and parse the JSON value.

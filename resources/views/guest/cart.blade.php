@@ -17,11 +17,23 @@
                     @endif
 
                     {{-- BUTTON per svuotare il carrello --}}
-                    <a href="{{ route('cart.empty') }}" class="btn btn-danger">
+                    {{-- <a href="{{ route('cart.empty') }}" class="btn btn-danger">
                       Empty cart
-                    </a>
-
-                    @if(count($errors) > 0)
+                    </a> --}}
+                    <button @click="removeAllCart()" type="button" name="button">Empty</button>
+                    <div class="">
+                        <div class="">
+                          <ul v-for="(dish, index) in cart_list">
+                            <li>
+                              <span>@{{dish.name}}</span>
+                              <span>@{{dish.price.toFixed(2)}} €</span>
+                              <button @click="removeItemCart(index)">Remove</button>
+                            </li>
+                          </ul>
+                        </div>
+                    </div>
+                    
+                    {{-- @if(count($errors) > 0)
                         <div class="alert alert-danger">
                             <ul>
                                 @foreach ($errors->all() as $error)
@@ -29,8 +41,8 @@
                                 @endforeach
                             </ul>
                         </div>
-                    @endif
-                    @if (Cart::count() > 0)
+                    @endif --}}
+                    {{-- @if (Cart::count() > 0)
                       <h2>{{ Cart::count() }} item(s) in Shopping Cart</h2>
                       <div class="cart-table-row">
                               <div class="col-md-8 col-sm-12 h-100">
@@ -72,7 +84,7 @@
                                                       </td>
                                                       <td>
                                                           {{-- {{number_Format($item->qty * $item->model->price, 2, ',', '' )}} --}}
-                                                      </td>
+                                                      {{-- </td>
                                                       <td>
                                                           <form class="" action="{{route('cart.destroy', $item->rowId)}}" method="POST">
                                                               {{ csrf_field() }}
@@ -80,19 +92,19 @@
                                                               <button type="submit" class="btn btn-danger">Remove</button>
                                                           </form>
                                                       </td>
-                                                    </tr>
-                                                @endforeach
+                                                    </tr> --}}
+                                                {{-- @endforeach
                                           </tbody>
                                       </table>
                                   </div>
-                          </div>
-                  @else
-                        <h3>No items in Cart!</h3>
+                          </div> --}}
+                  {{-- @else --}}
+                        {{-- <h3>No items in Cart!</h3>
                         <div class="spacer"></div>
                         <a href="{{route('index')}}" class="button">Continue Shopping</a>
-                        <div class="spacer"></div>
-                    @endif
-                </div>
+                        <div class="spacer"></div> --}}
+                    {{-- @endif
+                </div> --}}
         </div>
 
 @endsection

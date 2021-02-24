@@ -51,23 +51,56 @@ var app = new Vue ({
         });
       },
     getFilteredRestaurantsByTypes() {
-      var request = {
-        checked: this.checked_types
-      }
-      // Se l'array di checkbox è vuoto visualizzo in automatico tutti i ristoranti
-      if(this.checked_types.length == 0) {
-        this.getAllRestaurants()
-      } else {
-        // -------------------- AXIOS call for FILTERED Restaurants by Types --------------------
-        this.restaurants = [];
-        axios
-        .post('/api/restaurants/', request)
-        .then(response => {
-          // prendo i risultati della chiamata ajax e li salvo in un array di appoggio
-          this.restaurants = response.data.results;
-          console.log(this.restaurants);
-        });
-      }
+        var request = {
+          checked: this.checked_types
+        }
+        // Se l'array di checkbox è vuoto visualizzo in automatico tutti i ristoranti
+        if(this.checked_types.length == 0) {
+          this.getAllRestaurants()
+        } else {
+          // -------------------- AXIOS call for FILTERED Restaurants by Types --------------------
+          this.restaurants = [];
+          axios
+          .post('/api/restaurants/', request)
+          .then(response => {
+            // prendo i risultati della chiamata ajax e li salvo in un array di appoggio
+            this.restaurants = response.data.results;
+            console.log(this.restaurants);
+          });
+        }
+    },
+    addItemCart(id_dish){
+        // Inserisco l'id del piatto aggiunto dall'utente nell'array da passare al backend con il form
+        this.dishes_id.push(id_dish);
+        // -------------------- AXIOS call for Dish by ID --------------------
+        // Controllo se il carrello è vuoto
+        if (this.cart_list.length === 0) {
+            axios
+            .get('/api/dish/' + id_dish)
+            .then(response => {
+             // Se è vuoto aggiungo il primo elemento/piatto al carrello
+                this.cart_list.push(response.data.results);
+                console.log(this.cart_list);
+                this.new_dish_obj = '';
+                this.saveDishes();
+            });
+        } else {
+             // Se il carrello non è vuoto verifico che il ristorante da cui aggiungo i piatti sia lo stesso del primo piatto
+            axios
+            .get('/api/dish/' + id_dish)
+            .then(response => {
+            // Controllo che la fk del piatto appena aggiunto (quello ciclato) sia uguale all'id del ristorante del primo piatto
+                if ( this.cart_list[0].restaurant_id === response.data.results.restaurant_id) {
+             // Se il ristorante è lo stesso l'utente può procedere ad aggiungere il piatto all'ordine/carrello
+                    this.cart_list.push(response.data.results);
+                    this.new_dish_obj = '';
+                    this.saveDishes();
+                } else {
+                    alert('Pippo');
+                }
+
+            });
+        }
     },
     addItemCart(id_dish){
       // Inserisco l'id del piatto aggiunto dall'utente nell'array da passare al backend con il form
@@ -86,6 +119,11 @@ var app = new Vue ({
       // A partire dall'elemento che voglio cancellare ne prendo solo 1
       this.cart_list.splice(dish,1);
       this.saveDishes();
+    },
+    removeAllCart(){
+    //  Svuoto il cart_list e lo comunico al localStorage
+        this.cart_list = [];
+        this.saveDishes();
     },
     saveDishes() {
       let parsed = JSON.stringify(this.cart_list);
