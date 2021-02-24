@@ -122,6 +122,7 @@
                     </div>
                     {{-- BUTTON per cart FORM (back-end) --}}
                     <div v-if="cart_list.length > 0">
+                      <div @click="removeAllItemsCart()" class="btn btn-danger">Delete all</div>
                       <form action="{{ route('cart.store') }}" method="POST">
                         {{ csrf_field() }}
                         <input type="hidden" name="dishes_id[]" :value="dishes_id">

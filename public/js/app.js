@@ -37380,6 +37380,10 @@ var app = new Vue({
     saveDishes: function saveDishes() {
       var parsed = JSON.stringify(this.cart_list);
       localStorage.setItem('cart_list', parsed);
+    },
+    removeAllItemsCart: function removeAllItemsCart() {
+      this.cart_list = [];
+      this.saveDishes();
     }
   },
   mounted: function mounted() {
