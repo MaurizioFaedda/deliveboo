@@ -37298,7 +37298,8 @@ var app = new Vue({
     checked_types: [],
     filtered_restaurants: [],
     cart_list: [],
-    dishes_id: []
+    dishes_id: [],
+    new_dish_obj: null
   },
   methods: {
     getAllRestaurants: function getAllRestaurants() {
@@ -37366,13 +37367,33 @@ var app = new Vue({
         _this6.cart_list.push(response.data.results);
 
         console.log(_this6.cart_list);
+        _this6.new_dish_obj = '';
+
+        _this6.saveDishes();
       });
+    },
+    removeItemCart: function removeItemCart(dish) {
+      // A partire dall'elemento che voglio cancellare ne prendo solo 1
+      this.cart_list.splice(dish, 1);
+      this.saveDishes();
+    },
+    saveDishes: function saveDishes() {
+      var parsed = JSON.stringify(this.cart_list);
+      localStorage.setItem('cart_list', parsed);
     }
   },
   mounted: function mounted() {
     this.getAllRestaurants();
-    this.getAllTypes();
-    this.getAllDishes();
+    this.getAllTypes(); // Grabbing the value and parse the JSON value.
+
+    if (localStorage.getItem('cart_list')) {
+      try {
+        this.cart_list = JSON.parse(localStorage.getItem('cart_list'));
+      } catch (e) {
+        // If anything goes wrong here we assume the data is corrupt and delete it.
+        localStorage.removeItem('cart_list');
+      }
+    }
   }
 });
 

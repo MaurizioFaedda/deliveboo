@@ -111,23 +111,25 @@
                         </div>
                     @endif
                     {{-- Lista elementi visualizzati nel carrello Vue (front-end) --}}
-                    <ul v-for="item in cart_list">
-                        <li >
-                            @{{item.name}}
-                        </li>
+                    <div class="">
+                      <ul v-for="(dish, index) in cart_list">
                         <li>
-                            @{{item.price.toFixed(2)}} €
+                          <span>@{{dish.name}}</span>
+                          <span>@{{dish.price.toFixed(2)}} €</span>
+                          <button @click="removeItemCart(index)">Remove</button>
                         </li>
-                    </ul>
+                      </ul>
+                    </div>
                     {{-- BUTTON per cart FORM (back-end) --}}
-                    <form action="{{ route('cart.store') }}" method="POST">
-                       {{ csrf_field() }}
-                       <input type="hidden" name="dishes_id[]" :value="dishes_id">
-                       <button type="submit">Go to Checkout</button>
-                   </form>
+                    <div v-if="cart_list.length > 0">
+                      <form action="{{ route('cart.store') }}" method="POST">
+                        {{ csrf_field() }}
+                        <input type="hidden" name="dishes_id[]" :value="dishes_id">
+                        <button type="submit">Go to Checkout</button>
+                      </form>
+                    </div>
                 </div>
             </div>
-        </div>
     </div>
 </div>
 <div class="">

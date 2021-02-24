@@ -1,18 +1,19 @@
 require('./bootstrap');
 
 var app = new Vue ({
-    el: '#app',
-    data: {
-      types: [],
-      restaurants: [],
-      dishes: [],
-      selected_type: '',
-      checked_types: [],
-      filtered_restaurants: [],
-      cart_list: [],
-      dishes_id: []
-    },
-    methods: {
+  el: '#app',
+  data: {
+    types: [],
+    restaurants: [],
+    dishes: [],
+    selected_type: '',
+    checked_types: [],
+    filtered_restaurants: [],
+    cart_list: [],
+    dishes_id: [],
+    new_dish_obj: null,
+  },
+  methods: {
     getAllRestaurants() {
         this.selected_type = '';
         this.restaurants = [];
@@ -77,12 +78,31 @@ var app = new Vue ({
         .then(response => {
             this.cart_list.push(response.data.results);
             console.log(this.cart_list);
+            this.new_dish_obj = '';
+            this.saveDishes();
         });
     },
+    removeItemCart(dish) {
+      // A partire dall'elemento che voglio cancellare ne prendo solo 1
+      this.cart_list.splice(dish,1);
+      this.saveDishes();
     },
-    mounted() {
-      this.getAllRestaurants();
-      this.getAllTypes();
-      this.getAllDishes();
+    saveDishes() {
+      let parsed = JSON.stringify(this.cart_list);
+      localStorage.setItem('cart_list', parsed);
+    },
+  },
+  mounted() {
+    this.getAllRestaurants();
+    this.getAllTypes();
+    // Grabbing the value and parse the JSON value.
+    if(localStorage.getItem('cart_list')) {
+      try {
+        this.cart_list = JSON.parse(localStorage.getItem('cart_list'));
+      } catch(e) {
+        // If anything goes wrong here we assume the data is corrupt and delete it.
+        localStorage.removeItem('cart_list');
+      }
     }
+  },
 });
