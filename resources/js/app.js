@@ -11,7 +11,10 @@ var app = new Vue ({
     filtered_restaurants: [],
     cart_list: [],
     dishes_id: [],
+    quantity: 1,
+    subTotal: 0,
     new_dish_obj: null,
+    current_quantity: 1
   },
   methods: {
     getAllRestaurants() {
@@ -65,22 +68,25 @@ var app = new Vue ({
           .then(response => {
             // prendo i risultati della chiamata ajax e li salvo in un array di appoggio
             this.restaurants = response.data.results;
-            console.log(this.restaurants);
           });
         }
     },
     addItemCart(id_dish){
+        this.quantity = 1;
         // Inserisco l'id del piatto aggiunto dall'utente nell'array da passare al backend con il form
         this.dishes_id.push(id_dish);
         // -------------------- AXIOS call for Dish by ID --------------------
         // Controllo se il carrello è vuoto
         if (this.cart_list.length === 0) {
             axios
+            // .put('/api/dish/' + id_dish, { qty: 1 })
             .get('/api/dish/' + id_dish)
             .then(response => {
              // Se è vuoto aggiungo il primo elemento/piatto al carrello
                 this.cart_list.push(response.data.results);
-                console.log(this.cart_list);
+                // this.cart_list[0]({
+                //     visible: 1
+                // });
                 this.new_dish_obj = '';
                 this.saveDishes();
             });
@@ -102,18 +108,17 @@ var app = new Vue ({
             });
         }
     },
-    addItemCart(id_dish){
-      // Inserisco l'id del piatto aggiunto dall'utente nell'array da passare al backend con il form
-      this.dishes_id.push(id_dish);
-      // -------------------- AXIOS call for Dish by ID --------------------
-      axios
-      .get('/api/dish/' + id_dish)
-      .then(response => {
-          this.cart_list.push(response.data.results);
-          console.log(this.cart_list);
-          this.new_dish_obj = '';
-          this.saveDishes();
-      });
+    getItemQuantity(dishId) {
+        var quantity = 0;
+        if (this.cart_list.length > 0) {
+            for(var i =0; i < this.cart_list.length; i++){
+                if(this.cart_list[i].id == dishId){
+                    quantity++;
+                }
+            }
+        }
+        return quantity;
+
     },
     removeItemCart(dish) {
       // A partire dall'elemento che voglio cancellare ne prendo solo 1
@@ -129,10 +134,12 @@ var app = new Vue ({
       let parsed = JSON.stringify(this.cart_list);
       localStorage.setItem('cart_list', parsed);
     },
-    removeAllItemsCart() {
-      this.cart_list = [];
-      this.saveDishes();
+    changeQuantity(dish_id){
+    },
+    getSubTotal(singlePrice, quantity){
+        return singlePrice*quantity
     }
+
   },
   mounted() {
     this.getAllRestaurants();
@@ -147,4 +154,5 @@ var app = new Vue ({
       }
     }
   },
+
 });
