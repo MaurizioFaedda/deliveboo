@@ -37362,19 +37362,43 @@ var app = new Vue({
 
       // Inserisco l'id del piatto aggiunto dall'utente nell'array da passare al backend con il form
       this.dishes_id.push(id_dish); // -------------------- AXIOS call for Dish by ID --------------------
+      // Controllo se il carrello è vuoto
 
-      axios.get('/api/dish/' + id_dish).then(function (response) {
-        _this6.cart_list.push(response.data.results);
+      if (this.cart_list.length === 0) {
+        axios.get('/api/dish/' + id_dish).then(function (response) {
+          // Se è vuoto aggiungo il primo elemento/piatto al carrello
+          _this6.cart_list.push(response.data.results);
 
-        console.log(_this6.cart_list);
-        _this6.new_dish_obj = '';
+          console.log(_this6.cart_list);
+          _this6.new_dish_obj = '';
 
-        _this6.saveDishes();
-      });
+          _this6.saveDishes();
+        });
+      } else {
+        // Se il carrello non è vuoto verifico che il ristorante da cui aggiungo i piatti sia lo stesso del primo piatto
+        axios.get('/api/dish/' + id_dish).then(function (response) {
+          // Controllo che la fk del piatto appena aggiunto (quello ciclato) sia uguale all'id del ristorante del primo piatto
+          if (_this6.cart_list[0].restaurant_id === response.data.results.restaurant_id) {
+            // Se il ristorante è lo stesso l'utente può procedere ad aggiungere il piatto all'ordine/carrello
+            _this6.cart_list.push(response.data.results);
+
+            _this6.new_dish_obj = '';
+
+            _this6.saveDishes();
+          } else {
+            alert('Pippo');
+          }
+        });
+      }
     },
     removeItemCart: function removeItemCart(dish) {
       // A partire dall'elemento che voglio cancellare ne prendo solo 1
       this.cart_list.splice(dish, 1);
+      this.saveDishes();
+    },
+    removeAllCart: function removeAllCart() {
+      //  Svuoto il cart_list e lo comunico al localStorage
+      this.cart_list = [];
       this.saveDishes();
     },
     saveDishes: function saveDishes() {
