@@ -23,8 +23,8 @@ Route::post('/cart', 'CartController@store')->name('cart.store');
 Route::delete('/cart/{dish}', 'CartController@destroy')->name('cart.destroy');
 Route::get('empty', function(){
     Cart::destroy();
-});
-
+    return redirect()->route('cart.index');
+})->name('cart.empty');
 
 // ----------- AUTHENTICATION ROUTES -----------
 Auth::routes();

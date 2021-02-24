@@ -79,13 +79,16 @@
                                                     </div>
                                                     <div class="py-3 d-flex flex-column justify-content-between">
                                                         <p class="mb-0"><strong>Infos:</strong> {{$dish->infos}}</p>
-                                                        <p class="mb-0 pt-2"><strong>Price:</strong> € {{$dish->price}}</p>
+                                                        <p class="mb-0 pt-2">
+                                                          <strong>Price:</strong>
+                                                          € {{number_Format($dish->price, 2, ',', '')}}
+                                                        </p>
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    {{-- BUTTON per carrello Vue (front-end)--}}
                                                     <button data-dismiss="modal" @click="addItemCart({{$dish->id}})" class="button button-plain">Add to Cart</button>
-
                                                 </div>
                                             </div>
                                       </div>
@@ -107,23 +110,21 @@
                             {{ session()->get('success_message') }}
                         </div>
                     @endif
-                    <ul>
-                        <li v-for="item in cart_list">
+                    {{-- Lista elementi visualizzati nel carrello Vue (front-end) --}}
+                    <ul v-for="item in cart_list">
+                        <li >
                             @{{item.name}}
                         </li>
+                        <li>
+                            @{{item.price.toFixed(2)}} €
+                        </li>
                     </ul>
-                    {{-- <div v-for="item in cart_list">
-                        <form action="{{ route('cart.store', $dish) }}" method="POST">
-                           {{ csrf_field() }}
-                           <input type="hidden" name="id" value="dishes_id">
-                           <input type="hidden" name="name" value="{{$dish->name}}">
-                           <input type="hidden" name="price" value="{{$dish->price}}">
-                           <input type="hidden" name="restaurant_id" value="{{$dish->restaurant_id}}">
-                           <button type="submit" class="button button-plain">Add to Cart</button>
-                       </form>
-                    </div> --}}
-
-                    <button type="submit">Go to Checkout</button>
+                    {{-- BUTTON per cart FORM (back-end) --}}
+                    <form action="{{ route('cart.store') }}" method="POST">
+                       {{ csrf_field() }}
+                       <input type="hidden" name="dishes_id[]" :value="dishes_id">
+                       <button type="submit">Go to Checkout</button>
+                   </form>
                 </div>
             </div>
         </div>
