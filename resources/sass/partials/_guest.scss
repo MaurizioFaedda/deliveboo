@@ -74,6 +74,12 @@
     @include dash_icon("\f07a");
     color: $color_main;
 }
+.icon-delete-danger::after{
+    @include dash_icon("\f00d");
+    color: red;
+    cursor: pointer;
+
+}
 .icon-rider-main-color::after{
     @include dash_icon("\f84a");
     font-size: 32px;
