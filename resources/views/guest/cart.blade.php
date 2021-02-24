@@ -3,12 +3,23 @@
 @section('content')
     <div class="mt-5">
         <div class="container text-white my-5">
-
+                    {{-- SUCCESS MESSAGE per l'aggiunta dell'ordine --}}
                     @if (session()->has('success_message'))
                         <div class="alert alert-success">
                             {{ session()->get('success_message') }}
                         </div>
                     @endif
+                    {{-- ERROR MESSAGE per l'aggiunta dell'ordine --}}
+                    @if (session()->has('error_message'))
+                        <div class="alert alert-danger">
+                            {{ session()->get('error_message') }}
+                        </div>
+                    @endif
+
+                    {{-- BUTTON per svuotare il carrello --}}
+                    <a href="{{ route('cart.empty') }}" class="btn btn-danger">
+                      Empty cart
+                    </a>
 
                     @if(count($errors) > 0)
                         <div class="alert alert-danger">
@@ -75,14 +86,11 @@
                                       </table>
                                   </div>
                           </div>
-
                   @else
-
                         <h3>No items in Cart!</h3>
                         <div class="spacer"></div>
-                        <a href="" class="button">Continue Shopping</a>
+                        <a href="{{route('index')}}" class="button">Continue Shopping</a>
                         <div class="spacer"></div>
-
                     @endif
                 </div>
         </div>

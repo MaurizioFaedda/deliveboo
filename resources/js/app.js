@@ -9,8 +9,8 @@ var app = new Vue ({
       selected_type: '',
       checked_types: [],
       filtered_restaurants: [],
-      cart_list:[],
-      dishes_id:[]
+      cart_list: [],
+      dishes_id: []
     },
     methods: {
     getAllRestaurants() {
@@ -68,12 +68,12 @@ var app = new Vue ({
           });
         }
     },
-    addItemCart(value){
-        // Pusho l'id del piatto in un array
-        this.dishes_id.push(value);
+    addItemCart(id_dish){
+        // Inserisco l'id del piatto aggiunto dall'utente nell'array da passare al backend con il form
+        this.dishes_id.push(id_dish);
         // -------------------- AXIOS call for Dish by ID --------------------
         axios
-        .get('/api/dish/' + value)
+        .get('/api/dish/' + id_dish)
         .then(response => {
             this.cart_list.push(response.data.results);
             console.log(this.cart_list);

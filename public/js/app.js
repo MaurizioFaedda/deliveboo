@@ -37356,13 +37356,13 @@ var app = new Vue({
         });
       }
     },
-    addItemCart: function addItemCart(value) {
+    addItemCart: function addItemCart(id_dish) {
       var _this6 = this;
 
-      // Pusho l'id del piatto in un array
-      this.dishes_id.push(value); // -------------------- AXIOS call for Dish by ID --------------------
+      // Inserisco l'id del piatto aggiunto dall'utente nell'array da passare al backend con il form
+      this.dishes_id.push(id_dish); // -------------------- AXIOS call for Dish by ID --------------------
 
-      axios.get('/api/dish/' + value).then(function (response) {
+      axios.get('/api/dish/' + id_dish).then(function (response) {
         _this6.cart_list.push(response.data.results);
 
         console.log(_this6.cart_list);
