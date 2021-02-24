@@ -377,6 +377,17 @@ table tbody tr {
   color: #00CDBC;
 }
 
+.icon-delete-danger::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\F00D";
+  color: #fff;
+  font-size: 20px;
+  padding-right: 16px;
+  color: red;
+  cursor: pointer;
+}
+
 .icon-rider-main-color::after {
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
