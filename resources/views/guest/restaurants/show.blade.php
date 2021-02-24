@@ -9,7 +9,7 @@
     <div class="row d-flex pb-5">
         <div class="col-md-8 d-flex flex-column justify-content-center">
             <h3 class="pl-3"><span class="ml-1 icon-restaurant-main-color pr-3"></span>{{$restaurant->restaurant_name}}</h3>
-            <ul class="list-group">
+            <ul class="list-group shadow">
                 <li class="list-group-item"><span class="icon-address-main-color pr-3"></span>{{$restaurant->address}}, {{$restaurant->city}}</li>
                 <li class="list-group-item">
 
@@ -28,8 +28,8 @@
         </div>
         <div class="col-md-4">
             <div class="restaurant-details">
-                <div class="img-restaurant w-100">
-                    <img class="w-100 rounded" src="{{asset('storage/' . $restaurant->img_path_rest)}}" alt="{{$restaurant->restaurant_name}} picture">
+                <div class="img-restaurant w-100 shadow">
+                    <img class="w-100" src="{{asset('storage/' . $restaurant->img_path_rest)}}" alt="{{$restaurant->restaurant_name}} picture">
                 </div>
             </div>
 
