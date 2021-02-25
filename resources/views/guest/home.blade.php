@@ -5,8 +5,14 @@
     <div class="row">
         <div class="col-md-12 col-sm-12 p-0">
             <div class="card flex-row justify-content-center align-items-center custom_padding no-border my-4 shadow w-100 custom_background_jumbotron custom-height_jumbotron">
-                <h1>I piatti che ami, a domicilio.</h2>
-                <img class="img_jumbotron" src="img\homepage.png" alt="">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-sm col-md-6">
+                        <h1>I piatti che ami, a domicilio.</h2>
+                    </div>
+                    <div class="col-sm col-md-6 d-flex flex-row justify-content-center">
+                        <img class="img_jumbotron" src="img\homepage.png" alt="">
+                    </div>
+                </div>
             </div>
 
         </div>
