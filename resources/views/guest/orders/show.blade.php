@@ -5,7 +5,7 @@
 
 @section('content')
   <div class="">
-    SHOW DEGLI ORDINI
+    SHOW DELL'ORDINE
     L’ordine viene effettuato e si viene inviati ad una pagina di avvenuto ordine e viene inviata una mail all’utente --> è questa pagina
   </div>
 @endsection
