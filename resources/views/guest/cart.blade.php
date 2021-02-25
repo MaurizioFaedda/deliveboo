@@ -210,12 +210,12 @@
                             <td><input v-model="dish.qnty" @change="changeQuantity(dish.qnty, index)" @click="getTotalPrice()" class="quantity" type="number" id="quantity" :value="dish.qnty" name="quantity" min="1" max="100"></td>
                             <td>@{{(dish.price * dish.qnty).toFixed(2)}} €</td>
                             <td>
-                              <span class="icon-delete-danger" @click="removeItemCart(index)"></span>
+                              <span class="icon-delete-danger" @click="removeItemCart(index, dish)"></span>
                             </td>
 
                         </tr>
                       </tbody>
-                      <h1>@{{totalPrice}}</h1>
+                      <h3>Total: @{{totalPrice.toFixed(2)}} €</h3>
                     </table>
                     <div class="">
                         <a v-if="cart_list.length > 0" class="btn btn-link" :href="'restaurant/' + cart_list[0].restaurant_id">Add new Dishes</a>

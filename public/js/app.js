@@ -37361,6 +37361,7 @@ var app = new Vue({
         });
       }
     },
+    // ------------------- Cart list--------------------
     addItemCart: function addItemCart(id_dish) {
       var _this6 = this;
 
@@ -37386,6 +37387,8 @@ var app = new Vue({
           _this6.totalPrice = response.data.results.price;
 
           _this6.saveDishes();
+
+          _this6.saveTotalPrice();
         });
       } else {
         // Se il carrello non è vuoto verifico che il ristorante da cui aggiungo i piatti sia lo stesso del primo piatto
@@ -37399,10 +37402,11 @@ var app = new Vue({
                 _this6.cart_list[i].qnty++;
                 temp = false;
                 _this6.new_dish_obj = '';
+                _this6.totalPrice += response.data.results.price;
 
                 _this6.saveDishes();
 
-                _this6.totalPrice += response.data.results.price;
+                _this6.saveTotalPrice();
               }
             }
 
@@ -37416,31 +37420,20 @@ var app = new Vue({
               _this6.totalPrice += response.data.results.price;
 
               _this6.saveDishes();
-            }
 
-            console.log(_this6.cart_list);
+              _this6.saveTotalPrice();
+            }
           } else {
             alert('Pippo');
           }
         });
       }
     },
-    getItemQuantity: function getItemQuantity(dishId) {
-      var quantity = 0;
-
-      if (this.cart_list.length > 0) {
-        for (var i = 0; i < this.cart_list.length; i++) {
-          if (this.cart_list[i].id == dishId) {
-            quantity++;
-          }
-        }
-      }
-
-      return quantity;
-    },
-    removeItemCart: function removeItemCart(dish) {
+    removeItemCart: function removeItemCart(index, dish) {
       // A partire dall'elemento che voglio cancellare ne prendo solo 1
-      this.cart_list.splice(dish, 1);
+      this.totalPrice -= dish.price * dish.qnty;
+      this.cart_list.splice(index, 1);
+      this.saveTotalPrice();
       this.saveDishes();
     },
     removeAllCart: function removeAllCart() {
@@ -37448,13 +37441,20 @@ var app = new Vue({
       this.cart_list = [];
       this.totalPrice = 0;
       this.saveDishes();
+      this.saveTotalPrice();
     },
     saveDishes: function saveDishes() {
       var parsed = JSON.stringify(this.cart_list);
       localStorage.setItem('cart_list', parsed);
     },
+    saveTotalPrice: function saveTotalPrice() {
+      var parsed = JSON.stringify(this.totalPrice);
+      localStorage.setItem('totalPrice', parsed);
+    },
     changeQuantity: function changeQuantity(value, index) {
       this.cart_list[index].qnty = value;
+      this.saveDishes();
+      this.saveTotalPrice();
     },
     getSubTotal: function getSubTotal(singlePrice, quantity) {
       return singlePrice * quantity;
@@ -37463,7 +37463,6 @@ var app = new Vue({
       Object.assign(dish, {
         qnty: 1
       });
-      console.log(this.cart_list);
     },
     getTotalPrice: function getTotalPrice() {
       this.totalPrice = 0;
@@ -37472,7 +37471,7 @@ var app = new Vue({
         this.totalPrice += this.cart_list[i].qnty * this.cart_list[i].price;
       }
 
-      console.log(this.totalPrice);
+      this.saveTotalPrice();
       return this.totalPrice;
     }
   },
@@ -37488,6 +37487,14 @@ var app = new Vue({
         localStorage.removeItem('cart_list');
       }
     }
+
+    ;
+
+    if (localStorage.totalPrice) {
+      this.totalPrice = parseFloat(localStorage.totalPrice);
+    }
+
+    ;
   }
 });
 
