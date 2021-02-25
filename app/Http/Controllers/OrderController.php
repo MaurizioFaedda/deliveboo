@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Order;
+use App\Restaurant;
 
 class OrderController extends Controller
 {
@@ -37,13 +38,15 @@ class OrderController extends Controller
   {
     $request->validate([
       'email' => 'required|max:30',
-      // 'delivery_time' => 'required|date_format:Y-m-d H:i:s',
+      'delivery_time' => 'required|date_format:date',
       'total_price' => 'required|numeric|between:0,99.9999',
       'mobile' => 'required|max:15',
       'first_name' => 'required|max:50',
       'lastname' => 'required|max:50',
       'address' => 'required|max:100',
       'notes' => 'nullable|max:255',
+      // Validation FK to be sure that the ID restaurant sent is an existing restaurant ID
+      'restaurant_id' => 'required|numeric|exists:restaurants,id',
     ]);
     // Storing all form data in a variable
     $form_data = $request->all();
@@ -73,7 +76,7 @@ class OrderController extends Controller
         $data = [
           'order' => $order,
         ];
-        return view('orders.show', $data);
+        return view('guest.orders.show', $data);
       }
       abort(404);
     }

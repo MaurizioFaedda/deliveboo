@@ -95,14 +95,14 @@
                                 </div>
                             @enderror
                           </div>
+                          <div class="form-group col-md-6">
+                            <label for="total_price">Total price</label>
+                            <input readonly class="form-control" :placeholder="totalPrice" name="total_price" :value="totalPrice">
+                          </div>
                           {{-- Hidden inputs for backend only --}}
                           <div class="form-group d-none">
                             <label for="restaurant_id">Restaurant</label>
-                            <input type="hidden" class="form-control" name="restaurant_id" value="1">
-                          </div>
-                          <div class="form-group col-md-6">
-                            <label for="total_price">Total price</label>
-                            <input type="hidden" class="form-control" placeholder="39,00 €" name="total_price" value="39.00">
+                            <input type="hidden" class="form-control" name="restaurant_id" :value="cart_list[0].restaurant_id">
                           </div>
                           {{-- BUTTON to send data to backend --}}
                           <div class="form-group d-flex justify-content-end">
