@@ -114,50 +114,77 @@
                   </form>
                   <hr>
                   {{-- FORM per le informazioni sul pagamento | Backend PAYMENTS table --}}
-                  <form class="bg-white px-4 py-3" method="post">
+                  <form class="bg-white px-4 py-3" action="{{route('payments.store')}}" method="post">
+                    @csrf
                     <div class="">
                         <div class="row">
                             <div class="form-group col-md-6">
-                                <label for="cc-name">Cardholder Name</label>
-                                <input class="form-control"></input>
+                                <label for="card_owner">Cardholder Name</label>
+                                <input type="text" class="form-control" placeholder="Enter Full Name" name="card_owner" value="{{old('card_owner')}}" required></input>
                                 <small class="text-muted">Full name as displayed on card</small>
                                 <div class="invalid-feedback">
                                   Name on card is required
                                 </div>
+                                {{-- SHOWING ERROR MESSAGE --}}
+                                @error('card_owner')
+                                    <div class="alert alert-danger">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
-                            <div class="form-group col-md-6">
+                            {{-- <div class="form-group col-md-6">
                                 <label for="email">Email</label>
                                 <input type="email" class="form-control" id="email" placeholder="you@example.com">
                                 <div class="invalid-feedback">
                                   Please enter a valid email address for shipping updates.
                                 </div>
+                            </div> --}}
+                            <div class="form-group col-md-6">
+                                <label for="method">Payment method</label>
+                                <input readonly class="form-control" placeholder="Credit Card"></input>
                             </div>
-                        <div class="form-group col-md-6">
-                            <label for="cc-number">Credit card number</label>
-                            <input placeholder="4111 4111 4111 4111" class="form-control"></input>
-                            <div class="invalid-feedback">
-                              Credit card number is required
+                            <div class="form-group col-md-6">
+                                <label for="card_number">Credit card number</label>
+                                <input type="text" placeholder="0000 0000 0000 0000" class="form-control" name="card_number" value="{{old('card_number')}}" required></input>
+                                <div class="invalid-feedback">
+                                  Credit card number is required
+                                </div>
+                                {{-- SHOWING ERROR MESSAGE --}}
+                                @error('card_number')
+                                    <div class="alert alert-danger">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="notes">Further informatin about your payment</label>
+                                <input type="text" placeholder="e.g. Invoicing address different from cardholder address" class="form-control" name="notes" value="{{old('notes')}}"></input>
+                                {{-- SHOWING ERROR MESSAGE --}}
+                                @error('notes')
+                                    <div class="alert alert-danger">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+                            {{-- <div class="form-group col-md-6">
+                                <label>Expiration</label>
+                                <div class="form-control"></div>
+                                <div class="invalid-feedback">
+                                    Expiration date required
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                              <label>CVV</label>
+                              <div class="form-control"></div>
+                              <div class="invalid-feedback">
+                                  Security code required
+                              </div>
+                            </div> --}}
+                            <div class="form-group col-md-6">
+                              <label for="total_price">Total price</label>
+                              <input readonly class="form-control" placeholder="39,00 €">
                             </div>
                         </div>
-                        <div class="form-group col-md-6">
-                            <label>Expiration</label>
-                            <div class="form-control"></div>
-                            <div class="invalid-feedback">
-                                Expiration date required
-                            </div>
-                      </div>
-                        <div class="form-group col-md-6">
-                          <label>CVV</label>
-                          <div class="form-control"></div>
-                          <div class="invalid-feedback">
-                              Security code required
-                          </div>
-                        </div>
-                        <div class="form-group col-md-6">
-                          <label>Total price</label>
-                          <input readonly class="form-control" placeholder="39,00 €">
-                        </div>
-                    </div>
                         <hr class="mb-4">
                         <div class="text-center">
                             <button class="btn btn-primary btn-lg" type="submit">Pay</button>

@@ -19,6 +19,8 @@ Route::get('/', 'HomeController@index')->name('index');
 Route::get('/restaurant/{id}', 'RestaurantController@show')->name('restaurant.show');
 // Orders routes
 Route::resource('/orders', 'OrderController');
+// Payments routes
+Route::resource('/payments', 'PaymentController');
 
 // Cart Controller routes
 Route::get('/cart', 'CartController@index')->name('cart.index');
