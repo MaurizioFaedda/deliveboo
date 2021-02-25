@@ -14,7 +14,7 @@ class OrdersTableSeeder extends Seeder
      */
     public function run()
     {
-        $orders = config('order');
+        $orders = config('orders');
 
         foreach ($orders as $order) {
             $new_order_obj = new Order();
