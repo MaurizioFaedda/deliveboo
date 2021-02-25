@@ -303,6 +303,19 @@ table tbody tr {
   background: linear-gradient(20deg, #00CDBC 0 50%, #FF9F00 50% 100%);
 }
 
+.custom_background_jumbotron {
+  background: linear-gradient(-6deg, #D0EB99 0 50%, #00CCBC 50% 100%);
+}
+
+.custom-height_jumbotron {
+  height: 300px;
+}
+
+.img_jumbotron {
+  height: 220px;
+  width: 195px;
+}
+
 .logo-navbar {
   width: 150px;
   height: 50px;
