@@ -118,7 +118,7 @@
                           <span>@{{dish.name}}</span>
                           <span>@{{dish.price.toFixed(2)}} €</span>
                           <span>
-                             x @{{ getItemQuantity(dish.id) }}
+                             x @{{ dish.qnty }}
                           </span>
                           <button @click="removeItemCart(index)">Remove</button>
                         </li>

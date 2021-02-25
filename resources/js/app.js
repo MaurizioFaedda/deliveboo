@@ -11,6 +11,7 @@ var app = new Vue ({
     filtered_restaurants: [],
     cart_list: [],
     dishes_id: [],
+    duplicates: [],
     quantity: 1,
     subTotal: 0,
     new_dish_obj: null,
@@ -83,6 +84,7 @@ var app = new Vue ({
             .get('/api/dish/' + id_dish)
             .then(response => {
              // Se è vuoto aggiungo il primo elemento/piatto al carrello
+                Object.assign(response.data.results, {qnty: 1})
                 this.cart_list.push(response.data.results);
                 // this.cart_list[0]({
                 //     visible: 1
@@ -95,13 +97,28 @@ var app = new Vue ({
             axios
             .get('/api/dish/' + id_dish)
             .then(response => {
+                var temp = true;
             // Controllo che la fk del piatto appena aggiunto (quello ciclato) sia uguale all'id del ristorante del primo piatto
                 if ( this.cart_list[0].restaurant_id === response.data.results.restaurant_id) {
              // Se il ristorante è lo stesso l'utente può procedere ad aggiungere il piatto all'ordine/carrello
-                    this.cart_list.push(response.data.results);
-                    this.new_dish_obj = '';
-                    this.saveDishes();
-                } else {
+                        for (var i = 0; i < this.cart_list.length; i++) {
+                            if (this.cart_list[i].id == response.data.results.id) {
+                                this.cart_list[i].qnty++
+                                temp = false;
+                                this.new_dish_obj = '';
+                                this.saveDishes();
+                            }
+
+                        }
+                        if (temp) {
+                            Object.assign(response.data.results, {qnty: 1})
+                            this.cart_list.push(response.data.results);
+                            this.saveDishes();
+                        }
+                        console.log(this.cart_list);
+                    
+                        }
+                 else {
                     alert('Pippo');
                 }
 
@@ -138,6 +155,10 @@ var app = new Vue ({
     },
     getSubTotal(singlePrice, quantity){
         return singlePrice*quantity
+    },
+    getDuplicates(dish){
+        Object.assign(dish, {qnty: 1});
+        console.log(this.cart_list);
     }
 
   },
