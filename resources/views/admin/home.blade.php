@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 
 {{-- titolo --}}
-@section("page-title", "Deliveboo | Home")
+@section("page-title", "Deliveboo | Your Dashboard")
 
 @section('content')
     <div class="container">

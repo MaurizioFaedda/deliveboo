@@ -1,5 +1,8 @@
 @extends('layouts.dashboard')
 
+{{-- titolo --}}
+@section("page-title", "Deliveboo | Create your Restaurant")
+
 @section('content')
   <div class="container">
     <div class="row justify-content-center">
