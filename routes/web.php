@@ -15,8 +15,12 @@ use Illuminate\Support\Facades\Route;
 
 // ----------- PUBLIC ROUTES -----------
 Route::get('/', 'HomeController@index')->name('index');
+// Restaurant Controller routes
 Route::get('/restaurant/{id}', 'RestaurantController@show')->name('restaurant.show');
-// Rotte Cart Controller
+// Orders routes
+Route::resource('/orders', 'OrderController');
+
+// Cart Controller routes
 Route::get('/cart', 'CartController@index')->name('cart.index');
 Route::post('/cart', 'CartController@store')->name('cart.store');
 // Route::patch('/cart/{dish}', 'CartController@update')->name('cart.update');

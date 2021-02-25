@@ -35,7 +35,28 @@ class OrderController extends Controller
    */
   public function store(Request $request)
   {
-      //
+    $request->validate([
+      'email' => 'required|max:30',
+      // 'delivery_time' => 'required|date_format:Y-m-d H:i:s',
+      'total_price' => 'required|numeric|between:0,99.9999',
+      'mobile' => 'required',
+      'first_name' => 'required|max:50',
+      'lastname' => 'required|max:50',
+      'address' => 'required|max:100',
+      'notes' => 'nullable|max:255',
+    ]);
+    // Storing all form data in a variable
+    $form_data = $request->all();
+    // Creating a new Object/Instance with the form data
+    $new_order = new Order();
+    // Filling in the new Object/Instance with the form data received
+    $new_order->fill($form_data);
+    // Saving the new Object/Instance in the database
+    $new_order->save();
+    // New QUERY to select the latest order added in the DB to be sure to redirect to the very last order entered
+    $last_entered_order = Order::orderBy('id', 'desc')->first();
+    // Redirecting to the web page of the latest order entered containing order confirmation and summary information
+    return redirect()->route('orders.show', ['order' => $new_order->id]);
   }
 
   /**
@@ -44,9 +65,18 @@ class OrderController extends Controller
    * @param  int  $id
    * @return \Illuminate\Http\Response
    */
-  public function show($id)
+  public function show(Order $order)
   {
-      //
+    {
+      // Checking that the order ID is valid (Find restituisce NULL se non lo è)
+      if($order) {
+        $data = [
+          'order' => $order,
+        ];
+        return view('orders.show', $data);
+      }
+      abort(404);
+    }
   }
 
   /**
@@ -78,8 +108,15 @@ class OrderController extends Controller
    * @param  int  $id
    * @return \Illuminate\Http\Response
    */
-  public function destroy($id)
+  public function destroy(Order $order)
   {
-      //
+    // Risalgo al ristorante corrente tramite FK nella tabella Orders
+    $current_restaurant = $order->restaurant_id;
+    // Prima di cancellare l'ordine vado a cancellare la relazione che c'è tra l'ordine e il ristorante
+    $order->restaurant()->dissociate('restaurant_id');
+    // Cancello l'ordine
+    $order->delete();
+    // Redireting to the Homepage
+    return redirect()->route('index');
   }
 }
