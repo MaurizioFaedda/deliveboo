@@ -31,7 +31,7 @@ return [
     ],
 
     'braintree' => [
-    'environment' => env('BT_ENVIRONMENT', 'sandbox'),
+    'environment' => env('BT_ENVIRONMENT'),
     'merchant_id' => env('BT_MERCHANT_ID'),
     'public_key' => env('BT_PUBLIC_KEY'),
     'private_key' => env('BT_PRIVATE_KEY'),

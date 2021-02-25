@@ -114,83 +114,39 @@
                   </form>
                   <hr>
                   {{-- FORM per le informazioni sul pagamento | Backend PAYMENTS table --}}
-                  <form class="bg-white px-4 py-3" action="{{route('payments.store')}}" method="post">
-                    @csrf
-                    <div class="">
-                        <div class="row">
-                            <div class="form-group col-md-6">
-                                <label for="card_owner">Cardholder Name</label>
-                                <input type="text" class="form-control" placeholder="Enter Full Name" name="card_owner" value="{{old('card_owner')}}" required></input>
-                                <small class="text-muted">Full name as displayed on card</small>
-                                <div class="invalid-feedback">
-                                  Name on card is required
-                                </div>
-                                {{-- SHOWING ERROR MESSAGE --}}
-                                @error('card_owner')
-                                    <div class="alert alert-danger">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
-                            {{-- <div class="form-group col-md-6">
-                                <label for="email">Email</label>
-                                <input type="email" class="form-control" id="email" placeholder="you@example.com">
-                                <div class="invalid-feedback">
-                                  Please enter a valid email address for shipping updates.
-                                </div>
-                            </div> --}}
-                            <div class="form-group col-md-6">
-                                <label for="method">Payment method</label>
-                                <input readonly class="form-control" placeholder="Credit Card"></input>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="card_number">Credit card number</label>
-                                <input type="text" placeholder="0000 0000 0000 0000" class="form-control" name="card_number" value="{{old('card_number')}}" required></input>
-                                <div class="invalid-feedback">
-                                  Credit card number is required
-                                </div>
-                                {{-- SHOWING ERROR MESSAGE --}}
-                                @error('card_number')
-                                    <div class="alert alert-danger">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="notes">Further informatin about your payment</label>
-                                <input type="text" placeholder="e.g. Invoicing address different from cardholder address" class="form-control" name="notes" value="{{old('notes')}}"></input>
-                                {{-- SHOWING ERROR MESSAGE --}}
-                                @error('notes')
-                                    <div class="alert alert-danger">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
-                            {{-- <div class="form-group col-md-6">
-                                <label>Expiration</label>
-                                <div class="form-control"></div>
-                                <div class="invalid-feedback">
-                                    Expiration date required
-                                </div>
-                            </div>
-                            <div class="form-group col-md-6">
-                              <label>CVV</label>
-                              <div class="form-control"></div>
-                              <div class="invalid-feedback">
-                                  Security code required
-                              </div>
-                            </div> --}}
-                            <div class="form-group col-md-6">
-                              <label for="total_price">Total price</label>
-                              <input readonly class="form-control" placeholder="39,00 €">
-                            </div>
-                        </div>
-                        <hr class="mb-4">
-                        <div class="text-center">
-                            <button class="btn btn-primary btn-lg" type="submit">Pay</button>
-                        </div>
-                    </div>
-                  </form>
+                  @if (session('success_message'))
+                          <div class="alert alert-success">
+                              {{ session('success_message') }}
+                          </div>
+                      @endif
+
+                      @if(count($errors) > 0)
+                          <div class="alert alert-danger">
+                              <ul>
+                                  @foreach ($errors->all() as $error)
+                                      <li>{{ $error }}</li>
+                                  @endforeach
+                              </ul>
+                          </div>
+                      @endif
+                      <form class="bg-white p-3" method="post" id="payment-form" action="{{ url('/checkout')}}">
+                          @csrf
+                             <section>
+                                 <label for="amount">
+                                     <span class="input-label">Amount</span>
+                                     <div class="input-wrapper amount-wrapper">
+                                         <input id="amount" name="amount" type="tel" min="1" placeholder="Amount" readonly :value="totalPrice">
+                                     </div>
+                                 </label>
+
+                                 <div class="bt-drop-in-wrapper">
+                                     <div id="bt-dropin"></div>
+                                 </div>
+                             </section>
+
+                             <input id="nonce" name="payment_method_nonce" type="hidden" />
+                             <button class="btn btn-primary" type="submit"><span>Pay</span></button>
+                      </form>
                 </div>
                 <div class="col-5">
                     <table class="table bg-white">
@@ -226,4 +182,36 @@
             </div>
         </div>
     </div>
+    <script src="https://js.braintreegateway.com/web/dropin/1.26.1/js/dropin.min.js"></script>
+    <script>
+        var form = document.querySelector('#payment-form');
+        var client_token = "{{$token}}";
+
+        braintree.dropin.create({
+          authorization: client_token,
+          selector: '#bt-dropin',
+          paypal: {
+            flow: 'vault'
+          }
+        }, function (createErr, instance) {
+          if (createErr) {
+            console.log('Create Error', createErr);
+            return;
+          }
+          form.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            instance.requestPaymentMethod(function (err, payload) {
+              if (err) {
+                console.log('Request Payment Method Error', err);
+                return;
+              }
+
+              // Add the nonce to the form and submit
+              document.querySelector('#nonce').value = payload.nonce;
+              form.submit();
+            });
+          });
+        });
+    </script>
 @endsection
