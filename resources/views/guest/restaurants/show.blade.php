@@ -127,7 +127,7 @@
                       </ul>
                     </div>
                     <h3> Total: @{{totalPrice.toFixed(2)}} €</h3>
-                    <a href="{{route('cart.index')}}" class="btn btn-primary btn-lg" role="button">Checkout</a>
+                    <a href="{{url('/cart')}}" class="btn btn-primary btn-lg" role="button">Checkout</a>
                     <button @click="removeAllCart()" class="btn btn-danger" type="button" name="button">Empty</button>
                 </div>
             </div>

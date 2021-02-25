@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,11 +23,62 @@ Route::resource('guest/orders', 'OrderController');
 // Payments routes
 Route::resource('/payments', 'PaymentController');
 
+Route::get('/cart', function () {
+    $gateway = new Braintree\Gateway([
+  'environment' => 'sandbox',
+  'merchantId' => 'gncpw48dy8pnxspp',
+  'publicKey' => '5sp8xkhmyk77xmpn',
+  'privateKey' => '66a03d2d8813d5bc80879e71650b8045'
+]);
+
+
+    $token = $gateway->ClientToken()->generate();
+
+    return view('guest.cart', [
+        'token' => $token
+    ]);
+});
+
+Route::post('/checkout', function(Request $request){
+    $gateway = new Braintree\Gateway([
+      'environment' => 'sandbox',
+      'merchantId' => 'gncpw48dy8pnxspp',
+      'publicKey' => '5sp8xkhmyk77xmpn',
+      'privateKey' => '66a03d2d8813d5bc80879e71650b8045'
+    ]);
+    $amount = $request->amount;
+    $nonce = $request->payment_method_nonce;
+    $result = $gateway->transaction()->sale([
+        'amount' => $amount,
+        'paymentMethodNonce' => 'fake-valid-nonce',
+        'options' => [
+            'submitForSettlement' => true
+        ]
+    ]);
+
+    if ($result->success) {
+        $transaction = $result->transaction;
+        // header("Location: transaction.php?id=" . $transaction->id);
+
+        return back()->with('success_message', 'Transaction successful. The ID is:'. $transaction->id);
+    } else {
+        $errorString = "";
+
+        foreach ($result->errors->deepAll() as $error) {
+            $errorString .= 'Error: ' . $error->code . ": " . $error->message . "\n";
+        }
+
+        // $_SESSION["errors"] = $errorString;
+        // header("Location: index.php");
+        return back()->withErrors('An error occurred with the message: '.$result->message);
+    }
+});
+
 // Cart Controller routes
-Route::get('/cart', 'CartController@index')->name('cart.index');
-Route::post('/cart', 'CartController@store')->name('cart.store');
+// Route::get('/cart', 'CartController@index')->name('cart.index');
+// Route::post('/cart', 'CartController@store')->name('cart.store');
 // Route::patch('/cart/{dish}', 'CartController@update')->name('cart.update');
-Route::delete('/cart/{dish}', 'CartController@destroy')->name('cart.destroy');
+// Route::delete('/cart/{dish}', 'CartController@destroy')->name('cart.destroy');
 Route::get('empty', function(){
     Cart::destroy();
     return redirect()->route('cart.index');
