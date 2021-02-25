@@ -17,90 +17,153 @@
             @endif
             <div class="row d-flex">
                 <div class="col-md-7 text-dark ">
-                    <form class="bg-white px-4 py-3">
-                        <div class="form-row pb-4">
-                            <div class="form-group col-md-6">
-                              <label>First Name</label>
-                              <input type="text" class="form-control" placeholder="First Name">
-                            </div>
-                            <div class="form-group col-md-6">
-                              <label>Last Name</label>
-                              <input class="form-control" placeholder="Last Name">
-                            </div>
-                            <div class="form-group col-md-6">
-                              <label>Phone Number</label>
-                              <input type="text" class="form-control" placeholder="+39 320 000 0000">
-                            </div>
-                            <div class="form-group col-md-6">
-                              <label>Email</label>
-                              <input class="form-control" placeholder="example@mail.com">
-                            </div>
-                            <div class="form-group col-md-6">
-                              <label>City</label>
-                              <input readonly class="form-control" placeholder="Rome">
-                            </div>
-                            <div class="form-group col-md-6">
-                              <label>Address</label>
-                              <input class="form-control" placeholder="Via Italia, 155">
-                            </div>
-                            <div class="form-group col-md-12">
-                              <label>Information for the rider</label>
-                              <input class="form-control" placeholder="The doorbell does not work">
-                            </div>
-                        </div>
-                            {{-- </form> --}}
-                          {{-- <form class=""> --}}
-                          <hr>
-                        <div class="">
-                            <div class="row">
-                                <div class="form-group col-md-6">
-                                    <label for="cc-name">Cardholder Name</label>
-                                    <input class="form-control"></input>
-                                    <small class="text-muted">Full name as displayed on card</small>
-                                    <div class="invalid-feedback">
-                                      Name on card is required
-                                    </div>
+                  {{-- FORM per le informazioni sulla consegna | Backend ORDERS table --}}
+                  <form class="bg-white px-4 py-3" action="{{route('orders.store')}}" method="post">
+                    @csrf
+                      <div class="form-row pb-4">
+                          <div class="form-group col-md-6">
+                            <label for="first_name">First Name</label>
+                            <input type="text" class="form-control" placeholder="First Name" name="first_name" value="{{old('first_name')}}" required>
+                            {{-- SHOWING ERROR MESSAGE --}}
+                            @error('first_name')
+                                <div class="alert alert-danger">
+                                    {{ $message }}
                                 </div>
-                                <div class="form-group col-md-6">
-                                    <label for="email">Email</label>
-                                    <input type="email" class="form-control" id="email" placeholder="you@example.com">
-                                    <div class="invalid-feedback">
-                                      Please enter a valid email address for shipping updates.
-                                    </div>
-                                </div>
-                            <div class="form-group col-md-6">
-                                <label for="cc-number">Credit card number</label>
-                                <input placeholder="4111 4111 4111 4111" class="form-control"></input>
-                                <div class="invalid-feedback">
-                                  Credit card number is required
-                                </div>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label>Expiration</label>
-                                <div class="form-control"></div>
-                                <div class="invalid-feedback">
-                                    Expiration date required
-                                </div>
+                            @enderror
                           </div>
+                          <div class="form-group col-md-6">
+                            <label for="lastname">Last Name</label>
+                            <input type="text" class="form-control" placeholder="Last Name" name="lastname" value="{{old('lastname')}}" required>
+                            {{-- SHOWING ERROR MESSAGE --}}
+                            @error('lastname')
+                                <div class="alert alert-danger">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                          </div>
+                          <div class="form-group col-md-6">
+                            <label for="mobile">Phone Number</label>
+                            <input type="text" class="form-control" placeholder="e.g. +39 320 000 0000" name="mobile" value="{{old('mobile')}}" required>
+                            {{-- SHOWING ERROR MESSAGE --}}
+                            @error('mobile')
+                                <div class="alert alert-danger">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                          </div>
+                          <div class="form-group col-md-6">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" placeholder="example@mail.com" name="email" value="{{old('email')}}" required>
+                            {{-- SHOWING ERROR MESSAGE --}}
+                            @error('email')
+                                <div class="alert alert-danger">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                          </div>
+                          <div class="form-group col-md-6">
+                            <label>City</label>
+                            <input readonly type="text" class="form-control" placeholder="Rome">
+                          </div>
+                          <div class="form-group col-md-6">
+                            <label for="address">Address</label>
+                            <input type="text" class="form-control" placeholder="Via Italia, 155" name="address" value="{{old('address')}}" required>
+                            {{-- SHOWING ERROR MESSAGE --}}
+                            @error('address')
+                                <div class="alert alert-danger">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                          </div>
+                          <div class="form-group col-md-12">
+                            <label for="delivery_time">Delivery time</label>
+                            <input type="datetime-local" class="form-control" placeholder="The doorbell does not work" name="delivery_time" value="{{old('delivery_time')}}" required>
+                            {{-- SHOWING ERROR MESSAGE --}}
+                            @error('delivery_time')
+                                <div class="alert alert-danger">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                          </div>
+                          <div class="form-group col-md-12">
+                            <label for="notes">Information for the rider</label>
+                            <input type="text" class="form-control" placeholder="The doorbell does not work" name="notes" value="{{old('notes')}}">
+                            {{-- SHOWING ERROR MESSAGE --}}
+                            @error('notes')
+                                <div class="alert alert-danger">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                          </div>
+                          {{-- Hidden inputs for backend only --}}
+                          <div class="form-group d-none">
+                            <label for="restaurant_id">Restaurant</label>
+                            <input type="hidden" class="form-control" name="restaurant_id" value="1">
+                          </div>
+                          <div class="form-group col-md-6">
+                            <label for="total_price">Total price</label>
+                            <input type="hidden" class="form-control" placeholder="39,00 €" name="total_price" value="39.00">
+                          </div>
+                          {{-- BUTTON to send data to backend --}}
+                          <div class="form-group d-flex justify-content-end">
+                              <button type="submit" class="btn btn-success text-uppercase form-font shadow">
+                                  Submit
+                              </button>
+                          </div>
+                      </div>
+                  </form>
+                  <hr>
+                  {{-- FORM per le informazioni sul pagamento | Backend PAYMENTS table --}}
+                  <form class="bg-white px-4 py-3" method="post">
+                    <div class="">
+                        <div class="row">
                             <div class="form-group col-md-6">
-                              <label>CVV</label>
-                              <div class="form-control"></div>
-                              <div class="invalid-feedback">
-                                  Security code required
-                              </div>
+                                <label for="cc-name">Cardholder Name</label>
+                                <input class="form-control"></input>
+                                <small class="text-muted">Full name as displayed on card</small>
+                                <div class="invalid-feedback">
+                                  Name on card is required
+                                </div>
                             </div>
                             <div class="form-group col-md-6">
-                              <label>Total price</label>
-                              <input readonly class="form-control" placeholder="39,00 €">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                                <div class="invalid-feedback">
+                                  Please enter a valid email address for shipping updates.
+                                </div>
+                            </div>
+                        <div class="form-group col-md-6">
+                            <label for="cc-number">Credit card number</label>
+                            <input placeholder="4111 4111 4111 4111" class="form-control"></input>
+                            <div class="invalid-feedback">
+                              Credit card number is required
                             </div>
                         </div>
-                            <hr class="mb-4">
-                            <div class="text-center">
-                                <button class="btn btn-primary btn-lg" type="submit">Pay</button>
+                        <div class="form-group col-md-6">
+                            <label>Expiration</label>
+                            <div class="form-control"></div>
+                            <div class="invalid-feedback">
+                                Expiration date required
                             </div>
+                      </div>
+                        <div class="form-group col-md-6">
+                          <label>CVV</label>
+                          <div class="form-control"></div>
+                          <div class="invalid-feedback">
+                              Security code required
+                          </div>
                         </div>
-
-                    </form>
+                        <div class="form-group col-md-6">
+                          <label>Total price</label>
+                          <input readonly class="form-control" placeholder="39,00 €">
+                        </div>
+                    </div>
+                        <hr class="mb-4">
+                        <div class="text-center">
+                            <button class="btn btn-primary btn-lg" type="submit">Pay</button>
+                        </div>
+                    </div>
+                  </form>
                 </div>
                 <div class="col-5">
                     <table class="table bg-white">
@@ -133,11 +196,6 @@
                     <button @click="removeAllCart()" type="button" name="button">Empty</button>
                 </div>
             </div>
-            </div>
-
-
-
         </div>
-
-
+    </div>
 @endsection
