@@ -37446,7 +37446,10 @@ var app = new Vue({
       var parsed = JSON.stringify(this.cart_list);
       localStorage.setItem('cart_list', parsed);
     },
-    changeQuantity: function changeQuantity(dish_id) {},
+    changeQuantity: function changeQuantity(value, index) {
+      this.cart_list[index].qnty = value;
+      console.log(this.cart_list);
+    },
     getSubTotal: function getSubTotal(singlePrice, quantity) {
       return singlePrice * quantity;
     },
