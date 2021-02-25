@@ -288,8 +288,12 @@ table tbody tr {
   background-color: #0696BB;
 }
 
+.show-button {
+  background-color: #00CCBC !important;
+}
+
 .show-button:hover {
-  background-color: #FF9F00;
+  background-color: #FF9F00 !important;
   color: white;
   transition: 0.3s;
 }

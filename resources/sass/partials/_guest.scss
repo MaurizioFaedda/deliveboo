@@ -21,8 +21,9 @@
 
 
 .show-button {
+    background-color: #00CCBC!important;
     &:hover{
-        background-color: #FF9F00;
+        background-color: #FF9F00!important;
         color: white;
         transition: 0.3s;
     }

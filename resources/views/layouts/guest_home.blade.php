@@ -102,7 +102,7 @@
                           <button class="show-button p-2 mt-4 no-border font-weight-bold" @click="getAllRestaurants()" type="button" name="button">Show all</button>
                         </div>
                         <div class="form-check form-check-inline py-2 mr-0" v-for="type in types">
-                            <div class="card w-100 p-2 pl-4 d-flex flex-row align-items-center justify-content-start shadow">
+                            <div class="card show-button w-100 p-1 pl-4 d-flex flex-row align-items-center justify-content-start shadow custom_background_select">
                                 <input class="form-check-input" id="inlineCheckbox1" @change="getFilteredRestaurantsByTypes()" type="checkbox" :value="type.id" v-model="checked_types">
                                 <label class="form-check-label p-2 font-weight-bold text-dark" for="type.type">
                                     @{{type.type}}
