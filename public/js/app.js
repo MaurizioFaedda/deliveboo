@@ -37303,7 +37303,8 @@ var app = new Vue({
     quantity: 1,
     subTotal: 0,
     new_dish_obj: null,
-    current_quantity: 1
+    current_quantity: 1,
+    totalPrice: 0
   },
   methods: {
     getAllRestaurants: function getAllRestaurants() {
@@ -37440,6 +37441,7 @@ var app = new Vue({
     removeAllCart: function removeAllCart() {
       //  Svuoto il cart_list e lo comunico al localStorage
       this.cart_list = [];
+      this.totalPrice = 0;
       this.saveDishes();
     },
     saveDishes: function saveDishes() {
@@ -37448,7 +37450,6 @@ var app = new Vue({
     },
     changeQuantity: function changeQuantity(value, index) {
       this.cart_list[index].qnty = value;
-      console.log(this.cart_list);
     },
     getSubTotal: function getSubTotal(singlePrice, quantity) {
       return singlePrice * quantity;
@@ -37458,11 +37459,21 @@ var app = new Vue({
         qnty: 1
       });
       console.log(this.cart_list);
+    },
+    getTotalPrice: function getTotalPrice() {
+      this.totalPrice = 0;
+
+      for (var i = 0; i < this.cart_list.length; i++) {
+        this.totalPrice += this.cart_list[i].qnty * this.cart_list[i].price;
+      }
+
+      return this.totalPrice;
     }
   },
   mounted: function mounted() {
     this.getAllRestaurants();
-    this.getAllTypes(); // Grabbing the value and parse the JSON value.
+    this.getAllTypes();
+    this.getTotalPrice(); // Grabbing the value and parse the JSON value.
 
     if (localStorage.getItem('cart_list')) {
       try {
@@ -37540,8 +37551,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\MAMP\htdocs\repo\deliveboo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\repo\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\MAMP\htdocs\boolean\deliveboo\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\boolean\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

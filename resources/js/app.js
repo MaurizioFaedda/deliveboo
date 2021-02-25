@@ -15,7 +15,8 @@ var app = new Vue ({
     quantity: 1,
     subTotal: 0,
     new_dish_obj: null,
-    current_quantity: 1
+    current_quantity: 1,
+    totalPrice: 0
   },
   methods: {
     getAllRestaurants() {
@@ -145,6 +146,7 @@ var app = new Vue ({
     removeAllCart(){
     //  Svuoto il cart_list e lo comunico al localStorage
         this.cart_list = [];
+        this.totalPrice = 0;
         this.saveDishes();
     },
     saveDishes() {
@@ -153,7 +155,6 @@ var app = new Vue ({
     },
     changeQuantity(value, index){
         this.cart_list[index].qnty = value;
-        console.log(this.cart_list);
     },
     getSubTotal(singlePrice, quantity){
         return singlePrice*quantity
@@ -161,12 +162,20 @@ var app = new Vue ({
     getDuplicates(dish){
         Object.assign(dish, {qnty: 1});
         console.log(this.cart_list);
+    },
+    getTotalPrice(){
+        this.totalPrice = 0;
+    for (var i = 0; i < this.cart_list.length; i++) {
+        this.totalPrice += this.cart_list[i].qnty * this.cart_list[i].price;
+    }
+    return this.totalPrice
     }
 
   },
   mounted() {
     this.getAllRestaurants();
     this.getAllTypes();
+    this.getTotalPrice();
     // Grabbing the value and parse the JSON value.
     if(localStorage.getItem('cart_list')) {
       try {

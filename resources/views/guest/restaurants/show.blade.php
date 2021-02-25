@@ -88,7 +88,7 @@
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                                     {{-- BUTTON per carrello Vue (front-end)--}}
-                                                    <button data-dismiss="modal" @click="addItemCart({{$dish->id}})" class="button button-plain">Add to Cart</button>
+                                                    <button data-dismiss="modal" @click="addItemCart({{$dish->id}}); getTotalPrice();" class="button button-plain">Add to Cart</button>
                                                 </div>
                                             </div>
                                       </div>
@@ -118,12 +118,16 @@
                           <span>@{{dish.name}}</span>
                           <span>@{{dish.price.toFixed(2)}} €</span>
                           <span>
-                             x @{{ dish.qnty }}
+                             <td><input v-model="dish.qnty" @change="changeQuantity(dish.qnty, index)" @click="getTotalPrice()" class="quantity" type="number" id="quantity" :value="dish.qnty" name="quantity" min="1" max="100"></td>
+                          </span>
+                          <span>
+                              @{{(dish.price * dish.qnty).toFixed(2)}} €
                           </span>
                           <button @click="removeItemCart(index)">Remove</button>
                         </li>
                       </ul>
                     </div>
+                    <h1>@{{totalPrice}}</h1>
                     <a href="{{route('cart.index')}}" class="btn btn-primary btn-lg" role="button">Checkout</a>
                     <button @click="removeAllCart()" class="btn btn-danger" type="button" name="button">Empty</button>
                 </div>
