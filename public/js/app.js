@@ -37304,7 +37304,8 @@ var app = new Vue({
     subTotal: 0,
     new_dish_obj: null,
     current_quantity: 1,
-    totalPrice: 0
+    totalPrice: 0,
+    bool_search: false
   },
   methods: {
     getAllRestaurants: function getAllRestaurants() {
