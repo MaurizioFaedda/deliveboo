@@ -88,7 +88,7 @@
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                                     {{-- BUTTON per carrello Vue (front-end)--}}
-                                                    <button data-dismiss="modal" @click="addItemCart({{$dish->id}}); getTotalPrice();" class="button button-plain">Add to Cart</button>
+                                                    <button data-dismiss="modal" @click="addItemCart({{$dish->id}})" class="button button-plain">Add to Cart</button>
                                                 </div>
                                             </div>
                                       </div>

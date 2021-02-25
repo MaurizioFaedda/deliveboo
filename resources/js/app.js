@@ -91,6 +91,7 @@ var app = new Vue ({
                 //     visible: 1
                 // });
                 this.new_dish_obj = '';
+                this.totalPrice = response.data.results.price;
                 this.saveDishes();
             });
         } else {
@@ -108,12 +109,14 @@ var app = new Vue ({
                                 temp = false;
                                 this.new_dish_obj = '';
                                 this.saveDishes();
+                                this.totalPrice += response.data.results.price;
                             }
 
                         }
                         if (temp) {
                             Object.assign(response.data.results, {qnty: 1})
                             this.cart_list.push(response.data.results);
+                            this.totalPrice += response.data.results.price;
                             this.saveDishes();
                         }
                         console.log(this.cart_list);
@@ -164,18 +167,20 @@ var app = new Vue ({
         console.log(this.cart_list);
     },
     getTotalPrice(){
+
         this.totalPrice = 0;
-    for (var i = 0; i < this.cart_list.length; i++) {
-        this.totalPrice += this.cart_list[i].qnty * this.cart_list[i].price;
-    }
-    return this.totalPrice
+        for (var i = 0; i < this.cart_list.length; i++) {
+            this.totalPrice += this.cart_list[i].qnty * this.cart_list[i].price;
+        }
+
+        console.log(this.totalPrice);
+        return this.totalPrice
     }
 
   },
   mounted() {
     this.getAllRestaurants();
     this.getAllTypes();
-    this.getTotalPrice();
     // Grabbing the value and parse the JSON value.
     if(localStorage.getItem('cart_list')) {
       try {
