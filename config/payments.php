@@ -8,15 +8,15 @@ return [
         "card_owner" => "Maria Rossi",
         "status" => 'Accepted',
         "method" => 'Credit Card',
-        "card_number " => 3456 0976 0872 1678,
+        "card_number" => '3456 0976 0872 1678',
         "notes" => ""
     ],
     [
         "order_id" => 2,
         "card_owner" => "Paolo Bianchi",
-        "status" => 'Pending',
+        "status" => 'Accepted',
         "method" => 'Credit Card',
-        "card_number " => 5453 0677 0332 5671,
+        "card_number" => '5453 0677 0332 5671',
         "notes" => ""
     ],
 //restaurant 2
@@ -25,7 +25,7 @@ return [
         "card_owner" => "Stefano Verdi",
         "status" => 'Rejected',
         "method" => 'Credit Card',
-        "card_number " => 4452 0954 3872 5674,
+        "card_number" => '4452 0954 3872 5674',
         "notes" => ""
     ],
     [
@@ -33,16 +33,16 @@ return [
         "card_owner" => "Sara Gialli",
         "status" => 'Accepted',
         "method" => 'Credit Card',
-        "card_number " => 4512 5332 9474 0938,
+        "card_number" => '4512 5332 9474 0938',
         "notes" => ""
     ],
 //restaurant 3
     [
         "order_id" => 5,
         "card_owner" => "Giulio Marrone",
-        "status" => 'Pending',
+        "status" => 'Accepted',
         "method" => 'Credit Card',
-        "card_number " => 8762 0982 4314 4678,
+        "card_number" => '8762 0982 4314 4678',
         "notes" => ""
     ],
     [
@@ -50,7 +50,7 @@ return [
         "card_owner" => "Marisa Rossini",
         "status" => 'Rejected',
         "method" => 'Credit Card',
-        "card_number " => 5314 4975 1512 0963,
+        "card_number" => '5314 4975 1512 0963',
         "notes" => ""
     ],
 //restaurant 4
@@ -59,15 +59,15 @@ return [
         "card_owner" => "Maurizio Faedda",
         "status" => 'Accepted',
         "method" => 'Credit Card',
-        "card_number " => 5314 0976 0963 1678,
+        "card_number" => '5314 0976 0963 1678',
         "notes" => ""
     ],
     [
         "order_id" => 8,
         "card_owner" => "Marco Caputo",
-        "status" => 'Pending',
+        "status" => 'Accepted',
         "method" => 'Credit Card',
-        "card_number " => 6256 7476 0971 1694,
+        "card_number" => '6256 7476 0971 1694',
         "notes" => ""
     ],
 //restaurant 5
@@ -76,7 +76,7 @@ return [
         "card_owner" => "Annalisa Govoni",
         "status" => 'Rejected',
         "method" => 'Credit Card',
-        "card_number " => 1256 5974 2372 6578,
+        "card_number" => '1256 5974 2372 6578',
         "notes" => ""
     ],
     [
@@ -84,16 +84,16 @@ return [
         "card_owner" => "Claudio Verbari",
         "status" => 'Accepted',
         "method" => 'Credit Card',
-        "card_number " => 8454 8357 7443 7422,
+        "card_number" => '8454 8357 7443 7422',
         "notes" => ""
     ],
 //restaurant 6
     [
         "order_id" => 11,
         "card_owner" => "Raffaele Nardi",
-        "status" => 'Pending',
+        "status" => 'Accepted',
         "method" => 'Credit Card',
-        "card_number " => 5325 9245 9532 1678,
+        "card_number" => '5325 9245 9532 1678',
         "notes" => ""
     ],
     [
@@ -101,7 +101,7 @@ return [
         "card_owner" => "Monica Morabito",
         "status" => 'Rejected',
         "method" => 'Credit Card',
-        "card_number " => 9456 3456 7372 6478,
+        "card_number" => '9456 3456 7372 6478',
         "notes" => ""
     ],
 //restaurant 7
@@ -110,15 +110,15 @@ return [
         "card_owner" => "Tiziana Nappi",
         "status" => 'Accepted',
         "method" => 'Credit Card',
-        "card_number " => 6334 0976 0872 5635,
+        "card_number" => '6334 0976 0872 5635',
         "notes" => ""
     ],
     [
         "order_id" => 14,
         "card_owner" => "Antonio Siciliani",
-        "status" => 'Pending',
+        "status" => 'Accepted',
         "method" => 'Credit Card',
-        "card_number " => 6342 6324 7232 8642,
+        "card_number" => '6342 6324 7232 8642',
         "notes" => ""
     ],
 //restaurant 8
@@ -127,7 +127,7 @@ return [
         "card_owner" => "Giovanni Di Costanzo",
         "status" => 'Rejected',
         "method" => 'Credit Card',
-        "card_number " => 3546 0536 0752 1048,
+        "card_number" => '3546 0536 0752 1048',
         "notes" => ""
     ],
     [
@@ -135,16 +135,16 @@ return [
         "card_owner" => "Serena Piro",
         "status" => 'Accepted',
         "method" => 'Credit Card',
-        "card_number " => 6436 5676 0843 1612,
+        "card_number" => '6436 5676 0843 1612',
         "notes" => ""
     ],
 //restaurant 9
     [
         "order_id" => 17,
         "card_owner" => "Maria Grazia Stasi",
-        "status" => 'Pending',
+        "status" => 'Accepted',
         "method" => 'Credit Card',
-        "card_number " => 9956 1974 0844 7542,
+        "card_number" => '9956 1974 0844 7542',
         "notes" => ""
     ],
     [
@@ -152,16 +152,16 @@ return [
         "card_owner" => "Antonio Leo",
         "status" => 'Accepted',
         "method" => 'Credit Card',
-        "card_number " => 3455 0966 1172 1671,
+        "card_number" => '3455 0966 1172 1671',
         "notes" => ""
     ],
 //restaurant 10
     [
         "order_id" => 19,
         "card_owner" => "Alexandra Santoro",
-        "status" => 'ARejected',
+        "status" => 'Rejected',
         "method" => 'Credit Card',
-        "card_number " => 5556 2975 6672 6679,
+        "card_number" => '5556 2975 6672 6679',
         "notes" => ""
     ],
     [
@@ -169,7 +169,7 @@ return [
         "card_owner" => "Sonia Malvaso",
         "status" => 'Accepted',
         "method" => 'Credit Card',
-        "card_number " => 6656 3376 7753 1655,
+        "card_number" => '6656 3376 7753 1655',
         "notes" => ""
     ]
 ];

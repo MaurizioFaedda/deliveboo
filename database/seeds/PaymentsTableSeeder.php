@@ -13,7 +13,7 @@ class PaymentsTableSeeder extends Seeder
     */
     public function run()
     {
-        $payments = config('payment');
+        $payments = config('payments');
 
         foreach ($payments as $payment) {
             $new_payment_obj = new Payment();
