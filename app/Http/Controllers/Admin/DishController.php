@@ -56,6 +56,8 @@ class DishController extends Controller
     'visible' => 'required',
     'price' => 'required|numeric|between:0,999.99',
     'image' => 'nullable| mimes:jpeg,jpg,png,webp|max:512',
+    // Validation FK to be sure that the ID restaurant sent is an existing restaurant ID
+    'restaurant_id' => 'required|numeric|exists:restaurants,id',
     ]);
 
     // Storing all form data in a variable
@@ -177,6 +179,8 @@ class DishController extends Controller
       'visible' => 'required',
       'price' => 'required|numeric|between:0,999.99',
       'image' => 'nullable| mimes:jpeg,jpg,png,webp|max:512',
+      // Validation FK to be sure that the ID restaurant sent is an existing restaurant ID
+      'restaurant_id' => 'required|numeric|exists:restaurants,id',
     ]);
 
     // I dati ricevuti dal form

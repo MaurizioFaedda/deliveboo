@@ -38,7 +38,7 @@ class OrderController extends Controller
   {
     $request->validate([
       'email' => 'required|max:30',
-      'delivery_time' => 'required|date_format:date',
+      // 'delivery_time' => 'required|date_format:date',
       'total_price' => 'required|numeric|between:0,99.9999',
       'mobile' => 'required|max:15',
       'first_name' => 'required|max:50',
