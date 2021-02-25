@@ -114,20 +114,19 @@
                     <div class="">
                       <ul v-for="(dish, index) in cart_list" :key="dish.id">
                         <li>
-                            <span>@{{dish.id}}</span>
                           <span>@{{dish.name}}</span>
                           <span>@{{dish.price.toFixed(2)}} €</span>
                           <span>
-                             <td><input v-model="dish.qnty" @change="changeQuantity(dish.qnty, index)" @click="getTotalPrice()" class="quantity" type="number" id="quantity" :value="dish.qnty" name="quantity" min="1" max="100"></td>
+                             <input v-model="dish.qnty" @change="changeQuantity(dish.qnty, index)" @click="getTotalPrice()" class="quantity" type="number" id="quantity" :value="dish.qnty" name="quantity" min="1" max="100">
                           </span>
                           <span>
                               @{{(dish.price * dish.qnty).toFixed(2)}} €
                           </span>
-                          <button @click="removeItemCart(index)">Remove</button>
+                          <button @click="removeItemCart(index, dish)">Remove</button>
                         </li>
                       </ul>
                     </div>
-                    <h1>@{{totalPrice}}</h1>
+                    <h3> Total: @{{totalPrice.toFixed(2)}} €</h3>
                     <a href="{{route('cart.index')}}" class="btn btn-primary btn-lg" role="button">Checkout</a>
                     <button @click="removeAllCart()" class="btn btn-danger" type="button" name="button">Empty</button>
                 </div>

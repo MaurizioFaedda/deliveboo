@@ -54,7 +54,7 @@ var app = new Vue ({
         .then(response => {
           this.restaurants = response.data.results;
         });
-      },
+    },
     getFilteredRestaurantsByTypes() {
         var request = {
           checked: this.checked_types
@@ -63,16 +63,17 @@ var app = new Vue ({
         if(this.checked_types.length == 0) {
           this.getAllRestaurants()
         } else {
-          // -------------------- AXIOS call for FILTERED Restaurants by Types --------------------
-          this.restaurants = [];
-          axios
-          .post('/api/restaurants/', request)
-          .then(response => {
+            // -------------------- AXIOS call for FILTERED Restaurants by Types --------------------
+            this.restaurants = [];
+            axios
+            .post('/api/restaurants/', request)
+            .then(response => {
             // prendo i risultati della chiamata ajax e li salvo in un array di appoggio
-            this.restaurants = response.data.results;
-          });
+                this.restaurants = response.data.results;
+            });
         }
     },
+    // ------------------- Cart list--------------------
     addItemCart(id_dish){
         this.quantity = 1;
         // Inserisco l'id del piatto aggiunto dall'utente nell'array da passare al backend con il form
@@ -93,103 +94,103 @@ var app = new Vue ({
                 this.new_dish_obj = '';
                 this.totalPrice = response.data.results.price;
                 this.saveDishes();
+                this.saveTotalPrice();
             });
         } else {
-             // Se il carrello non è vuoto verifico che il ristorante da cui aggiungo i piatti sia lo stesso del primo piatto
+            // Se il carrello non è vuoto verifico che il ristorante da cui aggiungo i piatti sia lo stesso del primo piatto
             axios
             .get('/api/dish/' + id_dish)
             .then(response => {
                 var temp = true;
-            // Controllo che la fk del piatto appena aggiunto (quello ciclato) sia uguale all'id del ristorante del primo piatto
+                // Controllo che la fk del piatto appena aggiunto (quello ciclato) sia uguale all'id del ristorante del primo piatto
                 if ( this.cart_list[0].restaurant_id === response.data.results.restaurant_id) {
-             // Se il ristorante è lo stesso l'utente può procedere ad aggiungere il piatto all'ordine/carrello
-                        for (var i = 0; i < this.cart_list.length; i++) {
-                            if (this.cart_list[i].id == response.data.results.id) {
-                                this.cart_list[i].qnty++
-                                temp = false;
-                                this.new_dish_obj = '';
-                                this.saveDishes();
-                                this.totalPrice += response.data.results.price;
-                            }
-
-                        }
-                        if (temp) {
-                            Object.assign(response.data.results, {qnty: 1})
-                            this.cart_list.push(response.data.results);
+                    // Se il ristorante è lo stesso l'utente può procedere ad aggiungere il piatto all'ordine/carrello
+                    for (var i = 0; i < this.cart_list.length; i++) {
+                        if (this.cart_list[i].id == response.data.results.id) {
+                            this.cart_list[i].qnty++
+                            temp = false;
+                            this.new_dish_obj = '';
                             this.totalPrice += response.data.results.price;
                             this.saveDishes();
+                            this.saveTotalPrice();
                         }
-                        console.log(this.cart_list);
 
-                        }
-                 else {
+                    }
+
+                    if (temp) {
+                        Object.assign(response.data.results, {qnty: 1})
+                        this.cart_list.push(response.data.results);
+                        this.totalPrice += response.data.results.price;
+                        this.saveDishes();
+                        this.saveTotalPrice();
+                    }
+
+                } else {
                     alert('Pippo');
                 }
 
             });
         }
     },
-    getItemQuantity(dishId) {
-        var quantity = 0;
-        if (this.cart_list.length > 0) {
-            for(var i =0; i < this.cart_list.length; i++){
-                if(this.cart_list[i].id == dishId){
-                    quantity++;
-                }
-            }
-        }
-        return quantity;
-
-    },
-    removeItemCart(dish) {
+    removeItemCart(index, dish) {
       // A partire dall'elemento che voglio cancellare ne prendo solo 1
-      this.cart_list.splice(dish,1);
+      this.totalPrice -= dish.price * dish.qnty;
+      this.cart_list.splice(index,1);
+      this.saveTotalPrice();
       this.saveDishes();
     },
     removeAllCart(){
-    //  Svuoto il cart_list e lo comunico al localStorage
+        //  Svuoto il cart_list e lo comunico al localStorage
         this.cart_list = [];
         this.totalPrice = 0;
         this.saveDishes();
+        this.saveTotalPrice();
     },
     saveDishes() {
       let parsed = JSON.stringify(this.cart_list);
       localStorage.setItem('cart_list', parsed);
     },
+    saveTotalPrice() {
+      let parsed = JSON.stringify(this.totalPrice);
+      localStorage.setItem('totalPrice', parsed);
+    },
     changeQuantity(value, index){
         this.cart_list[index].qnty = value;
+        this.saveDishes();
+        this.saveTotalPrice();
     },
     getSubTotal(singlePrice, quantity){
         return singlePrice*quantity
     },
     getDuplicates(dish){
         Object.assign(dish, {qnty: 1});
-        console.log(this.cart_list);
     },
     getTotalPrice(){
-
         this.totalPrice = 0;
         for (var i = 0; i < this.cart_list.length; i++) {
             this.totalPrice += this.cart_list[i].qnty * this.cart_list[i].price;
         }
-
-        console.log(this.totalPrice);
+        this.saveTotalPrice();
         return this.totalPrice
-    }
-
+    },
   },
+  
   mounted() {
-    this.getAllRestaurants();
-    this.getAllTypes();
-    // Grabbing the value and parse the JSON value.
-    if(localStorage.getItem('cart_list')) {
-      try {
-        this.cart_list = JSON.parse(localStorage.getItem('cart_list'));
-      } catch(e) {
-        // If anything goes wrong here we assume the data is corrupt and delete it.
-        localStorage.removeItem('cart_list');
-      }
-    }
-  },
+        this.getAllRestaurants();
+        this.getAllTypes();
+        // Grabbing the value and parse the JSON value.
+        if(localStorage.getItem('cart_list')) {
+          try {
+            this.cart_list = JSON.parse(localStorage.getItem('cart_list'));
+          } catch(e) {
+            // If anything goes wrong here we assume the data is corrupt and delete it.
+            localStorage.removeItem('cart_list');
+          }
+        };
+        if (localStorage.totalPrice) {
+         this.totalPrice = parseFloat(localStorage.totalPrice);
+        };
+
+    },
 
 });
