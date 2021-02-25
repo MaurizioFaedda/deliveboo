@@ -21,22 +21,24 @@
         <div class="card custom_padding no-border my-4 shadow w-100 thiscartbody">
             <div class="text-left">
                 <h1 class="search_title text-left pl-0 align-baseline"><span class="icon-rider-main-color"></span>Restaurants delivering in <strong>Rome</strong></h1>
-                <h3>Ristoranti selezionati: </h3>
-                <ul v-if="checked_types.length > 0" class="list-group">
-                    <li v-for="check in checked_types" class="list-group-item">
-                        <h3 v-if="check == 1">Pizzeria</h3>
-                        <h3 v-if="check == 2">Italian Foods</h3>
-                        <h3 v-if="check == 3">Sushi</h3>
-                        <h3 v-if="check == 4">Vegan Foods</h3>
-                        <h3 v-if="check == 5">Organic Foods</h3>
-                        <h3 v-if="check == 6">Street Foods</h3>
-                        <h3 v-if="check == 7">Asian Foods</h3>
-                        <h3 v-if="check == 8">Mexican</h3>
-                        <h3 v-if="check == 9">Hawaian Foods</h3>
+                <h3>Ristoranti selezionati in checkbox: </h3>
+                <ul v-if="checked_types.length > 0" class="list-inline">
+                    <li v-for="check in checked_types" class="list-inline-item">
+                        <h3 class="card bg-light p-2" v-if="check == 1">Pizzeria</h3>
+                        <h3 class="card bg-light p-2" v-if="check == 2">Italian Foods</h3>
+                        <h3 class="card bg-light p-2" v-if="check == 3">Sushi</h3>
+                        <h3 class="card bg-light p-2" v-if="check == 4">Vegan Foods</h3>
+                        <h3 class="card bg-light p-2" v-if="check == 5">Organic Foods</h3>
+                        <h3 class="card bg-light p-2" v-if="check == 6">Street Foods</h3>
+                        <h3 class="card bg-light p-2" v-if="check == 7">Asian Foods</h3>
+                        <h3 class="card bg-light p-2" v-if="check == 8">Mexican</h3>
+                        <h3 class="card bg-light p-2" v-if="check == 9">Hawaian Foods</h3>
                     </li>
                 </ul>
-                <ul v-if="checked_types.length == 0" class="list-group">
-                    <li class="list-group-item">Nessuno</li>
+                <ul v-if="checked_types.length == 0" class="list-inline">
+                    <li class="list-inline-item">
+                        <h3 class="card bg-light p-2">Nessuno</h3>
+                    </li>
                 </ul>
             </div>
             <div  class="row">
