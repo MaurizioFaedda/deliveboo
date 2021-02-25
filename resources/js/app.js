@@ -116,7 +116,7 @@ var app = new Vue ({
                             this.saveDishes();
                         }
                         console.log(this.cart_list);
-                    
+
                         }
                  else {
                     alert('Pippo');
@@ -151,7 +151,9 @@ var app = new Vue ({
       let parsed = JSON.stringify(this.cart_list);
       localStorage.setItem('cart_list', parsed);
     },
-    changeQuantity(dish_id){
+    changeQuantity(value, index){
+        this.cart_list[index].qnty = value;
+        console.log(this.cart_list);
     },
     getSubTotal(singlePrice, quantity){
         return singlePrice*quantity
