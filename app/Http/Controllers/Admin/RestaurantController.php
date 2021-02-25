@@ -58,7 +58,7 @@ class RestaurantController extends Controller
       'address' => 'required|max:50',
       'description' => 'nullable',
       'image' => 'nullable| mimes:jpeg,jpg,png|max:512',
-      'types' => 'exists:types,id'
+      'types' => 'exists:types,id',
     ]);
     // Storing all form data in a variable
     $form_data = $request->all();
