@@ -108,8 +108,10 @@ Route::post('/checkout', function(Request $request){
         $new_payment->transaction_id = $transaction->id;
         // Saving the new Object/Instance of the Payment in the database
         $new_payment->save();
-        // Reindirizzo l'utente alla stessa pagina ma con il messaggio di conferma dell'avvenuto ordine e pagamento
-        return back()->with('success_message', 'Transaction successful. The ID is:'. $transaction->id);
+        // New QUERY to select the latest order added in the DB to be sure to redirect to the very last order entered
+        $last_entered_order = Order::orderBy('id', 'desc')->first();
+        // Redirecting to the web page of the latest order entered containing order confirmation and summary information
+        return redirect()->route('orders.show', ['order' => $last_entered_order->id])->with('success_message', 'Transaction successful. The ID is:'. $transaction->id);
     } else {
         $errorString = "";
 
@@ -125,7 +127,7 @@ Route::post('/checkout', function(Request $request){
         // Saving the new Object/Instance of the Payment in the database
         $new_payment->save();
         // Reindirizzo l'utente alla stessa pagina ma con il messaggio di errore
-        return back()->withErrors('An error occurred with the message: '.$result->message);
+        return redirect()->route('restaurant.show', ['id' => $request->restaurant_id])->withErrors('An error occurred with the message: '.$result->message);
     }
 });
 
