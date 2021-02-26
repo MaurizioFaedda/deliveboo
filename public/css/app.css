@@ -501,6 +501,8 @@ table tbody tr {
 
 .g-custom-card-height {
   height: 200px;
+  border-top-left-radius: 15px !important;
+  border-top-right-radius: 15px !important;
 }
 
 .card-dish {

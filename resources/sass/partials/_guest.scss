@@ -180,6 +180,8 @@
 
 .g-custom-card-height {
     height: $custom_height * 2;
+    border-top-left-radius: 15px!important;
+    border-top-right-radius: 15px!important;
 }
 
 // card dish
