@@ -1,6 +1,6 @@
 @extends('layouts.guest_home')
 @section('content')
-<div class="container">
+<div class="container-fluid">
 
     <div class="row">
         <div class="col-md-12 col-sm-12 p-0">
