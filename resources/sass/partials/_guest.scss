@@ -22,9 +22,10 @@
 
 
 .show-button {
-    background-color: #00CCBC!important;
+    background-color: #F8F9FA!important;
+    border: 0!important;
     &:hover{
-        background-color: #FF9F00!important;
+        background-color: #D0EB99!important;
         color: white;
         transition: 0.3s;
     }
@@ -37,12 +38,20 @@
 }
 
 .custom_background {
-    background: linear-gradient(20deg, #00CDBC 0 50% ,#FF9F00 50% 100%);
+    background-color: #FFEAE4!important;
 }
 
 .custom_background_jumbotron {
-    background: linear-gradient(-6deg, #D0EB99 0 50%, #00CCBC 50% 100%);
+    background-color: #d0eb99!important;
+    h1 {
+        color: #450B63;
+        font-weight: bold;
+        font-family: sans-serif;
+        max-width: 380px;
+    }
+
 }
+
 
 .custom-height_jumbotron{
     height: $custom_height * 3;
@@ -157,7 +166,7 @@
     left: 0;
     z-index: 100;
     padding: 48px 0 0;
-    background-color: #0696BB;
+    background-color: #FFF;
 
 }
 

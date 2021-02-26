@@ -96,7 +96,7 @@
         </ul>
         </div>
         </nav> --}}
-        <main class="col-md-12 ml-sm-auto px-0 custom_background mt-3">
+        <main class="col-md-12 ml-sm-auto px-0 mt-3">
             @yield('content')
         </main>
         </div>

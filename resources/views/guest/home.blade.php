@@ -18,42 +18,42 @@
         </div>
     </div>
     <div class="row">
-        <div class="card custom_padding no-border my-4 shadow w-100 thiscartbody">
+        <div class="card custom_background custom_padding no-border my-4 shadow w-100 thiscartbody">
             <div class="text-left">
                 <h1 class="search_title text-left pl-0 align-baseline"><span class="icon-rider-main-color"></span>Restaurants delivering in <strong>Rome</strong></h1>
                 <h3>Ristoranti selezionati in checkbox: </h3>
                 <ul v-if="checked_types.length > 0" class="list-inline">
                     <li v-for="check in checked_types" class="list-inline-item">
-                        <h3 class="card bg-light p-2" v-if="check == 1">Pizzeria</h3>
-                        <h3 class="card bg-light p-2" v-if="check == 2">Italian Foods</h3>
-                        <h3 class="card bg-light p-2" v-if="check == 3">Sushi</h3>
-                        <h3 class="card bg-light p-2" v-if="check == 4">Vegan Foods</h3>
-                        <h3 class="card bg-light p-2" v-if="check == 5">Organic Foods</h3>
-                        <h3 class="card bg-light p-2" v-if="check == 6">Street Foods</h3>
-                        <h3 class="card bg-light p-2" v-if="check == 7">Asian Foods</h3>
-                        <h3 class="card bg-light p-2" v-if="check == 8">Mexican</h3>
-                        <h3 class="card bg-light p-2" v-if="check == 9">Hawaian Foods</h3>
+                        <h3 class="card bg-light p-2 border-0 font-weight-bold" v-if="check == 1">Pizzeria</h3>
+                        <h3 class="card bg-light p-2 border-0 font-weight-bold" v-if="check == 2">Italian Foods</h3>
+                        <h3 class="card bg-light p-2 border-0 font-weight-bold" v-if="check == 3">Sushi</h3>
+                        <h3 class="card bg-light p-2 border-0 font-weight-bold" v-if="check == 4">Vegan Foods</h3>
+                        <h3 class="card bg-light p-2 border-0 font-weight-bold" v-if="check == 5">Organic Foods</h3>
+                        <h3 class="card bg-light p-2 border-0 font-weight-bold" v-if="check == 6">Street Foods</h3>
+                        <h3 class="card bg-light p-2 border-0 font-weight-bold" v-if="check == 7">Asian Foods</h3>
+                        <h3 class="card bg-light p-2 border-0 font-weight-bold" v-if="check == 8">Mexican</h3>
+                        <h3 class="card bg-light p-2 border-0 font-weight-bold" v-if="check == 9">Hawaian Foods</h3>
                     </li>
                 </ul>
                 <ul v-if="checked_types.length == 0" class="list-inline">
                     <li class="list-inline-item">
-                        <h3 class="card bg-light p-2">Nessuno</h3>
+                        <h3 class="card bg-light p-2 border-0 font-weight-bold">Nessuno</h3>
                     </li>
                 </ul>
             </div>
             <div  class="row">
-                 <div v-for="restaurant in restaurants" class="col-sm col-md-4 card-restaurant my-3">
-                    <div class="card my-4 w-100 no-border">
+                 <div v-for="restaurant in restaurants" class="col-sm col-md-4 card-restaurant mb-3">
+                    <div class="card my-4 w-100 no-border shadow">
                         <a :href="'restaurant/' + restaurant.id">
-                            <img v-if="restaurant.img_path_rest" class="card-img-top g-custom-card-height w-100" :src="'storage/' + restaurant.img_path_rest" alt="Card image cap">
-                            <img v-else class="card-img-top g-custom-card-height" src="" alt="Card image cap">
+                            <img v-if="restaurant.img_path_rest" class="card-img-top p-2 g-custom-card-height w-100" :src="'storage/' + restaurant.img_path_rest" alt="Card image cap">
+                            <img v-else class="card-img-top p-2 g-custom-card-height" src="" alt="Card image cap">
                         </a>
                         <div class="card-body pl-0 pb-0">
-                            <h5 class="card-title font-weight-bold"><span class="ml-1 icon-restaurant-main-color"></span> @{{restaurant.restaurant_name}}</h5>
-                            <p class="card-text p-infos">
+                            <h5 class="card-title font-weight-bold pl-3 m-0"><span class="icon-restaurant-main-color"></span> @{{restaurant.restaurant_name}}</h5>
+                            <p class="card-text p-infos pl-3">
                                 @{{restaurant.description}}
                             </p>
-                            <a :href="'restaurant/' + restaurant.id" class="btn btn-primary">Show more</a>
+                            <a :href="'restaurant/' + restaurant.id" class="btn btn-primary m-3">Show more</a>
                         </div>
                     </div>
                 </div>
