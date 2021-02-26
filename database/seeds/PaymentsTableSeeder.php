@@ -21,8 +21,7 @@ class PaymentsTableSeeder extends Seeder
             $new_payment_obj->card_owner = $payment['card_owner'];
             $new_payment_obj->status = $payment['status'];
             $new_payment_obj->method = $payment['method'];
-            $new_payment_obj->card_number = $payment['card_number'];
-            $new_payment_obj->notes = $payment['notes'];
+            $new_payment_obj->transaction_id = $payment['transaction_id'];
             $new_payment_obj->save();
         }
     }

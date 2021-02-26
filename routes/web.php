@@ -45,6 +45,7 @@ Route::post('/checkout', function(Request $request){
         'publicKey' => config('services.braintree.publicKey'),
         'privateKey' => config('services.braintree.privateKey')
     ]);
+    dd($request);
     $amount = $request->amount;
     $nonce = $request->payment_method_nonce;
     $result = $gateway->transaction()->sale([
