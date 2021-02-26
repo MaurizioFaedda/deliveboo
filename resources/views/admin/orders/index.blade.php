@@ -6,7 +6,7 @@
 @section('content')
     <div class="container">
         @foreach ($restaurants as $restaurant)
-            <h1>
+            <h6>
                 {{ $restaurant->restaurant_name}}
                 <ul>
                     @foreach ($orders as $order)
@@ -21,18 +21,17 @@
                                 Email: {{ $order->email}}
                             </li>
                             <li>
-                                Total price: {{ $order->total_price}} 
+                                Total price: {{ $order->total_price}}
                             </li>
                         @endif
                     @endforeach
                 </ul>
-
-            </h1>
+            </h6>
         @endforeach
     </div>
-    <canvas id="myChart"></canvas>
+    <canvas id="myChart1"></canvas>
     <script type="text/javascript">
-        var ctx = document.getElementById('myChart').getContext('2d');
+        var ctx = document.getElementById('myChart1').getContext('2d');
         var chart = new Chart(ctx, {
             // The type of chart we want to create
             type: 'bar',
@@ -44,7 +43,7 @@
                 backgroundColor: 'lightblue',
                 borderColor: 'rgb(255, 99, 132)',
                 data: [<?php
-                    foreach ($prova as $valore) {
+                    foreach ($count as $valore) {
                         echo $valore. ',';
                     };
                 ?>]
