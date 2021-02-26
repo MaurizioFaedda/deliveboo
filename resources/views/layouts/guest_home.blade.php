@@ -90,7 +90,7 @@
 
         <div class="container-fluid mt-5">
             <div class="row mx-4">
-                <nav id="guest-sidebar" class="col-lg-2 col-md-3 d-none d-md-block p-2 overflow-auto">
+                {{-- <nav id="guest-sidebar" class="col-lg-2 col-md-3 d-none d-md-block p-2 overflow-auto"> --}}
                     <div class="sidebar-sticky d-flex flex-column">
                         <div class="filter d-flex flex-column justify-content-center w-100 mb-2">
                           {{-- <select @change="getFilteredRestaurants()" v-model="selected_type" id="type-filter" class="p-2">
@@ -99,7 +99,7 @@
                                 @{{type.type}}
                               </option>
                           </select> --}}
-                          <button class="show-button p-2 mt-2 no-border font-weight-bold" @click="getAllRestaurants()" type="button" name="button">Show all</button>
+                          
                         </div>
                         {{-- <div class="form-check form-check-inline py-2 mr-0" v-for="type in types">
                             <div class="card show-button w-100 p-1 d-flex flex-row align-items-center justify-content-start custom_background_select">
@@ -111,12 +111,12 @@
                         </div> --}}
                     </div>
                 </nav>
-                <main class="col-lg-10 col-md-9 ml-sm-auto px-0 mt-3">
+                <main class="col-lg-12 col-md-12 ml-sm-auto px-0 mt-3">
                     @yield('content')
                 </main>
           </div>
           <div class="row">
-              <div class="col-lg-10 offset-lg-2 col-md-9 offset-md-3 ">
+              <div class="col-lg-12 col-md-12 col-sm-12">
                   <!-- Footer -->
                   <footer class="text-center text-lg-start w-100 font-weight-bold shadow">
                       <!-- Grid container -->
