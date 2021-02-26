@@ -127,9 +127,7 @@
                     </thead>
                 </table>
                 <div class="card rounded-0 no-border shadow overflow-auto">
-
                     <table class="table text-center mb-0">
-
                         <tbody>
                             @forelse ($restaurant->dishes as $dish)
                                 <tr class="text-left">
@@ -139,33 +137,31 @@
                                         </a>
                                     </td>
                                     <td/>
-                                    {{number_Format($dish->price, 2, ',', '')}} €
-                                </td>
-                                <td>
-                                    {{-- edit --}}
-                                    <a href="{{ route('admin.dishes.edit', ['dish'=> $dish->id]) }}">
-                                        <span class="icon-edit"></span>
-                                    </a>
-                                </td>
-                                <td class="align-middle">
-                                    {{-- delete --}}
-                                    <form class="d-inline-block" action="{{ route('admin.dishes.destroy', ['dish' => $dish->id]) }}" method="post">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button class="btn btn-link delete-restaurant" type="submit">
-                                            <span class="icon-delete"></span>
-                                        </button>
-                                    </form>
-                                </td>
-                            </tr>
-                        @empty
-                            <p class="p-3 text-center">Inserisci dei piatti</p>
-                        @endforelse
-                    </tbody>
-                </table>
-
-            </div>
-
+                                        {{number_Format($dish->price, 2, ',', '')}} €
+                                    </td>
+                                    <td>
+                                        {{-- edit --}}
+                                        <a href="{{ route('admin.dishes.edit', ['dish'=> $dish->id]) }}">
+                                            <span class="icon-edit"></span>
+                                        </a>
+                                    </td>
+                                    <td class="align-middle">
+                                        {{-- delete --}}
+                                        <form class="d-inline-block" action="{{ route('admin.dishes.destroy', ['dish' => $dish->id]) }}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="btn btn-link delete-restaurant" type="submit">
+                                                <span class="icon-delete"></span>
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @empty
+                                <p class="p-3 text-center">Inserisci dei piatti</p>
+                            @endforelse
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
