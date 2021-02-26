@@ -20,16 +20,15 @@ Route::get('/', 'HomeController@index')->name('index');
 Route::get('/restaurant/{id}', 'RestaurantController@show')->name('restaurant.show');
 // Orders routes
 Route::resource('guest/orders', 'OrderController');
-// Payments routes
-Route::resource('/payments', 'PaymentController');
+
 
 Route::get('/cart', function () {
     $gateway = new Braintree\Gateway([
-  'environment' => 'sandbox',
-  'merchantId' => 'gncpw48dy8pnxspp',
-  'publicKey' => '5sp8xkhmyk77xmpn',
-  'privateKey' => '66a03d2d8813d5bc80879e71650b8045'
-]);
+        'environment' => config('services.braintree.environment'),
+        'merchantId' => config('services.braintree.merchantId'),
+        'publicKey' => config('services.braintree.publicKey'),
+        'privateKey' => config('services.braintree.privateKey')
+    ]);
 
 
     $token = $gateway->ClientToken()->generate();
@@ -41,10 +40,10 @@ Route::get('/cart', function () {
 
 Route::post('/checkout', function(Request $request){
     $gateway = new Braintree\Gateway([
-      'environment' => 'sandbox',
-      'merchantId' => 'gncpw48dy8pnxspp',
-      'publicKey' => '5sp8xkhmyk77xmpn',
-      'privateKey' => '66a03d2d8813d5bc80879e71650b8045'
+        'environment' => config('services.braintree.environment'),
+        'merchantId' => config('services.braintree.merchantId'),
+        'publicKey' => config('services.braintree.publicKey'),
+        'privateKey' => config('services.braintree.privateKey')
     ]);
     $amount = $request->amount;
     $nonce = $request->payment_method_nonce;
@@ -74,11 +73,7 @@ Route::post('/checkout', function(Request $request){
     }
 });
 
-// Cart Controller routes
-// Route::get('/cart', 'CartController@index')->name('cart.index');
-// Route::post('/cart', 'CartController@store')->name('cart.store');
-// Route::patch('/cart/{dish}', 'CartController@update')->name('cart.update');
-// Route::delete('/cart/{dish}', 'CartController@destroy')->name('cart.destroy');
+
 Route::get('empty', function(){
     Cart::destroy();
     return redirect()->route('cart.index');
