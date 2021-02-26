@@ -18,7 +18,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="card custom_background custom_padding no-border my-4 shadow w-100 thiscartbody">
+        <div class="card custom_background custom_padding no-border my-4 pb-5 shadow w-100 thiscartbody">
             <div class="text-left">
                 <h1 class="search_title text-left pl-0 align-baseline"><span class="icon-rider-main-color"></span>Restaurants delivering in <strong>Rome</strong></h1>
                 <h3 class="card bg-light p-2 border-0 font-weight-bold d-inline">Ristoranti selezionati: </h3>
@@ -49,11 +49,11 @@
                             <img v-else class="card-img-top p-2 g-custom-card-height" src="" alt="Card image cap">
                         </a>
                         <div class="card-body pl-0 pb-0">
-                            <h5 class="card-title font-weight-bold pl-3 m-0"><span class="icon-restaurant-main-color"></span> @{{restaurant.restaurant_name}}</h5>
+                            <h5 class="card-title font-weight-bold pl-3 m-0 h-25"><span class="icon-restaurant-main-color"></span> @{{restaurant.restaurant_name}}</h5>
                             <p class="card-text p-infos pl-3 pt-1">
                                 @{{restaurant.description}}
                             </p>
-                            <a :href="'restaurant/' + restaurant.id" class="btn btn-primary m-3">Show more</a>
+                            <a :href="'restaurant/' + restaurant.id" class="btn btn-primary m-1 ml-3">Show more</a>
                         </div>
                     </div>
                 </div>
