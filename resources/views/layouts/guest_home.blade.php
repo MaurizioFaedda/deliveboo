@@ -118,7 +118,7 @@
           <div class="row">
               <div class="col-lg-10 offset-lg-2 col-md-9 offset-md-3 ">
                   <!-- Footer -->
-                  <footer class="bg-light text-center text-lg-start w-100 font-weight-bold shadow">
+                  <footer class="text-center text-lg-start w-100 font-weight-bold shadow">
                       <!-- Grid container -->
                       <div class="container p-4">
                           <!--Grid row-->
