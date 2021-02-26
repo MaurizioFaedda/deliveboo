@@ -12,12 +12,46 @@
                     @foreach ($orders as $order)
                         @if ($order->restaurant_id == $restaurant->id )
                             <li>
-                                {{ $order->email}}
+                                First Name: {{ $order->first_name}}
+                            </li>
+                            <li>
+                                Last Name: {{ $order->lastname}}
+                            </li>
+                            <li>
+                                Email: {{ $order->email}}
+                            </li>
+                            <li>
+                                Total price: {{ $order->total_price}} 
                             </li>
                         @endif
                     @endforeach
                 </ul>
+
             </h1>
         @endforeach
     </div>
+    <canvas id="myChart"></canvas>
+    <script type="text/javascript">
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var chart = new Chart(ctx, {
+            // The type of chart we want to create
+            type: 'bar',
+            // The data for our dataset
+            data: {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+            datasets: [{
+                label: 'My First dataset',
+                backgroundColor: 'lightblue',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [<?php
+                    foreach ($prova as $valore) {
+                        echo $valore. ',';
+                    };
+                ?>]
+            }]
+        },
+        // Configuration options go here
+        options: {}
+        });
+    </script>
 @endsection
