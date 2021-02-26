@@ -50,7 +50,7 @@
                         </a>
                         <div class="card-body pl-0 pb-0">
                             <h5 class="card-title font-weight-bold pl-3 m-0"><span class="icon-restaurant-main-color"></span> @{{restaurant.restaurant_name}}</h5>
-                            <p class="card-text p-infos pl-3">
+                            <p class="card-text p-infos pl-3 pt-1">
                                 @{{restaurant.description}}
                             </p>
                             <a :href="'restaurant/' + restaurant.id" class="btn btn-primary m-3">Show more</a>
