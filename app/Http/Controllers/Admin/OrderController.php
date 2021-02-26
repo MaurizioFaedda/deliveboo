@@ -24,13 +24,17 @@ class OrderController extends Controller
         // Faccio una query al db per prendere tutti i ristoranti con l'id user dell'utente loggato
         $restaurants_list = Restaurant::select()->where('user_id', $id_user)->get();
 
-
         // Faccio una query al db per prendere tutti gli ordini dei ristoranti dell'utente loggato
         $order_list = Order::select()->whereIn('restaurant_id' , Restaurant::select('id')->where('user_id', $id_user))->get();
 
+        $prova = [7,3,8,5,6];
+
         $data = [
-          'restaurants' => $restaurants_list,
-          'orders' => $order_list
+            // Lista ristoranti dell'utente
+            'restaurants' => $restaurants_list,
+            // Lista degli ordini di tutti i ristoranti dell'utente
+            'orders' => $order_list,
+            'prova' => $prova
         ];
 
         return view('admin.orders.index', $data);
