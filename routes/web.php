@@ -65,29 +65,18 @@ Route::post('/checkout', function(Request $request){
 
     // ------------------------ ORDERS TABLE ------------------------
 
-    // Storing all form data to fill in the ORDERS table in different variables
-    $email = $request->email;
-    $delivery_time = $request->delivery_time;
-    $total_price = $request->total_price;
-    $mobile = $request->mobile;
-    $first_name = $request->first_name;
-    $lastname = $request->lastname;
-    $address = $request->address;
-    $notes = $request->notes;
-    $restaurant_id = $request->restaurant_id;
-
     // Creating a new Object/Instance of a new Order with the form data
     $new_order = new Order();
     // Filling in the new Object/Instance with the form data received
-    $new_order->email = $email;
-    $new_order->delivery_time = $delivery_time;
-    $new_order->total_price = $total_price;
-    $new_order->mobile = $mobile;
-    $new_order->first_name = $first_name;
-    $new_order->lastname = $lastname;
-    $new_order->address = $address;
-    $new_order->notes = $notes;
-    $new_order->restaurant_id = $restaurant_id;
+    $new_order->email = $request->email;
+    $new_order->delivery_time = $request->delivery_time;
+    $new_order->total_price = $request->total_price;
+    $new_order->mobile = $request->mobile;
+    $new_order->first_name = $request->first_name;
+    $new_order->lastname = $request->lastname;
+    $new_order->address = $request->address;
+    $new_order->notes = $request->notes;
+    $new_order->restaurant_id = $request->restaurant_id;
     // Saving the new Object/Instance of the Order in the database
     $new_order->save();
 
@@ -96,30 +85,26 @@ Route::post('/checkout', function(Request $request){
     $nonce = $request->payment_method_nonce;
     $result = $gateway->transaction()->sale([
         'amount' => $amount,
-        'paymentMethodNonce' => $nonce,
+        'paymentMethodNonce' => 'fake-valid-nonce',
         'options' => [
             'submitForSettlement' => true
         ]
     ]);
 
-    // Storing form data to fill in the PAYMENTS table in different variables
-    $card_owner = $request->card_owner;
-    // Prendo la FK dell'ordine appena effettuato
-    $order_id = $new_order->id;
     // Creating a new Object/Instance of a new Payment with the form data
     $new_payment = new Payment();
     // Filling in the new Object/Instance with the form data received
-    $new_payment->card_owner = $card_owner;
-    $new_payment->order_id = $order_id;
+    $new_payment->card_owner = $request->card_owner;
+    $new_payment->order_id = $new_order->id;
 
     // Controllo se il pagamento va a buon fine
     if ($result->success) {
         $transaction = $result->transaction;
         // header("Location: transaction.php?id=" . $transaction->id);
 
-        // Prendo la lo status del pagamento e l'ID della transazione da Braintree e lo aggiungo all'istanza/Oggetto
-        $status = 'Accepted';
-        $new_payment->status = $status;
+        // Se il pagamento è andato a buon fine assegno alla colonna "status" la stringa "accepted"
+        $new_payment->status = 'Accepted';
+        // Prendo l'ID della transazione da Braintree e lo aggiungo all'istanza/Oggetto
         $new_payment->transaction_id = $transaction->id;
         // Saving the new Object/Instance of the Payment in the database
         $new_payment->save();
@@ -135,9 +120,8 @@ Route::post('/checkout', function(Request $request){
         // $_SESSION["errors"] = $errorString;
         // header("Location: index.php");
 
-        // Prendo la lo status del pagamento e l'ID della transazione da Braintree e lo aggiungo all'istanza/Oggetto
-        $status = 'Rejected';
-        $new_payment->status = $status;
+        // Se il pagamento non è andato a buon fine assegno alla colonna "status" la stringa "rejected"
+        $new_payment->status = 'Rejected';
         // Saving the new Object/Instance of the Payment in the database
         $new_payment->save();
         // Reindirizzo l'utente alla stessa pagina ma con il messaggio di errore
