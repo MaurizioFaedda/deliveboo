@@ -18,7 +18,7 @@ class CreatePaymentsTable extends Migration
       $table->string('card_owner', 50);
       $table->string('status', 15);
       $table->string('method', 30)->default('Credit Card');
-      $table->string('transaction_id');
+      $table->string('transaction_id')->nullable();
       $table->timestamps();
     });
   }
