@@ -18,6 +18,22 @@
         </div>
     </div>
     <div class="row">
+        <div class="card p-3 w-100 border-0 my-shadow p-2 mb-4">
+            <div class="form-check form-check-inline py-2 mr-0 overflow-auto">
+                <div class="col-md-3 col-sm-12" v-for="type in types">
+                    <div class="card show-button w-100 p-1 d-flex flex-row align-items-center justify-content-start custom_background_select">
+                        <input class="form-check-input" id="inlineCheckbox1" @change="getFilteredRestaurantsByTypes()" type="checkbox" :value="type.id" v-model="checked_types">
+                        <label class="form-check-label p-2 font-weight-bold text-dark d-flex flex-column justify-content-center align-items-center" for="type.type">
+                            @{{type.type}}
+                            <img :src="'img/' + type.img_path_type" alt="">
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
         <div class="card p-3 w-100 border-0 my-shadow">
             <h3 class="card p-2 border-0 font-weight-bold">Ristoranti selezionati: </h3>
             <ul v-if="checked_types.length > 0" class="list-inline mt-3">
@@ -45,7 +61,7 @@
             <div class="text-left">
                 <h1 class="search_title text-left pl-0 align-baseline"><span class="icon-rider-main-color"></span>Restaurants delivering in <strong>Rome</strong></h1>
             </div>
-            <div  class="row">
+            <div class="row">
                  <div v-for="restaurant in restaurants" class="col-sm-12 col-md-4 card-restaurant mb-5">
                     <div class="card my-4 w-100 no-border my-shadow min-h-card-rest p-2 rounded-top">
                         <a :href="'restaurant/' + restaurant.id">
