@@ -55,6 +55,10 @@ Route::post('/checkout', function(Request $request){
         ]
     ]);
 
+    $adress_order = $request->address;
+    dd($request);
+
+
     if ($result->success) {
         $transaction = $result->transaction;
         // header("Location: transaction.php?id=" . $transaction->id);
