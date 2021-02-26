@@ -284,6 +284,10 @@ table tbody tr {
   border-bottom: none;
 }
 
+.min-h-card-rest {
+  min-height: 430px !important;
+}
+
 #choosecard {
   background-color: #0696BB;
 }
@@ -349,6 +353,7 @@ table tbody tr {
   font-size: 20px;
   padding-right: 16px;
   color: #00CDBC;
+  padding-right: 8px !important;
 }
 
 .icon-address-main-color::after {

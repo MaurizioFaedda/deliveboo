@@ -90,7 +90,7 @@
 
         <div class="container-fluid mt-5">
             <div class="row mx-4">
-                <nav id="guest-sidebar" class="col-lg-2 col-md-3 d-none d-md-block p-4 overflow-auto shadow">
+                <nav id="guest-sidebar" class="col-lg-2 col-md-3 d-none d-md-block p-2 overflow-auto shadow">
                     <div class="sidebar-sticky d-flex flex-column">
                         <div class="filter d-flex flex-column justify-content-center w-100 mb-2">
                           {{-- <select @change="getFilteredRestaurants()" v-model="selected_type" id="type-filter" class="p-2">

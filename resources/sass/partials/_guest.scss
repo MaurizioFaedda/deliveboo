@@ -15,6 +15,9 @@
   border-bottom: none;
 }
 
+.min-h-card-rest {
+    min-height: 430px!important;
+}
 
 #choosecard{
     background-color: #0696BB;
@@ -77,6 +80,7 @@
 .icon-restaurant-main-color::after{
     @include dash_icon("\f2e7");
     color: $color_main;
+    padding-right: 8px!important;
 }
 .icon-address-main-color::after{
     @include dash_icon("\f3c5");
