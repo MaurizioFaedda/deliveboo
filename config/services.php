@@ -31,10 +31,10 @@ return [
     ],
 
     'braintree' => [
-    'environment' => env('BT_ENVIRONMENT'),
-    'merchant_id' => env('BT_MERCHANT_ID'),
-    'public_key' => env('BT_PUBLIC_KEY'),
-    'private_key' => env('BT_PRIVATE_KEY'),
-],
+        'environment' => env('BT_ENVIRONMENT'),
+        'merchantId' => env('BT_MERCHANT_ID'),
+        'publicKey' => env('BT_PUBLIC_KEY'),
+        'privateKey' => env('BT_PRIVATE_KEY'),
+    ],
 
 ];
