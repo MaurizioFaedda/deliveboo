@@ -47,7 +47,8 @@ Route::post('/checkout', function(Request $request){
         'privateKey' => config('services.braintree.privateKey')
     ]);
 
-    // ------------------------ ORDERS TABLE ------------------------
+    // ------------------------ VALIDATION FORM DATA ------------------------
+
     $request->validate([
       'email' => 'required|max:30',
       // 'delivery_time' => 'required|date_format:date',
@@ -59,7 +60,11 @@ Route::post('/checkout', function(Request $request){
       'notes' => 'nullable|max:255',
       // Validation FK to be sure that the ID restaurant sent is an existing restaurant ID
       'restaurant_id' => 'required|numeric|exists:restaurants,id',
+      'card_owner' => 'required|max:50',
     ]);
+
+    // ------------------------ ORDERS TABLE ------------------------
+
     // Storing all form data to fill in the ORDERS table in different variables
     $email = $request->email;
     $delivery_time = $request->delivery_time;
@@ -91,16 +96,34 @@ Route::post('/checkout', function(Request $request){
     $nonce = $request->payment_method_nonce;
     $result = $gateway->transaction()->sale([
         'amount' => $amount,
-        'paymentMethodNonce' => 'fake-valid-nonce',
+        'paymentMethodNonce' => $nonce,
         'options' => [
             'submitForSettlement' => true
         ]
     ]);
 
+    // Storing form data to fill in the PAYMENTS table in different variables
+    $card_owner = $request->card_owner;
+    // Prendo la FK dell'ordine appena effettuato
+    $order_id = $new_order->id;
+    // Creating a new Object/Instance of a new Payment with the form data
+    $new_payment = new Payment();
+    // Filling in the new Object/Instance with the form data received
+    $new_payment->card_owner = $card_owner;
+    $new_payment->order_id = $order_id;
+
+    // Controllo se il pagamento va a buon fine
     if ($result->success) {
         $transaction = $result->transaction;
         // header("Location: transaction.php?id=" . $transaction->id);
 
+        // Prendo la lo status del pagamento e l'ID della transazione da Braintree e lo aggiungo all'istanza/Oggetto
+        $status = 'Accepted';
+        $new_payment->status = $status;
+        $new_payment->transaction_id = $transaction->id;
+        // Saving the new Object/Instance of the Payment in the database
+        $new_payment->save();
+        // Reindirizzo l'utente alla stessa pagina ma con il messaggio di conferma dell'avvenuto ordine e pagamento
         return back()->with('success_message', 'Transaction successful. The ID is:'. $transaction->id);
     } else {
         $errorString = "";
@@ -111,15 +134,17 @@ Route::post('/checkout', function(Request $request){
 
         // $_SESSION["errors"] = $errorString;
         // header("Location: index.php");
+
+        // Prendo la lo status del pagamento e l'ID della transazione da Braintree e lo aggiungo all'istanza/Oggetto
+        $status = 'Rejected';
+        $new_payment->status = $status;
+        // Saving the new Object/Instance of the Payment in the database
+        $new_payment->save();
+        // Reindirizzo l'utente alla stessa pagina ma con il messaggio di errore
         return back()->withErrors('An error occurred with the message: '.$result->message);
     }
 });
 
-
-Route::get('empty', function(){
-    Cart::destroy();
-    return redirect()->route('cart.index');
-})->name('cart.empty');
 
 // ----------- AUTHENTICATION ROUTES -----------
 Auth::routes();
