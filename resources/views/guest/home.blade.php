@@ -37,7 +37,7 @@
         <div class="card p-3 w-100 border-0 my-shadow d-flex">
             <h3 class="card p-2 border-0 font-weight-bold">Ristoranti selezionati: </h3>
             <button class="show-button p-2 mt-2 no-border font-weight-bold w-25 align-self-center" @click="getAllRestaurants()" type="button" name="button">Show all</button>
-            <ul v-if="checked_types.length > 0" class="list-inline mt-3">
+            <ul v-if="checked_types.length > 0" class="list-inline mt-3 p-2">
                 <li v-for="check in checked_types" class="list-inline-item">
                     <h3 class="card bg-light p-2 border-0 font-weight-bold" v-if="check == 1">Pizzeria</h3>
                     <h3 class="card bg-light p-2 border-0 font-weight-bold" v-if="check == 2">Italian Foods</h3>
