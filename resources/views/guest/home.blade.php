@@ -4,7 +4,7 @@
 
     <div class="row">
         <div class="col-md-12 col-sm-12 p-0">
-            <div class="card flex-row justify-content-center align-items-center custom_padding no-border my-4 my-shadow w-100 custom-height_jumbotron">
+            <div class="card flex-row justify-content-center align-items-center custom_padding no-border my-4 my-shadow w-100 custom-height_jumbotron custom_background_jumbotron">
                 <div class="row justify-content-center align-items-center">
                     <div class="col-sm col-md-6">
                         <h1>I piatti che ami, a domicilio.</h2>
