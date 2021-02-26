@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+use App\Order;
+use App\Payment;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,7 +32,6 @@ Route::get('/cart', function () {
         'privateKey' => config('services.braintree.privateKey')
     ]);
 
-
     $token = $gateway->ClientToken()->generate();
 
     return view('guest.cart', [
@@ -45,7 +46,47 @@ Route::post('/checkout', function(Request $request){
         'publicKey' => config('services.braintree.publicKey'),
         'privateKey' => config('services.braintree.privateKey')
     ]);
-    dd($request);
+
+    // ------------------------ ORDERS TABLE ------------------------
+    $request->validate([
+      'email' => 'required|max:30',
+      // 'delivery_time' => 'required|date_format:date',
+      'total_price' => 'required|numeric|between:0,99.9999',
+      'mobile' => 'required|max:15',
+      'first_name' => 'required|max:50',
+      'lastname' => 'required|max:50',
+      'address' => 'required|max:100',
+      'notes' => 'nullable|max:255',
+      // Validation FK to be sure that the ID restaurant sent is an existing restaurant ID
+      'restaurant_id' => 'required|numeric|exists:restaurants,id',
+    ]);
+    // Storing all form data to fill in the ORDERS table in different variables
+    $email = $request->email;
+    $delivery_time = $request->delivery_time;
+    $total_price = $request->total_price;
+    $mobile = $request->mobile;
+    $first_name = $request->first_name;
+    $lastname = $request->lastname;
+    $address = $request->address;
+    $notes = $request->notes;
+    $restaurant_id = $request->restaurant_id;
+
+    // Creating a new Object/Instance of a new Order with the form data
+    $new_order = new Order();
+    // Filling in the new Object/Instance with the form data received
+    $new_order->email = $email;
+    $new_order->delivery_time = $delivery_time;
+    $new_order->total_price = $total_price;
+    $new_order->mobile = $mobile;
+    $new_order->first_name = $first_name;
+    $new_order->lastname = $lastname;
+    $new_order->address = $address;
+    $new_order->notes = $notes;
+    $new_order->restaurant_id = $restaurant_id;
+    // Saving the new Object/Instance of the Order in the database
+    $new_order->save();
+
+    // ------------------------ PAYMENTS TABLE ------------------------
     $amount = $request->amount;
     $nonce = $request->payment_method_nonce;
     $result = $gateway->transaction()->sale([
@@ -55,10 +96,6 @@ Route::post('/checkout', function(Request $request){
             'submitForSettlement' => true
         ]
     ]);
-
-    $adress_order = $request->address;
-    dd($request);
-
 
     if ($result->success) {
         $transaction = $result->transaction;
