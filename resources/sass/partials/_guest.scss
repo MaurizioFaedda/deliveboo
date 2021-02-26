@@ -31,6 +31,10 @@
     background-color: #0696BB;
 }
 
+.height-fix {
+    height: 255px;
+}
+
 .form-check-input:hover{
     cursor: pointer;
 }
@@ -274,7 +278,7 @@
     overflow: hidden;
        text-overflow: ellipsis;
        display: -webkit-box;
-       -webkit-line-clamp: 3; /* number of lines to show */
+       -webkit-line-clamp: 1; /* number of lines to show */
        -webkit-box-orient: vertical;
 }
 

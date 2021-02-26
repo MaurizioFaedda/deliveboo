@@ -65,11 +65,11 @@
             <div class="row">
                  <div v-for="restaurant in restaurants" class="col-sm-12 col-md-4 card-restaurant mb-5">
                     <div class="card my-4 w-100 no-border my-shadow min-h-card-rest p-2 rounded-top">
-                        <a :href="'restaurant/' + restaurant.id">
-                            <img v-if="restaurant.img_path_rest" class="card-img-top p-2 g-custom-card-height w-100" :src="'storage/' + restaurant.img_path_rest" alt="Card image cap">
+                        <a class="height-fix" :href="'restaurant/' + restaurant.id">
+                            <img v-if="restaurant.img_path_rest" class="card-img-top p-2 g-custom-card-height w-100 h-100" :src="'storage/' + restaurant.img_path_rest" alt="Card image cap">
                             <img v-else class="card-img-top p-2 g-custom-card-height w-100" src="" alt="Card image cap">
                         </a>
-                        <div class="card-body pl-0 pb-0">
+                        <div class="card-body pl-0 pb-0 d-flex flex-column justify-content-between">
                             <h5 class="card-title font-weight-bold pl-3 m-0 h-25"><span class="icon-restaurant-main-color"></span> @{{restaurant.restaurant_name}}</h5>
                             <p class="card-text p-infos pl-3 pt-1">
                                 @{{restaurant.description}}
