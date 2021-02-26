@@ -42,7 +42,7 @@
                 </ul>
             </div>
             <div  class="row">
-                 <div v-for="restaurant in restaurants" class="col-sm col-md-4 card-restaurant mb-5">
+                 <div v-for="restaurant in restaurants" class="col-sm-12 col-md-4 card-restaurant mb-5">
                     <div class="card my-4 w-100 no-border shadow min-h-card-rest p-2">
                         <a :href="'restaurant/' + restaurant.id">
                             <img v-if="restaurant.img_path_rest" class="card-img-top p-2 g-custom-card-height w-100" :src="'storage/' + restaurant.img_path_rest" alt="Card image cap">
