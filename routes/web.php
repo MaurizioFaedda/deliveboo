@@ -136,8 +136,8 @@ Route::post('/checkout', function(Request $request){
 Auth::routes();
 
 Route::middleware('auth')->namespace('Admin')->prefix('admin')->name('admin.')->group(function(){
-    Route::get('/', 'HomeController@index')->name('index');
+    Route::get('/', 'HomeController@getMonthlyOrdersData')->name('index');
     Route::resource('/restaurants', 'RestaurantController');
     Route::resource('/dishes', 'DishController');
-    Route::get('/orders', 'OrderController@getMonthlyOrdersData')->name('orders.index');
+    Route::get('/orders', 'OrderController@index')->name('orders.index');
 });
