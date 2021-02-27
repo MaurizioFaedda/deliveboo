@@ -143,7 +143,7 @@
 
                             <ul class="list-unstyled">
                                 <li>
-                                    <a href="https://www.linkedin.com/in/annalisa-de-santis-354a7b205/" class="text-dark">Annalisa De Santis</a>
+                                    <a href="https://www.linkedin.com/in/annalisa-de-santis-annalisadesantis1991/" class="text-dark">Annalisa De Santis</a>
                                 </li>
                                 <li>
                                     <a href="https://www.linkedin.com/in/sabrinacunsolo/" class="text-dark">Sabrina Cunsolo</a>
