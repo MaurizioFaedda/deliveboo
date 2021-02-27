@@ -110,7 +110,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h5 class="card-title font-weight-bold text-uppercase">
-                                        Statistical graphics of your Orders
+                                        Statistical graphic of your orders
                                     </h5>
                                     <canvas id="myChart"></canvas>
                                 </div>
