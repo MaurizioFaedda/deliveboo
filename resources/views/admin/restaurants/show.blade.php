@@ -22,7 +22,7 @@
                                     @forelse ($restaurant->types as $type)
                                         <li>{{ $type->type }}</li>
                                     @empty
-                                        <li>Non sono state inserite tipologie</li>
+                                        <li>No typologies have been inserted</li>
                                     @endforelse
                                 </ul>
                             </div>
@@ -51,7 +51,7 @@
 
                 <div class="card no-border border-radius-top shadow">
                     <div class="card-header card-header text-center no-border border-radius-top p-3">
-                        <h5 class="mb-0">Aggiungi un nuovo piatto</h5>
+                        <h5 class="mb-0">Add a new dish</h5>
                     </div>
                     <form class="d-flex flex-column align-items-left py-3 px-3" action="{{route('admin.dishes.store')}}" method="post" enctype="multipart/form-data">
                         @csrf
@@ -104,7 +104,7 @@
                         </div>
                         <div class="form-group d-flex justify-content-end w-100">
                             <button type="submit" class="btn btn-success text-uppercase w-100">
-                                Salva
+                                Save
                             </button>
                         </div>
                     </form>
@@ -157,7 +157,7 @@
                                     </td>
                                 </tr>
                             @empty
-                                <p class="p-3 text-center">Inserisci dei piatti</p>
+                                <p class="p-3 text-center">Add a dish</p>
                             @endforelse
                         </tbody>
                     </table>
