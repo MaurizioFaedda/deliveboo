@@ -79,12 +79,20 @@
 
 }
 
+.bg-footer {
+    background-color: #d0eb99!important;
+}
+
 .custom_background {
     background-color: #FFEAE4!important;
 }
 
 .custom_background_jumbotron {
-    background-color: #d0eb99!important;
+    background: rgb(0,204,188);
+    background: -moz-linear-gradient(354deg, rgba(0,204,188,1) 50%, rgba(208,235,153,1) 51%);
+    background: -webkit-linear-gradient(354deg, rgba(0,204,188,1) 50%, rgba(208,235,153,1) 51%);
+    background: linear-gradient(354deg, rgba(0,204,188,1) 50%, rgba(208,235,153,1) 51%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#00ccbc",endColorstr="#d0eb99",GradientType=1);
     h1 {
         color: #450B63;
         font-weight: bold;

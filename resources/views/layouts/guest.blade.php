@@ -102,7 +102,7 @@
         </div>
         <div class="row">
             <!-- Footer -->
-            <footer class="bg-white text-center text-lg-start w-100 font-weight-bold shadow">
+            <footer class="bg-footer text-center text-lg-start w-100 font-weight-bold shadow">
                 <!-- Grid container -->
                 <div class="container p-4">
                     <!--Grid row-->

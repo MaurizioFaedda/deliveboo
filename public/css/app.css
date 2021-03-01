@@ -371,12 +371,18 @@ table tbody tr {
   letter-spacing: 1px;
 }
 
+.bg-footer {
+  background-color: #d0eb99 !important;
+}
+
 .custom_background {
   background-color: #FFEAE4 !important;
 }
 
 .custom_background_jumbotron {
-  background-color: #d0eb99 !important;
+  background: #00ccbc;
+  background: linear-gradient(354deg, #00ccbc 50%, #d0eb99 51%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#00ccbc",endColorstr="#d0eb99",GradientType=1);
 }
 
 .custom_background_jumbotron h1 {
