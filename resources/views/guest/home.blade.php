@@ -64,7 +64,7 @@
             </div>
             <div class="row">
                  <div v-for="restaurant in restaurants" class="col-sm-12 col-md-3 card-restaurant mb-5">
-                    <div class="card my-4 w-100 h-100 no-border my-shadow p-2 px-3 rounded-top">
+                    <div class="card my-4 w-100 h-100 no-border my-shadow p-3 rounded-top">
                         <a class="h-50" :href="'restaurant/' + restaurant.id">
                             <img v-if="restaurant.img_path_rest" class="card-img-top p-2 img-fluid h-100" :src="'storage/' + restaurant.img_path_rest" alt="Card image cap">
                             <img v-else class="card-img-top p-2 img-fluid h-100" src="" alt="Card image cap">
