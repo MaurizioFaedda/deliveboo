@@ -10,15 +10,15 @@
         <div class="col-md-8 d-flex flex-column justify-content-center">
             <h3 class="pl-3"><span class="ml-1 icon-restaurant-main-color pr-3"></span>{{$restaurant->restaurant_name}}</h3>
             <ul class="list-group shadow">
-                <li class="list-group-item"><span class="icon-address-main-color pr-3"></span>{{$restaurant->address}}, {{$restaurant->city}}</li>
-                <li class="list-group-item">
+                <li class="list-group-item border-0"><span class="icon-address-main-color pr-3"></span>{{$restaurant->address}}, {{$restaurant->city}}</li>
+                <li class="list-group-item border-0">
 
                     <span class="icon-tags-main-color pr-4"></span>@forelse ($restaurant->types as $type){{$type->type}}</span>{{!$loop->last ? ',' : ''}}
                     @empty
                         <span>Non sono state inserite tipologie</span>
                     @endforelse
                 </li>
-                <li class="list-group-item h-100">
+                <li class="list-group-item h-100 border-0">
                     <span class="icon-info-main-color ml-2 pr-3"></span>
                     {{$restaurant->description}}
                 </li>
