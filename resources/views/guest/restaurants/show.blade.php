@@ -111,25 +111,31 @@
                         </div>
                     @endif
                     {{-- Lista elementi visualizzati nel carrello Vue (front-end) --}}
-                    <div class="">
-                      <ul v-for="(dish, index) in cart_list" :key="dish.id">
-                        <li>
-                          <span>@{{dish.name}}</span>
-                          <span>@{{dish.price.toFixed(2)}} €</span>
-                          <span>
-                             <input v-model="dish.qnty" @change="changeQuantity(dish.qnty, index)" @click="getTotalPrice()" class="quantity" type="number" id="quantity" :value="dish.qnty" name="quantity" min="1" max="100">
-                          </span>
-                          <span>
-                              @{{(dish.price * dish.qnty).toFixed(2)}} €
-                          </span>
-                          <button @click="removeItemCart(index, dish)">Remove</button>
-                        </li>
-                      </ul>
-                    </div>
-                    <h3> Total: @{{totalPrice.toFixed(2)}} €</h3>
-                    <a href="{{url('/cart')}}" class="btn btn-primary btn-lg" role="button">Checkout</a>
-                    <button @click="removeAllCart()" class="btn btn-danger" type="button" name="button">Empty</button>
-                </div>
+                    <div v-if="cart_list.length > 0" class="">
+                      <table class="table bg-white">
+                        <thead>
+                          <tr class="w-100">
+                            <th class="w-50 text-left" scope="col">Dish</th>
+                            <th class="w-25 text-left pl-0" scope="col">Price</th>
+                            <th class="w-25 text-left pl-0" scope="col">Quantity</th>
+                          </tr>
+                        </thead>
+                        <tbody class="pr-0 overflow-hidden">
+                          <tr v-for="(dish, index) in cart_list" :key="dish.id">
+                              <td class="w-50 text-left">@{{dish.name}}</td>
+                              <td class="w-25 text-left">@{{dish.price.toFixed(2)}} €</td>
+                              <td class="w-100 d-flex text-left justify-content-between"><input class="w-75" v-model="dish.qnty" @change="changeQuantity(dish.qnty, index)" @click="getTotalPrice()" class="quantity" type="number" id="quantity" :value="dish.qnty" name="quantity" min="1" max="100"><span class="icon-delete-danger w-25 pl-2" @click="removeItemCart(index, dish)"></span></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <h5 class="text-dark text-right pr-2">Total: @{{totalPrice.toFixed(2)}} €</h5>
+                      <a href="{{url('/cart')}}" class="btn btn-primary btn-lg" role="button">Checkout</a>
+                      <button @click="removeAllCart()" class="btn btn-danger" type="button" name="button">Empty</button>
+                  </div>
+                  <div v-else>
+                      <h5 class="text-secondary">Empty cart</h5>
+                  </div>
+              </div>
             </div>
     </div>
 </div>
