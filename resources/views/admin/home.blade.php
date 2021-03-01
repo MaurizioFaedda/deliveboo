@@ -88,7 +88,7 @@
                         <div class="col-lg-12 col-md-12 col-sm mb-3">
                             <div class="card border-0 my-shadow">
                                 <div class="card-body">
-                                    <h5 class="card-title font-weight-bold text-uppercase">
+                                    <h5 class="card-title font-weight-bold text-uppercase p-3 color_main">
                                         Your personal details
                                     </h5>
                                     <p>
@@ -109,7 +109,7 @@
                         <div class="col-lg-12 col-md-12 col-sm">
                             <div class="card border-0 my-shadow">
                                 <div class="card-body">
-                                    <h5 class="card-title font-weight-bold text-uppercase">
+                                    <h5 class="card-title font-weight-bold text-uppercase p-3 color_main">
                                         Statistical graphic of your orders
                                     </h5>
                                     <canvas id="myChart"></canvas>
