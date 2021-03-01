@@ -66,7 +66,7 @@
                                 @endif
                             @else
                                 <li class="nav-item dropdown">
-                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle font-weight-bold" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     Welcome {{ Auth::user()->name }}
                                     <span id="icon-user"></span>
                                     </a>
@@ -96,13 +96,13 @@
                         <div class="sidebar-sticky">
                             <ul class="nav flex-column">
                                 <li class="nav-item">
-                                    <a class="nav-link active" href="{{ route('admin.index') }}"><span class="my-icon icon-dashboard"></span>Dashboard</a>
+                                    <a class="nav-link active font-weight-bold" href="{{ route('admin.index') }}"><span class="my-icon icon-dashboard"></span>Dashboard</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link active" href="{{ route('admin.restaurants.index') }}"><span class="my-icon icon-restaurant"></span>Restaurants </a>
+                                    <a class="nav-link active font-weight-bold" href="{{ route('admin.restaurants.index') }}"><span class="my-icon icon-restaurant"></span>Restaurants </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link active" href="{{ route('admin.orders.index') }}"><span class="my-icon icon-order"></span>Orders </a>
+                                    <a class="nav-link active font-weight-bold" href="{{ route('admin.orders.index') }}"><span class="my-icon icon-order "></span>Orders </a>
                                 </li>
                             </ul>
                         </div>

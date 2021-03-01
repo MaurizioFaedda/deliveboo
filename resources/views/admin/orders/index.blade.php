@@ -8,8 +8,8 @@
         <div class="row justify-content-left">
             @foreach ($restaurants as $restaurant)
                 <div class="col-md-6">
-                    <div class="card my-4 shadow">
-                        <h4>
+                    <div class="card my-4 shadow border-0">
+                        <h4 class="p-3">
                             Restaurant: {{ $restaurant->restaurant_name}}
                         </h4>
                         <table class="table text-center mb-0 bg-white">
@@ -23,7 +23,7 @@
                                 </tr>
                             </thead>
                         </table>
-                        <div class="card rounded-0 no-border shadow overflow-auto">
+                        <div class="card rounded-0 my-shadow overflow-auto">
                             <table class="table text-center mb-0">
                                 <tbody>
                                     @foreach ($orders as $order)
