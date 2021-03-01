@@ -41,7 +41,7 @@
                             <a href="{{ route('admin.restaurants.index') }}"> <span class="icon-responsive icon-restaurant"></span> </a>
                         </li>
                         <li>
-                            <a href="#"> <span class="icon-responsive icon-order"></span> </a>
+                            <a href="{{ route('admin.orders.index') }}"> <span class="icon-responsive icon-order"></span> </a>
                         </li>
 
                     </ul>
