@@ -51,7 +51,7 @@
 
                                     <div class="card-dish bg-white mt-3">
 
-                                        <button type="button" class="btn btn-light btn-dish d-flex justify-content-between align-items p-0" data-toggle="modal" data-target="#{{ str_replace([" ", "&", ",", "'"], '', $dish->name) }}">
+                                        <button type="button" class="btn btn-light btn-dish d-flex justify-content-between align-items p-0 h-100" data-toggle="modal" data-target="#{{ str_replace([" ", "&", ",", "'"], '', $dish->name) }}">
                                             <div class="w-50 p-2 d-flex flex-column justify-content-center align-items-center">
                                                 <h5 data-target="#title">{{$dish->name}}</h5>
                                                 <span class="text-bold">{{number_Format($dish->price, 2, ',', '')}} €</span>
