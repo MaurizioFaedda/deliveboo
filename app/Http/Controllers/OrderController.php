@@ -40,7 +40,7 @@ class OrderController extends Controller
       'email' => 'required|email|max:30',
       'delivery_time' => 'required|date_format:"Y-m-d\TH:i"|after:now',
       'total_price' => 'required|numeric|between:0,99.9999',
-      'mobile' => 'required|integer|digits_between:8,15',
+      'mobile' => 'required|numeric|digits_between:8,15',
       'first_name' => 'required|max:50',
       'lastname' => 'required|max:50',
       'address' => 'required|max:100',
