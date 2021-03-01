@@ -8,7 +8,7 @@
     <div class="row justify-content-center">
       <div class="col-md-8">
         <div class="card no-border mt-3 border-radius-top shadow">
-          <div class="card-header card-header text-center no-border border-radius-top form-font">Aggiungi il tuo ristorante.</div>
+          <div class="card-header card-header text-center no-border border-radius-top form-font">Add a new resturant</div>
           <form class="d-flex flex-column align-items-center py-5" action="{{route('admin.restaurants.store')}}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="card border-0 mb-5 w-75">
@@ -57,7 +57,7 @@
             </div>
             <div class="card border-0 mb-5 w-75">
                 <div class="card-body shadow p-3">
-                    <h2 class="h4 mb-2 py-2 form-font font-weight-bold">Scegli la tipologia del tuo ristorante</h2>
+                    <h2 class="h4 mb-2 py-2 form-font font-weight-bold">Choise a types of your restaurant</h2>
                     @foreach ($types as $type)
                         <div class="form-check  form-font">
                             <input type="checkbox" name="types[]" value="{{$type->id}}"
@@ -78,7 +78,7 @@
             <div class="card border-0 mb-5 w-75">
                 <div class="card-body shadow p-3">
                     <div class="form-group d-flex flex-column align-items-left w-75">
-                        <h2 class="h4 mb-2 py-2 form-font font-weight-bold">Inserisci una foto</h2>
+                        <h2 class="h4 mb-2 py-2 form-font font-weight-bold">Insert a picture</h2>
                         <input class="pl-1 form-font" type="file" class="form-control-file" name="image">
                     </div>
                 </div>
