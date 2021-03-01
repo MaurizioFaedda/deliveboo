@@ -1,5 +1,8 @@
 @extends('layouts.guest')
 
+{{-- titolo --}}
+@section("page-title", "Deliveboo | Your Cart")
+
 @section('content')
     <div class="mt-5">
         <div class="container text-white my-5">

@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Order;
 use App\Payment;
+use App\Mail\SendNewEmail;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -110,6 +112,10 @@ Route::post('/checkout', function(Request $request){
         $new_payment->save();
         // New QUERY to select the latest order added in the DB to be sure to redirect to the very last order entered
         $last_entered_order = Order::orderBy('id', 'desc')->first();
+
+        // // Mando un email all'utente della conferma ordine
+        // Mail::to($request->email)->send(new SendNewMail());
+
         // Redirecting to the web page of the latest order entered containing order confirmation and summary information
         return redirect()->route('orders.show', ['order' => $last_entered_order->id])->with('success_message', 'Transaction successful. The ID is:'. $transaction->id);
     } else {
