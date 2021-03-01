@@ -85,7 +85,7 @@
                     </div>
                 @else
                     <div class="row">
-                        <div class="col-md-6 mb-3">
+                        <div class="col-lg-12 col-md-12 col-sm mb-3">
                             <div class="card">
                                 <div class="card-body">
                                     <h5 class="card-title font-weight-bold text-uppercase">
@@ -106,7 +106,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 mb-3">
+                        <div class="col-lg-12 col-md-12 col-sm">
                             <div class="card">
                                 <div class="card-body">
                                     <h5 class="card-title font-weight-bold text-uppercase">

@@ -59,15 +59,15 @@
                                     @endif
                                 @else
                                     <li class="nav-item dropdown">
-                                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        <a id="navbarDropdown" class="nav-link dropdown-toggle font-weight-bold" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                             {{ Auth::user()->name }}
                                         </a>
 
                                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                            <a class="dropdown-item" href="{{ route('admin.index') }}">
+                                            <a class="dropdown-item font-weight-bold" href="{{ route('admin.index') }}">
                                                 My Dashboard
                                             </a>
-                                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                            <a class="dropdown-item font-weight-bold" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }}
@@ -99,7 +99,7 @@
                                 @{{type.type}}
                               </option>
                           </select> --}}
-                          
+
                         </div>
                         {{-- <div class="form-check form-check-inline py-2 mr-0" v-for="type in types">
                             <div class="card show-button w-100 p-1 d-flex flex-row align-items-center justify-content-start custom_background_select">
