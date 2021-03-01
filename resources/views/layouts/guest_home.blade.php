@@ -125,9 +125,9 @@
                           <div class="row">
                               <!--Grid column-->
                               <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-                                  <h5 class="text-uppercase font-weight-bold nunito">Tecnologie utilizzate</h5>
+                                  <h5 class="text-uppercase font-weight-bold nunito footer-font-color">Tecnologie utilizzate</h5>
 
-                                  <p class="footer_paragraph nunito">
+                                  <p class="footer_paragraph nunito footer-font-color">
                                       Laravel 7 con architettura MVC, Blade, MySQL, Libreria Bootstrap 4, SASS scss, Framework Vue.js.
                                   </p>
                               </div>
@@ -135,17 +135,17 @@
 
                               <!--Grid column-->
                               <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                                  <h5 class="text-uppercase font-weight-bold nunito">LinkedIn - Links</h5>
+                                  <h5 class="text-uppercase font-weight-bold nunito footer-font-color">LinkedIn - Links</h5>
 
                                   <ul class="list-unstyled mb-0">
                                       <li>
-                                          <a href="https://www.linkedin.com/in/marco-caputo-58000a1ab/" class="text-dark nunito">Marco Caputo</a>
+                                          <a href="https://www.linkedin.com/in/marco-caputo-58000a1ab/" class="nunito footer-font-color">Marco Caputo</a>
                                       </li>
                                       <li>
-                                          <a href="https://www.linkedin.com/in/maurizio-faedda/" class="text-dark nunito">Maurizio Faedda</a>
+                                          <a href="https://www.linkedin.com/in/maurizio-faedda/" class="nunito footer-font-color">Maurizio Faedda</a>
                                       </li>
                                       <li>
-                                          <a href="https://www.linkedin.com/in/patriziacrimi/" class="text-dark nunito">Patrizia Crimi</a>
+                                          <a href="https://www.linkedin.com/in/patriziacrimi/" class="nunito footer-font-color">Patrizia Crimi</a>
                                       </li>
                                   </ul>
                               </div>
@@ -153,14 +153,14 @@
 
                               <!--Grid column-->
                               <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                                  <h5 class="text-uppercase font-weight-bold nunito">LinkedIn - Links</h5>
+                                  <h5 class="text-uppercase font-weight-bold nunito footer-font-color">LinkedIn - Links</h5>
 
                                   <ul class="list-unstyled">
                                       <li>
-                                          <a href="https://www.linkedin.com/in/annalisa-de-santis-354a7b205/" class="text-dark nunito">Annalisa De Santis</a>
+                                          <a href="https://www.linkedin.com/in/annalisa-de-santis-354a7b205/" class="footer-font-color nunito">Annalisa De Santis</a>
                                       </li>
                                       <li>
-                                          <a href="https://www.linkedin.com/in/sabrinacunsolo/" class="text-dark nunito">Sabrina Cunsolo</a>
+                                          <a href="https://www.linkedin.com/in/sabrinacunsolo/" class="footer-font-color nunito">Sabrina Cunsolo</a>
                                       </li>
                                   </ul>
                               </div>
