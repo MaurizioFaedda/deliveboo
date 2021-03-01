@@ -52,10 +52,10 @@
     margin-top: 0 !important;
     margin-right: 0.3125rem !important;
     margin-left: 0 !important;
-    top: 30px !important;
-    left: 48px !important;
-    width: 63% !important;
-    height: 64% !important;
+    top: 5%!important;
+    left: 13% !important;
+    width: 74% !important;
+    height: 79% !important;
     opacity: 0 !important;
 }
 
@@ -288,4 +288,10 @@
 
 .card-restaurant{
     height: 400px;
+}
+
+@media screen and (max-width: 762px) {
+    h1 {
+        font-size: 21px!important;
+    }
 }

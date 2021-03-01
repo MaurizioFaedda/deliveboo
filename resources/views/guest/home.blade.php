@@ -20,7 +20,7 @@
     <div class="row">
         <div class="card p-3 w-100 border-0 my-shadow p-2 mb-4">
             <div class="form-check form-check-inline py-2 mr-0 d-flex flex-wrap">
-                <div class="col-md-2 col-sm-12" v-for="type in types">
+                <div class="col-lg-2 col-md-3 col-sm-12" v-for="type in types">
                     <div class="card show-button w-100 p-1 d-flex flex-row align-items-center justify-content-start custom_background_select mb-3">
                         <input class="form-check-input" id="inlineCheckbox1" @change="getFilteredRestaurantsByTypes()" type="checkbox" :value="type.id" v-model="checked_types">
                         <label class="form-check-label p-2 font-weight-bold text-dark d-flex flex-column justify-content-center align-items-center" for="type.type">
@@ -70,7 +70,7 @@
                             <img v-else class="card-img-top p-2 img-fluid h-100" src="" alt="Card image cap">
                         </a>
                         <div class="card-body pl-0 pb-0">
-                            <h5 class="card-title font-weight-bold pl-3 m-0 h-25"><span class="icon-restaurant-main-color"></span> @{{restaurant.restaurant_name}}</h5>
+                            <h5 class="card-title font-weight-bold pl-3 m-0 h-25 d-flex align-items-center"><span class="icon-restaurant-main-color"></span> @{{restaurant.restaurant_name}}</h5>
                             <p class="card-text p-infos pl-3 pt-1">
                                 @{{restaurant.description}}
                             </p>
