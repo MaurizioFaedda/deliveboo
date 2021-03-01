@@ -9,7 +9,7 @@
         <div class="col-md-8">
             <div class="card no-border mt-3">
                 <div class="card-header card-header text-center no-border border-radius-top">
-                    Modifica il tuo piatto
+                    Edit your dish
                 </div>
                 <form class="d-flex flex-column align-items-center py-3" action="{{ route('admin.dishes.update', ['dish' => $dish->id]) }}" method="post" enctype="multipart/form-data">
                     @csrf
