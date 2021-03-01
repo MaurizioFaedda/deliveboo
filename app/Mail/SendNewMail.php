@@ -28,6 +28,7 @@ class SendNewMail extends Mailable
      */
     public function build()
     {
-        return $this->view('guest.orders.show');
+        return $this->view('view.name');
+
     }
 }
