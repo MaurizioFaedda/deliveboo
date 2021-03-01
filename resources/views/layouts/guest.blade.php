@@ -102,19 +102,17 @@
         </div>
         <div class="row">
             <!-- Footer -->
-            <footer class="bg-light text-center text-lg-start w-100 font-weight-bold shadow">
+            <footer class="bg-white text-center text-lg-start w-100 font-weight-bold shadow">
                 <!-- Grid container -->
                 <div class="container p-4">
                     <!--Grid row-->
                     <div class="row">
                         <!--Grid column-->
                         <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-                            <h5 class="text-uppercase font-weight-bold">Footer Content</h5>
+                            <h5 class="text-uppercase font-weight-bold">Tecnologie utilizzate</h5>
 
                             <p class="footer_paragraph">
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis
-                                molestias. Fugiat pariatur maxime quis culpa corporis vitae repudiandae aliquam
-                                voluptatem veniam, est atque cumque eum delectus sint!
+                                Laravel 7 con architettura MVC, Blade, MySQL, Libreria Bootstrap 4, SASS scss, Framework Vue.js.
                             </p>
                         </div>
                         <!--Grid column-->
