@@ -63,7 +63,7 @@
                 <h1 class="search_title text-left pl-0 align-baseline"><span class="icon-rider-main-color"></span>Restaurants delivering in <strong>Rome</strong></h1>
             </div>
             <div class="row">
-                 <div v-for="restaurant in restaurants" class="col-sm-12 col-md-4 card-restaurant mb-5">
+                 <div v-for="restaurant in restaurants" class="col-sm-12 col-md-3 card-restaurant mb-5">
                     <div class="card my-4 w-100 h-100 no-border my-shadow p-2 px-3 rounded-top">
                         <a class="h-50" :href="'restaurant/' + restaurant.id">
                             <img v-if="restaurant.img_path_rest" class="card-img-top p-2 img-fluid h-100" :src="'storage/' + restaurant.img_path_rest" alt="Card image cap">
