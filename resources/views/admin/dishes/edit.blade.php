@@ -16,7 +16,7 @@
                     @method('PUT')
                     <div class="form-group d-flex flex-column align-items-center w-50">
                       <label for="title">Dish Name</label>
-                      <input type="text" class="form-control" name="name" placeholder="Write your dish name here" value="{{ old('name', $dish->name) }}" maxlength="100" required>
+                      <input type="text" class="form-control" name="name" placeholder="Write your dish name here" value="{{ old('name', $dish->name) }}" required>
                       {{-- SHOWING ERROR MESSAGE --}}
                       @error('name')
                           <div class="alert alert-danger">
@@ -44,13 +44,13 @@
                             @else
                               <h2 class="h4 mb-2 py-2 form-font font-weight-bold">Upload a picture</h2>
                             @endif
-                            <input class="pl-1 form-font" type="file" class="form-control-file" name="image" accept="image/*">
+                            <input class="pl-1 form-font" type="file" class="form-control-file" name="image">
                           </div>
                         </div>
                     </div>
                     <div class="form-group d-flex flex-column align-items-center w-50">
                       <label for="title">Infos</label>
-                      <textarea name="infos" rows="8" cols="80" maxlength="250">{{ old('infos', $dish->infos)}}</textarea>
+                      <textarea name="infos" rows="8" cols="80">{{ old('infos', $dish->infos)}}</textarea>
                       {{-- SHOWING ERROR MESSAGE --}}
                       @error('infos')
                           <div class="alert alert-danger">

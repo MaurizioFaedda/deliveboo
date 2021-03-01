@@ -179,13 +179,9 @@ class DishController extends Controller
       'visible' => 'required',
       'price' => 'required|numeric|between:0,999.99',
       'image' => 'nullable| mimes:jpeg,jpg,png,webp|max:512',
-      // Validation FK to be sure that the ID restaurant sent is an existing restaurant ID
-      'restaurant_id' => 'required|numeric|exists:restaurants,id',
     ]);
-
     // I dati ricevuti dal form
     $form_data = $request->all();
-
     // verifico se è stata caricata un'immagine
     if(array_key_exists('image', $form_data)) {
         // salvo l'immagine e recupero la path
@@ -195,8 +191,10 @@ class DishController extends Controller
 
     // Faccio un update dei dati di dish
     $dish->update($form_data);
+    // New QUERY to select the latest dish added in the DB to be sure to redirect to the very last order entered
+    $last_dish = Dish::orderBy('id', 'desc')->first();
     // Faccio redirect alla pagina del piatto appena mdificato
-    return redirect()->route('admin.dishes.show', ['dish' => $dish->id]);
+    return redirect()->route('admin.dishes.show', ['dish' => $last_dish->id]);
   }
 
   /**

@@ -27,7 +27,7 @@
                                {{-- SEZIONE per le informazioni degli ORDINI | Backend ORDERS table --}}
                                 <div class="form-group col-md-6">
                                     <label for="first_name">First Name</label>
-                                    <input type="text" class="form-control" placeholder="First Name" name="first_name" value="{{old('first_name')}}" required maxlength="50">
+                                    <input type="text" class="form-control" placeholder="First Name" name="first_name" value="{{old('first_name')}}" required>
                                     {{-- SHOWING ERROR MESSAGE --}}
                                     @error('first_name')
                                         <div class="alert alert-danger">
@@ -37,7 +37,7 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="lastname">Last Name</label>
-                                    <input type="text" class="form-control" placeholder="Last Name" name="lastname" value="{{old('lastname')}}" required maxlength="50">
+                                    <input type="text" class="form-control" placeholder="Last Name" name="lastname" value="{{old('lastname')}}" required>
                                     {{-- SHOWING ERROR MESSAGE --}}
                                     @error('lastname')
                                         <div class="alert alert-danger">
@@ -47,7 +47,7 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="mobile">Phone Number</label>
-                                    <input type="number" class="form-control" placeholder="e.g. 3201234567" name="mobile" value="{{old('mobile')}}" required maxlength="15">
+                                    <input type="text" class="form-control" placeholder="e.g. +39 320 000 0000" name="mobile" value="{{old('mobile')}}" required>
                                     {{-- SHOWING ERROR MESSAGE --}}
                                     @error('mobile')
                                         <div class="alert alert-danger">
@@ -91,7 +91,7 @@
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label for="notes">Information for the rider</label>
-                                    <input type="text" class="form-control" placeholder="The doorbell does not work" name="notes" value="{{old('notes')}}" maxlength="50">
+                                    <input type="text" class="form-control" placeholder="The doorbell does not work" name="notes" value="{{old('notes')}}">
                                     {{-- SHOWING ERROR MESSAGE --}}
                                     @error('notes')
                                         <div class="alert alert-danger">
@@ -112,7 +112,7 @@
                           {{-- SEZIONE per le informazioni sul pagamento | Backend PAYMENTS table --}}
                             <div class="form-group col-md-6 p-0">
                               <label for="card_owner"></label>
-                              <input type="text" class="form-control" placeholder="Full Name" name="card_owner" value="{{old('card_owner')}}" required maxlength="50">
+                              <input type="text" class="form-control" placeholder="Full Name" name="card_owner" value="{{old('card_owner')}}" required>
                               {{-- SHOWING ERROR MESSAGE --}}
                               @error('card_owner')
                                   <div class="alert alert-danger">
