@@ -394,6 +394,12 @@
 }
 }
 
+.img-box{
+    img{
+        object-fit: cover;
+    }
+}
+
 @keyframes rotate-circle {
     0% {
         transform: rotate(-45deg);

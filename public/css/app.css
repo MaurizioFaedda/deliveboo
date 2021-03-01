@@ -735,6 +735,11 @@ table tbody tr {
   background-color: #FFFFFF;
 }
 
+.img-box img {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 @-webkit-keyframes rotate-circle {
   0% {
     transform: rotate(-45deg);
