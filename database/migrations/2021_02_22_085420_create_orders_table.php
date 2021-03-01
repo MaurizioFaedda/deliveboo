@@ -18,7 +18,7 @@ class CreateOrdersTable extends Migration
       $table->string('email', 30);
       $table->dateTime('delivery_time');
       $table->float('total_price', 6, 2);
-      $table->string('mobile', 15);
+      $table->bigInteger('mobile');
       $table->string('first_name', 50);
       $table->string('lastname', 50);
       $table->string('address', 100);

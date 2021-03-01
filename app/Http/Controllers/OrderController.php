@@ -37,10 +37,10 @@ class OrderController extends Controller
   public function store(Request $request)
   {
     $request->validate([
-      'email' => 'required|max:30',
+      'email' => 'required|email|max:30',
       // 'delivery_time' => 'required|date_format:date',
       'total_price' => 'required|numeric|between:0,99.9999',
-      'mobile' => 'required|max:15',
+      'mobile' => 'required|numeric|min:8|max:15',
       'first_name' => 'required|max:50',
       'lastname' => 'required|max:50',
       'address' => 'required|max:100',
@@ -48,6 +48,7 @@ class OrderController extends Controller
       // Validation FK to be sure that the ID restaurant sent is an existing restaurant ID
       'restaurant_id' => 'required|numeric|exists:restaurants,id',
     ]);
+
     // Storing all form data in a variable
     $form_data = $request->all();
     // Creating a new Object/Instance with the form data
