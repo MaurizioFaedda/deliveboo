@@ -47,7 +47,7 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="mobile">Phone Number</label>
-                                    <input type="number" class="form-control" placeholder="e.g. 3201234567" name="mobile" value="{{old('mobile')}}" required maxlength="15">
+                                    <input type="tel" class="form-control" placeholder="e.g. 3201234567" name="mobile" value="{{old('mobile')}}" required maxlength="15">
                                     {{-- SHOWING ERROR MESSAGE --}}
                                     @error('mobile')
                                         <div class="alert alert-danger">
