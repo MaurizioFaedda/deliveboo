@@ -5,9 +5,9 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center pb-5">
         <div class="col-md-8">
-            <div class="card m-4">
+            <div class="card m-4 pb-1">
                 <div class="card-header bg-light bg-gradient text-dark">{{ __('Login') }}</div>
 
                 <div class="card-body log_register_cartbody">
