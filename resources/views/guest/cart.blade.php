@@ -101,7 +101,7 @@
                                 </div>
                               {{-- Hidden inputs for backend only --}}
                                 <div class="form-group col-md-6">
-                                      <input type="hidden" class="form-control" name="total_price" :value="totalPrice">
+                                      <input type="hidden" class="form-control" name="total_price" :value="totalPrice.toFixed(2)">
                                 </div>
                                 <div class="form-group d-none">
                                     <label for="restaurant_id">Restaurant</label>
@@ -125,7 +125,7 @@
                             <label for="amount">
                              <span class="input-label">Amount</span>
                              <div class="input-wrapper amount-wrapper">
-                                 <input id="amount" name="amount" type="tel" min="1" placeholder="Amount" readonly :value="totalPrice">
+                                 <input id="amount" name="amount" type="tel" min="1" placeholder="Amount" readonly :value="totalPrice.toFixed(2)">
                              </div>
                             </label>
 
