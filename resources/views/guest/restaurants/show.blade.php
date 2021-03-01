@@ -86,9 +86,9 @@
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
                                                     {{-- BUTTON per carrello Vue (front-end)--}}
-                                                    <button data-dismiss="modal" @click="addItemCart({{$dish->id}})" class="button button-plain">Add to Cart</button>
+                                                    <button  type="button" data-dismiss="modal" @click="addItemCart({{$dish->id}})" class="btn my-button-success">Add to Cart</button>
                                                 </div>
                                             </div>
                                       </div>
@@ -129,8 +129,7 @@
                         </tbody>
                       </table>
                       <h5 class="text-dark text-right pr-2">Total: @{{totalPrice.toFixed(2)}} €</h5>
-                      <a href="{{url('/cart')}}" class="btn btn-primary btn-lg" role="button">Checkout</a>
-                      <button @click="removeAllCart()" class="btn btn-danger" type="button" name="button">Empty</button>
+                      <a href="{{url('/cart')}}" class="btn my-button-success" role="button">Checkout</a>
                   </div>
                   <div v-else>
                       <h5 class="text-secondary">Empty cart</h5>
