@@ -9,7 +9,7 @@
             @foreach ($restaurants as $restaurant)
                 <div class="col-lg-12 col-md-12 col-sm">
                     <div class="card my-4 shadow border-0">
-                        <h4 class="p-3">
+                        <h4 class="p-3 font-weight-bold">
                             Restaurant: {{ $restaurant->restaurant_name}}
                         </h4>
                         <table class="table text-center mb-0 bg-white">
