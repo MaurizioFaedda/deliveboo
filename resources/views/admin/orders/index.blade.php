@@ -7,7 +7,7 @@
     <div class="container">
         <div class="row justify-content-left">
             @foreach ($restaurants as $restaurant)
-                <div class="col-md-6">
+                <div class="col-lg-12 col-md-12 col-sm">
                     <div class="card my-4 shadow border-0">
                         <h4 class="p-3">
                             Restaurant: {{ $restaurant->restaurant_name}}
