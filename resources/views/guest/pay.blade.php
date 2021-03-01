@@ -1,4 +1,8 @@
 @extends('layouts.guest_home')
+
+{{-- titolo --}}
+@section("page-title", "Deliveboo | Payment")
+
 @section('content')
     <h1>Pay</h1>
     @if (session('success_message'))

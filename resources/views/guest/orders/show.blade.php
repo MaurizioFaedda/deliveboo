@@ -1,7 +1,7 @@
 @extends('layouts.guest')
 
 {{-- titolo --}}
-@section("page-title", "Deliveboo | Restaurant")
+@section("page-title", "Deliveboo | Your Order")
 
 @section('content')
   <div class="container vh-100 mt-5">
@@ -31,6 +31,9 @@
                   Congratulations, the payment was a success.
                   <br>
                   All order details will be sent to the email indicated
+              </h4>
+              <h4>
+                  Controlla la tua email ti abbiamo mandato una email
               </h4>
           </div>
       </div>
