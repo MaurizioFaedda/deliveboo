@@ -86,7 +86,7 @@
                 @else
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm mb-3">
-                            <div class="card">
+                            <div class="card border-0 my-shadow">
                                 <div class="card-body">
                                     <h5 class="card-title font-weight-bold text-uppercase">
                                         Your personal details
@@ -107,7 +107,7 @@
                             </div>
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm">
-                            <div class="card">
+                            <div class="card border-0 my-shadow">
                                 <div class="card-body">
                                     <h5 class="card-title font-weight-bold text-uppercase">
                                         Statistical graphic of your orders
