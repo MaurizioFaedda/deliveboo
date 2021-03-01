@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Order;
 use App\Restaurant;
+use Carbon\Carbon;
 
 class OrderController extends Controller
 {
@@ -38,9 +39,9 @@ class OrderController extends Controller
   {
     $request->validate([
       'email' => 'required|email|max:30',
-      // 'delivery_time' => 'required|date_format:date',
+      'delivery_time' => 'required|date_format:"Y-m-d\TH:i"|after:now',
       'total_price' => 'required|numeric|between:0,99.9999',
-      'mobile' => 'required|numeric|min:8|max:15',
+      'mobile' => 'required|integer|digits_between:8,15',
       'first_name' => 'required|max:50',
       'lastname' => 'required|max:50',
       'address' => 'required|max:100',

@@ -15,7 +15,7 @@
                 <div class="card-body shadow p-3">
                     <div class="form-group d-flex flex-column w-100">
                         <label class="form-font" for="title">Restaurant Name</label>
-                        <input class="form-check form-font" type="text" class="form-control" name="restaurant_name" placeholder="Write your restaurant name here" value="{{old('restaurant_name')}}" required>
+                        <input class="form-check form-font" type="text" class="form-control" name="restaurant_name" placeholder="Write your restaurant name here" value="{{old('restaurant_name')}}" required maxlength="100">
                         {{-- SHOWING ERROR MESSAGE --}}
                         @error('restaurant_name')
                             <div class="alert alert-danger">
@@ -25,7 +25,7 @@
                     </div>
                     <div class="form-group d-flex flex-column w-100">
                         <label class="form-font" for="title">City</label>
-                        <input class="form-check form-font" type="text" class="form-control" name="city" placeholder="City" value="{{old('city')}}" required>
+                        <input class="form-check form-font" type="text" class="form-control" name="city" placeholder="City" value="{{old('city')}}" maxlength="20" required>
                         {{-- SHOWING ERROR MESSAGE --}}
                         @error('city')
                             <div class="alert alert-danger">
@@ -35,7 +35,7 @@
                     </div>
                     <div class="form-group d-flex flex-column w-100">
                         <label class="form-font" for="title">Address</label>
-                        <input class="form-check form-font" type="text" class="form-control" name="address" placeholder="Full address" value="{{old('address')}}" required>
+                        <input class="form-check form-font" type="text" class="form-control" name="address" placeholder="Full address" value="{{old('address')}}" maxlength="50" required>
                         {{-- SHOWING ERROR MESSAGE --}}
                         @error('address')
                             <div class="alert alert-danger">
@@ -79,7 +79,7 @@
                 <div class="card-body shadow p-3">
                     <div class="form-group d-flex flex-column align-items-left w-75">
                         <h2 class="h4 mb-2 py-2 form-font font-weight-bold">Inserisci una foto</h2>
-                        <input class="pl-1 form-font" type="file" class="form-control-file" name="image">
+                        <input class="pl-1 form-font" type="file" class="form-control-file" name="image" accept="image/*">
                     </div>
                 </div>
             </div>
