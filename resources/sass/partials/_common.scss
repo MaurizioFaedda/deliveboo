@@ -1,0 +1,8 @@
+.my-button-success{
+    color: $color_main!important;
+    border-color: $color_main!important;
+    &:hover{
+        color: #fff!important;
+        background-color: $color_main;
+    }
+}

@@ -1,5 +1,15 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
+.my-button-success {
+  color: #00CDBC !important;
+  border-color: #00CDBC !important;
+}
+
+.my-button-success:hover {
+  color: #fff !important;
+  background-color: #00CDBC;
+}
+
 .margin-top {
   margin-top: 100px;
 }

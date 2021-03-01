@@ -74,7 +74,7 @@
                             <p class="card-text p-infos pl-3 pt-1">
                                 @{{restaurant.description}}
                             </p>
-                            <a :href="'restaurant/' + restaurant.id" class="btn btn-primary m-1 ml-3">Show more</a>
+                            <a :href="'restaurant/' + restaurant.id" class="btn my-button-success m-1 ml-3">Show more</a>
                         </div>
                     </div>
                 </div>
