@@ -72,7 +72,7 @@
                                     </a>
 
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                        <a id="log-main-color" class="dropdown-item text-main-color" href="{{ route('logout') }}"
+                                        <a id="log-main-color" class="dropdown-item text-main-color font-weight-bold" href="{{ route('logout') }}"
                                            onclick="event.preventDefault();
                                                          document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }}
@@ -92,7 +92,7 @@
             <!-- Sidebar -->
             <div class="container-fluid">
                 <div class="row">
-                    <nav id="my-sidebar" class="nav-color col-md-2 col-sm-2 d-none d-md-block">
+                    <nav id="my-sidebar" class="nav-color col-lg-2 col-md-3 col-sm-3 d-none d-md-block">
                         <div class="sidebar-sticky">
                             <ul class="nav flex-column">
                                 <li class="nav-item">
@@ -108,7 +108,7 @@
                         </div>
                     </nav>
 
-                    <main class="col-md-10 ml-md-auto mx-sm-0 mt-5 pt-5">
+                    <main class="col-lg-10 col-md-9 col-sm-9 ml-md-auto mx-sm-0 mt-5 pt-5">
                         @yield('content')
                     </main>
                 </div>

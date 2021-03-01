@@ -22,7 +22,7 @@
                 <div class="card my-4 my-shadow border-0">
                     @if($restaurant->img_path_rest)
                         <a href="{{ route('admin.restaurants.show', ['restaurant' => $restaurant->id]) }}">
-                            <img class="card-img-top custom-height p-4" src="{{ asset('storage/' . $restaurant->img_path_rest)}}" alt="Card image cap" alt="{{$restaurant->restaurant_name}}">
+                            <img class="card-img-top img-fluid custom-height p-4" src="{{ asset('storage/' . $restaurant->img_path_rest)}}" alt="Card image cap" alt="{{$restaurant->restaurant_name}}">
                         </a>
                     @else
                         <img class="card-img-top" src="{{ asset('img/img_not_available.png')}}" alt="not img">

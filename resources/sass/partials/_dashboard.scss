@@ -185,6 +185,11 @@ table thead, table tbody tr {
     min-height: 540px!important;
 }
 
+.dropdown-menu {
+    width: 175px;
+    border-radius: 0px!important;
+}
+
 @media screen and (max-width: 762px) {
     #my-icon-menu{
         width: 60%;
