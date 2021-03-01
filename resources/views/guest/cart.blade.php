@@ -135,7 +135,7 @@
                         </section>
 
                         <input id="nonce" name="payment_method_nonce" type="hidden" />
-                        <button class="btn btn-primary" type="submit"><span>Pay</span></button>
+                        <button @click="removeAllCart()" class="btn btn-primary" type="submit"><span>Pay</span></button>
                     </form>
                 </div>
                 <div v-if="cart_list.length > 0" class="col-5">
