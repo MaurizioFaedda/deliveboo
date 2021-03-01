@@ -7,7 +7,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-4 col-sm-12">
-            <a href="{{route('admin.restaurants.create')}}" class="btn btn-primary rounded-0 color_main font-weight-bold m-3 my-shadow mx-auto border-0 w-100">
+            <a href="{{route('admin.restaurants.create')}}" class="btn btn-primary rounded-0 color_main nunito font-weight-bold m-3 my-shadow mx-auto border-0 w-100">
                     Create a new restaurant
             </a>
         </div>
@@ -25,11 +25,11 @@
                     <img v-else class="card-img-top p-2 img-fluid h-100" src="" alt="no img">
                 @endif
                 <div class="card-body pl-0 pb-0">
-                    <h5 class="card-title font-weight-bold pl-3 m-0 h-25 d-flex align-items-center"><span class="icon-restaurant-main-color"></span> {{$restaurant->restaurant_name}}</h5>
-                    <p class="card-text p-infos pl-3 pt-1">
+                    <h5 class="card-title nunito font-weight-bold pl-3 m-0 h-25 d-flex align-items-center"><span class="icon-restaurant-main-color"></span> {{$restaurant->restaurant_name}}</h5>
+                    <p class="card-text nunito p-infos pl-3 pt-1">
                     {{$restaurant->description}}
                     </p>
-                    <a href="{{ route('admin.restaurants.show', ['restaurant' => $restaurant->id]) }}" class="btn my-button-success m-1 ml-3">Show more</a>
+                    <a href="{{ route('admin.restaurants.show', ['restaurant' => $restaurant->id]) }}" class="btn my-button-success nunito m-1 ml-3">Show more</a>
                 </div>
             </div>
         </div>

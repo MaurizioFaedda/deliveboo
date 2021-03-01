@@ -9,17 +9,17 @@
             @foreach ($restaurants as $restaurant)
                 <div class="col-lg-12 col-md-12 col-sm">
                     <div class="card my-4 shadow border-0">
-                        <h4 class="card-title font-weight-bold text-uppercase p-3 color_main m-0">
+                        <h5 class="card-title nunito font-weight-bold text-uppercase p-3 color_main m-0">
                             Restaurant: {{ $restaurant->restaurant_name}}
-                        </h4>
+                        </h5>
                         <table class="table text-center mb-0 bg-white">
                             <thead>
                                 <tr class="text-left">
-                                    <th class="text-left">Firstname</th>
-                                    <th>Lastname</th>
-                                    <th>Email</th>
-                                    <th>Date order</th>
-                                    <th>Total price</th>
+                                    <th class="text-left nunito">Firstname</th>
+                                    <th class="nunito">Lastname</th>
+                                    <th class="nunito">Email</th>
+                                    <th class="nunito">Date order</th>
+                                    <th class="nunito">Total price</th>
                                 </tr>
                             </thead>
                         </table>
@@ -28,20 +28,20 @@
                                 <tbody>
                                     @foreach ($orders as $order)
                                         @if ($order->restaurant_id == $restaurant->id )
-                                            <tr class="text-left">
-                                                <td>
+                                            <tr class="text-left nunito">
+                                                <td class="nunito">
                                                     {{ $order->first_name}}
                                                 </td>
-                                                <td>
+                                                <td class="nunito">
                                                     {{ $order->lastname}}
                                                 </td>
-                                                <td>
+                                                <td class="nunito">
                                                     {{ $order->email}}
                                                 </td>
-                                                <td>
+                                                <td class="nunito">
                                                     {{\Carbon\Carbon::parse($order->delivery_time)->format('j F, Y')}}
                                                 </td>
-                                                <td>
+                                                <td class="nunito">
                                                     {{number_Format($order->total_price, 2, ',', '')}} €
                                                 </td>
                                             </tr>

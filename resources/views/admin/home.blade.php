@@ -88,19 +88,19 @@
                         <div class="col-lg-12 col-md-12 col-sm mb-3">
                             <div class="card border-0 my-shadow">
                                 <div class="card-body">
-                                    <h5 class="card-title font-weight-bold text-uppercase p-3 color_main">
+                                    <h5 class="card-title nunito font-weight-bold text-uppercase p-3 color_main">
                                         Your personal details
                                     </h5>
-                                    <p>
+                                    <p class="nunito pl-1">
                                         Name: {{ Auth::user()->name }}
                                     </p>
-                                    <p>
+                                    <p class="nunito pl-1">
                                         Lastname: {{ Auth::user()->lastname }}
                                     </p>
-                                    <p>
+                                    <p class="nunito pl-1">
                                         Vat_number/P.IVA: {{ Auth::user()->vat_number }}
                                     </p>
-                                    <p>
+                                    <p class="nunito pl-1">
                                         Email: {{ Auth::user()->email }}
                                     </p>
                                 </div>
@@ -109,7 +109,7 @@
                         <div class="col-lg-12 col-md-12 col-sm">
                             <div class="card border-0 my-shadow">
                                 <div class="card-body">
-                                    <h5 class="card-title font-weight-bold text-uppercase p-3 color_main">
+                                    <h5 class="card-title nunito font-weight-bold text-uppercase p-3 color_main">
                                         Statistical graphic of your orders
                                     </h5>
                                     <canvas id="myChart"></canvas>

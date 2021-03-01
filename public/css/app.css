@@ -16,6 +16,10 @@
   background-color: #00CDBC;
 }
 
+.nunito {
+  font-family: "Nunito", sans-serif !important;
+}
+
 .margin-top {
   margin-top: 100px;
 }
