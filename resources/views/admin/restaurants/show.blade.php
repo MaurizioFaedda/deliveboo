@@ -60,7 +60,7 @@
                         </div>
                         <div class="form-group d-flex flex-column align-items-left w-100">
                             <label class="pl-1" for="title">Dish Name</label>
-                            <input type="text" class="form-control" name="name" placeholder="Write your dish name here" value="{{old('name')}}" required>
+                            <input type="text" class="form-control" name="name" placeholder="Write your dish name here" value="{{old('name')}}" required maxlength="100">
                             {{-- SHOWING ERROR MESSAGE --}}
                             @error('name')
                                 <div class="alert alert-danger">
@@ -70,7 +70,7 @@
                         </div>
                         <div class="form-group d-flex flex-column align-items-left w-100">
                             <label class="pl-1" for="title">Infos</label>
-                            <textarea class="form-control" name="infos">{{old('infos')}}</textarea>
+                            <textarea class="form-control" maxlength="250" name="infos">{{old('infos')}}</textarea>
                             {{-- SHOWING ERROR MESSAGE --}}
                             @error('infos')
                                 <div class="alert alert-danger">
@@ -90,15 +90,15 @@
                         </div>
                         <div class="form-group d-flex flex-column align-items-left w-100">
                             <label class="pl-1">Cover image</label>
-                            <input class="pl-1" type="file" class="form-control-file" name="image">
+                            <input class="pl-1" type="file" class="form-control-file" name="image" accept="image/*">
                         </div>
                         <div class="form-group d-flex flex-column align-items-left w-100">
                             <div class="btn-group btn-group-toggle" data-toggle="buttons">
                                 <label class="btn btn-primary w-50">
-                                    <input type="radio" name="visible" id="option2" value="1" checked> Avaiable
+                                    <input type="radio" name="visible" id="option2" value="1" checked> Available
                                 </label>
                                 <label class="btn btn-primary w-75">
-                                    <input type="radio" name="visible" id="option3" value="0"> Not Avaiable
+                                    <input type="radio" name="visible" id="option3" value="0"> Not Available
                                 </label>
                             </div>
                         </div>
