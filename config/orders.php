@@ -306,6 +306,50 @@ return [
         "address" => "Via Arzano, 47, Roma",
         'notes' => "Citofono rotto"
     ],
+    [
+        "restaurant_id" => 7,
+        "email" => "antonioleo@gmail.com",
+        "delivery_time" => '15-07-2020 12:40',
+        "total_price" => 30.50,
+        "mobile" => 3299234554,
+        "first_name" => "Antonio",
+        "lastname" => "Leo",
+        "address" => "Via Recco, 42, Roma",
+        'notes' => ""
+    ],
+    [
+        "restaurant_id" => 7,
+        "email" => "soniamalvaso@gmail.com",
+        "delivery_time" => '07-07-2020 14:00',
+        "total_price" => 51.60,
+        "mobile" => 3247234783,
+        "first_name" => "Sonia",
+        "lastname" => "Malvaso",
+        "address" => "Via Volontari della Libertà, 51, Roma",
+        'notes' => "Oahu senza cipolle"
+    ],
+    [
+        "restaurant_id" => 7,
+        "email" => "giovannidicostanzo@gmail.com",
+        "delivery_time" => '25-07-2020 21:00',
+        "total_price" => 25.50,
+        "mobile" => 3271254585,
+        "first_name" => "Giovanni",
+        "lastname" => "Di Costanzo",
+        "address" => "Via Arzano, 47, Roma",
+        'notes' => "Citofono rotto"
+    ],
+    [
+        "restaurant_id" => 7,
+        "email" => "mariagraziastasi@gmail.com",
+        "delivery_time" => '20-04-2020 13:30',
+        "total_price" => 56.20,
+        "mobile" => 3271234945,
+        "first_name" => "Maria Grazia",
+        "lastname" => "Stasi",
+        "address" => "Via Manzoni, 12, Roma",
+        'notes' => ""
+    ],
 //restaurant 8
     [
         "restaurant_id" => 8,
