@@ -30,29 +30,17 @@
             <div class="text-center my-5">
               <a class="text-decoration-none" href="{{route('index')}}">Back To Home</a>
             </div>
-        {{-- FALLIMENTO TRANSAZIONE --> stampo ERROR MESSAGE per mancata aggiunta dell'ordine e del pagamento --}}
-        @elseif (session()->has('error_message'))
-            <div class="alert alert-danger">
-                {{ session()->get('error_message') }}
-            </div>
-            <div class="card-order-success">
-              <div class="success-checkmark">
-                <div class="check-icon">
-                  <span class="icon-line line-tip"></span>
-                  <span class="icon-line line-long"></span>
-                  <div class="icon-circle"></div>
-                  <div class="icon-fix"></div>
-                </div>
-              </div>
-              <div class="text-center">
-                <h4>
-                  Sorry, the transaction did not succeed.
-                </h4>
-              </div>
-            </div>
-            <div class="text-center my-5">
+        @else
+            <div class="text-center">
+              <h4>
+                  Sorry, something went wrong
+               </h4>
+              <h5>
+                  The page page you are trying to view does not exist.
+              </h5>
               <a class="text-decoration-none" href="{{route('index')}}">Back To Home</a>
             </div>
         @endif
+
     </div>
 @endsection

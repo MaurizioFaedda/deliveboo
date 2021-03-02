@@ -122,12 +122,27 @@
                             </div>
                           {{-- BRAINTREE SECTION --}}
                         <section>
+                            @if (session('success_message'))
+                               <div class="alert alert-success">
+                                   {{ session('success_message') }}
+                               </div>
+                           @endif
+
+                           @if(count($errors) > 0)
+                               <div class="alert alert-danger">
+                                   <ul>
+                                       @foreach ($errors->all() as $error)
+                                           <li>{{ $error }}</li>
+                                       @endforeach
+                                   </ul>
+                               </div>
+                           @endif
                             <label for="amount">
                              <span class="input-label">Amount</span>
                              <div class="input-wrapper amount-wrapper">
                                  <input id="amount" name="amount" type="tel" min="1" placeholder="Amount" readonly :value="totalPrice.toFixed(2)">
                              </div>
-                            </label>
+                            </ul>
 
                             <div class="bt-drop-in-wrapper">
                                 <div id="bt-dropin"></div>
@@ -135,7 +150,7 @@
                         </section>
 
                         <input id="nonce" name="payment_method_nonce" type="hidden" />
-                        <button @click="removeAllCart()" class="btn btn-primary" type="submit"><span>Pay</span></button>
+                        <button class="btn btn-primary" type="submit"><span>Pay</span></button>
                     </form>
                 </div>
                 <div v-if="cart_list.length > 0" class="col-5">

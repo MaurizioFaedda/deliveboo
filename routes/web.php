@@ -83,11 +83,12 @@ Route::post('/checkout', function(Request $request){
     $new_order->save();
 
     // ------------------------ PAYMENTS TABLE ------------------------
+
     $amount = $request->amount;
     $nonce = $request->payment_method_nonce;
     $result = $gateway->transaction()->sale([
         'amount' => $amount,
-        'paymentMethodNonce' => $nonce,
+        'paymentMethodNonce' => 'fake-valid-visa-nonce',
         'options' => [
             'submitForSettlement' => true
         ]
@@ -131,8 +132,8 @@ Route::post('/checkout', function(Request $request){
         $new_payment->status = 'Rejected';
         // Saving the new Object/Instance of the Payment in the database
         $new_payment->save();
-        // Reindirizzamento alla pagina di avvenuto ordine e pagamento ma con messaggio di fallimento transazione
-        return redirect()->route('orders.index')->withErrors('An error occurred with the message: '.$result->message);
+        // Reindirizzo l'utente alla stessa pagina ma con il messaggio di errore
+        return back()->withErrors('An error occurred with the message: '.$result->message);
     }
 });
 
