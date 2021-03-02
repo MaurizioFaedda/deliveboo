@@ -92,35 +92,44 @@ class DishController extends Controller
     // Prendo l'id dell'utente autenticato
     $current_user = Auth::user()->id;
 
-    // SELECT * FROM dishes WHERE 'id' = $id (variabile passata)
+    // Trovo il piatto con l'id passato come parametro nella tabella Dishes del DB
+    // QUERY: SELECT * FROM dishes WHERE 'id' = $id (variabile passata)
     $current_dish = Dish::find($id);
-    // Prendo il ristorante corrente dalla Collection $current_dish
-    $current_restaurant_fk = $current_dish->restaurant_id;
 
-    // QUERY per prendere l'array dei ristoranti dell'utente corrente
-    $array_restaurants_user = Restaurant::where('user_id', $current_user)->get();
-    $current_restaurant_id = '';
-    $current_user_fk = '';
-    // Ciclo l'array delle collections dei ristoranti dell'utente loggato
-    foreach ($array_restaurants_user as $restaurant) {
-      // Controllo che l'id del ristorante ciclato è uguale all'FK del ristorante del piatto corrente
-      if ($restaurant->id == $current_restaurant_fk) {
-        // salvo in una variabile l'id del ristorante
-        $current_restaurant_id = $restaurant->id;
-        // salvo in una variabile la FK dell'utente della tabella ristorante
-        $current_user_fk = $restaurant->user_id;
+    // Controllo che il parametro nell'url (ossia l'id del piatto corrente) esista
+    if ($current_dish != null) {
+      // Se l'id del piatto esiste prendo il ristorante corrente dalla Collection $current_dish
+      $current_restaurant_fk = $current_dish->restaurant_id;
+
+      // QUERY per prendere l'array dei ristoranti dell'utente corrente
+      $array_restaurants_user = Restaurant::where('user_id', $current_user)->get();
+      $current_restaurant_id = '';
+      $current_user_fk = '';
+      // Ciclo l'array delle collections dei ristoranti dell'utente loggato
+      foreach ($array_restaurants_user as $restaurant) {
+        // Controllo che l'id del ristorante ciclato è uguale all'FK del ristorante del piatto corrente
+        if ($restaurant->id == $current_restaurant_fk) {
+          // salvo in una variabile l'id del ristorante
+          $current_restaurant_id = $restaurant->id;
+          // salvo in una variabile la FK dell'utente della tabella ristorante
+          $current_user_fk = $restaurant->user_id;
+        }
       }
+      // Controllo che il piatto corrente appartenga al ristorante corrente && che il ristorante sia dell'utente loggato
+      if($current_restaurant_fk == $current_restaurant_id && $current_user == $current_user_fk) {
+        $data = [
+          'dish' => $current_dish,
+          'restaurant' => $current_restaurant_id
+        ];
+        return view('admin.dishes.show', $data);
+      }  else {
+        // Se l'utente loggato cerca di aggiungere piatti a ristoranti che non sono i suoi o a un ristorante suo diverso da quello di apparteneneza del piatto l'errore è un 403 (non ha i permessi)
+        abort(403);
+      }
+    } else {
+      // Se il piatto non esiste l'errore è un 404
+      abort(404);
     }
-
-    // Controllo che il piatto corrente esista && che appartenga al ristorante corrente && che il ristorante sia dell'utente loggato
-    if($current_dish && $current_restaurant_fk == $current_restaurant_id && $current_user == $current_user_fk) {
-    $data = [
-      'dish' => $current_dish,
-      'restaurant' => $current_restaurant_id
-    ];
-    return view('admin.dishes.show', $data);
-    }
-    abort(404);
   }
 
   /**
@@ -134,34 +143,43 @@ class DishController extends Controller
     // Prendo l'id dell'utente autenticato
     $current_user = Auth::user()->id;
 
+    // Trovo il piatto con l'id passato come parametro nella tabella Dishes del DB
     // SELECT * FROM dishes WHERE 'id' = $id (variabile passata)
     $current_dish = Dish::find($id);
-    // Prendo il ristorante corrente dalla Collection $current_dish
-    $current_restaurant_fk = $current_dish->restaurant_id;
 
-    // QUERY per prendere l'array dei ristoranti dell'utente corrente
-    $array_restaurants_user = Restaurant::where('user_id', $current_user)->get();
-    $current_restaurant_id = '';
-    $current_user_fk = '';
-    // Ciclo l'array delle collections dei ristoranti dell'utente loggato
-    foreach ($array_restaurants_user as $restaurant) {
-      // Controllo che l'id del ristorante ciclato è uguale all'FK del ristorante del piatto corrente
-      if ($restaurant->id == $current_restaurant_fk) {
-        // salvo in una variabile l'id del ristorante
-        $current_restaurant_id = $restaurant->id;
-        // salvo in una variabile la FK dell'utente della tabella ristorante
-        $current_user_fk = $restaurant->user_id;
+    // Controllo che il parametro nell'url (ossia l'id del piatto corrente) esista
+    if ($current_dish != null) {
+      // Se l'id del piatto esiste prendo il ristorante corrente dalla Collection $current_dish
+      $current_restaurant_fk = $current_dish->restaurant_id;
+
+      // QUERY per prendere l'array dei ristoranti dell'utente corrente
+      $array_restaurants_user = Restaurant::where('user_id', $current_user)->get();
+      $current_restaurant_id = '';
+      $current_user_fk = '';
+      // Ciclo l'array delle collections dei ristoranti dell'utente loggato
+      foreach ($array_restaurants_user as $restaurant) {
+        // Controllo che l'id del ristorante ciclato è uguale all'FK del ristorante del piatto corrente
+        if ($restaurant->id == $current_restaurant_fk) {
+          // salvo in una variabile l'id del ristorante
+          $current_restaurant_id = $restaurant->id;
+          // salvo in una variabile la FK dell'utente della tabella ristorante
+          $current_user_fk = $restaurant->user_id;
+        }
       }
+      // Controllo che appartenga al ristorante corrente && che il ristorante sia dell'utente loggato
+      if($current_restaurant_fk == $current_restaurant_id && $current_user == $current_user_fk) {
+        $data = [
+          'dish' => $current_dish,
+        ];
+        return view('admin.dishes.edit', $data);
+      } else {
+        // Se l'utente loggato cerca di aggiungere piatti a ristoranti che non sono i suoi o a un ristorante suo diverso da quello di apparteneneza del piatto l'errore è un 403 (non ha i permessi)
+        abort(403);
+      }
+    } else {
+      // Se il piatto non esiste l'errore è un 404
+      abort(404);
     }
-
-    // Controllo che il piatto corrente esista && che appartenga al ristorante corrente && che il ristorante sia dell'utente loggato
-    if($current_dish && $current_restaurant_fk == $current_restaurant_id && $current_user == $current_user_fk) {
-      $data = [
-        'dish' => $current_dish,
-      ];
-      return view('admin.dishes.edit', $data);
-    }
-    abort(404);
   }
 
   /**

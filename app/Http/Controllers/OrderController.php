@@ -15,7 +15,7 @@ class OrderController extends Controller
    */
   public function index()
   {
-      //
+    return view('guest.orders.index');
   }
 
   /**
@@ -69,18 +69,9 @@ class OrderController extends Controller
    * @param  int  $id
    * @return \Illuminate\Http\Response
    */
-  public function show(Order $order)
+  public function show($id)
   {
-    {
-      // Checking that the order ID is valid (Find restituisce NULL se non lo è)
-      if($order) {
-        $data = [
-          'order' => $order,
-        ];
-        return view('guest.orders.show', $data);
-      }
-      abort(404);
-    }
+    //
   }
 
   /**
@@ -114,6 +105,7 @@ class OrderController extends Controller
    */
   public function destroy(Order $order)
   {
+    /*
     // Risalgo al ristorante corrente tramite FK nella tabella Orders
     $current_restaurant = $order->restaurant_id;
     // Prima di cancellare l'ordine vado a cancellare la relazione che c'è tra l'ordine e il ristorante
@@ -122,5 +114,6 @@ class OrderController extends Controller
     $order->delete();
     // Redireting to the Homepage
     return redirect()->route('index');
+    */
   }
 }
