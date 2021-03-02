@@ -17,13 +17,13 @@
         @foreach ($restaurants as $restaurant)
          <div class="col-sm-12 col-md-4 card-restaurant mb-5">
             <div class="card my-4 w-100 h-100 no-border my-shadow p-2 px-3 rounded-top">
+              <a class="h-50" href="{{ route('admin.restaurants.show', ['restaurant' => $restaurant->id]) }}">
                 @if($restaurant->img_path_rest)
-                <a class="h-50" href="{{ route('admin.restaurants.show', ['restaurant' => $restaurant->id]) }}">
                     <img class="card-img-top p-2 img-fluid h-100" src="{{ asset('storage/' . $restaurant->img_path_rest)}}" alt="{{$restaurant->restaurant_name}}">
-                </a>
                 @else
-                    <img v-else class="card-img-top p-2 img-fluid h-100" src="" alt="no img">
+                    <img class="card-img-top p-2 img-fluid h-100" src="{{ asset('img/img_not_available.png')}}" alt="Default image">
                 @endif
+              </a>
                 <div class="card-body pl-0 pb-0">
                     <h5 class="card-title nunito font-weight-bold pl-3 m-0 h-25 d-flex align-items-center"><span class="icon-restaurant-main-color"></span> {{$restaurant->restaurant_name}}</h5>
                     <p class="card-text nunito p-infos pl-3 pt-1">

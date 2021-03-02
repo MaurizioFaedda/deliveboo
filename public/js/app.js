@@ -37352,7 +37352,7 @@ var app = new Vue({
       var _this3 = this;
 
       // -------------------- AXIOS call for all Dishes --------------------
-      axios.get('/api/dishes').then(function (response) {
+      axios.post('/api/dishes').then(function (response) {
         _this3.dishes = response.data.results;
       });
     },
