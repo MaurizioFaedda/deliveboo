@@ -129,8 +129,10 @@
                         </tbody>
                       </table>
                       <h5 class="text-dark text-right pr-2">Total: @{{totalPrice.toFixed(2)}} €</h5>
-                      <a href="{{url('/cart')}}" class="btn my-button-success" role="button">Checkout</a>
-                      <button @click="removeAllCart()" class="btn my-button-success" type="button">Empty cart</button>
+                      <div class="d-flex justify-content-between pt-3">
+                          <button @click="removeAllCart()" class="btn btn-outline-danger" type="button">Empty cart</button>
+                          <a href="{{url('/cart')}}" class="btn my-button-success" role="button">Checkout</a>
+                      </div>
                   </div>
                   <div v-else>
                       <h5 class="text-secondary">Empty cart</h5>

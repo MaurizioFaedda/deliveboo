@@ -174,7 +174,7 @@
                   <div class="d-flex justify-content-between align-items-center small-text mt-5">
                       <a v-if="cart_list.length > 0" class="btn btn-link small-text" :href="'restaurant/' + cart_list[0].restaurant_id">Add new Dishes</a>
                       <a v-else class="small-text" href="{{route('index')}}">Add new Dishes</a>
-                      <a class="text-danger text-right" @click="removeAllCart()"href="{{route('index')}}" type="button" name="button">Delete all and start new order</a>
+                      <a class="text-danger text-right" href="{{route('index')}}" type="button" name="button">Back to Home</a>
                   </div>
               </div>
             </div>
