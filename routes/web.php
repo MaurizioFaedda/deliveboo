@@ -87,12 +87,13 @@ Route::post('/checkout', function(Request $request){
     $nonce = $request->payment_method_nonce;
     $result = $gateway->transaction()->sale([
         'amount' => $amount,
-        'paymentMethodNonce' => 'fake-valid-nonce',
+        'paymentMethodNonce' => $nonce,
         'options' => [
             'submitForSettlement' => true
         ]
     ]);
 
+// 'fake-valid-nonce'
     // Creating a new Object/Instance of a new Payment with the form data
     $new_payment = new Payment();
     // Filling in the new Object/Instance with the form data received
@@ -114,7 +115,7 @@ Route::post('/checkout', function(Request $request){
         // Mando un email all'utente della conferma ordine
         Mail::to($request->email)->send(new SendNewMail($request->email));
 
-        // Reindirizzamento alla pagina di avvenuto ordine e pagamento
+        // Reindirizzamento alla pagina di avvenuto ordine e pagamento con messaggio di successo
         return redirect()->route('orders.index')->with('success_message', 'Transaction successful. The ID is:'. $transaction->id);
     } else {
         $errorString = "";
@@ -130,8 +131,8 @@ Route::post('/checkout', function(Request $request){
         $new_payment->status = 'Rejected';
         // Saving the new Object/Instance of the Payment in the database
         $new_payment->save();
-        // Reindirizzo l'utente alla stessa pagina ma con il messaggio di errore
-        return redirect()->route('restaurant.show', ['id' => $request->restaurant_id])->withErrors('An error occurred with the message: '.$result->message);
+        // Reindirizzamento alla pagina di avvenuto ordine e pagamento ma con messaggio di fallimento transazione
+        return redirect()->route('orders.index')->withErrors('An error occurred with the message: '.$result->message);
     }
 });
 
