@@ -17,10 +17,24 @@ var app = new Vue ({
     new_dish_obj: null,
     current_quantity: 1,
     totalPrice: 0,
-    bool_search: false
+    bool_checked: [
+        {checked: false},
+        {checked: false},
+        {checked: false},
+        {checked: false},
+        {checked: false},
+        {checked: false},
+        {checked: false},
+        {checked: false},
+        {checked: false}
+    ]
+
   },
   methods: {
     getAllRestaurants() {
+        for (var i = 0; i < this.bool_checked.length; i++) {
+            this.bool_checked[i].checked = false;
+        }
         this.selected_type = '';
         this.restaurants = [];
         this.checked_types = [];
@@ -174,6 +188,27 @@ var app = new Vue ({
         this.saveTotalPrice();
         return this.totalPrice
     },
+    getSearched(index){
+
+        if(this.bool_checked[index].checked == false){
+            this.bool_checked[index].checked = true;
+        } else {
+            this.bool_checked[index].checked = false;
+        }
+        console.log(this.bool_checked[index].checked);
+        // if(this.classObject.isActive == false && this.classObject.isNotActive == true){
+        //     this.classObject.isNotActive = false;
+        //     this.classObject.isActive = true;
+        // } else {
+        //     this.classObject.isActive = false;
+        //     this.classObject.isNotActive = true;
+        // }
+        // if (this.classObject.IsNotActive == true) {
+        //     this.classObject.IsNotActive = false;
+        // } else {
+        //     this.classObject.IsNotActive = true;
+        // }
+    }
   },
 
   mounted() {

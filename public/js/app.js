@@ -37305,11 +37305,33 @@ var app = new Vue({
     new_dish_obj: null,
     current_quantity: 1,
     totalPrice: 0,
-    bool_search: false
+    bool_checked: [{
+      checked: false
+    }, {
+      checked: false
+    }, {
+      checked: false
+    }, {
+      checked: false
+    }, {
+      checked: false
+    }, {
+      checked: false
+    }, {
+      checked: false
+    }, {
+      checked: false
+    }, {
+      checked: false
+    }]
   },
   methods: {
     getAllRestaurants: function getAllRestaurants() {
       var _this = this;
+
+      for (var i = 0; i < this.bool_checked.length; i++) {
+        this.bool_checked[i].checked = false;
+      }
 
       this.selected_type = '';
       this.restaurants = [];
@@ -37474,6 +37496,26 @@ var app = new Vue({
 
       this.saveTotalPrice();
       return this.totalPrice;
+    },
+    getSearched: function getSearched(index) {
+      if (this.bool_checked[index].checked == false) {
+        this.bool_checked[index].checked = true;
+      } else {
+        this.bool_checked[index].checked = false;
+      }
+
+      console.log(this.bool_checked[index].checked); // if(this.classObject.isActive == false && this.classObject.isNotActive == true){
+      //     this.classObject.isNotActive = false;
+      //     this.classObject.isActive = true;
+      // } else {
+      //     this.classObject.isActive = false;
+      //     this.classObject.isNotActive = true;
+      // }
+      // if (this.classObject.IsNotActive == true) {
+      //     this.classObject.IsNotActive = false;
+      // } else {
+      //     this.classObject.IsNotActive = true;
+      // }
     }
   },
   mounted: function mounted() {
@@ -37564,8 +37606,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\MAMP\htdocs\boolean\deliveboo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\boolean\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\MAMP\htdocs\repo\deliveboo\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\repo\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

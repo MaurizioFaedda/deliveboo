@@ -2,6 +2,10 @@
     font-family: 'Nunito', sans-serif!important;
 }
 
+.checked {
+    background-color: #D0EB99!important;
+}
+
 .navbar-nav .dropdown-menu{
     position: absolute!important;
 }
@@ -64,7 +68,6 @@
 }
 
 .show-button {
-    background-color: #F8F9FA!important;
     border: 0!important;
     &:hover{
         background-color: #D0EB99!important;
