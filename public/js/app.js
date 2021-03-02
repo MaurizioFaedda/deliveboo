@@ -37294,7 +37294,6 @@ var app = new Vue({
     types: [],
     restaurants: [],
     dishes: [],
-    selected_type: '',
     checked_types: [],
     filtered_restaurants: [],
     cart_list: [],
@@ -37333,7 +37332,6 @@ var app = new Vue({
         this.bool_checked[i].checked = false;
       }
 
-      this.selected_type = '';
       this.restaurants = [];
       this.checked_types = []; // -------------------- AXIOS call for ALL Restaurants --------------------
 
@@ -37357,17 +37355,8 @@ var app = new Vue({
         _this3.dishes = response.data.results;
       });
     },
-    getFilteredRestaurants: function getFilteredRestaurants() {
-      var _this4 = this;
-
-      this.restaurants = []; // -------------------- AXIOS call for FILTERED Restaurants by Type --------------------
-
-      axios.get('/api/restaurants/' + this.selected_type).then(function (response) {
-        _this4.restaurants = response.data.results;
-      });
-    },
     getFilteredRestaurantsByTypes: function getFilteredRestaurantsByTypes() {
-      var _this5 = this;
+      var _this4 = this;
 
       var request = {
         checked: this.checked_types
@@ -37380,13 +37369,13 @@ var app = new Vue({
         this.restaurants = [];
         axios.post('/api/restaurants/', request).then(function (response) {
           // prendo i risultati della chiamata ajax e li salvo in un array di appoggio
-          _this5.restaurants = response.data.results;
+          _this4.restaurants = response.data.results;
         });
       }
     },
     // ------------------- Cart list--------------------
     addItemCart: function addItemCart(id_dish) {
-      var _this6 = this;
+      var _this5 = this;
 
       this.quantity = 1; // Inserisco l'id del piatto aggiunto dall'utente nell'array da passare al backend con il form
 
@@ -37401,35 +37390,35 @@ var app = new Vue({
             qnty: 1
           });
 
-          _this6.cart_list.push(response.data.results); // this.cart_list[0]({
+          _this5.cart_list.push(response.data.results); // this.cart_list[0]({
           //     visible: 1
           // });
 
 
-          _this6.new_dish_obj = '';
-          _this6.totalPrice = response.data.results.price;
+          _this5.new_dish_obj = '';
+          _this5.totalPrice = response.data.results.price;
 
-          _this6.saveDishes();
+          _this5.saveDishes();
 
-          _this6.saveTotalPrice();
+          _this5.saveTotalPrice();
         });
       } else {
         // Se il carrello non è vuoto verifico che il ristorante da cui aggiungo i piatti sia lo stesso del primo piatto
         axios.get('/api/dish/' + id_dish).then(function (response) {
           var temp = true; // Controllo che la fk del piatto appena aggiunto (quello ciclato) sia uguale all'id del ristorante del primo piatto
 
-          if (_this6.cart_list[0].restaurant_id === response.data.results.restaurant_id) {
+          if (_this5.cart_list[0].restaurant_id === response.data.results.restaurant_id) {
             // Se il ristorante è lo stesso l'utente può procedere ad aggiungere il piatto all'ordine/carrello
-            for (var i = 0; i < _this6.cart_list.length; i++) {
-              if (_this6.cart_list[i].id == response.data.results.id) {
-                _this6.cart_list[i].qnty++;
+            for (var i = 0; i < _this5.cart_list.length; i++) {
+              if (_this5.cart_list[i].id == response.data.results.id) {
+                _this5.cart_list[i].qnty++;
                 temp = false;
-                _this6.new_dish_obj = '';
-                _this6.totalPrice += response.data.results.price;
+                _this5.new_dish_obj = '';
+                _this5.totalPrice += response.data.results.price;
 
-                _this6.saveDishes();
+                _this5.saveDishes();
 
-                _this6.saveTotalPrice();
+                _this5.saveTotalPrice();
               }
             }
 
@@ -37438,13 +37427,13 @@ var app = new Vue({
                 qnty: 1
               });
 
-              _this6.cart_list.push(response.data.results);
+              _this5.cart_list.push(response.data.results);
 
-              _this6.totalPrice += response.data.results.price;
+              _this5.totalPrice += response.data.results.price;
 
-              _this6.saveDishes();
+              _this5.saveDishes();
 
-              _this6.saveTotalPrice();
+              _this5.saveTotalPrice();
             }
           } else {
             alert('Pippo');
@@ -37606,8 +37595,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\MAMP\htdocs\repo\deliveboo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\repo\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\MAMP\htdocs\boolean\deliveboo\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\boolean\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
