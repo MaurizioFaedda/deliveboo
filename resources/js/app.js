@@ -162,8 +162,25 @@ var app = new Vue ({
       this.saveTotalPrice();
       this.saveDishes();
     },
+    removeAllCartShow(){
+        Swal.fire({
+          title: 'Want to empty your cart?',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Yes, empty the cart!'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            Swal.fire(
+              'Your shopping cart has been deleted!',
+              'success',
+              this.removeAllCart(),
+            )
+          }
+        })
+    },
     removeAllCart(){
-        //  Svuoto il cart_list e lo comunico al localStorage
         this.cart_list = [];
         this.totalPrice = 0;
         this.saveDishes();

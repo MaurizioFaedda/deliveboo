@@ -153,7 +153,7 @@
                         <button class="btn btn-primary" type="submit"><span>Pay</span></button>
                     </form>
                 </div>
-                <div v-if="cart_list.length > 0" class="col-5">
+                <div v-if="cart_list.length > 0" class="col-md-5">
                   <table class="table bg-white">
                     <thead>
                       <tr class="w-100">
@@ -171,10 +171,9 @@
                     </tbody>
                   </table>
                   <h5 class="text-dark text-right pr-3">Total: @{{totalPrice.toFixed(2)}} €</h5>
-                  <div class="d-flex justify-content-between align-items-center small-text mt-5">
-                      <a v-if="cart_list.length > 0" class="btn btn-link small-text" :href="'restaurant/' + cart_list[0].restaurant_id">Add new Dishes</a>
-                      <a v-else class="small-text" href="{{route('index')}}">Add new Dishes</a>
-                      <a class="text-danger text-right" href="{{route('index')}}" type="button" name="button">Back to Home</a>
+                  <div class="d-flex justify-content-end align-items-center small-text mt-5">
+                      <a class="btn btn-outline-primary small-text mr-3" :href="'restaurant/' + cart_list[0].restaurant_id">Add new Dishes</a>
+                      <a class="btn my-button-success  text-right" href="{{route('index')}}" type="button" name="button">Back to Home</a>
                   </div>
               </div>
             </div>
