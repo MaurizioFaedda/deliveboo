@@ -40,6 +40,7 @@
         <div class="error">
           <div class="error__title">404</div>
           <div class="error__subtitle">Hmmm...</div>
+          <div class="error__subtitle">Sorry, something went wrong!</div>
           <div class="text-dark error__description my-4 h4">You've just landed on the Moon,<br> just get back on Earth!</div>
           <a href="{{route('index')}}" class="error__button error__button--active p-2">Back to base</a>
         </div>

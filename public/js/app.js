@@ -37344,7 +37344,7 @@ var app = new Vue({
       var _this2 = this;
 
       // -------------------- AXIOS call for all Types --------------------
-      axios.get('/api/types').then(function (response) {
+      axios.post('/api/types').then(function (response) {
         _this2.types = response.data.results;
       });
     },

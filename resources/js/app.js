@@ -47,7 +47,7 @@ var app = new Vue ({
     getAllTypes() {
         // -------------------- AXIOS call for all Types --------------------
         axios
-        .get('/api/types')
+        .post('/api/types')
         .then(response => {
           this.types = response.data.results;
         });
@@ -55,7 +55,7 @@ var app = new Vue ({
     getAllDishes() {
         // -------------------- AXIOS call for all Dishes --------------------
         axios
-        .get('/api/dishes')
+        .post('/api/dishes')
         .then(response => {
           this.dishes = response.data.results;
         });
