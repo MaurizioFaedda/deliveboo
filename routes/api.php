@@ -14,10 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Fallback route incase anything goes wrong
+Route::fallback(function(){
+  return view('errors.405');
+})->name('fallback');
+
 Route::namespace('Api')->group(function() {
-  Route::get('/types', 'TypeController@index');
+  Route::post('/types', 'TypeController@index');
   Route::get('/restaurants', 'RestaurantController@index');
-  Route::get('/dishes', 'DishController@index');
+  Route::post('/dishes', 'DishController@index');
 
   // Passo l'ID dell'array dei types preso dalla checkbox all'API Restaurant Controller
   Route::post('/restaurants/', 'RestaurantController@get_filtered_restaurants');
