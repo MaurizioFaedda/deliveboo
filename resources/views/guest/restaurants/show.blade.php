@@ -63,7 +63,7 @@
                                               @if ($dish->img_path_dish)
                                                 <img class="rounded" src="{{asset('storage/' . $dish->img_path_dish)}}" alt="{{$dish->name}} picture">
                                               @else
-                                                <img class="rounded" src="{{ asset('img/img_not_available.png')}}" alt="Default image">
+                                                <img class="rounded" src="{{ asset('img/img_not_available_dish.png')}}" alt="Default image">
                                               @endif
                                             </div>
                                         </button>
@@ -85,7 +85,7 @@
                                                       @if ($dish->img_path_dish)
                                                         <img class="rounded w-100 h-100" src="{{asset('storage/' . $dish->img_path_dish)}}" alt="{{$dish->name}} picture">
                                                       @else
-                                                        <img class="rounded w-100 h-100" src="{{ asset('img/img_not_available.png')}}" alt="Default image">
+                                                        <img class="rounded w-100 h-100" src="{{ asset('img/img_not_available_dish.png')}}" alt="Default image">
                                                       @endif
                                                     </div>
                                                     <div class="py-3 d-flex flex-column justify-content-between">
