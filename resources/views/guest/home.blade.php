@@ -66,7 +66,7 @@
                     <div class="card my-4 w-100 h-100 no-border my-shadow p-3 rounded-top">
                         <a class="h-50 img-box" :href="'restaurant/' + restaurant.id">
                             <img v-if="restaurant.img_path_rest" class="card-img-top p-2 img-fluid h-100" :src="'storage/' + restaurant.img_path_rest" alt="Card image cap">
-                            <img v-else class="card-img-top p-2 img-fluid h-100" src="" alt="Card image cap">
+                            <img v-else class="card-img-top p-2 img-fluid h-100" src="{{ asset('img/img_not_available.png')}}" alt="Default image">
                         </a>
                         <div class="card-body pl-0 pb-0">
                             <h5 class="card-title font-weight-bold pl-3 m-0 h-25 d-flex align-items-center"><span class="icon-restaurant-main-color"></span> @{{restaurant.restaurant_name}}</h5>

@@ -29,10 +29,13 @@
         <div class="col-md-4">
             <div class="restaurant-details">
                 <div class="img-restaurant w-100 shadow">
+                  @if ($restaurant->img_path_rest)
                     <img class="w-100" src="{{asset('storage/' . $restaurant->img_path_rest)}}" alt="{{$restaurant->restaurant_name}} picture">
+                  @else
+                    <img class="w-100" src="{{ asset('img/img_not_available.png')}}" alt="Default image">
+                  @endif
                 </div>
             </div>
-
         </div>
     </div>
 </div>
@@ -57,7 +60,11 @@
                                                 <span class="text-bold">{{number_Format($dish->price, 2, ',', '')}} €</span>
                                             </div>
                                             <div class="img-dish">
+                                              @if ($dish->img_path_dish)
                                                 <img class="rounded" src="{{asset('storage/' . $dish->img_path_dish)}}" alt="{{$dish->name}} picture">
+                                              @else
+                                                <img class="rounded" src="{{ asset('img/img_not_available.png')}}" alt="Default image">
+                                              @endif
                                             </div>
                                         </button>
                                     </div>
@@ -75,7 +82,11 @@
                                                 </div>
                                                 <div class="modal-body pb-0">
                                                     <div class="img-dish-model w-100 h-50">
+                                                      @if ($dish->img_path_dish)
                                                         <img class="rounded w-100 h-100" src="{{asset('storage/' . $dish->img_path_dish)}}" alt="{{$dish->name}} picture">
+                                                      @else
+                                                        <img class="rounded w-100 h-100" src="{{ asset('img/img_not_available.png')}}" alt="Default image">
+                                                      @endif
                                                     </div>
                                                     <div class="py-3 d-flex flex-column justify-content-between">
                                                         <p class="mb-0"><strong>Infos:</strong> {{$dish->infos}}</p>

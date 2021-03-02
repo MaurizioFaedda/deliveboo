@@ -15,7 +15,7 @@
                                     <img class="img-fluid" src="{{ asset('storage/' . $restaurant->img_path_rest)}}" alt="{{$restaurant->restaurant_name}}">
                                 </div>
                             @else
-                                <img src="{{ asset('img/img_not_available.png')}}" alt="not img">
+                                <img src="{{ asset('img/img_not_available.png')}}" alt="Default image">
                             @endif
                             <div>
                                 <ul>
