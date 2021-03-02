@@ -99,11 +99,18 @@ class RestaurantController extends Controller
     $data = [
         'types' => Type::all(),
     ];
-    // Controllo che il Ristorante visualizzato sia dell'utente autenticato e che ci sia il ristorante
-    if($id_user == $restaurant->user_id && $restaurant) {
-      return view('admin.restaurants.show', ['restaurant' => $restaurant], $data);
+    // Controllo che il parametro nell'url (ossia l'id del ristorante corrente) esista
+    if ($restaurant != null) {
+      // Controllo che il Ristorante visualizzato sia dell'utente autenticato
+      if($id_user == $restaurant->user_id) {
+        return view('admin.restaurants.show', ['restaurant' => $restaurant], $data);
+      } else {
+        // Se l'utente loggato cerca di visualizzare un ristorante che non è il suo l'errore è un 403 (non ha i permessi)
+        abort(403);
+      }
     } else {
-      abort('404');
+      // Se il ristorante non esiste l'errore è un 404
+      abort(404);
     }
   }
   /**

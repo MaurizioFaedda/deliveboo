@@ -7,7 +7,7 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>@yield("page-title", "Deliveboo | Error 404")</title>
+        <title>@yield("page-title", "Deliveboo | Error 403")</title>
 
         <!-- Scripts File JS-->
         <script src="{{ asset('js/app.js') }}" defer></script>
@@ -38,9 +38,9 @@
         <div class="star star5"></div>
 
         <div class="error">
-          <div class="error__title">404</div>
+          <div class="error__title">403</div>
           <div class="error__subtitle">Hmmm...</div>
-          <div class="text-dark error__description my-4 h4">You've just landed on the Moon,<br> just get back on Earth!</div>
+          <div class="text-dark error__description my-4 h4"> You're not allowed to land on this planet. </div>
           <a href="{{route('index')}}" class="error__button error__button--active p-2">Back to base</a>
         </div>
 

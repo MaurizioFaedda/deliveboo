@@ -1,7 +1,7 @@
 @extends('layouts.guest')
 
 {{-- titolo --}}
-@section("page-title", "Deliveboo | Restaurant")
+@section("page-title", "Deliveboo | Order")
 
 @section('content')
     <div class="container vh-100 mt-5">
