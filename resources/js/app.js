@@ -131,7 +131,25 @@ var app = new Vue ({
                     }
 
                 } else {
-                    alert('Pippo');
+                    Swal.fire({
+                      title: 'Do you want to create a new cart?',
+                      text: "In this way you delete the existing cart and create a new cart for this restaurant",
+                      icon: 'warning',
+                      showCancelButton: true,
+                      confirmButtonColor: '#3085d6',
+                      cancelButtonColor: '#d33',
+                      confirmButtonText: 'Yes, create new cart!'
+                    }).then((result) => {
+                      if (result.isConfirmed) {
+                        Swal.fire(
+                          'New cart created!',
+                          'Your dish has been added.',
+                          'success',
+                          this.removeAllCart(),
+                          this.addItemCart(id_dish)
+                        )
+                      }
+                    })
                 }
 
             });

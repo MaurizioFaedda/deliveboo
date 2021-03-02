@@ -37437,7 +37437,19 @@ var app = new Vue({
               _this5.saveTotalPrice();
             }
           } else {
-            alert('Pippo');
+            Swal.fire({
+              title: 'Do you want to create a new cart?',
+              text: "In this way you delete the existing cart and create a new cart for this restaurant",
+              icon: 'warning',
+              showCancelButton: true,
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              confirmButtonText: 'Yes, create new cart!'
+            }).then(function (result) {
+              if (result.isConfirmed) {
+                Swal.fire('New cart created!', 'Your dish has been added.', 'success', _this5.removeAllCart(), _this5.addItemCart(id_dish));
+              }
+            });
           }
         });
       }
@@ -37583,8 +37595,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\MAMP\htdocs\repo\deliveboo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\repo\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\MAMP\htdocs\boolean\deliveboo\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\boolean\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
