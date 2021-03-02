@@ -18,23 +18,7 @@ class RestaurantController extends Controller
     ]);
   }
 
-  // Prendo il parametro che ho passato tramite query string dalla select che è il tipo selezionato dall'utente
-  public function filter_restaurants($id)
-  {
-    if($id) {
-      // QUERY per cercare il tipo selezionato dall'utente nella tabella dei tipi
-      $type = Type::find($id);
-      return response()->json([
-          'success' => true,
-          'results' => $type->restaurants// relazione MANY TO MANY
-      ]);
-    } else {
-        return response()->json([
-            'success' => false,
-            'results' => []
-        ]);
-    }
-  }
+  // CHECKBOX
   public function get_filtered_restaurants(Request $request)
   {
     $filtered_restaurants = [];
@@ -63,6 +47,4 @@ class RestaurantController extends Controller
       'results' => $final_restaurants_array
     ]);
   }
-
-
 }
