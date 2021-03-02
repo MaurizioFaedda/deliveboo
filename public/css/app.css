@@ -361,9 +361,23 @@ table tbody tr {
 
 .show-button {
   border: 0 !important;
+  background-color: #D0EB99;
+  color: white;
 }
 
 .show-button:hover {
+  background-color: #00CCBC !important;
+  color: white;
+  transition: 0.3s;
+}
+
+.show-button-types {
+  border: 0 !important;
+  background-color: #00CCBC;
+  color: white;
+}
+
+.show-button-types:hover {
   background-color: #D0EB99 !important;
   color: white;
   transition: 0.3s;
