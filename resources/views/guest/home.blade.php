@@ -14,10 +14,9 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
-    <div class="row">
+    <div class="row d-none d-sm-block">
         <div class="card p-3 w-100 border-0 my-shadow p-2 mb-4">
             <div class="form-check form-check-inline py-2 mr-0 d-flex flex-wrap">
                 <div class="col-lg-2 col-md-3 col-sm-12" v-for="(type, index) in types">
@@ -31,6 +30,34 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="d-block d-sm-none">
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+          <div class="form-check form-check-inline py-2 mr-0 d-flex flex-wrap">
+              <div class="col-sm-12 carousel-item" v-for="(type, index) in types" v-for="(type, index) in types" :class="{ active: index==0 }">
+                  <div :class="bool_checked[index]" class="card show-button-types w-100 p-1 pb-3 d-flex flex-row align-items-center justify-content-start custom_background_select mb-3">
+                      <input @click="getSearched(index)" class="form-check-input" id="inlineCheckbox1" @change="getFilteredRestaurantsByTypes()" type="checkbox" :value="type.id" v-model="checked_types">
+                      <label class="form-check-label p-2 font-weight-bold text-dark " for="type.type">
+                          @{{type.type}}
+                      </label>
+                      <div class="w-100 h-100">
+                          <img :src="'img/' + type.img_path_type" alt="" class="w-100">
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+</div>
     </div>
     <div class="row">
         <div class="card p-3 w-100 border-0 my-shadow d-flex">

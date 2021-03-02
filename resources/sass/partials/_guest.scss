@@ -497,4 +497,12 @@
         right: 8px;
         top: 38px;
     }
+
+}
+
+@media screen and (max-width: 540px) {
+    .container, .row{
+        margin: 0!important;
+        padding: 0!important;
+    }
 }

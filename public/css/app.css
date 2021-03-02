@@ -928,6 +928,14 @@ table tbody tr {
   }
 }
 
+@media screen and (max-width: 540px) {
+  .container,
+  .row {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}
+
 .moon {
   background: linear-gradient(90deg, #d0d0d0 48%, #919191 100%);
   position: absolute;
