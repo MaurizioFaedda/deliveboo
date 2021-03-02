@@ -16,6 +16,7 @@ var app = new Vue ({
     new_dish_obj: null,
     current_quantity: 1,
     totalPrice: 0,
+    //array di booleane per la gestione delle classi dinamiche nelle card dei tipi
     bool_checked: [
         {checked: false},
         {checked: false},
@@ -184,19 +185,6 @@ var app = new Vue ({
         } else {
             this.bool_checked[index].checked = false;
         }
-        console.log(this.bool_checked[index].checked);
-        // if(this.classObject.isActive == false && this.classObject.isNotActive == true){
-        //     this.classObject.isNotActive = false;
-        //     this.classObject.isActive = true;
-        // } else {
-        //     this.classObject.isActive = false;
-        //     this.classObject.isNotActive = true;
-        // }
-        // if (this.classObject.IsNotActive == true) {
-        //     this.classObject.IsNotActive = false;
-        // } else {
-        //     this.classObject.IsNotActive = true;
-        // }
     }
   },
 

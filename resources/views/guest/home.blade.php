@@ -38,20 +38,20 @@
             <button class="show-button p-2 mt-2 no-border font-weight-bold w-50 align-self-center" @click="getAllRestaurants()" type="button" name="button">Show all</button>
             <ul v-if="checked_types.length > 0" class="list-inline mt-3 p-2">
                 <li v-for="check in checked_types" class="list-inline-item">
-                    <h3 class="card bg-light p-2 border-0 font-weight-bold" v-if="check == 1">Pizzeria</h3>
-                    <h3 class="card bg-light p-2 border-0 font-weight-bold" v-if="check == 2">Italian Foods</h3>
-                    <h3 class="card bg-light p-2 border-0 font-weight-bold" v-if="check == 3">Sushi</h3>
-                    <h3 class="card bg-light p-2 border-0 font-weight-bold" v-if="check == 4">Vegan Foods</h3>
-                    <h3 class="card bg-light p-2 border-0 font-weight-bold" v-if="check == 5">Organic Foods</h3>
-                    <h3 class="card bg-light p-2 border-0 font-weight-bold" v-if="check == 6">Street Foods</h3>
-                    <h3 class="card bg-light p-2 border-0 font-weight-bold" v-if="check == 7">Asian Foods</h3>
-                    <h3 class="card bg-light p-2 border-0 font-weight-bold" v-if="check == 8">Mexican</h3>
-                    <h3 class="card bg-light p-2 border-0 font-weight-bold" v-if="check == 9">Hawaian Foods</h3>
+                    <h4 class="text-dark card p-2 border-0 font-weight-bold show-button-types-writed" v-if="check == 1">Pizzeria</h4>
+                    <h4 class="text-dark card p-2 border-0 font-weight-bold show-button-types-writed" v-if="check == 2">Italian Foods</h4>
+                    <h4 class="text-dark card p-2 border-0 font-weight-bold show-button-types-writed" v-if="check == 3">Sushi</h4>
+                    <h4 class="text-dark card p-2 border-0 font-weight-bold show-button-types-writed" v-if="check == 4">Vegan Foods</h4>
+                    <h4 class="text-dark card p-2 border-0 font-weight-bold show-button-types-writed" v-if="check == 5">Organic Foods</h4>
+                    <h4 class="text-dark card p-2 border-0 font-weight-bold show-button-types-writed" v-if="check == 6">Street Foods</h4>
+                    <h4 class="text-dark card p-2 border-0 font-weight-bold show-button-types-writed" v-if="check == 7">Asian Foods</h4>
+                    <h4 class="text-dark card p-2 border-0 font-weight-bold show-button-types-writed" v-if="check == 8">Mexican</h4>
+                    <h4 class="text-dark card p-2 border-0 font-weight-bold show-button-types-writed" v-if="check == 9">Hawaian Foods</h4>
                 </li>
             </ul>
             <ul v-if="checked_types.length == 0" class="list-inline mt-3">
                 <li class="list-inline-item">
-                    <h3 class="card bg-light p-2 border-0 font-weight-bold">Tutti</h3>
+                    <h4 class="text-dark card p-1 ml-1 border-0 font-weight-bold show-button-types-writed">Tutti</h4>
                 </li>
             </ul>
         </div>
