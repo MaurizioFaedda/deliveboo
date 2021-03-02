@@ -37352,7 +37352,7 @@ var app = new Vue({
       var _this3 = this;
 
       // -------------------- AXIOS call for all Dishes --------------------
-      axios.get('/api/dishes').then(function (response) {
+      axios.post('/api/dishes').then(function (response) {
         _this3.dishes = response.data.results;
       });
     },
@@ -37461,8 +37461,23 @@ var app = new Vue({
       this.saveTotalPrice();
       this.saveDishes();
     },
+    removeAllCartShow: function removeAllCartShow() {
+      var _this6 = this;
+
+      Swal.fire({
+        title: 'Want to empty your cart?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, empty the cart!'
+      }).then(function (result) {
+        if (result.isConfirmed) {
+          Swal.fire('Your shopping cart has been deleted!', 'success', _this6.removeAllCart());
+        }
+      });
+    },
     removeAllCart: function removeAllCart() {
-      //  Svuoto il cart_list e lo comunico al localStorage
       this.cart_list = [];
       this.totalPrice = 0;
       this.saveDishes();
