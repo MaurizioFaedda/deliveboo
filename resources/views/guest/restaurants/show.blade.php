@@ -122,7 +122,7 @@
                         </div>
                     @endif
                     {{-- Lista elementi visualizzati nel carrello Vue (front-end) --}}
-                    <div v-if="cart_list.length > 0" class="">
+                    <div v-if="cart_list.length > 0 && {{$restaurant->id}} == cart_list[0].restaurant_id" class="">
                       <table class="table bg-white">
                         <thead>
                           <tr class="w-100">
