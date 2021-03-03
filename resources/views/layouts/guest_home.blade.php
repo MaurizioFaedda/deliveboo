@@ -126,64 +126,8 @@
           </div>
           <div class="row">
               <div class="col-lg-12 col-md-12 col-sm-12">
-                  <!-- Footer -->
-                  <footer class="text-center bg-footer text-lg-start w-100 font-weight-bold shadow">
-                      <!-- Grid container -->
-                      <div class="container p-4">
-                          <!--Grid row-->
-                          <div class="row">
-                              <!--Grid column-->
-                              <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-                                  <h5 class="text-uppercase font-weight-bold nunito footer-font-color">Tecnologie utilizzate</h5>
-
-                                  <p class="footer_paragraph nunito footer-font-color">
-                                      Laravel 7 con architettura MVC, Blade, MySQL, Libreria Bootstrap 4, SASS scss, Framework Vue.js.
-                                  </p>
-                              </div>
-                              <!--Grid column-->
-
-                              <!--Grid column-->
-                              <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                                  <h5 class="text-uppercase font-weight-bold nunito footer-font-color">LinkedIn - Links</h5>
-
-                                  <ul class="list-unstyled mb-0">
-                                      <li>
-                                          <a href="https://www.linkedin.com/in/marco-caputo-58000a1ab/" class="nunito footer-font-color">Marco Caputo</a>
-                                      </li>
-                                      <li>
-                                          <a href="https://www.linkedin.com/in/maurizio-faedda/" class="nunito footer-font-color">Maurizio Faedda</a>
-                                      </li>
-                                      <li>
-                                          <a href="https://www.linkedin.com/in/patriziacrimi/" class="nunito footer-font-color">Patrizia Crimi</a>
-                                      </li>
-                                  </ul>
-                              </div>
-                              <!--Grid column-->
-
-                              <!--Grid column-->
-                              <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                                  <h5 class="text-uppercase font-weight-bold nunito footer-font-color">LinkedIn - Links</h5>
-
-                                  <ul class="list-unstyled">
-                                      <li>
-                                          <a href="https://www.linkedin.com/in/annalisa-de-santis-354a7b205/" class="footer-font-color nunito">Annalisa De Santis</a>
-                                      </li>
-                                      <li>
-                                          <a href="https://www.linkedin.com/in/sabrinacunsolo/" class="footer-font-color nunito">Sabrina Cunsolo</a>
-                                      </li>
-                                  </ul>
-                              </div>
-                              <!--Grid column-->
-                          </div>
-                          <!--Grid row-->
-                      </div>
-                      <!-- Grid container -->
-
-                      <!-- Copyright -->
-                      <!-- Copyright -->
-                  </footer>
-                  <!-- Footer -->
-
+                {{-- Footer --}}
+                @include('partials.footer')
               </div>
           </div>
         </div>
