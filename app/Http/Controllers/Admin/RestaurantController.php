@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Restaurant;
 use App\User;
 use App\Type;
+use App\Dish;
 use DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -96,7 +97,11 @@ class RestaurantController extends Controller
   {
     // Prendo l'id dell'utente autenticato
     $id_user = Auth::user()->id;
+    $restaurant_id = $restaurant->id;
+    $dishes = Dish::select()->orderBy('name')->where('restaurant_id' , $restaurant_id)->get();
+
     $data = [
+        'dishes' => $dishes,
         'types' => Type::all(),
     ];
     // Controllo che il parametro nell'url (ossia l'id del ristorante corrente) esista

@@ -137,7 +137,7 @@
                 <div class="card rounded-0 no-border shadow overflow-auto">
                     <table class="table text-center mb-0">
                         <tbody>
-                            @forelse ($restaurant->dishes as $dish)
+                            @forelse ($dishes as $dish)
                                 <tr class="text-left">
                                     <td>
                                         <a class="text-uppercase" href="{{route('admin.dishes.show', ['dish' => $dish->id]) }}">
