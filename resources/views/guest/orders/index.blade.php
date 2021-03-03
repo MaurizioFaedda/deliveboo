@@ -28,7 +28,7 @@
               </div>
             </div>
             <div class="text-center my-5">
-              <a class="text-decoration-none" href="{{route('index')}}">Back To Home</a>
+              <a @click="removeAllCart()" class="text-decoration-none" href="{{route('index')}}">Back To Home</a>
             </div>
         @else
             <div class="text-center">

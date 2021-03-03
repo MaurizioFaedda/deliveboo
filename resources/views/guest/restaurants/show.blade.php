@@ -114,8 +114,8 @@
 
 
                 {{-- cart --}}
-                <div class="col-md-4 py-5 text-right">
-                    <h3><span class="icon-cart-main-color"></span>Your Cart</h3>
+                <div class="col-md-4 p-2 text-right bg-white my-4 rounded">
+                    <h3 class="py-3"><span class="icon-cart-main-color"></span>Your Cart</h3>
                     @if (session()->has('success_message'))
                         <div class="alert alert-success">
                             {{ session()->get('success_message') }}
