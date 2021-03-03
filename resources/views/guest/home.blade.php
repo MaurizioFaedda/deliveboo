@@ -1,21 +1,6 @@
 @extends('layouts.guest_home')
 @section('content')
 <div class="container-fluid">
-
-    <div class="row">
-        <div class="col-md-12 col-sm-12 p-0">
-            <div class="card flex-row justify-content-center align-items-center custom_padding no-border my-4 my-shadow w-100 custom-height_jumbotron custom_background_jumbotron">
-                <div class="row justify-content-center align-items-center">
-                    <div class="col-sm col-md-6">
-                        <h1>I piatti che ami, a domicilio.</h2>
-                    </div>
-                    <div class="col-sm col-md-6 d-flex flex-row justify-content-center">
-                        <img class="img_jumbotron" src="img\homepage.png" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="row d-none d-sm-block">
         <div class="card p-3 w-100 border-0 my-shadow p-2 mb-4">
             <div class="form-check form-check-inline py-2 mr-0 d-flex flex-wrap">
@@ -61,10 +46,11 @@
     </div>
     <div class="row">
         <div class="card p-3 w-100 border-0 my-shadow d-flex">
-            <h3 class="card p-2 border-0 font-weight-bold">Ristoranti selezionati: </h3>
             <button class="show-button p-2 mt-2 no-border font-weight-bold w-50 align-self-center" @click="getAllRestaurants()" type="button" name="button">Show all</button>
+            <h1 class="card p-0 ml-3 border-0 font-weight-bold h3">Ristoranti selezionati: </h3>
+
             <ul v-if="checked_types.length > 0" class="list-inline mt-3 p-2">
-                <li v-for="check in checked_types" class="list-inline-item">
+                <li v-for="check in checked_types" class="list-inline-item pl-3">
                     <h4 class="text-dark card p-2 border-0 font-weight-bold show-button-types-writed" v-if="check == 1">Pizzeria</h4>
                     <h4 class="text-dark card p-2 border-0 font-weight-bold show-button-types-writed" v-if="check == 2">Italian Foods</h4>
                     <h4 class="text-dark card p-2 border-0 font-weight-bold show-button-types-writed" v-if="check == 3">Sushi</h4>
@@ -78,7 +64,7 @@
             </ul>
             <ul v-if="checked_types.length == 0" class="list-inline mt-3">
                 <li class="list-inline-item">
-                    <h4 class="text-dark card p-1 ml-1 border-0 font-weight-bold show-button-types-writed">Tutti</h4>
+                    <h4 class="text-dark card p-1 ml-3 ml-1 border-0 font-weight-bold show-button-types-writed">Tutti</h4>
                 </li>
             </ul>
         </div>
@@ -86,7 +72,7 @@
     <div class="row">
         <div class="card custom_padding no-border my-4 pb-5 my-shadow w-100 thiscartbody">
             <div class="text-left">
-                <h1 class="search_title text-left pl-0 align-baseline"><span class="icon-rider-main-color"></span>Restaurants delivering in <strong>Rome</strong></h1>
+                <h1 class="search_title text-left pl-3 align-baseline"><span class="icon-rider-main-color"></span>Restaurants delivering in <strong>Rome</strong></h1>
             </div>
             <div class="row">
                  <div v-for="restaurant in restaurants" class="col-lg-3 col-md-4 col-sm-12 card-restaurant mb-5">
