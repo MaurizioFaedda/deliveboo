@@ -97,7 +97,7 @@
                                 <label class="btn btn-primary w-50">
                                     <input type="radio" name="visible" id="option2" value="1" checked> Available
                                 </label>
-                                <label class="btn btn-primary w-75">
+                                <label class="btn btn-primary w-50">
                                     <input type="radio" name="visible" id="option3" value="0"> Not Available
                                 </label>
                             </div>
