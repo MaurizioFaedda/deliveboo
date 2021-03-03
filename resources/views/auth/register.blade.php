@@ -41,7 +41,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="vat_number" class="col-md-4 col-form-label text-md-right">{{ __('VAT number/P.IVA') }}</label>
+                            <label for="vat_number" class="col-md-4 col-form-label text-md-right">{{ __('VAT number') }}</label>
 
                             <div class="col-md-6">
                                 <input id="vat_number" type="text" class="form-control @error('vat_number') is-invalid @enderror" name="vat_number" value="{{ old('vat_number') }}" required autocomplete="vat_number" autofocus>

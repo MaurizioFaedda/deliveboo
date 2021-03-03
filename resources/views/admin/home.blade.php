@@ -28,7 +28,7 @@
                                     </div>
                                     <div class="form-group d-flex flex-column w-100">
                                         <label class="form-font" for="title">City</label>
-                                        <input class="form-check form-font" type="text" class="form-control" name="city" placeholder="City" value="{{old('city')}}" required>
+                                        <input readonly class="form-check form-font bg-light" type="text" class="form-control" name="city" placeholder="Rome" value="Rome" required>
                                         {{-- SHOWING ERROR MESSAGE --}}
                                         @error('city')
                                             <div class="alert alert-danger">

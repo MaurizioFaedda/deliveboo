@@ -17,12 +17,12 @@
                             @else
                                 <img src="{{ asset('img/img_not_available.png')}}" alt="Default image">
                             @endif
-                            <div>
-                                <ul>
+                            <div class="m-3">
+                                <ul class="p-2">
                                     @forelse ($restaurant->types as $type)
                                         <li>{{ $type->type }}</li>
                                     @empty
-                                        <li>No typologies have been inserted</li>
+                                        <li>No types entered in your restaurant yet</li>
                                     @endforelse
                                 </ul>
                             </div>
