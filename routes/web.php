@@ -94,7 +94,6 @@ Route::post('/checkout', function(Request $request){
         ]
     ]);
 
-// 'fake-valid-nonce'
     // Creating a new Object/Instance of a new Payment with the form data
     $new_payment = new Payment();
     // Filling in the new Object/Instance with the form data received

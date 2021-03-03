@@ -39,7 +39,7 @@
                             <h4>{{ $dish->name}}</h4>
                         </div>
                         <div class="">
-                            <small><strong>Info</strong></small>
+                            <small><strong>Ingredients/Desription</strong></small>
                             <p>{{ $dish->infos}}</p>
                         </div>
                         <div class="">
@@ -51,7 +51,7 @@
                             </p>
                         </div>
                         <div class="">
-                            <small><strong>Status</strong></small>
+                            <small><strong>Availability</strong></small>
                             <p>
                             Your dish is currently <strong>{{$dish->visible ? "" : "not"}} visible</strong> in the menu.
                             </p>

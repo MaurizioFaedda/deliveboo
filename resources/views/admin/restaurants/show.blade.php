@@ -30,6 +30,7 @@
                     </div>
                     <div class="col-md-8 col-sm-12">
                         <div class="card border-radius-none no-border d-flex flex-column justify-content-between shadow p-4 h-100">
+                          <h5>Your restaurant information</h5>
                             <p class="my-4 p-3">
                                 {{$restaurant->description}}
                             </p>
@@ -60,7 +61,7 @@
                         </div>
                         <div class="form-group d-flex flex-column align-items-left w-100">
                             <label class="pl-1" for="title">Dish Name</label>
-                            <input type="text" class="form-control" name="name" placeholder="Write your dish name here" value="{{old('name')}}" required maxlength="100">
+                            <input type="text" class="form-control" name="name" placeholder="Write dish name here" value="{{old('name')}}" required maxlength="100">
                             {{-- SHOWING ERROR MESSAGE --}}
                             @error('name')
                                 <div class="alert alert-danger">
@@ -69,8 +70,8 @@
                             @enderror
                         </div>
                         <div class="form-group d-flex flex-column align-items-left w-100">
-                            <label class="pl-1" for="title">Infos</label>
-                            <textarea class="form-control" maxlength="250" name="infos">{{old('infos')}}</textarea>
+                            <label class="pl-1" for="title">Ingredients/Description</label>
+                            <textarea class="form-control" placeholder="Write dish description here" maxlength="250" name="infos">{{old('infos')}}</textarea>
                             {{-- SHOWING ERROR MESSAGE --}}
                             @error('infos')
                                 <div class="alert alert-danger">
@@ -80,7 +81,7 @@
                         </div>
                         <div class="form-group d-flex flex-column align-items-left w-100">
                             <label class="pl-1" for="title">Price</label>
-                            <input type="number" class="form-control" name="price" placeholder="price" value="{{old('price')}}" required step="0.01">
+                            <input type="number" class="form-control" name="price" placeholder="20.00" value="{{old('price')}}" required step="0.01">
                             {{-- SHOWING ERROR MESSAGE --}}
                             @error('price')
                                 <div class="alert alert-danger">
@@ -89,7 +90,7 @@
                             @enderror
                         </div>
                         <div class="form-group d-flex flex-column align-items-left w-100">
-                            <label class="pl-1">Cover image</label>
+                            <label class="pl-1">Dish picture</label>
                             <input class="pl-1" type="file" class="form-control-file" name="image" accept="image/*">
                         </div>
                         <div class="form-group d-flex flex-column align-items-left w-100">
@@ -157,7 +158,7 @@
                                     </td>
                                 </tr>
                             @empty
-                                <p class="p-3 text-center">Add a dish</p>
+                                <p class="p-3 text-center">No dishes entered in your restaurant yet</p>
                             @endforelse
                         </tbody>
                     </table>

@@ -98,7 +98,7 @@
                                         Lastname: {{ Auth::user()->lastname }}
                                     </p>
                                     <p class="nunito pl-1">
-                                        Vat_number/P.IVA: {{ Auth::user()->vat_number }}
+                                        VAT number: {{ Auth::user()->vat_number }}
                                     </p>
                                     <p class="nunito pl-1">
                                         Email: {{ Auth::user()->email }}

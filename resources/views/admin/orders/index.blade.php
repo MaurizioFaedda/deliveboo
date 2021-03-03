@@ -6,19 +6,20 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-left">
+          <h3 class="text-uppercase font-weight-bold">Restaurants</h3>
             @foreach ($restaurants as $restaurant)
                 <div class="col-lg-12 col-md-12 col-sm">
                     <div class="card my-4 shadow border-0">
                         <h5 class="card-title nunito font-weight-bold text-uppercase p-3 color_main m-0">
-                            Restaurant: {{ $restaurant->restaurant_name}}
+                            {{ $restaurant->restaurant_name}}
                         </h5>
                         <table class="table text-center mb-0 bg-white">
                             <thead>
                                 <tr class="text-left">
-                                    <th class="text-left nunito">Firstname</th>
+                                    <th class="text-left nunito">First name</th>
                                     <th class="nunito">Lastname</th>
                                     <th class="nunito">Email</th>
-                                    <th class="nunito">Date order</th>
+                                    <th class="nunito">Date</th>
                                     <th class="nunito">Total price</th>
                                 </tr>
                             </thead>

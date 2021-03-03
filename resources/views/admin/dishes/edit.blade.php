@@ -9,7 +9,7 @@
         <div class="col-md-8">
             <div class="card no-border mt-3">
                 <div class="card-header card-header text-center no-border border-radius-top">
-                    Edit your dish
+                    Edit your dish details
                 </div>
                 <form class="d-flex flex-column align-items-center py-3" action="{{ route('admin.dishes.update', ['dish' => $dish->id]) }}" method="post" enctype="multipart/form-data">
                     @csrf
@@ -49,7 +49,7 @@
                         </div>
                     </div>
                     <div class="form-group d-flex flex-column align-items-center w-50">
-                      <label for="title">Infos</label>
+                      <label for="title">Ingredients/Description</label>
                       <textarea name="infos" rows="8" cols="80" maxlength="250">{{ old('infos', $dish->infos)}}</textarea>
                       {{-- SHOWING ERROR MESSAGE --}}
                       @error('infos')
