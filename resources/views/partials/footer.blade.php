@@ -4,47 +4,47 @@
         <!--Grid row-->
         <div class="row">
             <!--Grid column-->
-            <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-                <h5 class="text-uppercase font-weight-bold nunito footer-font-color text-left">Technologies</h5>
-                <p class="footer_paragraph nunito footer-font-color">
+            <div class="col-lg-8 col-md-12 mb-4">
+                <h5 class="text-uppercase font-weight-bold nunito footer-font-color text-center pb-3">Technologies</h5>
+                <div class="footer_paragraph nunito footer-font-color">
                   <div class="technologies-wrapper">
                     <div class="row icon-tec-box d-flex justify-content-start">
-                      <div class="col-md-3 icon-tec">
+                      <div class="col-md-3 col-6 icon-tec">
                             <img src="{{asset('img/logos/html_logo.png')}}" alt="html icon">
                       </div>
-                      <div class="col-md-3 icon-tec">
-                          <img src="{{asset('img/logos/css.png')}}" alt="css icon">
+                      <div class="col-md-3 col-6 icon-tec">
+                          <img src="{{asset('img/logos/css.png')}}" style="width: 52px;" alt="css icon">
                       </div>
-                      <div class="col-md-3 icon-tec">
-                            <img src="{{asset('img/logos/laravel_logo.png')}}" alt="laravel icon">
+                      <div class="col-md-3 col-6 icon-tec">
+                            <img src="{{asset('img/logos/laravel_logo.png')}}" style="width: 74px;" alt="laravel icon">
                       </div>
-                      <div class="col-md-3 icon-tec">
-                            <img src="{{asset('img/logos/php_logo.png')}}" alt="php icon">
+                      <div class="col-md-3 col-6 icon-tec">
+                            <img src="{{asset('img/logos/php_logo.png')}}" style="width: 60px;" alt="php icon">
                       </div>
-                      <div class="col-md-3 icon-tec">
+                      <div class="col-md-3 col-6 icon-tec">
                             <img src="{{asset('img/logos/vue_logo.png')}}" alt="vue icon">
                       </div>
-                      <div class="col-md-3 icon-tec">
+                      <div class="col-md-3 col-6 icon-tec">
                             <img src="{{asset('img/logos/sass_logo.png')}}" style="width: 80px;" alt="sass icon">
                       </div>
-                      <div class="col-md-3 icon-tec align-top">
-                            <img src="{{asset('img/logos/bootstrap_logo.png')}}" style="width: 100px;" class="align-top"alt="bootsrtap icon">
+                      <div class="col-md-3 col-6 icon-tec">
+                            <img src="{{asset('img/logos/bootstrap_logo.png')}}" class="" alt="bootsrtap icon">
                       </div>
-                      <div class="col-md-3 icon-tec">
+                      <div class="col-md-3 col-6 icon-tec">
                             <img src="{{asset('img/logos/mysql_logo.png')}}" alt="MySQL icon">
                      </div>
                     </div>
                   </div>
-                </p>
+                </div>
             </div>
             <!--Grid column-->
 
             <!--Grid column-->
-            <div class="col-md-6 mb-4 mb-md-0">
-                <h5 class="text-uppercase font-weight-bold nunito footer-font-color text-left">Contacts</h5>
-                <div class="contacts-wrapper d-flex">
-                  <ul class="list-unstyled mb-0 text-left pr-3">
-                    <li>
+            <div class="col-md-4 mb-4 pl-0">
+                <h5 class="text-uppercase font-weight-bold nunito footer-font-color text-left pb-4 pl-1">Contacts</h5>
+                <div class="contacts-wrapper d-flex justify-content-start row pl-3">
+                  <ul class="list-unstyled mb-0 text-left pr-2">
+                    <li class="">
                       <a href="https://www.linkedin.com/in/marco-caputo-58000a1ab/" class="footer-font-color nunito">
                         <img src="{{asset('img/linkedin.png')}}" alt="">
                         <span class="linkedin-link">Marco Caputo</span>
