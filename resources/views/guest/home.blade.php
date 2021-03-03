@@ -46,7 +46,7 @@
     </div>
     <div class="row">
         <div class="card p-3 w-100 border-0 my-shadow d-flex">
-            <button class="show-button p-2 mt-2 no-border font-weight-bold w-50 align-self-center" @click="getAllRestaurants()" type="button" name="button">Show all</button>
+            <button class="show-button p-2 mt-2 mb-2 no-border font-weight-bold w-50 align-self-center" @click="getAllRestaurants()" type="button" name="button">Show all</button>
             <h1 class="card p-0 ml-3 border-0 font-weight-bold h3">Ristoranti selezionati: </h3>
 
             <ul v-if="checked_types.length > 0" class="list-inline mt-3 p-2">
@@ -76,7 +76,7 @@
             </div>
             <div class="row">
                  <div v-for="restaurant in restaurants" class="col-lg-3 col-md-4 col-sm-12 card-restaurant mb-5">
-                    <div class="card my-4 w-100 h-100 no-border my-shadow p-3 rounded-top">
+                    <div class="card my-4 w-100 h-100 no-border my-shadow rounded-top">
                         <a class="h-50 img-box" :href="'restaurant/' + restaurant.id">
                             <img v-if="restaurant.img_path_rest" class="card-img-top p-2 img-fluid h-100" :src="'storage/' + restaurant.img_path_rest" alt="Card image cap">
                             <img v-else class="card-img-top p-2 img-fluid h-100" src="{{ asset('img/img_not_available.png')}}" alt="Default image">
