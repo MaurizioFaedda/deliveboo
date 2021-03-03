@@ -20,7 +20,7 @@
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
           <div class="form-check form-check-inline py-2 mr-0 d-flex flex-wrap">
-              <div class="col-sm-12 carousel-item" v-for="(type, index) in types" v-for="(type, index) in types" :class="{ active: index==0 }">
+              <div class="col-sm-12 carousel-item" v-for="(type, index) in types" :class="{ active: index==0 }">
                   <div :class="bool_checked[index]" class="card show-button-types w-100 p-1 pb-3 d-flex flex-row align-items-center justify-content-start custom_background_select mb-3">
                       <input @click="getSearched(index)" class="form-check-input" id="inlineCheckbox1" @change="getFilteredRestaurantsByTypes()" type="checkbox" :value="type.id" v-model="checked_types">
                       <label class="form-check-label p-2 font-weight-bold text-dark " for="type.type">

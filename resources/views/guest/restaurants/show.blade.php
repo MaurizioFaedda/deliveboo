@@ -52,7 +52,7 @@
                             {{-- Se il piatto è disponibile lo visualizzo --}}
                             @if ($dish->visible == 1)
 
-                                    <div class="card-dish bg-white mt-3 col-md-6">
+                                    <div class="card-dish rounded-0 bg-white mt-3 col-md-6">
 
                                         <button type="button" class="btn btn-light btn-dish d-flex justify-content-between align-items p-0 h-100" data-toggle="modal" data-target="#{{ str_replace([" ", "&", ",", "'"], '', $dish->name) }}">
                                             <div class="w-50 p-2 d-flex flex-column justify-content-center align-items-center">

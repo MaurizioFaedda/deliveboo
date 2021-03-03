@@ -12,7 +12,7 @@
         <!-- Scripts File JS-->
         <script src="{{ asset('js/app.js') }}" defer></script>
         @yield('script')
-        
+
         <!-- Fonts -->
         <link rel="dns-prefetch" href="//fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -97,19 +97,19 @@
                         <div class="sidebar-sticky">
                             <ul class="nav flex-column">
                                 <li class="nav-item">
-                                    <a class="nav-link font-weight-bold {{Request::route()->getName() == 'admin.index' ? 'active' : ''}}" href="{{ route('admin.index') }}">
+                                    <a class="nav-link font-weight-bold {{Request::route()->getName() == 'admin.index' ? 'active_dashboard' : ''}}" href="{{ route('admin.index') }}">
                                       <span class="my-icon icon-dashboard"></span>
                                       Dashboard
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link font-weight-bold {{Request::route()->getName() == 'admin.restaurants.index' ? 'active' : ''}}" href="{{ route('admin.restaurants.index') }}">
+                                    <a class="nav-link font-weight-bold {{Request::route()->getName() == 'admin.restaurants.index' ? 'active_dashboard' : ''}}" href="{{ route('admin.restaurants.index') }}">
                                       <span class="my-icon icon-restaurant"></span>
                                       Restaurants
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link font-weight-bold {{Request::route()->getName() == 'admin.orders.index' ? 'active' : ''}}" href="{{ route('admin.orders.index') }}">
+                                    <a class="nav-link font-weight-bold {{Request::route()->getName() == 'admin.orders.index' ? 'active_dashboard' : ''}}" href="{{ route('admin.orders.index') }}">
                                       <span class="my-icon icon-order "></span>
                                       Orders
                                     </a>
