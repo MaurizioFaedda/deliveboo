@@ -6,6 +6,7 @@
 @section('content')
 <div class="container">
     <div class="row">
+        <h5 class="card-title h4 my-shadow nunito font-weight-bold text-uppercase p-3 color_main mb-5 w-100 d-flex justify-content-center mx-3">Your Restaurants</h5>
         <div class="col-md-4 col-sm-12">
             <a href="{{route('admin.restaurants.create')}}" class="btn btn-primary rounded-0 color_main nunito font-weight-bold m-3 my-shadow mx-auto border-0 w-100">
                     Create new restaurant
