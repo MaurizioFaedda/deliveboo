@@ -97,23 +97,19 @@
 // FOOTER
 
 footer {
-  ul {
-    list-style-type: none;
-  }
-  .technologies-wrapper {
-    ul > li > a {
-      color: #450B63;
-
-      img {
-        width: 50px;
-      }
+  .icon-tec-box{
+        .icon-tec{
+            padding-bottom: 20px;
+            img{
+              width: 50px;
+            }
+        }
     }
-  }
   .contacts-wrapper {
     ul > li {
       a {
         img {
-          width: 50px;
+          width: 30px;
         }
       }
     }

@@ -104,7 +104,7 @@
                             </div>
                         </div>
                         <div class="form-group d-flex justify-content-end w-100">
-                            <button type="submit" class="btn btn-success text-uppercase w-100">
+                            <button @click="alertNewDish()" type="submit" class="btn btn-success text-uppercase w-100">
                                 Save
                             </button>
                         </div>
