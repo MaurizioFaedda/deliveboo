@@ -392,20 +392,16 @@ table tbody tr {
   background-color: #D0EB99 !important;
 }
 
-footer ul {
-  list-style-type: none;
+footer .icon-tec-box .icon-tec {
+  padding-bottom: 20px;
 }
 
-footer .technologies-wrapper ul > li > a {
-  color: #450B63;
-}
-
-footer .technologies-wrapper ul > li > a img {
+footer .icon-tec-box .icon-tec img {
   width: 50px;
 }
 
 footer .contacts-wrapper ul > li a img {
-  width: 50px;
+  width: 30px;
 }
 
 footer .footer-bottom .credits {

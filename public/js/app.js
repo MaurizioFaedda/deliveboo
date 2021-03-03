@@ -37520,6 +37520,15 @@ var app = new Vue({
       } else {
         this.bool_checked[index].checked = false;
       }
+    },
+    alertNewDish: function alertNewDish() {
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Your dish has been saved',
+        showConfirmButton: false,
+        timer: 1500
+      });
     }
   },
   mounted: function mounted() {
