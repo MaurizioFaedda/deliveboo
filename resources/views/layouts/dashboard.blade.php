@@ -30,9 +30,11 @@
         <div id="app">
             <nav class="navbar fixed-top nav-color navbar-expand-md text-white shadow-sm">
                 <div class="container-fluid p-0">
-                    <a class="navbar-brand text-white m-0" href="{{ url('/') }}">
-                        Deliveboo
-                    </a>
+                    <div class="logo-navbar d-flex align-items-center">
+                        <a href="{{ url('/') }}" class="navbar-brand m-0">
+                            <img src="{{asset('img/deliveroo-logo-white.png')}}" alt="">
+                        </a>
+                    </div>
                     <ul id="my-icon-menu" class="">
                         <li>
                             <a href="{{ route('admin.index') }}"> <span class="icon-responsive icon-dashboard"></span> </a>
