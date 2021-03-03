@@ -5,7 +5,7 @@
         <div class="card p-3 w-100 border-0 my-shadow p-2 mb-4">
             <div class="form-check form-check-inline py-2 mr-0 d-flex flex-wrap">
                 <div class="col-lg-2 col-md-3 col-sm-12" v-for="(type, index) in types">
-                    <div :class="bool_checked[index]" class="card show-button-types w-100 p-1 pb-3 d-flex flex-row align-items-center justify-content-start custom_background_select mb-3">
+                    <div :class="bool_checked[index]" class="card shadow show-button-types w-100 p-1 pb-3 d-flex flex-row align-items-center justify-content-start custom_background_select mb-3">
                         <input @click="getSearched(index)" class="form-check-input" id="inlineCheckbox1" @change="getFilteredRestaurantsByTypes()" type="checkbox" :value="type.id" v-model="checked_types">
                         <label class="form-check-label p-2 font-weight-bold text-dark d-flex flex-column justify-content-center align-items-center" for="type.type">
                             @{{type.type}}
@@ -76,7 +76,7 @@
             </div>
             <div class="row">
                  <div v-for="restaurant in restaurants" class="col-lg-3 col-md-4 col-sm-12 card-restaurant mb-5">
-                    <div class="card my-4 w-100 h-100 no-border my-shadow rounded-top">
+                    <div class="card my-4 w-100 h-100 no-border shadow rounded-top">
                         <a class="h-50 img-box" :href="'restaurant/' + restaurant.id">
                             <img v-if="restaurant.img_path_rest" class="card-img-top p-2 img-fluid h-100" :src="'storage/' + restaurant.img_path_rest" alt="Card image cap">
                             <img v-else class="card-img-top p-2 img-fluid h-100" src="{{ asset('img/img_not_available.png')}}" alt="Default image">
