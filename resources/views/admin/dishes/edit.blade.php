@@ -81,7 +81,7 @@
                       @enderror
                     </div>
                     <div class="form-group d-flex justify-content-end">
-                      <button type="submit" class="btn btn-success text-uppercase">
+                      <button @click="alertEditDish()" type="submit" class="btn btn-success text-uppercase">
                         Submit
                       </button>
                     </div>

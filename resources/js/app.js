@@ -229,6 +229,63 @@ var app = new Vue ({
               showConfirmButton: false,
               timer: 1500
             })
+        },
+        alertEditDish(){
+            Swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: 'Your changes has been saved',
+              showConfirmButton: false,
+              timer: 1500
+            })
+        },
+        alertNewRestaurant() {
+          Swal.fire({
+            title: 'Saved!',
+            text: 'Your new restaurant has been added.',
+            imageUrl: 'https://unsplash.it/400/200',
+            imageWidth: 400,
+            imageHeight: 200,
+            imageAlt: 'Custom image',
+          })
+        },
+        alertDeleteRestaurant() {
+          Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire(
+                'Deleted!',
+                'Your restaurant has been deleted.',
+                'success'
+              )
+            }
+          })
+        },
+        alertDeleteDish() {
+          Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire(
+                'Deleted!',
+                'Your dish has been deleted.',
+                'success'
+              )
+            }
+          })
         }
     },
 

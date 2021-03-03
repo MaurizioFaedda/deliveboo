@@ -8,7 +8,7 @@
     <div class="row justify-content-center">
       <div class="col-md-8">
         <div class="card no-border mt-3 border-radius-top shadow">
-          <div class="card-header card-header text-center no-border border-radius-top nunito">Add new restaurant</div>
+          <div class="text-uppercase card-header card-header text-center no-border border-radius-top nunito">Add new restaurant</div>
           <form class="d-flex flex-column align-items-center py-5" action="{{route('admin.restaurants.store')}}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="card border-0 mb-5 w-75">
@@ -57,7 +57,7 @@
             </div>
             <div class="card border-0 mb-5 w-75">
                 <div class="card-body shadow p-3">
-                    <h2 class="h4 mb-2 py-2 nunito font-weight-bold">Select your restaurants types</h2>
+                    <h2 class="h4 mb-2 py-2 nunito font-weight-bold">Select your restaurant types</h2>
                     @foreach ($types as $type)
                         <div class="form-check  form-font">
                             <input type="checkbox" name="types[]" value="{{$type->id}}"
@@ -85,7 +85,7 @@
             </div>
 
             <div class="form-group d-flex justify-content-end">
-                <button type="submit" class="btn btn-success text-uppercase nunito shadow">
+                <button @click="alertNewRestaurant()" type="submit" class="btn btn-success text-uppercase nunito shadow">
                     Submit
                 </button>
             </div>
