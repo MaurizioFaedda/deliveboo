@@ -18,6 +18,16 @@ use Illuminate\Support\Facades\Mail;
 |
 */
 
+// ----------- AUTHENTICATION ROUTES -----------
+Auth::routes();
+
+Route::middleware('auth')->namespace('Admin')->prefix('admin')->name('admin.')->group(function(){
+    Route::get('/', 'HomeController@getMonthlyOrdersData')->name('index');
+    Route::resource('/restaurants', 'RestaurantController');
+    Route::resource('/dishes', 'DishController');
+    Route::get('/orders', 'OrderController@index')->name('orders.index');
+});
+
 // ----------- PUBLIC ROUTES -----------
 Route::get('/', 'HomeController@index')->name('index');
 // Restaurant Controller routes
@@ -134,15 +144,4 @@ Route::post('/checkout', function(Request $request){
         // Reindirizzo l'utente alla stessa pagina ma con il messaggio di errore
         return back()->withErrors('An error occurred with the message: '.$result->message);
     }
-});
-
-
-// ----------- AUTHENTICATION ROUTES -----------
-Auth::routes();
-
-Route::middleware('auth')->namespace('Admin')->prefix('admin')->name('admin.')->group(function(){
-    Route::get('/', 'HomeController@getMonthlyOrdersData')->name('index');
-    Route::resource('/restaurants', 'RestaurantController');
-    Route::resource('/dishes', 'DishController');
-    Route::get('/orders', 'OrderController@index')->name('orders.index');
 });

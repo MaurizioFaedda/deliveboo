@@ -96,13 +96,22 @@
                         <div class="sidebar-sticky">
                             <ul class="nav flex-column">
                                 <li class="nav-item">
-                                    <a class="nav-link active font-weight-bold" href="{{ route('admin.index') }}"><span class="my-icon icon-dashboard"></span>Dashboard</a>
+                                    <a class="nav-link font-weight-bold {{Request::route()->getName() == 'admin.index' ? 'active' : ''}}" href="{{ route('admin.index') }}">
+                                      <span class="my-icon icon-dashboard"></span>
+                                      Dashboard
+                                    </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link active font-weight-bold" href="{{ route('admin.restaurants.index') }}"><span class="my-icon icon-restaurant"></span>Restaurants </a>
+                                    <a class="nav-link font-weight-bold {{Request::route()->getName() == 'admin.restaurants.index' ? 'active' : ''}}" href="{{ route('admin.restaurants.index') }}">
+                                      <span class="my-icon icon-restaurant"></span>
+                                      Restaurants
+                                    </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link active font-weight-bold" href="{{ route('admin.orders.index') }}"><span class="my-icon icon-order "></span>Orders </a>
+                                    <a class="nav-link font-weight-bold {{Request::route()->getName() == 'admin.orders.index' ? 'active' : ''}}" href="{{ route('admin.orders.index') }}">
+                                      <span class="my-icon icon-order "></span>
+                                      Orders
+                                    </a>
                                 </li>
                             </ul>
                         </div>

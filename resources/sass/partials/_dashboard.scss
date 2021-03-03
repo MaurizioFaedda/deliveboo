@@ -2,6 +2,10 @@
     font-family: 'Nunito', sans-serif!important;
 }
 
+.active {
+  background-color: darken($color_main, 8%);
+}
+
 .margin-top{
     margin-top: 100px;
 }
