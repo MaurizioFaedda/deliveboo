@@ -85,6 +85,7 @@
                     </div>
                 @else
                     <div class="row">
+                        <h5 class="card-title h4 my-shadow nunito font-weight-bold text-uppercase p-3 color_main mb-5 w-100 d-flex justify-content-center mx-3">Dashboard</h5>
                         <div class="col-lg-12 col-md-12 col-sm mb-3">
                             <div class="card border-0 my-shadow">
                                 <div class="card-body">

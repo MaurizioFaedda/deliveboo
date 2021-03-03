@@ -6,7 +6,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-left">
-          <h3 class="text-uppercase font-weight-bold">Restaurants</h3>
+          <h5 class="card-title h4 my-shadow nunito font-weight-bold text-uppercase p-3 color_main mb-5 w-100 d-flex justify-content-center mx-3">Your orders</h5>
             @foreach ($restaurants as $restaurant)
                 <div class="col-lg-12 col-md-12 col-sm">
                     <div class="card my-4 shadow border-0">
