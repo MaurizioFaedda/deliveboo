@@ -8,7 +8,7 @@
     <div class="row">
         <div class="col-md-4 col-sm-12">
             <a href="{{route('admin.restaurants.create')}}" class="btn btn-primary rounded-0 color_main nunito font-weight-bold m-3 my-shadow mx-auto border-0 w-100">
-                    Create a new restaurant
+                    Create new restaurant
             </a>
         </div>
     </div>

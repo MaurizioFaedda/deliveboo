@@ -90,7 +90,7 @@
         <div class="card flex-row justify-content-center align-items-center custom_padding no-border mt-5 pt-5 my-shadow w-100 custom-height_jumbotron custom_background_jumbotron rounded-0">
             <div class="row justify-content-center align-items-center">
                 <div class="col-sm col-md-6">
-                    <h1>I piatti che ami, a domicilio.</h2>
+                    <h1>Your favourite restaurants and takeaways, delivered to your door</h2>
                 </div>
                 <div class="col-sm col-md-6 d-flex flex-row justify-content-center">
                     <img class="img_jumbotron" src="img\homepage.png" alt="">

@@ -47,7 +47,7 @@
     <div class="row">
         <div class="card p-3 w-100 border-0 my-shadow d-flex">
             <button class="show-button p-2 mt-2 mb-2 no-border font-weight-bold w-50 align-self-center" @click="getAllRestaurants()" type="button" name="button">Show all</button>
-            <h1 class="card p-0 ml-3 border-0 font-weight-bold h3">Ristoranti selezionati: </h3>
+            <h1 class="card p-0 ml-3 border-0 font-weight-bold h3">Selected Restaurants Types: </h3>
 
             <ul v-if="checked_types.length > 0" class="list-inline mt-3 p-2">
                 <li v-for="check in checked_types" class="list-inline-item pl-3">
@@ -59,12 +59,12 @@
                     <h4 class="text-dark card p-2 border-0 font-weight-bold show-button-types-writed" v-if="check == 6">Street Foods</h4>
                     <h4 class="text-dark card p-2 border-0 font-weight-bold show-button-types-writed" v-if="check == 7">Asian Foods</h4>
                     <h4 class="text-dark card p-2 border-0 font-weight-bold show-button-types-writed" v-if="check == 8">Mexican</h4>
-                    <h4 class="text-dark card p-2 border-0 font-weight-bold show-button-types-writed" v-if="check == 9">Hawaian Foods</h4>
+                    <h4 class="text-dark card p-2 border-0 font-weight-bold show-button-types-writed" v-if="check == 9">Hawaiian Foods</h4>
                 </li>
             </ul>
             <ul v-if="checked_types.length == 0" class="list-inline mt-3">
                 <li class="list-inline-item">
-                    <h4 class="text-dark card p-1 ml-3 ml-1 border-0 font-weight-bold show-button-types-writed">Tutti</h4>
+                    <h4 class="text-dark card p-1 ml-3 ml-1 border-0 font-weight-bold show-button-types-writed">All</h4>
                 </li>
             </ul>
         </div>
@@ -72,7 +72,7 @@
     <div class="row">
         <div class="card custom_padding no-border my-4 pb-5 my-shadow w-100 thiscartbody">
             <div class="text-left">
-                <h1 class="search_title text-left pl-3 align-baseline"><span class="icon-rider-main-color"></span>Restaurants delivering in <strong>Rome</strong></h1>
+                <h1 class="search_title text-left pl-3 align-baseline"><span class="icon-rider-main-color"></span>Food delivery in <strong>Rome</strong></h1>
             </div>
             <div class="row">
                  <div v-for="restaurant in restaurants" class="col-lg-3 col-md-4 col-sm-12 card-restaurant mb-5">

@@ -89,7 +89,7 @@
                                                       @endif
                                                     </div>
                                                     <div class="py-3 d-flex flex-column justify-content-between">
-                                                        <p class="mb-0"><strong>Infos:</strong> {{$dish->infos}}</p>
+                                                        <p class="mb-0"><strong>Ingredients/Description:</strong> {{$dish->infos}}</p>
                                                         <p class="mb-0 pt-2">
                                                           <strong>Price:</strong>
                                                           € {{number_Format($dish->price, 2, ',', '')}}
@@ -115,7 +115,7 @@
 
                 {{-- cart --}}
                 <div class="col-md-4 py-5 text-right">
-                    <h3><span class="icon-cart-main-color"></span>Carts</h3>
+                    <h3><span class="icon-cart-main-color"></span>Your Cart</h3>
                     @if (session()->has('success_message'))
                         <div class="alert alert-success">
                             {{ session()->get('success_message') }}
@@ -146,7 +146,7 @@
                       </div>
                   </div>
                   <div v-else>
-                      <h5 class="text-secondary">Empty cart</h5>
+                      <h5 class="text-secondary">Your cart is empty</h5>
                   </div>
               </div>
             </div>

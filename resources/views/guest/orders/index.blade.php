@@ -21,9 +21,9 @@
               </div>
               <div class="text-center">
                 <h4>
-                  Congratulations, the payment was a success.
+                  Congratulations, the transaction was successfull.
                   <br>
-                  All order details will be sent to the email indicated
+                  All order details will be sent to the given email.
                 </h4>
               </div>
             </div>

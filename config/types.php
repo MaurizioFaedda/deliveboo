@@ -42,7 +42,7 @@ return [
     "img_path_type" => "messicano.jpg",
   ],
   [
-    "type" => "Hawaian food",
+    "type" => "Hawaiian food",
     "notes" => "",
     "img_path_type" => "hawaian.png",
   ],

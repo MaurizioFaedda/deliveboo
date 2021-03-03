@@ -8,7 +8,7 @@
     <div class="row justify-content-center">
       <div class="col-md-8">
         <div class="card no-border mt-3 border-radius-top shadow">
-          <div class="card-header card-header text-center no-border border-radius-top nunito">Add a new resturant</div>
+          <div class="card-header card-header text-center no-border border-radius-top nunito">Add new restaurant</div>
           <form class="d-flex flex-column align-items-center py-5" action="{{route('admin.restaurants.store')}}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="card border-0 mb-5 w-75">
@@ -25,7 +25,7 @@
                     </div>
                     <div class="form-group d-flex flex-column w-100">
                         <label class="nunito" for="title">City</label>
-                        <input class="form-check nunito" type="text" class="form-control" name="city" placeholder="City" value="{{old('city')}}" required maxlength="20">
+                        <input readonly class="form-check nunito bg-light" type="text" class="form-control" name="city" placeholder="Rome" value="Rome" required maxlength="20">
                         {{-- SHOWING ERROR MESSAGE --}}
                         @error('city')
                             <div class="alert alert-danger">
