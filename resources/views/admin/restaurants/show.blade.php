@@ -7,7 +7,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12 d-flex mb-5">
-                <div class="row">
+                <div class="row w-100">
                     <div class="col-md-4 col-sm-12">
                         <div class="card no-border border-radius-top shadow p-4">
                             @if($restaurant->img_path_rest)
