@@ -87,12 +87,21 @@
                 </div>
             </div>
         </nav>
-
-        <div class="container-fluid mt-5">
-            <div class="row mx-4">
+        <div class="card flex-row justify-content-center align-items-center custom_padding no-border mt-5 pt-5 my-shadow w-100 custom-height_jumbotron custom_background_jumbotron rounded-0">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-sm col-md-6">
+                    <h1>I piatti che ami, a domicilio.</h2>
+                </div>
+                <div class="col-sm col-md-6 d-flex flex-row justify-content-center">
+                    <img class="img_jumbotron" src="img\homepage.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
                 {{-- <nav id="guest-sidebar" class="col-lg-2 col-md-3 d-none d-md-block p-2 overflow-auto"> --}}
-                    <div class="sidebar-sticky d-flex flex-column">
-                        <div class="filter d-flex flex-column justify-content-center w-100 mb-2">
+                    {{-- <div class="sidebar-sticky d-flex flex-column">
+                        <div class="filter d-flex flex-column justify-content-center w-100 mb-2"> --}}
                           {{-- <select @change="getFilteredRestaurants()" v-model="selected_type" id="type-filter" class="p-2">
                               <option value="">All types</option>
                               <option v-for="type in types" :value="type.id">
@@ -100,7 +109,7 @@
                               </option>
                           </select> --}}
 
-                        </div>
+                        {{-- </div> --}}
                         {{-- <div class="form-check form-check-inline py-2 mr-0" v-for="type in types">
                             <div class="card show-button w-100 p-1 d-flex flex-row align-items-center justify-content-start custom_background_select">
                                 <input class="form-check-input" id="inlineCheckbox1" @change="getFilteredRestaurantsByTypes()" type="checkbox" :value="type.id" v-model="checked_types">
@@ -109,8 +118,8 @@
                                 </label>
                             </div>
                         </div> --}}
-                    </div>
-                </nav>
+                    {{-- </div>
+                </nav> --}}
                 <main class="col-lg-12 col-md-12 ml-sm-auto px-0 mt-3">
                     @yield('content')
                 </main>
