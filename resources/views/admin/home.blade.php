@@ -1,5 +1,10 @@
 @extends('layouts.dashboard')
 
+<!-- Scripts chart.js-->
+@section('script')
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+@endsection
+
 {{-- titolo --}}
 @section("page-title", "Deliveboo | Your Dashboard")
 
