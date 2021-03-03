@@ -393,6 +393,7 @@ table tbody tr {
 }
 
 footer .icon-tec-box .icon-tec {
+  padding-left: 0;
   padding-bottom: 20px;
 }
 
