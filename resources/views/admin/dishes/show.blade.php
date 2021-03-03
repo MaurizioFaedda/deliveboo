@@ -10,7 +10,7 @@
                 <button class="back-link btn btn-link w-25 text-left pl-0" type="button" name="button">
                     <a href="{{ route('admin.restaurants.show', ['restaurant' => $restaurant]) }}">
                         <span class="icon-back"></span>
-                        <span>
+                        <span class="text-uppercase font-weight-bold">
                             Back
                         </span>
                     </a>
@@ -22,7 +22,7 @@
                     <form class="d-inline-block" action="{{ route('admin.dishes.destroy', ['dish' => $dish->id]) }}" method="post">
                         @csrf
                         @method('DELETE')
-                        <button class="btn btn-link delete-restaurant align-baseline" type="submit">
+                        <button @click="alertDeleteDish()" class="btn btn-link delete-restaurant align-baseline" type="submit">
                             <span class="icon-delete "></span>
                         </button>
                     </form>

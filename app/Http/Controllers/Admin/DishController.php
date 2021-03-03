@@ -212,7 +212,7 @@ class DishController extends Controller
     // New QUERY to select the latest dish added in the DB to be sure to redirect to the very last order entered
     $last_dish = Dish::orderBy('id', 'desc')->first();
     // Faccio redirect alla pagina del piatto appena mdificato
-    return redirect()->route('admin.dishes.show', ['dish' => $last_dish->id]);
+    return redirect()->route('admin.dishes.show', ['dish' => $dish->id]);
   }
 
   /**

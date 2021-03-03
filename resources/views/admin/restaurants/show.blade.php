@@ -37,7 +37,7 @@
                             <form class="mt-3" action="{{route('admin.restaurants.destroy', ['restaurant' => $restaurant->id])}}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger text-uppercase">
+                                <button @click="alertDeleteRestaurant()" type="submit" class="btn btn-danger text-uppercase">
                                     Delete restaurant
                                 </button>
                             </form>
@@ -151,7 +151,7 @@
                                         <form class="d-inline-block" action="{{ route('admin.dishes.destroy', ['dish' => $dish->id]) }}" method="post">
                                             @csrf
                                             @method('DELETE')
-                                            <button class="btn btn-link delete-restaurant" type="submit">
+                                            <button @click="alertDeleteDish()" class="btn btn-link delete-restaurant" type="submit">
                                                 <span class="icon-delete"></span>
                                             </button>
                                         </form>
