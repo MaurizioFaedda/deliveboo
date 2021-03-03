@@ -388,6 +388,26 @@ table tbody tr {
   background-color: #D0EB99 !important;
 }
 
+footer ul {
+  list-style-type: none;
+}
+
+footer .technologies-wrapper ul > li > a {
+  color: #450B63;
+}
+
+footer .technologies-wrapper ul > li > a img {
+  width: 50px;
+}
+
+footer .contacts-wrapper ul > li a img {
+  width: 50px;
+}
+
+footer .footer-bottom .credits {
+  padding-bottom: 20px;
+}
+
 .footer_paragraph {
   font-size: 16px;
   letter-spacing: 1px;
