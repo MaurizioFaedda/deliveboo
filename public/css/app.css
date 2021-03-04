@@ -954,9 +954,18 @@ footer .footer-bottom .credits {
 
 @media screen and (max-width: 540px) {
   .container,
+  .container-fluid,
+  .container-xl,
+  .container-lg,
+  .container-md,
+  .container-sm,
   .row {
     margin: 0 !important;
     padding: 0 !important;
+  }
+
+  .custom_padding {
+    padding: 0;
   }
 }
 
