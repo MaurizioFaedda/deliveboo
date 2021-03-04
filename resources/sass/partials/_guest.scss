@@ -531,8 +531,11 @@ footer {
 }
 
 @media screen and (max-width: 540px) {
-    .container, .row{
+    .container,.container-fluid, .row{
         margin: 0!important;
         padding: 0!important;
+    }
+    .custom_padding{
+        padding: 0;
     }
 }

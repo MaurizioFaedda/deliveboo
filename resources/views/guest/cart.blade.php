@@ -144,7 +144,7 @@
                              </div>
                             </ul>
 
-                            <div class="bt-drop-in-wrapper">
+                            <div class="bt-drop-in-wrapper pt-3">
                                 <div id="bt-dropin"></div>
                             </div>
                         </section>
